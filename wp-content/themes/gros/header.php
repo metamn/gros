@@ -65,7 +65,7 @@
     <link href="/assets/ie.css" media="all" type="text/css" rel="stylesheet">  
 	<![endif]-->
   
-  <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
@@ -99,7 +99,7 @@
 			<hgroup>
 				<h1 id="site-title">
 				  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-				    <img title="logo" src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/logo.jpg" /></a></h1>
+				    <img title="logo" src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/logo.png" /></a></h1>
 				<h2 id="site-description" class="hidden"><?php bloginfo( 'description' ); ?></h2>
 			</hgroup>
 

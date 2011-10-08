@@ -8,6 +8,32 @@
 }
 
 
+
+/* Grid
+*/
+
+.col {
+  width: 45%;
+  float: left;
+}
+.col-1 {
+  margin-right: 10%;
+}
+
+
+
+/* Typography
+*/
+
+body { font-size:100%; line-height:1.25; }
+h1, h2, h3 { margin-top:0; margin-bottom:0; }
+h1 { font-size:2em; padding:1.25em 0; }
+h2 { font-size:1.75em; padding:1.51786em 0; }
+h3 { font-size:1.5em; padding:1.45833em 0; }
+
+
+
+
 /* Header 
 */
 
@@ -87,10 +113,25 @@
 
 
 
+
+/* Content
+*/
+
+.home #content .col-2 {
+  position: relative;
+  top: -10em;
+}
+
+
+
 /* General
 */
 
 
+img {
+  width: 100%;
+  height: auto;
+}
 
 /* hiding TwentyEleven elements */
 .assistive-text, .skip-link {

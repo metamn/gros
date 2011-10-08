@@ -17,6 +17,37 @@ get_header(); ?>
     <div id="primary">
 		  <div id="content" role="main">
         
+        <div id="info" class="col col-1">
+          <h2>
+            Aveti un magazin si cautati un furnizor pentru noi produse? 
+            <br/>
+            Sunteti o firma de publicitate sau companie?
+          </h2>
+          <h3>
+            Este un produs de succes, foarte simplu si uimitor. Daca aveti un magazin sau un shop online, noi dorim sa devenim furnizorul Dvs.
+            Afacerea Dvs. este mult apreciata! 
+          </h3>
+        </div>
+        
+        <div id="products" class="col col-2">
+          <ul>
+            <?php
+              global $post;
+              $args = array('category_name' => 'produse', 'order' => 'ASC' );
+              $myposts = get_posts( $args );
+              
+              foreach( $myposts as $post ) :	setup_postdata($post); ?>
+	              <li>
+	                <h1>
+	                  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+	                </h1>
+	                <?php the_content(''); ?>
+	              </li>
+              <?php endforeach; ?>
+          </ul>
+        </div>
+        
+        
 			</div><!-- #content -->
 		</div><!-- #primary -->		
 		
