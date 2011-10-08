@@ -34,35 +34,6 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 
 
 
-/* Header 
-*/
-
-#branding hgroup, #branding #menu {
-  width: 40%;
-  float: left;
-}
-#branding hgroup {
-  margin-right: 10%;
-}
-#branding #menu {
-  width: 50%;
-  float: left;
-}
-
-#branding {
-  margin: 2.5em 0;
-  padding-bottom: 1.25em;
-}
-#branding hgroup h1 {
-  padding: 0;
-}
-#branding hgroup img {
-  width: 100%;
-  height: auto;
-}
-
-
-
 /* Main menu
 */
 
@@ -71,7 +42,6 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 }
 #access ul {
 	list-style: none;
-	margin: 0;
 }
 #access li {
 	float: left;
@@ -114,14 +84,41 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 
 
 
-/* Content
+/* Startpage
 */
+
+#question, #answer {
+  padding: 1.25em;
+  font-size: 200%;
+}
+.triangle-bottom {
+  border-width: 2.5em;
+  margin-bottom: 1.25em;
+  margin-left: 43%;
+}
+#question {
+  text-align: center;
+}
+
+#products h1 {
+  margin-left: 1.25em;
+}
+#products h1 a {
+  padding: 0 .312em;
+}
+#products li {
+  margin-bottom: 3.75em;
+}
+#products ul {
+  list-style: none;
+  margin: 0;
+}
+
 
 .home #content .col-2 {
   position: relative;
-  top: -10em;
+  top: -15em;
 }
-
 
 
 /* General

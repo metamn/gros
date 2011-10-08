@@ -1,3 +1,42 @@
+/* Colors
+- Japanese Garden / Kuler
+*/
+
+
+
 body {
   font-family: Abel, sans-serif;
+  color: #2B2922;
+}
+
+a, a:visited {
+  color: #2B2922;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* Frontpage
+*/
+
+
+#question {
+  background: #DC574E;
+}
+#answer {
+  background: #F7E4A2;
+}
+.triangle-bottom {
+  border-color: #DC574E transparent transparent;
+}
+
+#products h1 a {
+  background: #2B2922;
+  color: white;
+}
+#products img {
+  border: 1px solid #eee;
+  width: 99%;
 }

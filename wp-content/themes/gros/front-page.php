@@ -18,15 +18,20 @@ get_header(); ?>
 		  <div id="content" role="main">
         
         <div id="info" class="col col-1">
-          <h2>
-            Aveti un magazin si cautati un furnizor pentru noi produse? 
-            <br/>
-            Sunteti o firma de publicitate sau companie?
-          </h2>
-          <h3>
-            Este un produs de succes, foarte simplu si uimitor. Daca aveti un magazin sau un shop online, noi dorim sa devenim furnizorul Dvs.
-            Afacerea Dvs. este mult apreciata! 
-          </h3>
+          <div id="question">
+            <p>
+              Aveti un magazin si cautati un furnizor pentru noi produse? 
+              <br/><br/>
+              Sunteti o firma de publicitate sau companie?
+            </p>
+          </div>
+          <div class="triangle triangle-bottom"></div>
+          <div id="answer">
+            <p>
+              Este un produs de succes, foarte simplu si uimitor. Daca aveti un magazin sau un shop online, noi dorim sa devenim furnizorul Dvs.
+              Afacerea Dvs. este mult apreciata! 
+            </p>
+          </div>
         </div>
         
         <div id="products" class="col col-2">

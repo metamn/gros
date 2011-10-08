@@ -96,14 +96,14 @@
 <div id="page" class="hfeed">
 	<header id="branding" role="banner">
 			
-			<hgroup>
+			<hgroup class="col col-1">
 				<h1 id="site-title">
 				  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 				    <img title="logo" src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/logo.png" /></a></h1>
 				<h2 id="site-description" class="hidden"><?php bloginfo( 'description' ); ?></h2>
 			</hgroup>
 
-      <div id="menu" class="block">
+      <div id="menu" class="col col-2">
         <nav id="access" role="navigation">
 				  <h3 class="assistive-text"><?php _e( 'Main menu', 'twentyeleven' ); ?></h3>
 				  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff. */ ?>
