@@ -1,0 +1,107 @@
+
+/* Fixed width */
+
+#page.hfeed {
+  width: 90%;
+  max-width: 80em; /* 1280 px */
+  margin: 0 auto;
+}
+
+
+/* Header 
+*/
+
+#branding hgroup, #branding #menu {
+  width: 40%;
+  float: left;
+}
+#branding hgroup {
+  margin-right: 10%;
+}
+#branding #menu {
+  width: 50%;
+  float: left;
+}
+
+#branding {
+  margin: 2.5em 0;
+  padding-bottom: 1.25em;
+}
+#branding hgroup h1 {
+  padding: 0;
+}
+#branding hgroup img {
+  width: 100%;
+  height: auto;
+}
+
+
+
+/* Main menu
+*/
+
+#access {
+  margin-top: .625em;
+}
+#access ul {
+	list-style: none;
+	margin: 0;
+}
+#access li {
+	float: left;
+	position: relative;
+	margin-bottom: 0;
+}
+#access a {
+	display: block;
+	line-height: 2.5em;
+	padding: 0 .312em;
+	text-decoration: none;	
+}
+#access ul ul {
+	display: none;
+	float: left;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 2.5em;
+	left: 0;
+	z-index: 99999;
+}
+#access ul ul li a {
+  padding-left: 1.5em;
+}
+#access ul ul ul {
+	left: 100%;
+	top: 0;
+}
+#access ul ul a {
+	height: auto;
+	line-height: 1.4em;
+	padding: .612em;
+	width: 15em;
+}
+#access ul li:hover > ul {
+	display: block;
+}
+
+
+
+/* General
+*/
+
+
+
+/* hiding TwentyEleven elements */
+.assistive-text, .skip-link {
+  display: none;
+}
+
+/* Setting up block elements (like adding class '.block') */
+#branding, #main, #content, #primary, #secondary, footer {
+  float: left;
+  width: 100%;
+}
+
+
+
