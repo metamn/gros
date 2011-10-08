@@ -1,0 +1,708 @@
+/*  Default css for eShop display */
+/* PANEL DIMENSIONS : adjust to accomodate the height of your product images */
+ul.eshoppanels > li {
+	width:200px;
+	height:300px; 
+}
+/* FLOATS & CLEARS: invert the floats & clears to suit your theme */
+ul.eshop li,
+form.addtocart,
+.continue-proceed,
+#eshopgateway,
+.pagfoot {
+	clear:left;
+}
+table.eshop img,
+ul.eshop li a img,
+ul.eshoppanels li,
+.paginate ul li {
+	float:left;
+	clear:none;
+}
+.eshopform fieldset.eshoppayvia li {
+	float:left;
+}
+/* adjust to suit if you are using an Add To Cart image rather than a button */
+form.eshop input.buttonimg {
+	width:124px;
+	height:31px;
+	position:relative;
+	top:10px;
+	margin:0; 
+}
+
+/* COLORS & BORDERS */
+.eshop * {
+	color:#606060;
+}
+table.eshop th,
+table.eshop td,
+.eshop legend {
+	border:1px solid #ccc;
+}
+.eshopform .eshopshiprates {
+	background:#fff;
+}
+ul.eshoppanels > li {
+	border:1px solid #e7e7e7;
+}
+.eshop legend {
+	border:1px solid #eee;
+}
+.eshop fieldset,
+.eshop fieldset legend,
+ul.eshoppanels > li,
+.eshop th {
+	background:#eee;
+}
+.eshop fieldset fieldset,
+.eshop fieldset fieldset legend,
+.eshop .cartopt label {
+	background:#fff;
+}
+.eshop input[type="text"], 
+.eshop textarea,
+.eshop select {
+    background:#f9f9f9;
+    border:1px solid #ccc;
+    box-shadow:1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.eshop input[type="text"]:active, 
+.eshop textarea:active,
+.eshop select:active,
+.eshop input[type=text]:focus, 
+.eshop textarea:focus,
+.eshop select:focus {
+    border-color:#555;
+}
+.eshop input[type="submit"] {
+	background:#666;
+	color:#fff;
+	border-width:1px;
+	border-style:solid;
+	border-color:#777 #555 #555 #777;
+}
+.eshop input[type="submit"]:hover,
+.eshop input[type="submit"]:active,
+.eshop input[type="submit"]:focus {
+	background:#444;
+	border-color:#555 #333 #333 #555;
+}
+.eshop .alt {
+	background:#fbfbfb;
+}
+.eshop .reqd,
+.eshopcustdetails .reqd,
+.eshoperror,
+.eshoperrors strong,
+.eshop .amts strong {
+	color:#A22F2F;
+}
+.eshop .onsale span {
+	background:#A22F2F;
+	color:#fff;
+	-moz-box-shadow:0 2px 2px rgba(0,0,0,0.2);
+	-webkit-box-shadow:0 2px 2px rgba(0,0,0,0.2);
+	-box-shadow:0 2px 2px rgba(0,0,0,0.2);
+}
+.paginate .page-numbers a, 
+.paginate .page-numbers a:visited {
+    background:#f1f1f1;
+}
+.paginate .page-numbers a:hover, 
+.paginate .page-numbers a:active,
+.paginate .page-numbers a:hover {
+    background:#666;
+    color:#fff;
+}
+.eshop fieldset fieldset,
+.eshop fieldset fieldset legend,
+ul.eshoppanels > li .addtocart fieldset,
+ul.eshoppanels > li .addtocart legend {
+	border:none;
+}
+ul.eshoppanels > li {
+	border-radius:10px;
+	-moz-box-shadow:2px 2px 2px rgba(0,0,0,0.2);
+	-webkit-box-shadow:2px 2px 2px rgba(0,0,0,0.2);
+	-box-shadow:2px 2px 2px rgba(0,0,0,0.2);
+}
+form.eshop legend {
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
+.eshop input[type="submit"],
+.onsale span {
+	border-radius:5px;
+}
+.onsale span {
+	border-top-left-radius:0;
+	border-bottom-left-radius:0;
+}
+/* no bullets */
+.eshop li,
+ul.eshopfeatured li,
+ul.eshopfeatured li,
+ul.eshopsubpages li,
+ul.eshopcats li,
+ul.eshoprandomlist li,
+ul.eshopshowproduct li,
+ul.eshoppanels li,
+.eshop fieldset.eshoppayvia li,
+.pagfoot ul li,
+ul.continue-proceed li {
+	list-style-type:none;
+	list-style-image:none;
+}
+
+/* LAYOUT */
+.eshop .eshopbutton {
+	width:auto;
+	padding:0 3px;
+	margin-right:10px;
+}
+.eshop input.button:hover,
+.eshop input.button:focus,
+.eshop input.button:active {
+	cursor:pointer;
+}
+/* generic form layout */
+form.eshop  {
+	margin:0 auto;
+}
+.eshopform br {
+	display:none;
+}
+form.eshop fieldset {
+	margin:10px 5px;
+	padding:10px;
+}
+form.eshop fieldset fieldset {
+	margin:0;
+	padding:0 5px 20px;
+}
+form.eshop fieldset + fieldset {
+	margin-top:20px;
+}
+form.eshop legend {
+	margin:0 0 10px -10px;
+	padding:5px;
+}
+form.eshop fieldset fieldset legend {
+	margin-left:-5px;
+}
+form.eshop label  {
+	margin-right:5px;
+}
+form.eshop input[type="text"], 
+form.eshop textarea,
+form.eshop select {
+    padding:2px;
+}
+form.eshop input[type="text"],
+form.eshop textarea {
+	margin-bottom:10px;
+}
+form.eshop input[type="radio"] {
+	margin-left:10px;
+}
+form.eshop input[type="checkbox"] {
+	margin-right:5px;
+}
+form.eshop .eshopradio,
+form.eshop .eshopradio input{
+	margin:0;
+}
+form.eshop textarea {
+	width:99%;
+}
+form.eshop .buttonwrap {
+	display:block;
+	text-align:right;
+}
+/* add to cart forms */
+.addtocart {
+	margin-top:20px;
+	padding:5px;
+}
+.addtocart select {
+	width:auto;
+	margin-right:20px;
+}
+.addtocart label {
+	display:inline;
+}
+.addtocart dfn {
+	font-style:normal;
+}
+.addtocart .eshopajax {
+	font-weight:bold;
+	width:90%;
+	margin:0 auto;
+	text-align:center;
+}
+/* checkout */
+.eshop .amts strong span {
+	font-weight:normal;
+	font-size:.8em;
+}
+.eshopform {
+	margin-top:30px;
+}
+.eshopform p,
+.eshopform select {
+	margin-bottom:.75em;
+}
+.eshopform .fld0 {
+	margin-bottom:30px;
+	padding-top:0;
+}
+.eshopform .fld2 label,
+.eshopform .fld4 label,
+.eshopform label[for="eshop-comments"] {
+	display:block;
+}
+.eshopcustdetails > p {
+	margin-bottom:0;
+}
+.eshopcustdetails .privacy {
+	font-size:.8em;
+}
+/* payment via options */
+.eshopform .eshoppayvia {
+	padding-top:0;
+	padding-bottom:20px;
+	margin-bottom:20px;
+}
+.eshopform .eshoppayvia legend {
+	padding-bottom:0;
+}
+.eshopform .eshoppayvia ul {
+	margin:0;
+	padding:0;
+}
+.eshopform .eshoppayvia li {
+	float:left;
+	width:152px;
+	margin-right:10px;
+	padding-top:5px;
+	text-align:center;
+}
+.eshopform .eshoppayvia li input {
+	margin:0;
+}
+.eshopform .eshop_tandc {
+	margin-left:10px;
+	margin-right:10px;
+}
+.eshopform label[for="submitit"] {
+	display:block;
+	margin-right:0;
+}
+.eshopform label[for="submitit"],
+.eshopform .buttonwrap {
+	text-align:right;
+	margin-top:0;
+}
+form.eshop-confirm {
+	width:auto;
+}
+/* downloads */
+#eshopdlform {
+	margin:40px 0 0;
+}
+#eshopdlform br {
+	display:none;
+}
+#eshopdlform fieldset {
+	width:17em;
+}
+#eshopdlform input#email {
+	width:99%;
+}
+#eshopdlform input#email,
+#eshopdlform input#code {
+	margin:0 0 10px;
+}
+#eshopdlform label {
+	display:block;
+}
+#eshopdlform .buttonwrap,
+form.dlproduct .buttonwrap {
+	display:inline-block;
+	margin-left:10px;
+}
+form.dlproduct {
+	margin-top:40px;
+}
+form.dlproduct .ro {
+	width:1em;
+	margin-right:10px;
+}
+/*********** tables ***************/
+table.eshop {
+	width:99%;
+	border-collapse:collapse;
+}
+table.eshop caption {
+	margin-bottom:0;
+	padding:2px 0;
+	position:absolute;
+	top:-5000px;
+	left:-5000px;
+	text-indent:-5000px;
+}
+table.eshop thead th {
+	font-weight:bold;
+	text-align:center;
+}
+table.eshop tbody th {
+	text-align:left;
+}
+table.eshop tbody th,
+table.eshop td {
+	padding-left:6px;
+}
+table.eshop .amts,
+table.eshop .cqty input,
+table.eshop .stotal th,
+table.eshop .stotal td,
+table.eshop .shippingrow th,
+table.eshop .shippingrow td,
+table.eshop .total th,
+table.eshop .total td,
+table.eshop td[headers*="price"],
+table.eshop *[headers*="weight"],
+table.eshop td[headers*="stk"],
+table.eshopshiprates td {
+	text-align:right;
+	padding-right:6px;
+}
+table.eshop tbody th {
+	font-size:100%;
+	text-transform:none;
+}
+table.eshop .center {
+	text-align:center;
+}
+table.eshop dfn {
+	font-style:normal;
+}
+table.eshop img {
+	float:left;
+	margin:0 10px 0 0;
+	vertical-align:top;
+}
+/* cart */
+table.cart th img {
+	margin:0;
+	float:none;
+	vertical-align:middle;
+}
+table.eshop .cqty {
+	text-align:center;
+}
+table.eshop .eshopoptsets {
+	display:block;
+	margin-left:50px;
+	font-size:.8em;
+}
+table.eshop .eshopoptsets br {
+	display:none;
+}
+table.eshop .eshopoptset {
+	display:block;
+}
+table.eshop .deletecartitem {
+	padding:0;
+	text-align:center;
+}
+table.eshop .deletecartitem input[type="image"] {
+	margin:0;
+	vertical-align:middle;
+}
+
+form.eshop.eshopzones {
+	margin-top:50px;
+}
+form.eshopzones label {
+	display:inline;
+}
+form.eshopzones select {
+	margin-left:5px;
+}
+form.eshop.eshopzones .buttonwrap {
+	display:inline;
+}
+.eshopzones input[type="submit"] {
+	margin:0;
+}
+#customzone {
+	text-indent:80px;
+}
+
+/* eshop discounts */
+table.eshopdiscounts thead th#ediscount {
+	width:8em;
+}
+table.eshopdiscounts tbody th {
+	text-align:center;
+}
+table.eshopdiscounts td.amts {
+	text-align:right;
+}
+table.eshopdiscounts td.disc  {
+	text-align:right;
+}
+.shipdiscount span {
+	font-weight:bold;
+}
+/*********** LISTS ***************/
+/* generic eshop listings */
+ul.eshop {
+	margin:0;
+	padding:0
+}
+ul.eshop li a {
+	clear:left;
+	display:block;
+	margin:0 0 10px;
+	padding:0;
+	text-decoration:none;
+}
+ul.eshop li a img {
+	float:left;
+	margin-right:20px;
+	margin-bottom:20px;
+}
+ul.eshop li a.itemref {
+	font-size:1.3em;
+}
+/* eshop panel listings */
+ul.eshoppanels > li {
+	text-align:center;
+	margin-right:20px;
+	margin-bottom:20px;
+}
+ul.eshoppanels > li a {
+	margin:0;
+}
+ul.eshoppanels > li a img {
+	float:none;
+	display:block;
+	margin:5px auto 0;
+}
+ul.eshoppanels .onsale {
+	margin:-5px 3px 0 -3px;
+	position:relative;
+	z-index:5;
+}
+ul.eshoppanels .sale a.itemref {
+	position:relative;
+	margin-top:-20px;
+}
+/* eshop panels with form */
+ul.eshoppanels > li form.input {
+	display:block;
+}
+ul.eshoppanels > li form {
+	width:auto;
+	margin-top:0;
+	padding:0;
+}
+ul.eshoppanels > li form legend {
+	position:absolute;
+	top:-9999px;
+	left:-9999px;
+}
+ul.eshoppanels > li form fieldset {
+	margin:0;
+	padding:0 3px;
+}
+ul.eshoppanels > li form select,
+ul.eshoppanels > li form input {
+	width:auto;
+	margin:0 auto 10px;
+	display:block;
+}
+ul.eshoppanels > li form .eshopradio,
+ul.eshoppanels > li form .eshopradio > li {
+    margin:0;
+    padding:0;
+}
+ul.eshoppanels > li form .eshopradio input {
+       display:inline;
+}
+ul.eshoppanels > li form .eshopradio label {
+       margin-left:5px;
+}
+ul.eshoppanels > li form input.eshopbutton {
+	clear:both;
+	display:inline-block;
+	margin:0 auto;
+	position:relative;
+	top:5px;
+}
+/* non-cart payment options */
+.eshoppayoptions li {
+	display:inline;
+}
+/*********** A-Z LISTING ***************/
+ul.eshopaz li {
+	line-height:1.8em;
+	list-style:none;
+	display:inline;
+	margin:0 1px 0 0;
+}
+ul.eshopaz li a {
+	display:inline;
+	padding:1px 3px;
+	margin:0;
+	text-decoration:underline
+}
+ul.eshopaz li a:active,
+ul.eshopaz li a:hover,
+ul.eshopaz li a:focus {
+	text-decoration:none;
+}
+ul.eshopaz li span {
+	padding:1px 3px;
+}
+/*********** OTHER ***************/
+strong.onsale {
+	display:block;
+	text-align:left;
+	font-variant:small-caps;
+	word-spacing:.3em;
+}
+.onsale span {
+	display:inline-block;
+	padding:0 7px;
+}
+/* cart options */
+.cartopt {
+	text-align:center;
+}
+.cartopt p {
+	width:20em;
+	margin:10px auto;
+}
+.cartopt label {
+	display:inline;
+}
+.continue-proceed {
+	margin:0;
+	padding:20px 0 0;
+	text-align:center;
+}
+.continue-proceed li {
+	margin:0 10px;
+	padding:0;
+	display:inline;
+}
+.redirect {
+	text-align:left;
+}
+.redirect li {
+	margin-left:0;
+}
+/*Checkout confirmation with discount code (cart section only) */
+.eshop_dcode {
+	text-align:center;
+	font-weight:bold;
+}
+.eshop_dcode span,
+#process strong {
+	font-size:1.2em;
+}
+/* Automatic redirect to paypal */
+#process {
+	 width:90%;
+	 margin:10px auto 0;
+	 padding:0 15px;
+}
+#process em {
+	 font-weight:bold;
+	 font-style:normal;
+}
+#eshopgateway {
+	text-align:right;
+	padding-bottom:10px;
+}
+/* eshop widget */
+p.eshopwidget span {
+	font-size:2em;
+	letter-spacing:.02em;
+}
+/* pagination */
+.paginate,
+.epaginate {
+	margin:0 2px 20px;
+	letter-spacing:.05em;
+}
+.paginate p,
+.epaginate p { 
+	padding:0; 
+	line-height:2em;
+}
+.paginate p span,
+.epaginate p span {
+	font-weight:bold;
+}
+.paginate .page-numbers,
+.epaginate .page-numbers {
+	margin:0;
+	padding:0;
+}
+.paginate .page-numbers li,
+.epaginate .page-numbers li {
+	float:left;
+	padding:0 4px;
+	margin-right:5px;
+}
+.paginate .page-numbers a,
+.epaginate .page-numbers a {
+	display:block;
+}
+.paginate .page-numbers .current {
+	display:inline-block;
+    font-weight:bold;
+}
+.paginate .page-numbers .current,
+.paginate .page-numbers a {
+    padding:1px 5px;
+}
+.paginate .page-numbers a, 
+.paginate .page-numbers a:visited {
+    text-decoration:none;
+}
+.paginate .page-numbers a:hover, 
+.paginate .page-numbers a:active,
+.paginate .page-numbers a:hover {
+    text-decoration:underline;
+}
+/* downloads page */
+p.jdl {
+	text-align:center;
+	font-size:1.2em;
+}
+/* more link */
+a.eshopmore {
+	display:block;
+	text-align:right;
+}
+/* can be used to position text offscreen */
+.eshop .offset {
+}
+.eshop .hide {
+	position:absolute;
+	top:-999px;
+	left:-9999px;
+}
+/* testing message */
+.eshop .testing {
+}
+/* credits */
+.creditline {
+	text-align:center;
+}

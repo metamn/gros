@@ -16,7 +16,7 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'grosdb');
+define('DB_NAME', 'gros2');
 
 /** MySQL database username */
 define('DB_USER', 'admin');
@@ -25,7 +25,7 @@ define('DB_USER', 'admin');
 define('DB_PASSWORD', 'almafa12');
 
 /** MySQL hostname */
-define('DB_HOST', 'gros.crdvk5ayenrb.us-east-1.rds.amazonaws.com');
+define('DB_HOST', 'gros2.crdvk5ayenrb.us-east-1.rds.amazonaws.com');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');

@@ -1,0 +1,847 @@
+This document contains older information deleted from the main readme document.
+
+== Changelog == 
+
+Version 5.9.3
+
+* *FIXED* 	Issue with Paypal and failed orders - at long last! (hopefully...)
+* *fixed* 	changes for multisite users who were unable to use some admin functionality
+* *fixed* 	issue with a-z shortcode
+
+Version 5.9.2
+
+* *amended* 	if you have are _Allowing users to sign up to your site_ via eShop settings, then you need to upgrade - apologies.
+* *amended* 	small change to cart, adding in hooks for styling
+
+Version 5.9.1
+
+* *fixed*  	upgrade routine causing failed upgrades...
+
+Version 5.9.0
+
+* *AMENDED* 	labels and code on checkout page, to reset things as they appeared before, add this to your style: .fld2 label, .fld4 label{display:block;} May affect customised style as well.
+* *amended* 	security fix for Users orders page.
+* *amended* 	eshop_details removed stockqty from _what to show_, and added to _what to hide_. Also removed _option_ from what to hide, as it caused errors.
+* *amended* 	small tweaks to Paypal error notifications.
+* *fixed* 	issue with option sets.
+* *fixed* 	product listing with forms when set to 'yesqty'
+* *fixed* 	number of results returned by cat tags shortcode.
+* *fixed* 	issue with eshop_details shortcode causing details to appear twice.
+* *fixed* 	Webtopay, now works solely for Webtopay verion 1.3 - please check the settings page.
+* *fixed* 	Small bug with shortcodes.
+* *fixed* 	more validation issues.
+* *added* 	filter for amending the option set display order.
+* *added* 	filters and actions required for merchant gateway plugins.
+* *added* 	option set names for all now show in the cart, not just text and textareas.
+* *added* 	classes to shipping table to enable hiding of unused shipping zones
+* *added* 	filter for eShop Shipping Classes (eshop_shipping_rate_class).
+* *added* 	ability to hide reference/po number from checkout via class eshopreference
+* *added* 	to the cart widget - ability to show image, text, or both. Image is also resizeable.
+
+Version 5.8.2
+
+* *fixed*   eShop > Base page error.
+* *changed* handling of products with 0 cost.
+
+Version 5.8.1
+
+* *fixed*    incorrect back link appearing on checkout page
+* *fixed*    option set prices not being correctly identified for some configurations.
+* *fixed*    character set and collation on database tables.
+* *updated*  portion of the paypal validation script that may have affected a small proportion of users.
+* *updated*  shortcodes, when using panels changing form value to 'yesqty' will now also show the qty field.
+* *updated*  add to cart, drop down select/radio buttons now only show if there are more than 1 option.
+* *added*    filter eshop_states_na, to remove the not applicable from the state/county/province drop down box.
+* *added*    class per product to enable targetting of specific products for styling.
+* *added*    filters to the list cat tags shortcode.
+* *added*    improved cart widget, old cart widget remains for now. This also features a total price for the cart.
+* *added*    filter for the ajax timings.
+* *improved* activation routine, only affected a few people.
+* *improved* upgrade routine for those upgrading manually.
+* *amended*  default listing for the admin order pages.
+
+Version 5.7.9
+
+* *Paypal Bug fixed* If using Paypal please upgrade to fix a potential security issue.
+* *added* filter eshop_options_order set this to false to show option sets after the main options, but before the quantity field.
+
+Version 5.7.8
+
+* *fixed* authorize.net - should now work correctly?
+* *fixed* missing quantity field for shortcode listings
+* *added* more styling hooks
+* *added* function get_eshop_product which returns an array containing product info, an page id is not passed it will try to use the current post->ID
+* *added* notifications of change before upgrading for future releases.
+* *added* filter for eshop_download_directory (requires full path with trailing slash)
+
+Version 5.7.7
+
+* *fixed* item/products in cart count was incorrect.
+* *fixed* option set creation
+* *fixed* option sets markup
+* *fixed* upgrading from older versions - please upgrade to version 5.7.4 first if you are upgrading from 4.x
+* *fixed* Sent renamed Shipping on customer order pages.
+* *fixed* min/max bug in cart when readding same item
+
+Version 5.7.6
+
+* *added* admin short name for option sets
+* *added* ability to sort featured/sale products in the shortcode randomly (use sortby='random')
+* *fixed* issue with IIS and cannot redeclare add_user.
+* *fixed* Item line too long error for authorize.net users
+* *fixed* minor bugs
+* *fixed* min/max bug in cart
+* *amended* support for older version of WordPress dropped.
+* *amended* Products page, added in extra check for marking products as having stock available.
+* *improved* upgrade routine - hopefully this will solve any issues when upgrading.
+* *improved* option set listings
+* *removed* eShortcodes file due to confusion - contact me if you want it back!
+
+Version 5.7.5
+
+* developer release only.
+
+Version 5.7.4
+
+* *fixed* Authorize.net issues for PHP5 users.
+* *fixed* checkout issues for some users.(mainly those hosting on IIS)
+* *changed* You are now provided with a link for Google Base to pull your feed automatically.
+* *changed* For new users only, the display of the 'panels' - existing users will need to amend the CSS (use the link provided on the Apperance > eShop page).
+* *added* hooks for copy emails (admin and customer)
+* *fixed* minor hidden bugs
+* *fixed* missing translation strings
+
+Version 5.7.3
+
+* *fixed* product search...
+
+Version 5.7.1 / 2
+
+* *fixed* bug with excerpts when using listing shortcodes. The Continue reading link was pointing to wrong page.
+* *fixed* admin product listing per author on multisite
+* *fixed* widgets for featured and sale
+* *fixed* adding thumbnails to search results.
+* *fixed* minor issues
+* *added* delete per item for the cart page(products can still be deleted by quantity 0)
+* *added* search widget, search for products (both in stock, and out of stock) comes with an optional random product link.
+* *added* filter for language files.
+* *added* text to show when full cart widget is used, but nothing is in cart.
+* *added/fixed* messages generated when orders refunded via paypal. message still sent, but hopefully marked as a refund.
+
+
+Version 5.7.0
+
+* *NEW* Ajax'ed add to cart with filters for success message and error messages.
+* *NEW* filter added for add to cart image (eshop_theme_addtocartimg) for theme developers.
+* *NEW* Products can now be marked as being On Sale, various sale CSS hooks added for theme developers.
+* *NEW* Shortcode and widget option for listing products on sale.
+* *NEW* Option sets can now have text and textareas.
+* *NEW* filters for merchant gateway images
+* *NEW* filter for default noimage
+* *fixed* products admin page - fix for options+prices wrapping.
+* *fixed* panel display for cat_tags shortcode.
+* *fixed* State name when user sign up on checkout was not saving.
+* *fixed* option quantity changes in cart.
+* *fixed* bug when using the add details with incorrect information.
+* *added* Some extra CSS classes for customisation.
+* *amended* category and tags, shortcode and widget now also use the eshop_post_types array - useful for custom post types.
+
+Version 5.6.6
+
+* not released.
+
+Version 5.6.5
+
+* *fixed* long term issue with some people unable to install - hopefully now fixed
+* *fixed* issue with single option and stock control where it was hiding details in the add to cart form
+* *fixed* error with shipping not being added to cart under some circumstances.
+* *updated* number formatting for other languages
+* *updated* Settings page over hauled, new interface to match other WordPress pages.
+
+Version 5.6.4
+
+* not released.
+
+Version 5.6.3
+
+* *fixed* URGENT fix for shipping rates table not being created, and causing other issues.
+* *fixed* missing email templates.
+
+Version 5.6.2
+
+* *fixed* URGENT fix for option sets, price not transferred/recorded correctly.
+
+Version 5.6.1
+
+* *fixed* if number of options set to 1, cart was not working - hopefully this is fixed in this release.
+* *fixed* continue shopping link will by default not link to the last item added to the basket - correctly!
+* *fixed* issue with product options not displaying correctly in the cart/orders/emails.
+* *added* filters for custom post types. eshop_sub_page_type changs shortcode to list subpages (page by default), and eshop_post_types allows you to amend what edit screens the product entry appears on. (post and page by default)
+* *amended* a few database settings (only affecting a very small proportion of users)
+
+version 5.6.0
+
+* *added* ability to hide the addtocart shortcode, so that it is only available to site members.
+* *added* ability to set a min/max purchase quantity (affects all products)
+* *added* ability for developers to test authorize.net with their test account.
+* *added* New merchant gateway, duplicate of Cash, called Bank. As with Cash this can be renamed to whatever you would like.
+* *added* South African Rand & Bulgarian Lev to the available currencies.
+* *added* More strings that can be translated (email templates specific)
+* *fixed* ability to display and use more than one add to cart form on a single product.
+* *fixed* Major bug in checkout shipping calculation when shipping is set per State/County/Province
+* *UPDATED* stock control has been updated and now is available per option (will not be available for option sets)
+* *changed* eshop_details shortcode - stockqty is now part of options, and not a separate item, but can be hidden.
+* *added* message for eShop admins only when in test mode.
+* *amended* when in test mode sales are now restricted to eShop admins only.
+
+version 5.5.8
+
+* *added* ability to add a single price (from option 1) to every display shortcode
+* *fixed* bug with some carts having 2 added instead of 1 - specifically when using Simple Facebook Connect
+* *fixed* cart now updates before page is displayed which will hopefully allow the cart widget to be displayed correctly at all times.
+* *changed* method of handling some strings to allow ease of amending text see [Changing Displayed Text](http://quirm.net/wiki/eshop/changing-displayed-text/)
+* *amended* Discount codes reconfigured to allow use of 100% - use with care. Additionally you will need to set Allow zero cost orders.to yes.
+
+Version 5.5.7
+
+* *fixed* bug for all merchant gateways for values over 1000.
+
+Version 5.5.6
+
+* *fixed* bug for authorize.net users only.
+
+Version 5.5.5
+
+* *fixed* bug with add to cart form not appearing in listings.
+* *fixed* Cash payment - debug info left in in last release - oops
+* *fixed* minor errors for shortcodes
+* *fixed* various errors for fresh installs
+* *fixed* errors with eShop Base, listing and feed.
+* *added* back end hooks for customisation
+
+Version 5.5.4
+
+* *fixed* bug in shortcode eshop_list_new
+* *fixed* bug in stats for number of purchases (count may still be inaccurate for older installations)
+
+Version 5.5.3
+
+* *fixed* upgrades were resetting email templates - please accept my apologies.
+
+Version 5.5.2 
+
+* *added* ability to accept 0.00 cost orders.
+* *added* link toorder detail page in the transaction email
+* *fixed* several small errors
+* *fixed* error with base feed.
+* *changed* orders page will now show number of orders correctly 
+* *amended* creation of automatic pages to use native WordPress function.
+* *amended* default for visible credits is now set to no.
+* *removed* help file from plugin, now resides on it's own wiki (link on the help tab for all eShop admin pages)
+
+Version 5.5.1
+
+* *fixed* bug with ogone merchant gateway
+* *fixed* bug with eshop_details when the shortcode eshop_addtocart is used.
+* *added* facility to compare your current eShop style with the version shipped within the plugin
+* *added* a warning if email templates are messed up.
+
+
+Version 5.5.0
+
+* *added* ogone merchant gateway (in final stages of testing)
+* *added* ability to display any and all product details in any order. Either shop wide, or on a per product basis.
+* *removed* the sku, shipping rate and stock quantity from the settings page, and replaced with above. This affects everyone, but will be easy to reset up (see video on quirm).
+* *amended* CSS for new installs.
+* *amended* merchant gateway images can now be replaced with others of any size (warning, this includes the wdiget).
+* *fixed* bug with notes for the customer not saving
+* *fixed* bug with entering a 0 into the cart
+
+
+Version 5.4.2
+
+* *fixed* CSS display issue for new users (others can add fieldset.eshoppayvia li{padding:5px;} to their css)
+* *fixed* bug with CSS not being correctly parsed for multisite users
+* *fixed?* possible bug with checkout
+
+Version 5.4.1
+
+* *fixed* bug with checkout State/County/Province sending a number to various merchant gateways
+* *fixed* bug with shortcode  - eshop_cart_items
+
+Version 5.4.0
+
+* *added* enhancements for WP3.0, ability for buyer to sign up to the site at checkout stage. This gives the customer an order status page if they login, and ability to save address etc.
+* *added* new shipping method - ship by weight, this also allows several different methods of shipping to be set.
+* *changed* cart widget can now show the full cart
+* *fixed* many small bugs
+
+Version 5.3.0
+
+* beta version not released
+
+Version 5.2.3
+
+* further fix for translations - this one works...
+
+Version 5.2.3
+
+* cleaned up install and uninstall, shouldn't be producing errors in the error log any more.
+* cron notification now links to active orders page
+* slight change for translations - please let me know asap if it causes an issue.
+
+Version 5.2.2
+
+* *fixed* major bug in checkout
+
+Version 5.2.1
+
+* *fixed* various small back end bugs
+
+Version 5.2.0
+
+* *added* integration with WP Affiliate.
+* *added* extra help for Paypal users on the help page.
+* *added* integration with eShortcodes
+* *fixed* error on eShop products page
+* *fixed* error with pagination for cats and tags shortcode
+* *fixed* error with shipping (one price per rate)
+
+
+Version 5.1.0
+
+* *fixed* style page not updating correctly
+* *added* ability to set featured product, stock and stock availability on the products quick reference page
+* *added* new shortcode attribute - links, useful when used with form
+
+
+Version 5.0.4
+
+* *fixed* featured product count on stats page
+* *fixed* featured products on products page
+* *fixed* eshop downloads page on editing information, now stays on that page.
+* *fixed* issue with deleting option sets
+* *fixed* downloads can only be deleted when download is not assocaited with a product.
+
+Version 5.0.3
+
+* *fixed* hopefully... downloadables in orders
+* *fixed* widget for featured products
+* *amended* widget text for eShop cart
+* *fixed* mis-spelling in help.
+* *fixed* small eShop downloads page error.
+
+Version 5.0.2
+
+* *fixed* pagination issue when viewing all products
+
+Version 5.0.1
+
+* *all* anyone who installed/upgraded to version 5.0.0 will need to revist the eShop Settings page to check that things are ok
+* *fixed* product image in shopping cart
+* *fixed* spelling error on help page
+* *fixed* options page
+* *fixed* product options select box in the add to cart form
+* *fixed* multiple addto cart forms on one page
+* *fixed* quantity error when updating cart
+
+Version 5.0.0
+
+* *all* files amended and many small bug fixes implemented.
+* *all* data is now stored differently in the database - please ensure you backup your database before upgrading to this version.
+* *changed* method for thumbnails, this affects all users upgrading. Please use the thumbnail option on the post/page edit screen. Previous thumbnail image are _not_ used.
+* *added* to help with the above a default image has been included for products with no thumbnail.
+* *added* eshop_list_cat_tags shortcode, listing for products by category and tags. See help page for more details. The functionality has also been added into the the eShop product widget.
+
+Version 4.3.2
+
+* *fixed* 'Array' appearing in blank product entry fields..
+* *added* eshop_welcome shortcode - see help page for details.
+
+Version 4.3.1
+
+* *fixed* admin downloads only showing one per page (oops my bad).
+
+Version 4.3.0
+
+**Last major update before WordPress 3 is released**
+
+* *added* eshop hide sub pages - off by default not on (for new users only)
+* *added* Option sets can now have descriptions.
+* *added* optional hide shopping cart link until items in cart (does not affect widget)
+* *fixed* ideallite.class - small alteration to solve some purchaseId 's being created that were too long.
+* *fixed* Malaysian Ringgit changed from from "RM " to "MYR" 
+* *added* note about turning stock control on - could cause all items to have 0 stock
+* *added* ability to add a donotcache for WP Supercahe - should only affect eShop pages. Does not play nicely for widgets though.
+* *fixed* download pagination issues
+* *fixed* delete stats should now work correctly.
+
+Version 4.2.4
+
+* *fixed* bug with carts over SEK1000 with Payson payment gateway.
+* *added* small updates for compatability with wp super cache (not fully tested)
+
+Version 4.2.3
+
+* *fixed* bug on stats page.
+
+Version 4.2.1 & Version 4.2.2
+
+* *fixed* bug in ability to create Discount Codes
+
+Version 4.2.0
+
+* *added* notes about auto created pages to the help page
+* *added* another unique identifier for multipe option sets
+* *added* {DOWNLOADS} now hiden if no downloads are present.
+* *added* hide price if 0.00 for standard options.
+* *added* ability to delete all orders to reset stats from the stats page.
+* *added* ability to list sub page products from elsewhere for [eshop_list_subpages] only
+* *amended* csv download data now separates address/city/county/zip/country
+* *updated* discounts can now have decimal point values - only partially tested, use with caution.
+* *updated* webtopay functionality
+* *fixed* option set data fof customer emails and csv download.
+* *fixed* issue with zeroing and readding same product
+* *fixed* possible code injection bug in checkout.
+* *fixed* csv download data
+* *fixed* state/county/province in emails.
+
+Version 4.1.1
+
+* *updated* cart widget - ability to hide when empty.
+* *updated* customer email link to highlight it more.
+* *fixed* product listing image can now be chosen - in any language...
+* *fixed* large downloads - may solve some time out issues.
+
+Version 4.1.0
+
+* *added* ability to rename cash payment option
+* *added* Dutch iDEAL payment gateway
+* *added* Turkish Lira, and tidied up code for that section.
+* *amended* eshop install to add in $charset_collate - this may help solve some language issues (for fresh installs only).
+* *amended* update/empty cart button changed - update now comes first.
+* *fixed* attempted to fix a double order entry issue.
+* *fixed* minor errors  - affects several files.
+
+Version 4.0.2
+
+* *fixed* minor bug with major issues for new option sets.
+
+Version 4.0.1 
+
+* *fixed* CSS class for shipping alt state.
+* *fixed* State short code duplicates.
+
+Version 4.0.0 
+
+* *added* Option sets for all products.
+
+
+Version 3.7.4
+
+* *amended* Authorize.net Secrret Answer is now MD5-Hash Phrase and must match your setting at Authorize.net
+* *fixed* print syle for orders page.
+* *added* Ability to hide buyers email address when sending to Paypal - this may change the login screen at Paypal to highlight ability to pay without joining Paypal.
+
+Version 3.7.3
+
+* *fixed* error 500 issues for some users on activation.
+
+Version 3.7.2
+
+* *added* more translatable text
+* *fixed* method 3 shipping for free products
+* *added* more css hooks to checkout page
+
+Version 3.7.1
+
+* *fixed* authorize.net missing field
+* *added* form field to authorize.net merchant settings to fix above..
+
+Version 3.7.0
+
+* *added* new merchant gateway Authorize.net _beta_ need feedback.
+* *added* ability to add a required checkbox to the checkout page -settable on the options page.
+* *fixed* shipping error.
+* *fixed* other minor errors.
+
+Version 3.6.1
+
+* *added* more details on the help page
+* *added* test mode note to payament redirect page
+* *fixed* minor backend 
+* *fixed* shipping zones on the shipping rates page
+* *updated* webtopay class
+
+Version 3.6.0
+
+* *fixed* major error in shipping 
+* *added* options to hide shipping address and additional info from the checkout page
+* *fixed* error on orders page (displayed Ymd)
+* *added* products only page for author products (filter for admins) (WP Role Manger may be needed)
+* *reduced* access to stats page for above
+* *updated* db to etxend item_id size stored in table.
+
+Version 3.5.4
+
+* *fixed* various minor bugs
+
+Version 3.5.3
+
+* *fixed* bug in discounts for large amounts sent to paypal
+
+Version 3.5.2
+
+* *fixed* bug in discounts for large amounts.
+* *fixed* add image to search, should now work in more themes
+* *fixed* various translation strings.
+* *fixed* quick edit bug
+* *added* new shortcode - eshop_addtocart - to place the addto cart form within the content. 
+
+Version 3.5.1
+
+* * *fixed* minor bug on product entry
+* *fixed* minor bug in eShop A-Z listing
+* *fixed* further bug in stock quantity checks in cart
+
+Version 3.5.0
+
+* *added* 2 new merchant gateways eProcessingNetwork and Webtopay
+* *fixed* bug in stock quantity checks in cart
+* *added* date/time of order to available email substitutions
+* *amended* name/address check in checkout - should now work in all languages
+* *added* shortcode `eshop_cart_items` which displays the number of items in the cart only, by default.
+* *added* new role/capability 'eShop Admin'. Limits access to admin only(by default) for the settings, discount codes, shipping, and style pages. 
+* *added* ability for image 'add to cart' buttons.
+
+Version 3.3.6
+
+* *fixed* products page purchases (again)
+* *added* excludes option for random products
+
+Version 3.3.5
+
+* *added* - setting to display sku.
+* *fixed* - out of stock message only displaying once
+* *fixed* - error checking for number of options per product
+* *fixed* - problems when individual prices greater than 1000.
+* *deleted* - check for previous email template chnages, due to errors (only affects upgrading from before 3.1)
+
+Version 3.3.3/4
+
+* *fixed* - missing stats page
+* *fixed* - error when using paypal
+* *warning* - please check paypal redirect still works- I'm unable to test locally atm
+
+Version 3.3.2
+
+* *fixed* - Products page order by stock
+* *fixed* - fieldsets on checkout form - specifically shipping - can now be styled separately
+* *moved* - eshop base settings now added to the main eshop settings page
+
+Version 3.3.1
+
+* *fixed* - Product images, no longer links to non images.
+* *fixed* - product sales info (hopefully)
+* *fixed* - sanitise downloads filenames for punctuation.
+* *added* - span around post title when listing as panels to help with styling
+* *added* - option to turn off download all which helps those with larger files.
+
+Version 3.3.0
+
+* *NEW* - tax can now be added to an order at Paypal.
+* *fixed* - eshop downloads, overwriting exisitng files error.
+* *fixed* - oddity in number of purchases displayed.
+* *fixed* - fixed sortby post_title now works correctly
+* *fixed* - nesting error in checkout
+* *fixed* - random product listing
+* *fixed* - & is now stripped from the sku field.
+* *renamed*  - eshop - templates to eshop - emails
+* *added* -  warning when email template is blank
+* *added* - new experimental shortcode - eshop_list_alpha.
+* *added* - experimental css update viewer.
+* *added* - allow resizing of images in shortcodeas as well as images.
+
+Version 3.2.0
+
+* *added* - new shortcode and widget option to display best sellers.
+* *added* - classes to checkout form for ease of styling
+* *added* - more details to eShop paypal 'failed' emails
+* *added* - new setting to display add to cart form within WP listings
+* *fixed* - US State issue in checkout
+* *fixed* - translation issues
+* *fixed* - bug with class names in shortcodes
+* *removed* - some product listing settings
+* *added* - some shortcodes now have additional options - check the help page for full details
+
+Version 3.1.3
+
+* *fixed* - stock quantity bug on product edit.
+* *fixed* - downloads uploaded via ftp now show correctly.
+* *fixed* - display error on redirect page
+* *added* - class for single option in cart: sgloptiondetails
+
+Version 3.1.2
+
+* *fixed* errors when product details contained quotation marks - these are now stripped out
+
+Version 3.1.1
+
+* *NEW* shortcode [eshop_empty_cart] to show some text when the cart is empty - see help page for details
+* *NEW* ability to show _all_ States/Counties/Provinces on the checkout form
+* *Fixed* major bug on eshop products screen
+* *Fixed* minor bug on email templates (clashed with other plugins)
+
+Version 3.1.0
+
+* New payment option added - cash.
+* better email template handling, one available for each payment option
+* various back end fixes 
+* *Fixed* error if eShop directories not created on install (hopefully)
+
+
+Version 3.0.0
+
+* New payment option added - Payson.
+* Settings page re-organised.
+* New field in checkout form - State/County/Province(if not in the list).
+* Checkout now features images for the different payment options.
+* New setting on shipping page - default zone for unknown State/County/Province.
+* New setting to specify 'Continue Shopping' link (ie main shop page).
+* Now compatible with Role Manager plugin.
+* New shortcode(and widget) to display the images for the payment options.
+* New multi use widget, for displaying products in sidebars.
+* Fixed -Cart now checks stock levels
+* Fixed - shortcode for discounts.
+* small bug fixes - most files changed.
+* New stylesheet for fresh installs.
+
+Version 2.13.2
+
+* Hawaii (HI) and Alaska (AK) - added to list of US States (sorry)
+* added note to settings page about setting the default State/County/Province
+* added an extra <br class="pagfoot" /> when viewing all for panel listings 
+* fixed wpmu issue with css url
+* fixed discount conflicts under certain circumstances
+
+Version 2.13.1
+
+* changed method of adding download orders to db 
+
+New for 2.13.0
+
+* added ability to split countries by State/County/Province - US, UK and Canada are provided bt default.
+* if no State/County/Province are available then it will not appear on the checkout form.
+* *FIX* download items now automatically get free shipping
+
+New for 2.12.5 
+
+* added ability to add product images to the shopping cart
+* product items in cart now link back to the relevant product page.
+
+New for 2.12.4
+
+* Required upgrade for WPMU (fixes cross site cart bug)
+* for WP users uploading large files - upload via FTP to the correct directory with no need to upload a small file via eShop.
+
+New for 2.12.3 
+
+* eShop download products are now checked against allowed quota in WPMU
+
+Version 2.12.2
+
+* downloads are now part of WPMU quota settings.
+
+Version 2.12.2
+
+* fixed bug when upgrading
+* added ID column to the product listing (long overdue)
+
+Version 2.12.1
+
+* fixes bug in cart when shop wide discount was set.
+
+Version 2.12.0
+
+* Discount codes can be offered, offering a percentage discount, or free shipping.
+* Downloadable product options per product (e.g. all tracks off one album, or the same track in different formats).
+* eShop Stats and Order pages tidied up.
+* many many tweaks to various pages
+
+Version 2.11.5
+
+* finally fixed phantom cart errors 
+* removed need to enter a shipping rate for download only stores
+* removed shipping rate displayed per product for download only stores
+* tidied up some scripts
+
+Version 2.11.4
+
+* fixed bug in add to cart
+* removed shipping reference in the checkout for download only sites.
+* amendment to session handling to try and fix a phantom error for some users
+
+Version 2.11.3
+
+* Fixed bug for currency code when single options are displayed.
+
+Version 2.11.2
+
+* Added an auto check to ensure plugin is deactivated/reactivated (useful for MU users as well)
+* Changes for printing number currency, can now be localised.
+
+Version 2.11.1
+
+* fixed error in orders page.
+* renamed submenu item from eshop to 'stats'.
+
+Version 2.11.0 
+
+all the fetaures of the unreleased version 2.10
+
+Version 2.10.1 ((not a general release)
+
+* Added ability for discounts - see the help page for more information
+* Added ability to only show used shipping classes on the shipping rates page - see the help page for more information
+* Added ability to change eShop From address for automated emails
+* Added ability to add an admin note to an order.
+
+Version 2.10.x 
+
+* Not available - this release was not made available, but all features are in 2.11.x
+
+
+Version 2.9.3
+
+* _All_ users will need to deactivate and activate the plugin when upgrading.
+* Help file tweaked, and English corrected.
+* Conflict in MySQL table creation corrected.
+* Uninstall tweaks - now deletes the data it says it was!
+* Small updates for Wordpress 2.7 (not yet fully tested)
+* plus various minor tweaks
+
+Version 2.9.2
+
+Add to cart form was appearing for password protected posts now only appears once password has been entered.
+
+version 2.9.1
+
+Tweaking the image appearance on the search page, and adding a class 'eshop_search_img' for those that need it.
+Fixed small bug for eShop only pages/posts.
+
+version 2.9.0
+
+* <strong>New Setting</strong> - images can now be added to the search results page
+* Settings page re-organised slightly
+* admin css updated
+* fixed bug in image code
+* updated help
+
+Version 2.8.4
+
+Fixes a bug in the fold menus - now works on the 404, and other, pages.
+
+Version 2.8.3
+
+Fixes a bug when deleting an image, eShop now recognises and resets the image.
+
+Version 2.8.2
+
+Fix for the Google bse feed download only.
+
+Version 2.8.1
+
+Fixes for admin listing of Products, and Base products.
+
+Version 2.8.0
+
+Back end change - all users should deactivate and then re- activate. 
+
+
+Version 2.7.6
+
+New shortcode added to show a single product, or products. Fixed error in the add to cart form.
+
+
+Version 2.7.5
+
+An error when downloading laarge files has been fixed. Also fixing the auto redirect for the checkout.
+
+Version 2.7.4
+
+Correcting fault in stats page
+
+Version 2.7.3
+
+Fixed a major bug on installation - changed file cart-functions.php
+
+Version 2.7.2
+
+Fixed bugs in the product listing in the admin, where multiple product entries were occassionly showing
+
+
+Version 2.7.1
+
+minor bug fix in checkout.php
+
+
+Version 2.7.0 New features including:
+
+* Widget basic Cart (number of items, plus links to cart and checkout)
+* Ability to increase a orders download allowance
+* Improved paypal ipn - now integrated with the pages of wordpress
+* added ability to show add to cart form on listing pages...
+* Ability to amend the image shown on the listing pages 
+
+Bug Fixes 
+
+* deleting product info now deletes correctly!
+
+
+Version 2.6.7 small fixes only - many files affected.
+
+Version 2.6.6 fixes uninstall routines.
+
+Version 2.6.5 attempts to fix the directory creation issue.
+
+Version 2.6.4 added new functionality and fixed a few bugs.
+
+
+== Frequently Asked Questions ==
+
+= What happened to my settings? =
+the following settings have now been removed:
+
+* Featured and department product sort order
+* Random products to display
+* Department Products to display
+
+and replaced within shortcodes. See the eShop Help page for full documentation.
+
+= Upgrading to 2.11.0 (and above) from earlier versions =
+
+You need to deactivate, and then reactivate the plugin. Product data won't be lost, there is a minor update to the database.
+
+= Upgrading from eShop 2.5 and below =
+
+For versions prior to eShop 2.5 follow these steps:
+
+Disable old version, and delete. If you have amended any css, or email templates or you use the downloads - you might want to keep a copy first. Upload the new plugin, and re-upload the downloads, css and email templates as required.
+
+Go to *settings - eshop base* and **reset** eshop base. This is required to reset the data due to wordpress 2.5 utilising a new image uploader.
+
+Go to the following pages and amend:
+
+* Shopping Cart: remove `<!--eshop_show_cart-->` replace with `[eshop_show_cart]`
+* Checkout: remove `<!--eshop_show_checkout-->` replace with `[eshop_show_checkout]`
+* Thank you for your order:remove `<!--eshop_show_success-->` replace with `[eshop_show_success]`
+* Cancelled Order: remove `<!--eshop_show_cancel-->` replace with `[eshop_show_cancel]`
+* Downloads: remove `<!--eshop_show_downloads-->` replace with `[eshop_show_downloads]`
+* Shipping rates: remove `<!--eshop_show_shipping-->` replace with `[eshop_show_shipping]`
+
+adjust other pages that use the code: 
+
+* `<!--eshop_list_random-->` becomes `[eshop_random_products]`
+* `<!--eshop_random_product-->` becomes `[eshop_random_products list='no']`
+* `<!--eshop_list_featured-->` becomes `[eshop_list_featured]`
+* `<!--eshop_list_subpages-->` becomes `[eshop_list_subpages]`

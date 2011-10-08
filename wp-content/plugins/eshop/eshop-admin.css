@@ -1,0 +1,739 @@
+/*  eShop Admin styles  */
+#eshopicon{
+	background:url("eshop32.png") no-repeat transparent;
+}
+/* sub menu*/
+
+#eshopsubmenu {
+  border-width:1px;
+  padding : 3px 8px;
+  color : #333;
+  font-size : 1.1em;
+  margin: 8px 0;
+}
+
+#eshopsubmenu li {
+  display : inline;
+  line-height: 180%;
+  height : 25px;
+  list-style : none;
+  text-align : center;
+  white-space : nowrap;
+}
+
+#eshopsubmenu a, #eshopsubmenu span {
+  border : none;
+  color : #000;
+  font-size : 0.9em;
+  padding : 0.3em 1em 0.4em 0.3em;
+}
+
+#eshopsubmenu a:hover, #eshopsubmenu a:focus, #eshopsubmenu a:active {
+  background : transparent;
+  color : #700;
+  text-decoration : underline;
+}
+
+#eshopsubmenu span {
+  color : #555;
+  text-transform : uppercase;
+  font-weight : bold;
+  font-size : 85%;
+}
+
+#eshopsubmenu .current, #eshopsubmenu .current:hover {
+  background : transparent;
+  text-decoration : none;
+  color : #B27900;
+  font-weight : bold;
+}
+
+#eshopsubmenu a.current:hover {
+  cursor : default;
+}
+/* subsubsub menu */
+ul.nav-tab-wrapper{
+	margin:0;
+	padding:0 0 0 10px;
+	border-bottom:1px solid #ccc;
+}
+ul.nav-tab-wrapper li{
+    display:inline;
+}
+ul.nav-tab-wrapper li a{
+    font: italic 1.2em Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+    padding: 4px 20px 6px;
+}
+ul.nav-tab-wrapper .nav-tab{
+	margin-right:3px;
+}
+
+/* headers */
+
+/* product form */
+
+table.eshoppopt caption{
+	font-weight:bold;
+	padding-bottom:10px;
+	text-align:left;
+}
+
+#eshopcustom h3{
+	font-weight:normal;
+	padding-left:2px;
+}
+#eshopcustomstuff{
+	padding-left:10px;
+	border:1px solid #e5e5e5;
+}
+#eshopcustomstuff label{
+	font-weight:bold;
+	line-height:180%;
+}
+	
+.eshopsubmit{
+	text-align:right;
+	padding:0;
+	margin:0;
+}
+
+p.submit.eshop {
+  text-align : left;
+}
+
+p.submit input, p.submit select, p.submit option {
+  cursor : pointer;
+}
+
+p.success, p.notice{
+  font-weight : bold;
+  font-size : 1.1em;
+}
+
+p.success{
+  padding : 4px 6px;
+  color : #fff;
+  text-align : left;
+  margin : 13px 2px;
+}
+
+p.success {
+  background-color : #669933;
+}
+
+p.notice, h3.status { 
+  color : #777;
+  background:transparent;
+  border:0;
+}
+
+p.notice span, h3.status span {
+  background-color : #F5FAFF;
+  border:1px solid #B9DFFF;
+  padding : 1px 8px;
+  color : #333;
+  text-transform : uppercase;
+  letter-spacing : 0.1em;
+  font-size : 90%;
+}
+
+p.eshopinfo {
+ background-color : #FFFBDD;
+  border-width:1px;
+  padding : 8px;
+  font-size : 1.1em;
+  margin:0 0 8px 0;
+  line-height:1.5em;
+}
+p.eshopinfo span.live{
+	color:#090;
+	font-weight : bold;
+}
+p.eshopinfo span.test{
+	color:#900;
+	font-weight : bold;
+}
+p.eshopinfo span.eshopgate{
+	color:#009;
+	font-weight : bold;
+}
+h3.status span.print {
+  display : none;
+}
+#eshoppage h3{
+	color:#777;
+	border-bottom:1px solid #eee;
+}
+#eshoppage h4{
+	color:#999;
+	border-bottom:1px solid #eee;
+
+}
+/*stats page */
+ul.eshop-stats li {
+  list-style-type : none;
+}
+
+ul.eshop-stats li strong {
+  background-color : #F5FAFF;
+  border:1px solid #B9DFFF;
+  padding : 1px 8px;
+  color : #333;
+}
+/* table listings */
+#eshopoptionsets{
+	width:60%;
+	margin:0 auto;
+}
+
+
+
+td.totalr, td.total {
+  background-color : #eee;
+  font-weight : bold;
+}
+
+td.totalr {
+  background-color : #f0f8ff;
+  border-bottom : 1px solid #999;
+  text-align : right;
+}
+
+td.total, td.right {
+  text-align : right;
+}
+
+.optline{
+	white-space:nowrap;
+}
+
+
+/* shipping pages*/
+
+
+
+#eshopformfloat, #ordersdelete, #eshopformleft {
+  float : right;
+  width : 23.5em;
+}
+
+fieldset#changestat {
+  width : 20.5em;
+}
+
+#eshopformfloat {
+  width : 21em;
+}
+
+#ordersdelete {
+  width : 23em;
+  display : inline;
+}  
+
+#eshopformleft, fieldset#changestat {
+  float : left;
+  display : inline;
+}
+
+* html #eshopformleft {
+  width : 24.5em;
+} 
+
+* html #ordersdelete {
+  width : 24em;
+}
+
+* html fieldset#changestat, * html #eshopformfloat fieldset, * html #eshopformfloat {
+  width : 23em;
+}
+/* various fieldsets */
+#orderstatus fieldset, #ordersdelete fieldset,
+#filterzones fieldset,#shipformmethod fieldset,
+#shipform fieldset, #zoneform fieldset,
+#eshopup fieldset, #style_form fieldset,
+#edit_box fieldset,#template_form fieldset,
+#downloadedit fieldset,#eshop-gbase-alt fieldset{
+  border : 1px solid #fefefe;
+  background:#F5FAFF;
+}
+.appearance_page_eshop-style legend,
+.toplevel_page_eshop-orders legend,
+.eshop_page_eshop-shipping legend,
+.eshop_page_eshop-products legend,
+.eshop_page_eshop-options legend,
+.eshop_page_eshop-downloads legend,
+.eshop_page_eshop-discount-codes legend,
+.eshop_page_eshop-base legend,
+.eshop_page_eshop-templates legend,
+.eshop_page_eshop-about legend{
+	font-size:1.2em;
+	color:#666;
+	background:#EDF6FF;
+	border-bottom:1px solid #999;
+	border-right:1px solid #999;
+	padding:0 5px 5px 5px;
+	margin-bottom:5px;
+	margin-top:10px;
+	font-style:italic;
+}
+
+#eshop-settings fieldset,#eshopdisccodes fieldset{
+	margin-top:10px;
+	padding-left:20px;
+	padding-bottom:5px;
+	background: #f5f5f5;
+	padding-right:5px;
+}
+#eshop_shipping_state_form fieldset, #filterzones fieldset{
+margin-left:20px;
+}
+
+#eshop-settings fieldset fieldset,#eshopdisccodes fieldset fieldset,
+#eshopup fieldset fieldset,#eshop-gbase-alt fieldset fieldset,#eshopdisccodes fieldset fieldset{
+	background: #fefefe;
+}
+fieldset#eshopcustom{
+	border:0;
+}
+fieldset#eshopcustom fieldset{
+  background:#F5FAFF;
+  border:0;
+
+}
+p.submit.eshop,#filterzones p.submit{
+	border:0;
+	padding:0;
+}
+#eshopddata{
+	background-color: #fffeeb;
+		border-bottom-color: #ccc;
+		border-top-color: #ccc;
+		color: #555;
+		line-height: 29px;
+		font-size: 12px;
+		text-align: center;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		border-top-width: 1px;
+	border-top-style: solid;
+}
+#eshopddata input{
+	background:#a00;
+	color:#fffff5;
+	border-color:#a00;
+}
+
+#shipformmethod{
+	line-height:2em;
+	margin-bottom:2em;
+}
+#shipformmethod legend{
+	line-height:1.2em;
+}
+#shipformmethod .radio{
+	margin-right: 5px;
+}
+/* special option sets */
+#eshoposetc{
+	float:left;
+	margin-right:1em;
+	width:45%;
+}
+#eshoposets{ 
+	border: 1px solid #a6a6a6; 
+	list-style: none; 
+	height: 8em; 
+	overflow: auto; 
+	width:95%;
+	background:#fffff9;
+}
+#eshoposets label{
+	margin-left:5px;
+}
+#eshoposets li{
+margin:0;
+}
+/* end */
+p.thanks {
+  font : 200% garamond, georgia, palatino, serif;
+  font-style : italic;
+  font-weight : normal;
+  color : #999;
+  text-transform : lowercase;
+  margin : 0;
+  letter-spacing : 0.3em;
+  text-align : center;
+}
+
+p.delete {
+  padding-top : 20px;
+  border-top : 1px solid #ccc;
+  margin-top : 35px;
+}
+
+p.delete a {
+  font-weight : bold;
+  background-color : #eee;
+  color : #333;
+  border : 0;
+  padding : 3px 12px;
+  text-transform : uppercase;
+  border : 3px double #999;
+  border-left-color : #ccc;
+  border-top-color : #ccc;
+}
+
+p.delete a:hover, p.delete a:focus, p.delete a:active {
+  background : #ca0000;
+  border : 3px double maroon;
+  border-left-color : red;
+  border-top-color : red;
+  color : #fff;
+}
+
+p.delete small strong {
+  color : #ca0000;
+}
+
+p.delete small {
+  text-transform : uppercase;
+  line-height : 3em;
+}
+
+/* pagination */
+div.paginate {
+  border-width:1px;
+  padding: 10px 8px;
+  color: #333;
+  font-size: 0.9em;
+  margin: 8px 0;
+}
+
+/* pagination */
+.paginate span{
+	float:left;
+	font-style:italic;
+	padding-right:10px;
+}
+.paginate ul {
+	margin:0;
+	padding:0;
+}
+.paginate ul li {
+	float:left;
+	padding:0 4px;
+	margin-top: -3px;
+}
+.paginate ul li a {
+	display:block;
+}
+div.paginate .page-numbers.current{
+  padding : 0 8px; 
+  color : #666;
+  -moz-border-radius: 4px 4px 4px 4px;
+  border-style: solid;
+  border-width: 1px;
+  text-decoration:none;
+}
+div.paginate a, a.return {
+  background-color : #eee;
+  border-color :  #999;
+  padding : 0 8px; 
+  color : #666;
+  -moz-border-radius: 4px 4px 4px 4px;
+  border-style: solid;
+  border-width: 1px;
+  text-decoration:none;
+}
+
+div.paginate a:hover, div.paginate a:focus, div.paginate a:active,
+a.return:hover, a.return:focus, a.return:active {
+  border : 1px solid #d54321;
+  color : #000;
+  text-decoration:underline;
+}
+
+div.paginate a.pag-view {
+  padding : 0 30px;
+}
+
+/* email forms */
+
+#eshopemailform legend {
+  margin-left : -5px;
+}
+
+#eshopemailform label {
+  line-height : 2em;
+  font-weight : bold;
+  color : #333;
+}
+
+#eshopemailform legend strong {
+  color : #666;
+}
+
+/* settings page */
+
+
+#eshop-settings label{
+	color: #333;
+	display:block;
+}
+#eshop-settings label.eshopmethod{
+	font-weight:bold;
+}
+#eshop-settings label small{
+	font-style: italic;
+}
+#eshop-settings input[type="text"],
+#eshop-settings select,
+#eshop-settings textarea {
+	margin-bottom:10px;
+}
+.eshopdisc{
+	width:40%;
+}
+
+.eshopgateway img{
+	float:right;
+	margin: 0 0 10px 10px;
+}
+
+
+#eshop-settings .cbox label{
+	display:inline;
+	padding-left:10px;
+}
+/* upload downloadables*/
+#eshopup,#downloadedit{
+	width:60%;
+	margin:8px auto;
+}
+
+#eshopup label.lab,#downloadedit label{
+	display:block;
+	font-weight:bold;
+  	color: #333;
+}
+
+#eshopup fieldset fieldset{
+	margin-top:15px;
+}
+
+/*general*/
+br.clearbr {
+  clear : both;
+}
+
+.offset {
+  position : absolute;
+  top : -9000px;
+  left : -9000px;
+}
+table.hidealllabels tr td label{
+	position : absolute;
+	top : -9000px;
+  	left : -9000px;
+}
+
+/* eshop google base*/
+
+#eshop-gbase-alt{
+	width:90% !important;
+	margin:0 auto;
+}
+#eshop-gbase-alt fieldset fieldset{
+	margin-top:10px;
+	padding-left:20px;
+	padding-bottom:5px;
+}
+
+#eshop-gbase-alt label{
+	font-weight:bold;
+  	color: #333;
+}
+
+fieldset#baseothers label{
+	display:block;
+	margin-top:5px;
+}
+fieldset#baseothers fieldset label{
+	display:inline;
+}
+fieldset#baseothers fieldset{
+	margin-top:6px;
+}
+
+.ebaseimg {
+	float:left;
+	border:1px solid #dcdcdc;
+	padding:5px;
+	margin-right:10px;
+	white-space:nowrap;
+}
+.ebox {
+	border-top:1px solid #ccc;
+	padding:10px 3px 3px 3px;
+}
+.ebox a{
+	padding:3px;
+	border:1px solid #80b5d0;
+	background:#e5e5e5;
+	color:#246;
+}
+
+
+.ebox a:hover,.ebox a:active,.ebox a:focus{
+	border-color: #535353;
+	color: #d54e21;
+}
+
+/* admin note on orders page */
+.eshop_edit_note{
+	text-align:center;
+}
+#eshop_admin_note{
+	width:80%;
+	margin:0 auto;
+	padding:2px 3px;
+	background-color : #F5FAFF;
+	border:1px solid #B9DFFF;
+}
+#eshop_admin_note h4{
+	margin:0;
+}
+.eshoptext{
+	font-weight:bold;
+}
+
+/* end eShop CSS */
+
+
+/* order details page tidy up */
+.orderaddress, .paypalmemo{
+	border-right:1px solid #e5e5e5;
+	margin-right:2%;
+}
+.orderaddress, .shippingaddress,.paypalmemo, .eshopmemo{
+	float:left;
+	width:45%;
+}
+.orderaddress h4, .shippingaddress h4, .paypalmemo h4, .eshopmemo h4{
+	font-size:1.2em;
+	font-style:italic;
+	letter-spacing:1px;
+}
+.orderaddress h4, .shippingaddress h4, .paypalmemo h4, .eshopmemo h4, .orderaddress h5, .shippingaddress h5{
+	margin:0;
+}
+
+.eshopclear{
+	clear:left;
+	border:0;
+}
+.paypalmemo, .eshopmemo{
+	min-height:3em;
+}
+.downprod a{
+	margin-left:4px;
+	padding:0 3px;
+}
+/* ? */
+
+dl.eshop-def dt{
+	background:#FFFDF1;
+}
+/* help page */
+
+table.eshopatt .center th{
+	text-align:center;
+}
+table.eshopatt th, table.eshopatt td{
+	border-left:1px solid #eee;
+	border-right:1px solid #eee;
+}
+table.eshopatt td img{
+	display:block;
+	margin:0 auto;
+}
+table.eshopatt td{
+	text-align:center;
+	font-size:0.8em;
+	vertical-align:middle;
+}
+table.eshopatt tbody th{
+	vertical-align:middle;
+	font-size:1.1em;
+}
+table.eshopatt th.eshopdefault{
+	text-align:center;
+	font-style:italic;
+	font-size:0.8em;
+}
+dl.eshop-def{
+	margin-top:20px;
+}
+dl.eshop-def code,
+.eshop-shortcodes code{	
+	font-weight:bold;
+	font-size:1.4em;
+	color:#003;
+	background:#FFFDF1;
+	padding:1px 2px;
+}
+dl.eshop-def dd{
+	margin-left:20px;
+}
+dl.eshop-def dd ul{
+	margin-left:20px;
+}
+.eshophelp dt{
+	font-weight:bold;
+}
+.eshophelp dd{
+	margin-left:20px;
+}
+/* email templates */
+.ewarn{
+	color:#800;
+	font-weight:bold;
+	font-size:0.8em;
+}
+.emailok{	
+	color:#080;
+	font-size:0.8em;
+}
+/* css style page */
+.eshopnewstyle{
+	border:1px solid #BBD8E7;
+	background:#fffff5;
+	color:#000;
+	padding:10px;
+	max-height:200px;
+	overflow-y:scroll;
+}
+.ogonehi{
+	padding:0 5px;
+	border:1px solid #800;
+	background:#FFEDEF;
+	margin-bottom:10px;
+}
+.ogonehi code{
+	border:1px solid #000;
+	padding:2px;
+	background:#fffff5;
+}
+/* upgrade notice */
+#eshop-upgrade{ 
+	border: 1px solid #21759B; 
+	height: 8em; 
+	overflow: auto; 
+	width:100%;
+	background:transparent;
+}
+/* product entry and wide table fix */
+.eshopwidetable{
+	width:100%;
+	overflow:auto;
+}
