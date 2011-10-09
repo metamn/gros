@@ -3,6 +3,7 @@
 body {
   font-family: Abel, sans-serif;
   color: #2B2922;
+  background: url(stripe.png) transparent;
 }
 
 a, a:visited {
@@ -18,11 +19,14 @@ a:hover {
 */
 
 
-#question {
+
+#question, .single h1.entry-title a {
   background: #DC574E;
+  text-shadow: 1px 1px #e2726a; /* +2 */
 }
 #answer {
   background: #F7E4A2;
+  text-shadow: 1px 1px #fefbf0; /* +5 */
 }
 .triangle-bottom {
   border-color: #DC574E transparent transparent;
@@ -32,7 +36,25 @@ a:hover {
   background: #2B2922;
   color: white;
 }
-#products img {
+#products img, article img {
   border: 1px solid #eee;
-  width: 99%;
+  width: 98%;
 }
+
+
+/* Single
+*/
+
+
+article, #comments {
+  background: white;
+}
+
+
+/* General
+*/
+
+h1 a:hover {
+  text-decoration: none;
+}
+

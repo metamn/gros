@@ -60,9 +60,6 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 #products h1 {
   margin-left: 1.25em;
 }
-#products h1 a {
-  padding: 0 .312em;
-}
 #products li {
   margin-bottom: 3.75em;
 }
@@ -73,8 +70,50 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 
 
 
+/* Single
+*/
+
+#nav-single {
+  display: none;
+}
+.single #access {
+  margin-left: 11.5em;
+}
+
+
+.single article, .single aside {
+  float: left;
+}
+.single article, .single #comments {
+  width: 60%;
+  margin-right: 10%;
+}
+.single aside {
+  width: 30%;
+}
+.single aside ul ul {
+  display: none;
+}
+.single #comments #respond {
+  width: 60%;
+}
+
+
+/* Footer
+*/
+
+#colophon {
+  margin: 2.5em 0;
+}
+
+
+
 /* General
 */
+
+h1 a {
+  padding: 0 .312em;
+}
 
 
 img {
