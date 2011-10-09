@@ -197,9 +197,8 @@ input, textarea, button {
   -webkit-appearance: none; /* Safari is trying to ignore CSS styling of form elements */
 }
 
-/*
-- Safari overwrites theme.css with these settings ...
-input, textarea {  
+
+input, textarea, .button {  
   -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
 	box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -224,7 +223,7 @@ input.button:hover, a.button:hover {
 input.text, input.password, textarea {
   background: #fff;
 }
-*/
+
 
 
 fieldset {

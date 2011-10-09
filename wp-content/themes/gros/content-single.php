@@ -18,12 +18,16 @@
 		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
 	
-	<footer>
+	<footer id="shopping">
+	  <h3>Shopping cart</h3>
 	  <?php 
 	    if ( is_user_logged_in() ) { 
-	      echo do_shortcode('[eshop_addtocart]'); 
-	    } else { ?>
-	      you should log in
+	      echo do_shortcode('[eshop_addtocart]');  
+	    } else { 
+	      $redirect = get_permalink();
+	      $redirect .= '#shopping';
+	    ?>
+	      <a class="button" href="<?php echo wp_login_url($redirect); ?>" title="Login">You should login first for shopping</a>
 	   <?php } ?>
 	</footer>
 </article><!-- #post-<?php the_ID(); ?> -->

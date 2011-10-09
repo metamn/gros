@@ -54,14 +54,38 @@ article, #comments {
 /* Shopping cart
 */
 
-.single form.eshop fieldset {
+form.eshop, table.eshop {
+  background: #F7E4A2;
+}
+form.eshop fieldset {
   border-color: #eee;
 }
-.single form.eshop ul li {
-  margin-bottom: 1.25em;
+
+
+input, textarea, .button, li.gotocheckout {  
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #A7BD5B), color-stop(1, #8da342) );
+	background: -moz-linear-gradient( center top, #A7BD5B 5%, #8da342 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#A7BD5B', endColorstr='#8da342');
+	background-color: #A7BD5B;
+	
+	border: 1px solid #6e7f33;
+	
+	color: #2B2922 !important;	
+	text-decoration:none !important;
+	text-shadow: 1px 1px 0px #dbe4bc;	
 }
-.single form.eshop input.iqty {
-  width: 10%;
+input.button:hover, a.button:hover {
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8da342), color-stop(1, #A7BD5B) );
+	background: -moz-linear-gradient( center top, #8da342 5%, #A7BD5B 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8da342', endColorstr='#A7BD5B');
+	background-color: #8da342;
+}
+input.text, input.password, textarea {
+  background: #fff;
 }
 
 

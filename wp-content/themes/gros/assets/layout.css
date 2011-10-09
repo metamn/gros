@@ -80,7 +80,6 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
   margin-left: 11.5em;
 }
 
-
 .single article, .single aside {
   float: left;
 }
@@ -103,10 +102,53 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 /* Shopping cart
 */
 
+#shopping {
+  padding: 1.25em 0;
+}
+.page form.eshop, 
+.page table.eshop tr th,
+.page table.eshop tr td {
+  padding: 1.25em;
+}
+.page table.eshop {
+  margin-bottom: 0;
+}
+.page fieldset.fld1 {
+  border: none;
+}
+
+form.eshop #update {
+  margin-right: 1.25em;
+}
+form.eshop label.hide, 
+table.eshop caption,
+form label.finalize small {
+  display: none;
+}
+li.gotocheckout {
+  -moz-border-radius: 6px 6px 6px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: .55em;  
+}
+li.gotocheckout a {
+  text-decoration: none;
+}
+
+.custdetails p, .custdetails fieldset.fld2, .custdetails fieldset.fld6 {
+  display: none;
+}
+
+form.eshop ul li {
+  margin-bottom: 1.25em;
+}
+form.eshop input.iqty {
+  width: 10%;
+}
 .single .eshopdetails {
   display: none;
 }
-.single form.eshop legend {
+form.eshop legend {
   display: none;
 }
 .page tr, .page th, .page  td {
