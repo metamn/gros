@@ -9,7 +9,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+  <header class="entry-header">
 		<h1 class="entry-title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 	</header><!-- .entry-header -->
 
@@ -17,6 +17,15 @@
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
 	</div><!-- .entry-content -->
+	
+	<footer>
+	  <?php 
+	    if ( is_user_logged_in() ) { 
+	      echo do_shortcode('[eshop_addtocart]'); 
+	    } else { ?>
+	      you should log in
+	   <?php } ?>
+	</footer>
 </article><!-- #post-<?php the_ID(); ?> -->
 
 <aside>

@@ -99,7 +99,7 @@
 			<hgroup class="col col-1">
 				<h1 id="site-title">
 				  <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-				    <img title="logo" src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/logo.png" /></a></h1>
+				    <img title="<?php echo esc_url( home_url( '/' ) ); ?>" src="<?php bloginfo( 'stylesheet_directory' ); ?>/assets/logo.png" /></a></h1>
 				<h2 id="site-description" class="hidden"><?php bloginfo( 'description' ); ?></h2>
 			</hgroup>
 

@@ -109,11 +109,11 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 .single form.eshop legend {
   display: none;
 }
-.page form.eshopcart tr, .page form.eshopcart th, .page form.eshopcart td {
+.page tr, .page th, .page  td {
   vertical-align: middle;
 }
-.page form.eshopcart tr.stotal th,
-.page form.eshopcart tr.stotal td {
+.page tr.stotal th,
+.page tr.stotal td {
   padding-top: 1.25em;
 }
 .page form.eshopcart table #cartDelete img,
