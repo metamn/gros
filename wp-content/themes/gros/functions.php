@@ -4,10 +4,13 @@
 // Don't check the Checkout fields
 add_filter('eshopCheckoutReqd','eshop_extras_required');
 function eshop_extras_required($values) {
-	#print_r($values);
-	#$values = array(array());
-	#$values[1] = 'admin';
-	return $values;
+	$current_user = wp_get_current_user();
+	if ( $current_user->ID != 0 ) {
+	  $values[1] = $current_user->user_firstname;
+	  $values[2] = $current_user->user_lastname;
+	  $values[3] = $current_user->user_email;
+  }	
+  return $values;
 }
 
 // Remove the default 'add to cart' for posts. 
