@@ -178,9 +178,7 @@ td {
    
 */
 
-input, textarea {
-  width: 95%;
-}
+
 select {
   width: 99%;
   height: 2.5em;

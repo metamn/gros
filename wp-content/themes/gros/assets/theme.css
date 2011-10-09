@@ -36,7 +36,7 @@ a:hover {
   background: #2B2922;
   color: white;
 }
-#products img, article img {
+#products img, .single article img {
   border: 1px solid #eee;
   width: 98%;
 }
@@ -49,6 +49,21 @@ a:hover {
 article, #comments {
   background: white;
 }
+
+
+/* Shopping cart
+*/
+
+.single form.eshop fieldset {
+  border-color: #eee;
+}
+.single form.eshop ul li {
+  margin-bottom: 1.25em;
+}
+.single form.eshop input.iqty {
+  width: 10%;
+}
+
 
 
 /* General

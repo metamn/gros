@@ -94,9 +94,42 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 .single aside ul ul {
   display: none;
 }
-.single #comments #respond {
-  width: 60%;
+.single #comments {
+  display: none;
 }
+
+
+
+/* Shopping cart
+*/
+
+.single .eshopdetails {
+  display: none;
+}
+.single form.eshop legend {
+  display: none;
+}
+.page form.eshopcart tr, .page form.eshopcart th, .page form.eshopcart td {
+  vertical-align: middle;
+}
+.page form.eshopcart tr.stotal th,
+.page form.eshopcart tr.stotal td {
+  padding-top: 1.25em;
+}
+.page form.eshopcart table #cartDelete img,
+.page form.eshopcart table caption {
+  display: none;
+}
+.page ul.continue-proceed {
+  list-style: none;
+  margin: 2.5em 0;
+}
+.page ul.continue-proceed li {
+  float: left;
+  position: relative;
+  margin-right: 1.25em;
+}
+
 
 
 /* Footer
@@ -120,6 +153,7 @@ img {
   width: 100%;
   height: auto;
 }
+
 
 /* hiding TwentyEleven elements */
 .assistive-text, .skip-link {
