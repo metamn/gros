@@ -19,10 +19,9 @@
 .col-1 {
   margin-right: 10%;
 }
-
-.home #content .col-2 {
+#products.col-2 {
   position: relative;
-  top: -14em;
+  top: -2.5em;
 }
 
 
@@ -39,6 +38,13 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 
 
 
+
+/* Header
+*/
+
+#branding img {
+  width: 40%;
+}
 
 
 /* Startpage
@@ -74,10 +80,7 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 /* Single
 */
 
-.single #branding img,
-.page #branding img {
-  width: 40%;
-}
+
 
 #nav-single {
   display: none;
