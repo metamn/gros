@@ -131,7 +131,9 @@ form.eshop #update {
 }
 form.eshop label.hide, 
 table.eshop caption,
-form label.finalize small {
+form label.finalize small,
+#wpmem_reg legend,
+#wpmem_reg div > small {
   display: none;
 }
 li.gotocheckout {

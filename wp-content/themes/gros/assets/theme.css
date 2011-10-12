@@ -57,10 +57,10 @@ article, #comments {
 }
 
 
-/* Shopping cart
+/* Shopping cart and all forms
 */
 
-form.eshop, table.eshop {
+form.eshop, table.eshop, #wpmem_reg {
   background: #F7E4A2;
 }
 form.eshop fieldset {
@@ -92,6 +92,13 @@ input.button:hover, a.button:hover {
 }
 input.text, input.password, textarea {
   background: #fff;
+}
+
+
+
+/* Login forms */
+#wpmem_reg fieldset {
+  border-color: transparent;
 }
 
 
