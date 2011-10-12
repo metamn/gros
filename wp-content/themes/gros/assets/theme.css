@@ -60,7 +60,7 @@ article, #comments {
 /* Shopping cart and all forms
 */
 
-form.eshop, table.eshop, #wpmem_reg {
+form.eshop, table.eshop, #wpmem_reg, #wpmem_login {
   background: #F7E4A2;
 }
 form.eshop fieldset {
@@ -97,11 +97,14 @@ input.text, input.password, textarea {
 
 
 /* Login forms */
-#wpmem_reg fieldset {
+#wpmem_reg fieldset,
+#wpmem_login fieldset {
   border-color: transparent;
 }
 #wpmem_reg input,
-#wpmem_reg textarea {
+#wpmem_reg textarea,
+#wpmem_login input,
+#wpmem_login textarea {
   background: white;
 }
 

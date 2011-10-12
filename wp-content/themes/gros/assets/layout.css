@@ -188,15 +188,22 @@ form.eshop legend {
 
 #wpmem_reg label,
 #wpmem_reg input,
-#wpmem_reg textarea {
+#wpmem_reg textarea,
+#wpmem_login label,
+#wpmem_login input,
+#wpmem_login textarea {
   width: 40%;
 }
-#wpmem_reg form div {
+#wpmem_reg form div,
+#wpmem_login form div {
   margin-bottom: 1.25em;
 }
 #wpmem_reg label[for="delivery"] {
   font-size: larger;
   font-weight: bold;
+}
+#wpmem_reg input#delivery {
+  display: none;
 }
 
 
