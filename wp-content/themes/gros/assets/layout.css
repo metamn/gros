@@ -184,6 +184,21 @@ form.eshop legend {
 }
 
 
+/* Login form */
+
+#wpmem_reg label,
+#wpmem_reg input,
+#wpmem_reg textarea {
+  width: 40%;
+}
+#wpmem_reg form div {
+  margin-bottom: 1.25em;
+}
+#wpmem_reg label[for="delivery"] {
+  font-size: larger;
+  font-weight: bold;
+}
+
 
 /* Footer
 */
