@@ -14,7 +14,7 @@ msgstr ""
 
 #: wp-members-dialogs.php:41
 msgid "Existing users Login"
-msgstr ""
+msgstr "Intrare in cont"
 
 #: wp-members-dialogs.php:41
 #: wp-members-dialogs.php:69
