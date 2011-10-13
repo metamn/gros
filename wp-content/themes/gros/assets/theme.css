@@ -5,12 +5,7 @@ body {
   color: #2B2922;
   background: url(stripe.png) transparent;
 }
-#access {
-  font-family: "Lucida Sans",
-             "Lucida Grande",
-             Lucida,
-             sans-serif;
-}
+
 
 a, a:visited {
   color: #2B2922;

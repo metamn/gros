@@ -17,17 +17,33 @@ function eshop_extras_required($values) {
 // Only logged in users will see the 'add to cart' 
 remove_filter( 'the_content', 'eshop_boing' );
 
+
 // Replace the nav menu items
 function new_nav_menu_items($items) {
   $homelink = '<li class="menu-item"><a title="' . __('Home') . '" href="' . home_url( '/' ) . '">' . __('Home') . '</a></li>';
 	
-	if ( is_user_logged_in() ) { 
-	  return $homelink . $items;
-	} else {
-	  return $homelink;
-	} 	
+	return $homelink . $items;
 }
 add_filter( 'wp_nav_menu_items', 'new_nav_menu_items' );
 
+
+/** Tell WordPress to run child_theme_setup()
+when the 'after_setup_theme' hook is run.
+*/
+add_action( 'after_setup_theme', 'child_theme_setup' );
+ 
+/** This function will hold our new calls and over-rides */
+if ( !function_exists( 'child_theme_setup' ) ):
+function child_theme_setup() {
+ 
+    /*
+    Add menus
+    */
+    register_nav_menus( array(
+      'secondary' => __( 'Secondary', 'twentyeleven' ),
+      'footer' => __( 'Footer', 'twentyeleven' ),
+    ) );
+}
+endif;
 
 ?>
