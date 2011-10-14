@@ -44,8 +44,9 @@ function wpmem_inc_login($page="page")
 
 		} 	
 	} 
+	
 
-    $arr = array(__('Existing users Login', 'wp-members'), __('Username', 'wp-members'), 'text', 'log', __('Password', 'wp-members'), 'password', 'pwd', 'login', __('Login', 'wp-members'), 'username', 'password');
+    $arr = array(__('', 'wp-members'), __('Nume utilizator', 'wp-members'), 'text', 'log', __('Parola', 'wp-members'), 'password', 'pwd', 'login', __('Intrare in cont', 'wp-members'), 'username', 'password');
 	
 	$str = $str . wpmem_login_form( $page, $arr );
 	return $str;
@@ -67,7 +68,7 @@ if ( ! function_exists( 'wpmem_inc_changepassword' ) ):
  */
 function wpmem_inc_changepassword()
 { 
-	$arr = array(__('Change Password', 'wp-members'), __('New Password', 'wp-members'), 'password', 'pass1', __('Repeat Password', 'wp-members'), 'password', 'pass2', 'pwdchange', __('Update Password', 'wp-members'), 'password', 'password');
+	$arr = array(__('', 'wp-members'), __('Parola noua', 'wp-members'), 'password', 'pass1', __('Repetare parola noua', 'wp-members'), 'password', 'pass2', 'pwdchange', __('Schimbare parola', 'wp-members'), 'password', 'password');
     $str = wpmem_login_form( 'page', $arr );
 	return $str;
 }
@@ -126,7 +127,7 @@ function wpmem_login_form_OLD ( $page, $arr )
 	if ( $arr[7] == 'login' ) {
 		$form = $form . '<tr>
 		  <td width="118">&nbsp;</td>
-		  <td width="166"><input name="rememberme" type="checkbox" id="rememberme" value="forever" />&nbsp;' . __('Remember me', 'wp-members') . '</td>
+		  <td width="166"><input name="rememberme" type="checkbox" id="rememberme" value="forever" />&nbsp;' . __('Tine-ma minte', 'wp-members') . '</td>
 		</tr>';
 	}
 	
@@ -180,10 +181,8 @@ if ( ! function_exists( 'wpmem_inc_loginfailed' ) ):
  */
 function wpmem_inc_loginfailed() 
 { 
-	$str = '<div align="center" id="wpmem_msg">
-		<h2>' . __('Login Failed!', 'wp-members') . '</h2>
-		<p>' . __('You entered an invalid username or password.', 'wp-members') . '</p>
-		<p><a href="' . $_SERVER['REQUEST_URI'] . '">' . __('Click here to continue.', 'wp-members') . '</a></p>
+	$str = '<div align="center" id="wpmem_msg"><p>' 
+	. __('Numele de utilizator sau parola este gresita.', 'wp-members') . '</p>
 	</div>';
 
 	return $str;
@@ -389,12 +388,13 @@ function wpmem_inc_memberlinks( $page = 'members' )
 	switch( $page ) {
 	
 	case 'members':
-		$str  = '<ul><li><a href="'  .$link . 'a=edit">' . __('Edit My Information', 'wp-members') . '</a></li>
-				<li><a href="' . $link . 'a=pwdchange">' . __('Change Password', 'wp-members') . '</a></li></ul>';
+		$str  = '<ul><li><a href="'  .$link . 'a=edit">' . __('Modificare date', 'wp-members') . '</a></li>
+				<li><a href="' . $link . 'a=pwdchange">' . __('Schimbare parola', 'wp-members') . '</a></li>
+				<li><a href="' . $link . 'a=logout">' . __('Iesire din cont', 'wp-members') . '</a></li></ul>';
 		break;
 		
 	case 'register':	
-		$str = '<p>' .sprintf( __('You are logged in as %s', 'wp-members'), $user_login ) . '</p>
+		$str = '<p>' .sprintf( __('Bine ai venit %s', 'wp-members'), $user_login ) . '</p>
 			<ul>
 				<li><a href="' . $link . 'a=logout">' . __('Click here to logout.', 'wp-members') . '</a></li>
 				<li><a href="' . get_option('siteurl') . '">' . __('Begin using the site.', 'wp-members') . '</a></li>
@@ -404,16 +404,12 @@ function wpmem_inc_memberlinks( $page = 'members' )
 	case 'login':
 
 		$str = '<p>
-		  	' . sprintf( __('You are logged in as %s', 'wp-members'), $user_login ) . '<br />
-		  	<a href="' . $link . 'a=logout">' . __('click here to logout', 'wp-members') . '</a>
-			</p>';
+		  	' . sprintf( __('Bine ai venit %s', 'wp-members'), $user_login ) . '</p>';
 		break;	
 			
 	case 'status':
-		$str ='<p>
-			' . sprintf( __('You are logged in as %s', 'wp-members'), $user_login ) . '  | 
-			<a href="' . $link . 'a=logout">' . __('click here to logout', 'wp-members') . '</a>
-			</p>';
+		$str = '<p>
+		  	' . sprintf( __('Bine ai venit %s', 'wp-members'), $user_login ) . '</p>';
 		break;
 	
 	}
@@ -743,7 +739,7 @@ function wpmem_login_form_NEW( $page, $arr )
 	
 	if ( $arr[7] == 'login' ) {
 		
-		$form = $form . '<input name="rememberme" type="checkbox" id="rememberme" value="forever" />&nbsp;' . __('Remember me', 'wp-members');
+		$form = $form . '<input name="rememberme" type="checkbox" id="rememberme" value="forever" />&nbsp;' . __('Tine-ma minte', 'wp-members');
 	
 	}
 	

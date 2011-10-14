@@ -33,7 +33,7 @@ function wpmem_do_install()
 			users.
 	*/
 	
-	$chk_force = false;
+	$chk_force = true;
 
 	if( !get_option('wpmembers_settings') || $chk_force == true ) {
 
@@ -190,6 +190,7 @@ function append_tos( $upgrade )
 
 			$x = count($fields);
 			$x = $x + 1;
+
 
 			$fields[] = array ($x,__('TOS', 'wp-members'),'tos','checkbox','y','y','n','agree','n' );
 

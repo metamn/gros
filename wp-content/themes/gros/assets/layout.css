@@ -184,7 +184,8 @@ form.eshop legend {
 }
 
 
-/* Login form */
+/* Login form , WP Members
+*/
 
 #wpmem_reg label,
 #wpmem_reg input,
@@ -193,6 +194,12 @@ form.eshop legend {
 #wpmem_login input,
 #wpmem_login textarea {
   width: 40%;
+}
+input#rememberme {
+  width: auto;
+}
+input.buttons {
+  display: block;
 }
 #wpmem_reg form div,
 #wpmem_login form div {
@@ -206,12 +213,22 @@ form.eshop legend {
   display: none;
 }
 
+#wpmem_msg p {
+  padding: .625em 0;
+}
+
 
 /* Footer
 */
 
 #colophon {
   margin: 2.5em 0;
+}
+#access.footer {
+  margin-top: 0;
+}
+#access ul {
+  margin: 0;
 }
 
 
@@ -247,7 +264,7 @@ img {
 */
 
 #access {
-  margin-top: .625em;
+  margin: .625em 0 0 7%;
 }
 #access ul {
 	list-style: none;
@@ -259,7 +276,6 @@ img {
 }
 #access a {
 	display: block;
-	line-height: 2.5em;
 	padding: 0 .312em;
 	text-decoration: none;	
 }

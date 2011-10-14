@@ -13,15 +13,15 @@
 	</div><!-- #main -->
 
 	<footer id="colophon" role="contentinfo">
-			<div id="copyright">
+			<nav id="access" role="navigation" class="footer right">
+		    <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
+		  </nav>
+		  
+			<div id="copyright" class="left">
 		    &copy; 2011 <a title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>">
 		    <?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?></a>
 		  </div>
 		  
-		  <nav id="access" role="navigation" class="footer">
-		    <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
-		  </nav>
-			
 	</footer><!-- #colophon -->
 
 </div><!-- #page -->

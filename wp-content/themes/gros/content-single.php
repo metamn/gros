@@ -19,15 +19,17 @@
 	</div><!-- .entry-content -->
 	
 	<footer id="shopping">
-	  <h3>Shopping cart</h3>
+	  <h3>Cos cumparaturi</h3>
 	  <?php 
 	    if ( is_user_logged_in() ) { 
 	      echo do_shortcode('[eshop_addtocart]');  
-	    } else { 
-	      $redirect = get_permalink();
-	      $redirect .= '#shopping';
-	    ?>
-	      <a class="button" href="<?php echo wp_login_url($redirect); ?>" title="Login">You should login first for shopping</a>
+	    } else { ?>
+	      <p>
+	        Pentru a vedea preturile, va rugam <a title="Intrare in cont" class="button" href="<?php echo esc_url( home_url( '/intrare-cont' ) ); ?>">sa va autentificati</a>. 
+	      </p>
+	      <p>
+	        Daca nu aveti inca cont la noi, va rugam <a title="Inregistrare cont" class="button" href="<?php echo esc_url( home_url( '/inregistrare-cont' ) ); ?>">sa va inregistrati aici</a>.	      
+        </p>	      
 	   <?php } ?>
 	</footer>
 </article><!-- #post-<?php the_ID(); ?> -->

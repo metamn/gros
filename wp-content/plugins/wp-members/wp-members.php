@@ -61,11 +61,14 @@ License:     GPLv2
  */
 
 
+
 /**
  * start with any potential translation
  */
 load_plugin_textdomain( 'wp-members', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 //(see: http://pressedwords.com/6-tips-for-localizing-your-wordpress-plugin/)
+
+
 
 
 /**
