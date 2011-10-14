@@ -177,7 +177,7 @@ msgstr ""
 #: eshop-shortcodes.php:1784
 #: bank/bank.class.php:71
 msgid "Proceed to Checkout &raquo;"
-msgstr ""
+msgstr "Finalizare comanda &raquo;"
 
 #: authorizenet/authorizenet.class.php:83
 #: webtopay/webtopay.class.php:100
@@ -189,7 +189,7 @@ msgstr ""
 #: ogone/ogone.class.php:81
 #: bank/bank.class.php:83
 msgid "Please wait, your order is being processed&#8230;"
-msgstr ""
+msgstr "Va rugam asteptati comanda Dvs se proceseaza"
 
 #: authorizenet/authorizenet.class.php:84
 msgid "If you are not automatically redirected to authorize.net, please use the <em>Proceed to Authorize.net</em> button."
@@ -1175,7 +1175,7 @@ msgstr ""
 #: checkout.php:120
 #: checkout.php:815
 msgid "Contact Details"
-msgstr ""
+msgstr "Detalii cont utilizator"
 
 #: checkout.php:122
 msgid "First Name"
@@ -1339,7 +1339,7 @@ msgstr ""
 
 #: checkout.php:374
 msgid "Proceed to Confirmation &raquo;"
-msgstr ""
+msgstr "Confirmare comanda &raquo;"
 
 #: checkout.php:633
 msgid "<strong>Shipping</strong> - not selected."
@@ -1420,7 +1420,7 @@ msgstr ""
 #: checkout.php:817
 #: checkout.php:865
 msgid "Full name:"
-msgstr ""
+msgstr "Nume:"
 
 #: checkout.php:819
 #: checkout.php:866
@@ -1476,18 +1476,18 @@ msgstr ""
 
 #: checkout.php:1062
 msgid "&laquo; Edit Cart or Continue Shopping"
-msgstr ""
+msgstr "&laquo; Modificare cos cumparaturi"
 
 #: checkout.php:1065
 #: checkout.php:1068
 msgid "&laquo; Edit Details or Continue Shopping"
-msgstr ""
+msgstr "&laquo; Modificare comanda"
 
 #: checkout.php:1073
 #: cart-functions.php:336
 #: eshop-shortcodes.php:1787
 msgid "Your shopping cart is currently empty."
-msgstr ""
+msgstr "Cosul Dvs. de cumparaturi este gol"
 
 #: eshop-about.php:18
 msgid "This page is normally accessible via the <strong>About</strong> link."
@@ -2844,12 +2844,12 @@ msgstr ""
 #: cash/cash.class.php:84
 #: bank/bank.class.php:84
 msgid "If you are not automatically redirected, please use the <em>Proceed</em> button."
-msgstr ""
+msgstr "Daca nu sunteti redirectionati la pagina urmatoare va rugam folositi butonul <em>Procesare</em>"
 
 #: cash/cash.class.php:94
 #: bank/bank.class.php:93
 msgid "Proceed &raquo;"
-msgstr ""
+msgstr "Procesare &raquo;"
 
 #: cart-functions.php:42
 msgid "Shopping cart contents overview"
@@ -2861,11 +2861,11 @@ msgstr ""
 
 #: cart-functions.php:46
 msgid "Item Description"
-msgstr ""
+msgstr "Produs"
 
 #: cart-functions.php:47
 msgid "<abbr title=\"Quantity\">Qty</abbr>"
-msgstr ""
+msgstr "<abbr title=\"Quantity\">Cantitate</abbr>"
 
 #: cart-functions.php:49
 #: cart-functions.php:197
@@ -2911,11 +2911,11 @@ msgstr ""
 
 #: cart-functions.php:327
 msgid "Update Cart"
-msgstr ""
+msgstr "Modificare cos"
 
 #: cart-functions.php:328
 msgid "Empty Cart"
-msgstr ""
+msgstr "Golire cos"
 
 #: cart-functions.php:339
 msgid "Test Mode &#8212; No money will be collected."
@@ -4715,12 +4715,12 @@ msgstr ""
 
 #: eshop-add-cart.php:265
 msgid "<abbr title=\"Quantity\">Qty</abbr>:"
-msgstr ""
+msgstr "<abbr title=\"Quantity\">Cantitate</abbr>:"
 
 #: eshop-add-cart.php:280
 #: eshop-add-cart.php:282
 msgid "Add to Cart"
-msgstr ""
+msgstr "Adauga la cos"
 
 #: eshop-add-cart.php:280
 #: eshop-add-cart.php:282
@@ -4881,7 +4881,7 @@ msgstr ""
 
 #: eshop-shortcodes.php:1783
 msgid "&laquo; Continue Shopping"
-msgstr ""
+msgstr "&laquo; Inapoi la cumparaturi"
 
 #: eshop-shortcodes.php:1822
 msgid "Local Tax rates."
