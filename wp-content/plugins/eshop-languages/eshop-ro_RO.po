@@ -1,0 +1,5500 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: eShop\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/eshop\n"
+"POT-Creation-Date: 2011-07-23 08:48:47+00:00\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Csongor Bartus <cs@clair.ro>\n"
+"Language-Team: RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: bank.php:7
+#: paypal.php:21
+#: epn.php:8
+#: webtopay.php:9
+#: authorizenet.php:8
+#: cash.php:7
+#: payson.php:8
+#: ideallite.php:28
+#: ogone.php:8
+msgid "There appears to have been an error, please contact the site admin"
+msgstr ""
+
+#: bank.php:56
+msgid "bank awaiting payment -"
+msgstr ""
+
+#: bank.php:58
+#: paypal.php:268
+#: paypal.php:352
+#: epn/process.php:21
+#: epn/process.php:82
+#: authorizenet.php:213
+#: authorizenet.php:275
+#: cash.php:58
+#: payson.php:189
+#: payson.php:253
+#: ideallite.php:309
+#: ideallite.php:374
+#: ogone.php:235
+#: eshop-shortcodes.php:1291
+#: eshop-shortcodes.php:1315
+#: eshop-shortcodes.php:1340
+msgid "TEST-"
+msgstr ""
+
+#: bank.php:59
+msgid "Testing: bank awaiting payment - "
+msgstr ""
+
+#: bank.php:67
+#: epn/process.php:30
+#: authorizenet.php:223
+#: cash.php:67
+#: payson.php:198
+#: ideallite.php:318
+#: ogone.php:245
+msgid "Duplicated-"
+msgstr ""
+
+#: bank.php:73
+#: paypal.php:299
+#: webtopay.php:210
+#: epn/process.php:35
+#: authorizenet.php:229
+#: cash.php:73
+#: payson.php:203
+#: ideallite.php:323
+#: ogone.php:252
+msgid "Completed Payment"
+msgstr ""
+
+#: bank.php:79
+#: paypal.php:373
+#: webtopay.php:216
+#: epn/process.php:95
+#: authorizenet.php:289
+#: cash.php:79
+#: payson.php:267
+#: ideallite.php:402
+#: ogone.php:313
+msgid " Ref:"
+msgstr ""
+
+#: bank.php:83
+msgid "A bank purchase was made"
+msgstr ""
+
+#: bank.php:84
+#: paypal.php:318
+#: webtopay.php:221
+#: epn/process.php:100
+#: authorizenet.php:247
+#: cash.php:84
+#: payson.php:221
+#: ideallite.php:344
+#: ogone.php:269
+msgid "from "
+msgstr ""
+
+#: bank.php:84
+#: paypal.php:318
+#: paypal.php:376
+#: webtopay.php:221
+#: epn/process.php:100
+#: authorizenet.php:247
+#: authorizenet.php:292
+#: cash.php:84
+#: payson.php:221
+#: payson.php:270
+#: ideallite.php:344
+#: ideallite.php:405
+#: ogone.php:269
+#: ogone.php:316
+msgid " on "
+msgstr ""
+
+#: bank.php:85
+#: paypal.php:319
+#: paypal.php:377
+#: webtopay.php:222
+#: epn/process.php:101
+#: authorizenet.php:248
+#: authorizenet.php:293
+#: cash.php:85
+#: payson.php:222
+#: payson.php:271
+#: ideallite.php:345
+#: ideallite.php:406
+#: ogone.php:270
+#: ogone.php:317
+msgid " at "
+msgstr ""
+
+#: bank.php:86
+#: paypal.php:319
+#: webtopay.php:222
+#: epn/process.php:101
+#: authorizenet.php:248
+#: cash.php:86
+#: payson.php:222
+#: ideallite.php:347
+#: ogone.php:270
+msgid "Details"
+msgstr ""
+
+#: bank.php:90
+#: paypal.php:327
+#: paypal.php:380
+#: webtopay.php:227
+#: epn/process.php:106
+#: authorizenet.php:253
+#: authorizenet.php:295
+#: cash.php:90
+#: payson.php:227
+#: payson.php:273
+#: ideallite.php:349
+#: ideallite.php:408
+#: ogone.php:275
+#: ogone.php:319
+msgid "Regards, Your friendly automated response."
+msgstr ""
+
+#: authorizenet/authorizenet.class.php:70
+msgid "<strong>Note:</strong> Submit to finalize order at Authorize.net."
+msgstr ""
+
+#: authorizenet/authorizenet.class.php:71
+#: webtopay/webtopay.class.php:88
+#: paypal/eshop-paypal.class.php:149
+#: epn/epn.class.php:70
+#: ideallite/ideallite.class.php:101
+#: cash/cash.class.php:71
+#: payson/payson.class.php:71
+#: ogone/ogone.class.php:69
+#: eshop-shortcodes.php:1784
+#: bank/bank.class.php:71
+msgid "Proceed to Checkout &raquo;"
+msgstr ""
+
+#: authorizenet/authorizenet.class.php:83
+#: webtopay/webtopay.class.php:100
+#: paypal/eshop-paypal.class.php:169
+#: epn/epn.class.php:82
+#: ideallite/ideallite.class.php:115
+#: cash/cash.class.php:83
+#: payson/payson.class.php:83
+#: ogone/ogone.class.php:81
+#: bank/bank.class.php:83
+msgid "Please wait, your order is being processed&#8230;"
+msgstr ""
+
+#: authorizenet/authorizenet.class.php:84
+msgid "If you are not automatically redirected to authorize.net, please use the <em>Proceed to Authorize.net</em> button."
+msgstr ""
+
+#: authorizenet/authorizenet.class.php:146
+msgid "decimal price amendment"
+msgstr ""
+
+#: authorizenet/authorizenet.class.php:146
+msgid "amend"
+msgstr ""
+
+#: authorizenet/authorizenet.class.php:158
+msgid "Proceed to authorize.net &raquo;"
+msgstr ""
+
+#: eshop-install.php:192
+msgid "ERROR! eShop requires that the %1$s and %2$s directories are writable before the plugin can be activated."
+msgstr ""
+
+#: eshop-install.php:804
+#: eshop-install.php:884
+#: eshop-upgrade.php:485
+msgid "Your order from "
+msgstr ""
+
+#: eshop-install.php:839
+msgid "Automatic default email"
+msgstr ""
+
+#: eshop-install.php:840
+msgid " Notification"
+msgstr ""
+
+#: eshop-install.php:880
+msgid "Admin Order Form email"
+msgstr ""
+
+#: eshop-install.php:885
+#: eshop-upgrade.php:488
+msgid "Automatic Paypal email"
+msgstr ""
+
+#: eshop-install.php:886
+#: eshop-upgrade.php:490
+msgid "Automatic Payson email"
+msgstr ""
+
+#: eshop-install.php:887
+#: eshop-upgrade.php:492
+msgid "Automatic Cash email"
+msgstr ""
+
+#: eshop-install.php:888
+#: eshop-upgrade.php:495
+msgid "Automatic ePN email"
+msgstr ""
+
+#: eshop-install.php:889
+#: eshop-upgrade.php:497
+msgid "Automatic webtopay email"
+msgstr ""
+
+#: eshop-install.php:890
+#: eshop-upgrade.php:500
+msgid "Automatic Authorize.net email"
+msgstr ""
+
+#: eshop-install.php:891
+#: eshop-upgrade.php:502
+msgid "Automatic iDeal Lite email"
+msgstr ""
+
+#: eshop-install.php:892
+#: eshop-upgrade.php:505
+msgid "Automatic ogone email"
+msgstr ""
+
+#: eshop-install.php:893
+#: eshop-upgrade.php:507
+msgid "Automatic Bank email"
+msgstr ""
+
+#: paypal.php:206
+#: eshop-shortcodes.php:1359
+msgid "Thank you for your order"
+msgstr ""
+
+#: paypal.php:208
+msgid "Thank you for your order!"
+msgstr ""
+
+#: paypal.php:266
+#: paypal.php:350
+msgid "Paypal IPN -"
+msgstr ""
+
+#: paypal.php:269
+#: paypal.php:353
+msgid "Testing: Paypal IPN - "
+msgstr ""
+
+#: paypal.php:277
+msgid " - Duplicated"
+msgstr ""
+
+#: paypal.php:278
+msgid "Duplicated Transaction Id."
+msgstr ""
+
+#: paypal.php:284
+#: paypal.php:291
+msgid " - Fraud"
+msgstr ""
+
+#: paypal.php:285
+msgid "Currency codes do not match, someone was trying to make a fraudulent purchase!"
+msgstr ""
+
+#: paypal.php:292
+msgid "The business email address in eShop does not match your main email address at Paypal."
+msgstr ""
+
+#: paypal.php:303
+msgid "Refunded Payment"
+msgstr ""
+
+#: paypal.php:305
+msgid "You have received a refund notification, eShop doesn't know how to handle these, but details of the notification are included below."
+msgstr ""
+
+#: paypal.php:308
+msgid "A Failed Payment"
+msgstr ""
+
+#: paypal.php:310
+msgid "The transaction was not completed successfully. eShop could not validate the order."
+msgstr ""
+
+#: paypal.php:312
+msgid "The transaction was not completed successfully at Paypal. The pending reason for this is"
+msgstr ""
+
+#: paypal.php:317
+#: paypal.php:375
+#: webtopay.php:220
+#: epn/process.php:99
+#: authorizenet.php:246
+#: authorizenet.php:291
+#: payson.php:220
+#: payson.php:269
+#: ideallite.php:343
+#: ideallite.php:404
+#: ogone.php:268
+#: ogone.php:315
+msgid "An instant payment notification was received"
+msgstr ""
+
+#: paypal.php:363
+#: authorizenet.php:284
+#: payson.php:262
+#: ideallite.php:396
+msgid "INVALID Payment"
+msgstr ""
+
+#: paypal.php:364
+msgid "Paypal has reported an invalid payment."
+msgstr ""
+
+#: paypal.php:367
+#: authorizenet.php:287
+#: payson.php:265
+#: ideallite.php:400
+msgid "Invalid and Failed Payment"
+msgstr ""
+
+#: paypal.php:368
+msgid "Paypal has reported an invalid, and failed payment."
+msgstr ""
+
+#: paypal.php:370
+msgid "Paypal has reported an invalid, and failed payment. The pending reason for this is"
+msgstr ""
+
+#: paypal.php:376
+#: authorizenet.php:292
+#: payson.php:270
+#: ideallite.php:405
+#: ogone.php:316
+msgid "from"
+msgstr ""
+
+#: paypal.php:377
+#: authorizenet.php:293
+#: payson.php:271
+#: ideallite.php:406
+#: ogone.php:317
+msgid "Details:"
+msgstr ""
+
+#: webtopay/webtopay.class.php:87
+msgid "<strong>Note:</strong> Submit to finalize order at webtopay."
+msgstr ""
+
+#: webtopay/webtopay.class.php:101
+msgid "If you are not automatically redirected to webtopay, please use the <em>Proceed to webtopay</em> button."
+msgstr ""
+
+#: webtopay/webtopay.class.php:171
+msgid "Payment for goods and services (of no. [order_nr]) ([site_name])"
+msgstr ""
+
+#: webtopay/webtopay.class.php:186
+msgid "Proceed to webtopay &raquo;"
+msgstr ""
+
+#: eshop-product-entry.php:15
+msgid "Product Entry"
+msgstr ""
+
+#: eshop-product-entry.php:51
+#: eshop-products.php:196
+#: eshop-dashboard.php:47
+#: eshop-base.php:107
+msgid "Product"
+msgstr ""
+
+#: eshop-product-entry.php:53
+#: eshop-products.php:195
+#: eshop-products.php:253
+#: eshop-shortcodes.php:1429
+#: eshop-base.php:106
+#: eshop-base.php:141
+#: eshop-base.php:367
+msgid "Sku"
+msgstr ""
+
+#: eshop-product-entry.php:53
+msgid "(unique identification reference eg. abc001)"
+msgstr ""
+
+#: eshop-product-entry.php:54
+msgid "Product Description"
+msgstr ""
+
+#: eshop-product-entry.php:66
+#: eshop-shortcodes.php:1444
+msgid "Product Options by option price and download"
+msgstr ""
+
+#: eshop-product-entry.php:67
+#: eshop-settings-extends.php:491
+#: eshop-shortcodes.php:1442
+msgid "Product Options"
+msgstr ""
+
+#: eshop-product-entry.php:68
+#: eshop-product-entry.php:109
+#: eshop-shortcodes.php:1448
+#: eshop-shortcodes.php:1646
+#: eshop-options.php:122
+#: eshop-options.php:150
+#: eshop-options.php:234
+#: eshop-options.php:251
+msgid "Option"
+msgstr ""
+
+#: eshop-product-entry.php:69
+#: eshop-product-entry.php:110
+#: eshop-user-orders.php:77
+#: eshop-user-orders.php:199
+#: eshop-all-data.php:23
+#: eshop-orders.php:163
+#: eshop-orders.php:525
+#: eshop-shortcodes.php:1450
+#: eshop-shortcodes.php:1603
+#: eshop-options.php:124
+#: eshop-options.php:150
+#: eshop-options.php:234
+#: eshop-options.php:252
+msgid "Price"
+msgstr ""
+
+#: eshop-product-entry.php:70
+#: eshop-product-entry.php:115
+#: eshop-shortcodes.php:1455
+#: eshop-shortcodes.php:1457
+#: eshop-shortcodes.php:1525
+#: eshop-shortcodes.php:1605
+msgid "Sale Price"
+msgstr ""
+
+#: eshop-product-entry.php:71
+#: eshop-product-entry.php:121
+#: eshop-products.php:265
+msgid "Tax"
+msgstr ""
+
+#: eshop-product-entry.php:72
+#: eshop-product-entry.php:137
+#: purchase-downloads.php:65
+#: eshop-dashboard.php:24
+#: eshop-shortcodes.php:1465
+#: eshop-base.php:144
+#: eshop-base.php:370
+msgid "Download"
+msgstr ""
+
+#: eshop-product-entry.php:73
+#: eshop-product-entry.php:149
+#: eshop-shipping.php:642
+#: eshop-shipping.php:683
+#: eshop-shortcodes.php:1471
+#: eshop-shortcodes.php:1651
+#: eshop-shortcodes.php:1695
+#: eshop-options.php:127
+#: eshop-options.php:150
+#: eshop-options.php:234
+#: eshop-options.php:254
+msgid "Weight"
+msgstr ""
+
+#: eshop-product-entry.php:74
+#: eshop-product-entry.php:154
+#: eshop-products.php:198
+#: eshop-products.php:396
+#: eshop-shortcodes.php:1474
+#: eshop-base.php:146
+#: eshop-base.php:371
+msgid "Stock"
+msgstr ""
+
+#: eshop-product-entry.php:123
+#: eshop-style.php:69
+#: eshop-all-data.php:67
+#: eshop-settings-extends.php:310
+#: eshop-settings-extends.php:313
+#: eshop-settings-extends.php:329
+#: eshop-settings-extends.php:332
+#: eshop-settings-extends.php:348
+#: eshop-settings-extends.php:351
+#: eshop-settings-extends.php:523
+#: eshop-settings-extends.php:536
+#: eshop-settings-extends.php:565
+#: eshop-settings-extends.php:592
+#: eshop-settings-extends.php:595
+#: eshop-settings-extends.php:623
+#: eshop-settings-extends.php:626
+#: eshop-settings-extends.php:635
+#: eshop-settings-extends.php:638
+#: eshop-settings-extends.php:647
+#: eshop-settings-extends.php:650
+#: eshop-settings-extends.php:658
+#: eshop-settings-extends.php:662
+#: eshop-settings-extends.php:666
+#: eshop-settings-extends.php:677
+#: eshop-settings-extends.php:680
+#: eshop-settings-extends.php:702
+#: eshop-settings-extends.php:705
+#: eshop-settings-extends.php:714
+#: eshop-settings-extends.php:717
+#: eshop-settings-extends.php:726
+#: eshop-settings-extends.php:729
+#: eshop-settings-extends.php:738
+#: eshop-settings-extends.php:741
+#: eshop-settings-extends.php:753
+#: eshop-settings-extends.php:756
+#: eshop-settings-extends.php:771
+#: eshop-settings-extends.php:774
+#: eshop-settings-extends.php:791
+#: eshop-settings-extends.php:794
+#: eshop-settings-extends.php:821
+#: eshop-settings-extends.php:824
+#: eshop-settings-extends.php:1135
+#: eshop-settings-extends.php:1138
+#: eshop-settings-extends.php:1495
+#: eshop-settings-extends.php:1513
+#: eshop-shipping.php:473
+#: eshop-downloads.php:472
+#: eshop-base.php:194
+#: eshop-widget.php:101
+#: eshop-widget.php:261
+#: eshop-widget.php:781
+#: eshop-widget.php:793
+msgid "No"
+msgstr ""
+
+#: eshop-product-entry.php:126
+#: eshop-products.php:376
+#: eshop-settings-extends.php:1522
+#: eshop-settings-extends.php:1592
+#: eshop-settings-extends.php:1624
+#: eshop-shortcodes.php:1539
+#: eshop-shortcodes.php:1855
+msgid "Band %1$d"
+msgstr ""
+
+#: eshop-product-entry.php:138
+#: eshop-product-entry.php:197
+msgid "No (or select)"
+msgstr ""
+
+#: eshop-product-entry.php:171
+#: eshop-admin-functions.php:45
+#: eshop-options.php:20
+#: eshop-options.php:176
+msgid "Option Sets"
+msgstr ""
+
+#: eshop-product-entry.php:192
+msgid "Product Settings"
+msgstr ""
+
+#: eshop-product-entry.php:196
+#: eshop-products.php:258
+msgid "Shipping Rate"
+msgstr ""
+
+#: eshop-product-entry.php:222
+#: eshop-products.php:355
+msgid "Featured Product"
+msgstr ""
+
+#: eshop-product-entry.php:223
+msgid "Product in sale"
+msgstr ""
+
+#: eshop-product-entry.php:225
+#: eshop-products.php:259
+#: eshop-products.php:324
+#: eshop-base.php:145
+msgid "Stock Available"
+msgstr ""
+
+#: eshop-product-entry.php:235
+msgid "Form Settings"
+msgstr ""
+
+#: eshop-product-entry.php:236
+msgid "Show Options as"
+msgstr ""
+
+#: eshop-product-entry.php:238
+msgid "Dropdown Select"
+msgstr ""
+
+#: eshop-product-entry.php:239
+msgid "Radio Buttons"
+msgstr ""
+
+#: eshop-products.php:26
+#: eshop-admin-functions.php:44
+msgid "Products"
+msgstr ""
+
+#: eshop-products.php:28
+msgid "Authors"
+msgstr ""
+
+#: eshop-products.php:31
+msgid "Show products for"
+msgstr ""
+
+#: eshop-products.php:42
+msgid "Products Table"
+msgstr ""
+
+#: eshop-products.php:43
+msgid "A reference table for identifying products"
+msgstr ""
+
+#: eshop-products.php:100
+msgid " Some products were marked as not available due to missing information, check the individual product pages."
+msgstr ""
+
+#: eshop-products.php:102
+msgid " Some products were marked as not available as no stock was found."
+msgstr ""
+
+#: eshop-products.php:104
+msgid "Products have been updated."
+msgstr ""
+
+#: eshop-products.php:193
+msgid "Sort Products by &raquo;"
+msgstr ""
+
+#: eshop-products.php:194
+#: eshop-orders.php:147
+#: eshop-downloads.php:363
+#: eshop-base.php:105
+msgid "ID Number"
+msgstr ""
+
+#: eshop-products.php:199
+#: eshop-widget.php:448
+msgid "Featured"
+msgstr ""
+
+#: eshop-products.php:250
+#: eshop-base.php:138
+#: eshop-base.php:364
+msgid "Product Quick reference table"
+msgstr ""
+
+#: eshop-products.php:254
+#: eshop-all-data.php:16
+#: eshop-downloads.php:205
+#: eshop-downloads.php:378
+msgid "ID"
+msgstr ""
+
+#: eshop-products.php:255
+#: eshop-base.php:142
+#: eshop-base.php:368
+msgid "Page"
+msgstr ""
+
+#: eshop-products.php:256
+#: eshop-settings-extends.php:1195
+#: eshop-shortcodes.php:1435
+#: eshop-base.php:143
+#: eshop-base.php:369
+#: eshop-options.php:146
+#: eshop-options.php:230
+msgid "Description"
+msgstr ""
+
+#: eshop-products.php:257
+#: eshop-admin-functions.php:46
+#: eshop-dashboard.php:24
+#: eshop-settings-class.php:72
+#: eshop-settings-extends.php:850
+#: eshop-downloads.php:210
+#: eshop-downloads.php:256
+#: eshop-downloads.php:367
+#: eshop-downloads.php:383
+msgid "Downloads"
+msgstr ""
+
+#: eshop-products.php:257
+msgid "DL"
+msgstr ""
+
+#: eshop-products.php:258
+msgid "S/R"
+msgstr ""
+
+#: eshop-products.php:259
+#: eshop-base.php:145
+msgid "Stk avail."
+msgstr ""
+
+#: eshop-products.php:260
+msgid "Number of Purchases"
+msgstr ""
+
+#: eshop-products.php:260
+msgid "Purc."
+msgstr ""
+
+#: eshop-products.php:261
+msgid "Marked as Featured"
+msgstr ""
+
+#: eshop-products.php:261
+msgid "Feat."
+msgstr ""
+
+#: eshop-products.php:262
+msgid "Product on sale"
+msgstr ""
+
+#: eshop-products.php:262
+#: eshop-settings-extends.php:816
+#: eshop-widget.php:457
+msgid "Sale"
+msgstr ""
+
+#: eshop-products.php:263
+#: eshop-base.php:147
+#: eshop-base.php:372
+msgid "Option/Price"
+msgstr ""
+
+#: eshop-products.php:267
+msgid "Stock Level"
+msgstr ""
+
+#: eshop-products.php:267
+msgid "Stk"
+msgstr ""
+
+#: eshop-products.php:268
+msgid "Thumbnail"
+msgstr ""
+
+#: eshop-products.php:306
+#: eshop-base.php:181
+msgid "(no title)"
+msgstr ""
+
+#: eshop-products.php:363
+msgid "Product On Sale"
+msgstr ""
+
+#: eshop-products.php:368
+#: eshop-add-cart.php:182
+#: eshop-add-cart.php:215
+#: eshop-base.php:220
+#: eshop-base.php:432
+msgid "%1$s @ %2$s%3$s"
+msgstr ""
+
+#: eshop-products.php:368
+#: checkout.php:52
+#: eshop-user-orders.php:117
+#: eshop-user-orders.php:249
+#: eshop-user-orders.php:254
+#: eshop-user-orders.php:262
+#: eshop-user-orders.php:264
+#: eshop-user-orders.php:268
+#: eshop-user-orders.php:271
+#: eshop-dashboard.php:187
+#: eshop-dashboard.php:188
+#: eshop-dashboard.php:189
+#: eshop-dashboard.php:201
+#: eshop-dashboard.php:202
+#: eshop-dashboard.php:203
+#: cart-functions.php:144
+#: cart-functions.php:158
+#: cart-functions.php:195
+#: cart-functions.php:197
+#: cart-functions.php:285
+#: cart-functions.php:292
+#: cart-functions.php:309
+#: cart-functions.php:317
+#: cart-functions.php:1226
+#: cart-functions.php:1230
+#: cart-functions.php:1232
+#: cart-functions.php:1235
+#: cart-functions.php:1239
+#: cart-functions.php:1251
+#: cart-functions.php:1252
+#: cart-functions.php:1254
+#: eshop-orders.php:205
+#: eshop-orders.php:575
+#: eshop-orders.php:580
+#: eshop-orders.php:588
+#: eshop-orders.php:590
+#: eshop-orders.php:594
+#: eshop-orders.php:597
+#: eshop-add-cart.php:100
+#: eshop-add-cart.php:115
+#: eshop-add-cart.php:126
+#: eshop-add-cart.php:139
+#: eshop-add-cart.php:182
+#: eshop-add-cart.php:215
+#: eshop-add-cart.php:240
+#: eshop-shortcodes.php:756
+#: eshop-shortcodes.php:761
+#: eshop-shortcodes.php:766
+#: eshop-shortcodes.php:769
+#: eshop-shortcodes.php:832
+#: eshop-shortcodes.php:837
+#: eshop-shortcodes.php:842
+#: eshop-shortcodes.php:845
+#: eshop-shortcodes.php:890
+#: eshop-shortcodes.php:898
+#: eshop-shortcodes.php:1037
+#: eshop-shortcodes.php:1076
+#: eshop-shortcodes.php:1521
+#: eshop-shortcodes.php:1530
+#: eshop-shortcodes.php:1580
+#: eshop-shortcodes.php:1632
+#: eshop-shortcodes.php:1635
+#: eshop-shortcodes.php:1721
+#: eshop-base.php:220
+#: eshop-base.php:432
+#: eshop-widget.php:156
+msgid "2"
+msgstr ""
+
+#: eshop-products.php:402
+#: eshop-base.php:213
+#: eshop-base.php:425
+msgid "n/a"
+msgstr ""
+
+#: eshop-products.php:427
+msgid "Update Products"
+msgstr ""
+
+#: eshop-products.php:437
+#: eshop-user-orders.php:129
+#: eshop-orders.php:219
+#: eshop-shortcodes.php:165
+#: eshop-shortcodes.php:284
+#: eshop-shortcodes.php:406
+#: eshop-shortcodes.php:483
+#: eshop-shortcodes.php:566
+#: eshop-downloads.php:420
+#: eshop-base.php:251
+msgid "Displaying %s&#8211;%s of %s"
+msgstr ""
+
+#: eshop-products.php:444
+#: eshop-user-orders.php:136
+#: eshop-orders.php:226
+#: eshop-shortcodes.php:182
+#: eshop-shortcodes.php:300
+#: eshop-shortcodes.php:422
+#: eshop-shortcodes.php:499
+#: eshop-shortcodes.php:582
+#: eshop-downloads.php:427
+#: eshop-base.php:258
+msgid "View All"
+msgstr ""
+
+#: eshop-products.php:450
+#: eshop-base.php:264
+msgid "There are no products available."
+msgstr ""
+
+#: eshop-products.php:465
+msgid "All"
+msgstr ""
+
+#: webtopay.php:166
+msgid "\"Cert. not validated\""
+msgstr ""
+
+#: webtopay.php:171
+msgid "SS2 not verified"
+msgstr ""
+
+#: webtopay.php:198
+msgid "Status not accepted: "
+msgstr ""
+
+#: paypal/eshop-paypal.class.php:148
+msgid "<strong>Note:</strong> Submit to finalize order at PayPal."
+msgstr ""
+
+#: paypal/eshop-paypal.class.php:170
+msgid "If you are not automatically redirected to Paypal, please use the <em>Proceed to Paypal</em> button."
+msgstr ""
+
+#: paypal/eshop-paypal.class.php:183
+msgid "Proceed to Paypal &raquo;"
+msgstr ""
+
+#: epn/epn.class.php:69
+msgid "<strong>Note:</strong> Submit to finalize order at eProcessingNetwork."
+msgstr ""
+
+#: epn/epn.class.php:83
+msgid "If you are not automatically redirected to eProcessingNetwork, please use the <em>Proceed to eProcessingNetwork</em> button."
+msgstr ""
+
+#: epn/epn.class.php:119
+msgid "Proceed to eProcessingNetwork &raquo;"
+msgstr ""
+
+#: epn/process.php:19
+#: epn/process.php:80
+msgid "epn IPN -"
+msgstr ""
+
+#: epn/process.php:22
+#: epn/process.php:83
+msgid "Testing: epn IPN - "
+msgstr ""
+
+#: epn/process.php:90
+msgid "DECLINED Payment"
+msgstr ""
+
+#: epn/process.php:92
+msgid "Your payment was not accepted at eProcessingNetwork and your order has been cancelled"
+msgstr ""
+
+#: purchase-downloads.php:26
+#: purchase-downloads.php:74
+msgid "Download all files"
+msgstr ""
+
+#: purchase-downloads.php:35
+msgid "download"
+msgstr ""
+
+#: purchase-downloads.php:37
+msgid "downloads"
+msgstr ""
+
+#: purchase-downloads.php:63
+msgid "Number of downloads remaining"
+msgstr ""
+
+#: purchase-downloads.php:74
+msgid "in one zip file."
+msgstr ""
+
+#: purchase-downloads.php:79
+msgid "Download All Files"
+msgstr ""
+
+#: purchase-downloads.php:88
+msgid "Either your email address or code is incorrect, please try again."
+msgstr ""
+
+#: purchase-downloads.php:90
+msgid "Your email address and code are correct, however you have no downloads remaining."
+msgstr ""
+
+#: purchase-downloads.php:108
+msgid "Enter Details"
+msgstr ""
+
+#: purchase-downloads.php:109
+#: checkout.php:821
+#: eshop-user-orders.php:286
+#: cart-functions.php:1272
+#: cart-functions.php:1315
+#: eshop-orders.php:616
+msgid "Email:"
+msgstr ""
+
+#: purchase-downloads.php:111
+#: cart-functions.php:1316
+#: eshop-shipping.php:81
+#: eshop-shipping.php:83
+#: eshop-shipping.php:95
+#: eshop-shipping.php:228
+#: eshop-shipping.php:230
+#: eshop-shipping.php:239
+#: eshop-shipping.php:241
+#: eshop-shipping.php:253
+msgid "Code:"
+msgstr ""
+
+#: purchase-downloads.php:113
+#: eshop-discount-codes.php:20
+#: eshop-shipping.php:145
+#: eshop-shipping.php:296
+#: eshop-shortcodes.php:1157
+#: eshop-shortcodes.php:1206
+msgid "Submit"
+msgstr ""
+
+#: checkout.php:34
+msgid "Denotes Required Field "
+msgstr ""
+
+#: checkout.php:40
+msgid "Please Choose Shipping"
+msgstr ""
+
+#: checkout.php:52
+msgid "%1$s %2$s %3$s"
+msgstr ""
+
+#: checkout.php:52
+msgid "Total weight: "
+msgstr ""
+
+#: checkout.php:61
+#: eshop-shortcodes.php:1053
+#: eshop-shortcodes.php:1692
+msgid "Shipping rates per mode"
+msgstr ""
+
+#: checkout.php:66
+#: eshop-settings-extends.php:1567
+#: eshop-settings-extends.php:1600
+#: eshop-settings-extends.php:1632
+#: eshop-shipping.php:502
+#: eshop-shipping.php:533
+#: eshop-shipping.php:555
+#: eshop-shipping.php:574
+#: eshop-shipping.php:625
+#: eshop-shipping.php:645
+#: eshop-shipping.php:686
+#: eshop-shortcodes.php:953
+#: eshop-shortcodes.php:1060
+#: eshop-shortcodes.php:1698
+#: eshop-shortcodes.php:1836
+#: eshop-shortcodes.php:1863
+msgid "Zone %1$d"
+msgstr ""
+
+#: checkout.php:83
+#: eshop-user-orders.php:117
+#: eshop-user-orders.php:249
+#: eshop-user-orders.php:254
+#: eshop-user-orders.php:262
+#: eshop-user-orders.php:264
+#: eshop-user-orders.php:268
+#: eshop-user-orders.php:271
+#: eshop-dashboard.php:187
+#: eshop-dashboard.php:188
+#: eshop-dashboard.php:189
+#: eshop-dashboard.php:201
+#: eshop-dashboard.php:202
+#: eshop-dashboard.php:203
+#: cart-functions.php:144
+#: cart-functions.php:158
+#: cart-functions.php:195
+#: cart-functions.php:197
+#: cart-functions.php:285
+#: cart-functions.php:292
+#: cart-functions.php:1226
+#: cart-functions.php:1230
+#: cart-functions.php:1235
+#: cart-functions.php:1239
+#: cart-functions.php:1254
+#: eshop-orders.php:205
+#: eshop-orders.php:575
+#: eshop-orders.php:580
+#: eshop-orders.php:588
+#: eshop-orders.php:590
+#: eshop-orders.php:594
+#: eshop-orders.php:597
+#: eshop-shortcodes.php:756
+#: eshop-shortcodes.php:761
+#: eshop-shortcodes.php:766
+#: eshop-shortcodes.php:769
+#: eshop-shortcodes.php:832
+#: eshop-shortcodes.php:837
+#: eshop-shortcodes.php:842
+#: eshop-shortcodes.php:845
+#: eshop-shortcodes.php:890
+#: eshop-shortcodes.php:898
+#: eshop-shortcodes.php:981
+#: eshop-shortcodes.php:999
+#: eshop-shortcodes.php:1019
+#: eshop-shortcodes.php:1037
+#: eshop-shortcodes.php:1079
+#: eshop-shortcodes.php:1521
+#: eshop-shortcodes.php:1530
+#: eshop-shortcodes.php:1632
+#: eshop-shortcodes.php:1724
+#: eshop-widget.php:156
+msgid "%1$s%2$s"
+msgstr ""
+
+#: checkout.php:92
+#: checkout.php:94
+#: eshop-shortcodes.php:1089
+#: eshop-shortcodes.php:1091
+#: eshop-shortcodes.php:1732
+#: eshop-shortcodes.php:1734
+msgid "%1$s <small>%2$s</small>"
+msgstr ""
+
+#: checkout.php:92
+#: eshop-shortcodes.php:1089
+#: eshop-shortcodes.php:1732
+msgid "(Shipping Zones by Country)"
+msgstr ""
+
+#: checkout.php:94
+#: eshop-shortcodes.php:1091
+#: eshop-shortcodes.php:1734
+msgid "(Shipping Zones by State/County/Province)"
+msgstr ""
+
+#: checkout.php:97
+#: eshop-shortcodes.php:1094
+msgid "Max. Weight %1$s %2$s"
+msgstr ""
+
+#: checkout.php:115
+msgid "Please Enter Your Details"
+msgstr ""
+
+#: checkout.php:118
+#: checkout.php:813
+msgid "Mailing Address"
+msgstr ""
+
+#: checkout.php:120
+#: checkout.php:815
+msgid "Contact Details"
+msgstr ""
+
+#: checkout.php:122
+msgid "First Name"
+msgstr ""
+
+#: checkout.php:124
+msgid "Last Name"
+msgstr ""
+
+#: checkout.php:127
+#: checkout.php:230
+#: eshop-all-data.php:27
+#: user.php:61
+#: eshop-orders.php:148
+msgid "Company"
+msgstr ""
+
+#: checkout.php:130
+#: eshop-all-data.php:29
+msgid "Email"
+msgstr ""
+
+#: checkout.php:133
+#: checkout.php:232
+#: eshop-all-data.php:28
+#: user.php:67
+msgid "Phone"
+msgstr ""
+
+#: checkout.php:135
+#: checkout.php:234
+#: eshop-user-orders.php:290
+#: eshop-user-orders.php:324
+#: eshop-all-data.php:30
+#: user.php:73
+#: eshop-orders.php:620
+#: eshop-orders.php:657
+msgid "Address"
+msgstr ""
+
+#: checkout.php:137
+#: user.php:79
+msgid "Address (continued)"
+msgstr ""
+
+#: checkout.php:139
+#: checkout.php:236
+msgid "City or town"
+msgstr ""
+
+#: checkout.php:152
+#: checkout.php:239
+#: eshop-all-data.php:32
+#: user.php:91
+#: eshop-shipping.php:43
+#: eshop-shipping.php:305
+#: eshop-shipping.php:443
+#: eshop-shipping.php:615
+msgid "State/County/Province"
+msgstr ""
+
+#: checkout.php:154
+#: checkout.php:242
+#: user.php:22
+#: eshop-shortcodes.php:1148
+msgid "Please Select"
+msgstr ""
+
+#: checkout.php:155
+#: checkout.php:243
+#: user.php:23
+msgid "not applicable"
+msgstr ""
+
+#: checkout.php:180
+#: checkout.php:262
+#: user.php:52
+msgid "State/County/Province <small>if not listed above</small>"
+msgstr ""
+
+#: checkout.php:183
+#: user.php:97
+msgid "Zip/Post code"
+msgstr ""
+
+#: checkout.php:185
+#: checkout.php:268
+#: eshop-all-data.php:34
+#: user.php:103
+#: eshop-shipping.php:158
+#: eshop-shipping.php:442
+#: eshop-shipping.php:614
+#: eshop-shortcodes.php:1147
+msgid "Country"
+msgstr ""
+
+#: checkout.php:197
+msgid "Error, please contact site owner."
+msgstr ""
+
+#: checkout.php:199
+#: checkout.php:271
+#: user.php:114
+msgid "Select your Country"
+msgstr ""
+
+#: checkout.php:216
+#: checkout.php:846
+#: checkout.php:851
+#: checkout.php:856
+msgid "Additional information"
+msgstr ""
+
+#: checkout.php:217
+#: checkout.php:847
+msgid "Reference or <abbr title=\"Purchase Order number\">PO</abbr>"
+msgstr ""
+
+#: checkout.php:219
+msgid "Comments or special instructions"
+msgstr ""
+
+#: checkout.php:227
+msgid "Shipping address (if different)"
+msgstr ""
+
+#: checkout.php:228
+#: eshop-all-data.php:26
+#: eshop-shipping.php:309
+#: eshop-options.php:208
+#: eshop-options.php:220
+msgid "Name"
+msgstr ""
+
+#: checkout.php:265
+msgid "Zip/Post Code"
+msgstr ""
+
+#: checkout.php:289
+msgid "Discount Code"
+msgstr ""
+
+#: checkout.php:295
+msgid "Pay Via"
+msgstr ""
+
+#: checkout.php:321
+#: checkout.php:345
+#: eshop-shortcodes.php:930
+#: eshop-widget.php:326
+msgid "Pay via"
+msgstr ""
+
+#: checkout.php:365
+msgid "Sign me up to the site so I can view my orders."
+msgstr ""
+
+#: checkout.php:369
+msgid "<strong>Note:</strong> Submit to show shipping charges."
+msgstr ""
+
+#: checkout.php:374
+msgid "Proceed to Confirmation &raquo;"
+msgstr ""
+
+#: checkout.php:633
+msgid "<strong>Shipping</strong> - not selected."
+msgstr ""
+
+#: checkout.php:638
+msgid "<strong>First name</strong> - missing or incorrect."
+msgstr ""
+
+#: checkout.php:644
+msgid "<strong>Last name</strong> - missing or incorrect."
+msgstr ""
+
+#: checkout.php:650
+msgid "<strong>Email address</strong> - missing or incorrect."
+msgstr ""
+
+#: checkout.php:656
+msgid "<strong>Phone Number</strong> - missing or incorrect"
+msgstr ""
+
+#: checkout.php:662
+msgid "<strong>Address</strong> - missing or incorrect."
+msgstr ""
+
+#: checkout.php:668
+msgid "<strong>City or town</strong> - missing or incorrect."
+msgstr ""
+
+#: checkout.php:674
+msgid "<strong>State/County/Province</strong> - missing or incorrect."
+msgstr ""
+
+#: checkout.php:681
+msgid "<strong>Country</strong> - missing or incorrect."
+msgstr ""
+
+#: checkout.php:687
+msgid "<strong><abbr title=\"United States\">US</abbr> State</strong> - missing or incorrect."
+msgstr ""
+
+#: checkout.php:692
+msgid "<strong>Zip/Post code</strong> - missing or incorrect."
+msgstr ""
+
+#: checkout.php:697
+msgid "<strong>Reference</strong> - missing."
+msgstr ""
+
+#: checkout.php:702
+msgid "<strong>Comments</strong> - missing."
+msgstr ""
+
+#: checkout.php:707
+msgid "<strong>Sign Up</strong> - not checked."
+msgstr ""
+
+#: checkout.php:718
+msgid " - not checked."
+msgstr ""
+
+#: checkout.php:723
+msgid "You have not chosen a <strong>payment option</strong>."
+msgstr ""
+
+#: checkout.php:731
+msgid "<strong>Discount Code</strong> - is not valid."
+msgstr ""
+
+#: checkout.php:741
+msgid "There were some errors in the details you entered&#8230;"
+msgstr ""
+
+#: checkout.php:795
+msgid "<span class=\"noprint\">Please Confirm </span>Your Details"
+msgstr ""
+
+#: checkout.php:817
+#: checkout.php:865
+msgid "Full name:"
+msgstr ""
+
+#: checkout.php:819
+#: checkout.php:866
+msgid "Company:"
+msgstr ""
+
+#: checkout.php:823
+#: checkout.php:867
+#: cart-functions.php:1271
+msgid "Phone:"
+msgstr ""
+
+#: checkout.php:824
+#: checkout.php:868
+msgid "Address:"
+msgstr ""
+
+#: checkout.php:825
+#: checkout.php:869
+msgid "City or town:"
+msgstr ""
+
+#: checkout.php:829
+#: checkout.php:831
+#: checkout.php:873
+#: checkout.php:875
+msgid "State/County/Province:"
+msgstr ""
+
+#: checkout.php:833
+#: checkout.php:877
+msgid "Zip/Post code:"
+msgstr ""
+
+#: checkout.php:836
+#: checkout.php:880
+#: eshop-shipping.php:95
+msgid "Country:"
+msgstr ""
+
+#: checkout.php:852
+#: checkout.php:858
+msgid "Comments or instructions:"
+msgstr ""
+
+#: checkout.php:857
+msgid "Reference or PO:"
+msgstr ""
+
+#: checkout.php:864
+msgid "Shipping Address"
+msgstr ""
+
+#: checkout.php:1062
+msgid "&laquo; Edit Cart or Continue Shopping"
+msgstr ""
+
+#: checkout.php:1065
+#: checkout.php:1068
+msgid "&laquo; Edit Details or Continue Shopping"
+msgstr ""
+
+#: checkout.php:1073
+#: cart-functions.php:336
+#: eshop-shortcodes.php:1787
+msgid "Your shopping cart is currently empty."
+msgstr ""
+
+#: eshop-about.php:18
+msgid "This page is normally accessible via the <strong>About</strong> link."
+msgstr ""
+
+#: eshop-style.php:12
+msgid "The Stylesheet Has Been Updated"
+msgstr ""
+
+#: eshop-style.php:20
+msgid "Default style has been applied."
+msgstr ""
+
+#: eshop-style.php:22
+msgid "Default style has been turned off."
+msgstr ""
+
+#: eshop-style.php:38
+msgid "<strong>Warning!</strong> The css file is not currently editable/writable! File permissions must first be changed."
+msgstr ""
+
+#: eshop-style.php:43
+msgid "eShop Styles"
+msgstr ""
+
+#: eshop-style.php:47
+msgid "Default Style"
+msgstr ""
+
+#: eshop-style.php:51
+msgid "Your active theme has an eshop style sheet, eshop.css, and will be used in preference to the default style below. Therefore changes made via the style editor below will not show on your site."
+msgstr ""
+
+#: eshop-style.php:55
+msgid "Default style is used by default. You can edit this via the editor below, or choose not to use it."
+msgstr ""
+
+#: eshop-style.php:58
+msgid "Use Default Style"
+msgstr ""
+
+#: eshop-style.php:68
+#: eshop-settings-extends.php:309
+#: eshop-settings-extends.php:312
+#: eshop-settings-extends.php:328
+#: eshop-settings-extends.php:331
+#: eshop-settings-extends.php:347
+#: eshop-settings-extends.php:350
+#: eshop-settings-extends.php:522
+#: eshop-settings-extends.php:535
+#: eshop-settings-extends.php:564
+#: eshop-settings-extends.php:591
+#: eshop-settings-extends.php:594
+#: eshop-settings-extends.php:622
+#: eshop-settings-extends.php:625
+#: eshop-settings-extends.php:634
+#: eshop-settings-extends.php:637
+#: eshop-settings-extends.php:646
+#: eshop-settings-extends.php:649
+#: eshop-settings-extends.php:676
+#: eshop-settings-extends.php:679
+#: eshop-settings-extends.php:701
+#: eshop-settings-extends.php:704
+#: eshop-settings-extends.php:713
+#: eshop-settings-extends.php:716
+#: eshop-settings-extends.php:725
+#: eshop-settings-extends.php:728
+#: eshop-settings-extends.php:737
+#: eshop-settings-extends.php:740
+#: eshop-settings-extends.php:752
+#: eshop-settings-extends.php:755
+#: eshop-settings-extends.php:770
+#: eshop-settings-extends.php:773
+#: eshop-settings-extends.php:790
+#: eshop-settings-extends.php:793
+#: eshop-settings-extends.php:820
+#: eshop-settings-extends.php:823
+#: eshop-settings-extends.php:1134
+#: eshop-settings-extends.php:1137
+#: eshop-settings-extends.php:1494
+#: eshop-settings-extends.php:1512
+#: eshop-shipping.php:472
+#: eshop-downloads.php:473
+#: eshop-base.php:192
+#: eshop-widget.php:100
+#: eshop-widget.php:260
+#: eshop-widget.php:780
+#: eshop-widget.php:792
+msgid "Yes"
+msgstr ""
+
+#: eshop-style.php:70
+msgid "Amend"
+msgstr ""
+
+#: eshop-style.php:89
+msgid "Style Editor"
+msgstr ""
+
+#: eshop-style.php:90
+msgid "Use this simple <abbr><span class=\"abbr\" title=\"Cascading Style Sheet\">CSS</span></abbr> file editor to modify the default style sheet file."
+msgstr ""
+
+#: eshop-style.php:93
+msgid "Style File Editor."
+msgstr ""
+
+#: eshop-style.php:94
+msgid "Edit Style"
+msgstr ""
+
+#: eshop-style.php:106
+msgid "Sorry. The file you are looking for could not be found"
+msgstr ""
+
+#: eshop-style.php:109
+msgid "Update Style"
+msgstr ""
+
+#: eshop-style.php:118
+msgid "Comparing Current Style with latest installed version of eShop"
+msgstr ""
+
+#: eshop-style.php:118
+msgid "Latest(from plugin)"
+msgstr ""
+
+#: eshop-style.php:118
+msgid "Current (in use)"
+msgstr ""
+
+#: eshop-style.php:122
+msgid "There may have been updates to the style."
+msgstr ""
+
+#: eshop-style.php:122
+msgid "Compare Current Style with latest installed version of eShop."
+msgstr ""
+
+#: eshop-style.php:126
+msgid "Your CSS matches that included with eShop."
+msgstr ""
+
+#: eshop-discount-codes.php:19
+msgid "Add a discount code"
+msgstr ""
+
+#: eshop-discount-codes.php:31
+msgid "Discount code deleted."
+msgstr ""
+
+#: eshop-discount-codes.php:48
+msgid "Edit a discount code"
+msgstr ""
+
+#: eshop-discount-codes.php:49
+#: eshop-base.php:570
+#: eshop-options.php:158
+msgid "Update"
+msgstr ""
+
+#: eshop-discount-codes.php:73
+msgid "You must choose a discount code type"
+msgstr ""
+
+#: eshop-discount-codes.php:79
+msgid "Percentage must be a number no greater than 100.00"
+msgstr ""
+
+#: eshop-discount-codes.php:81
+msgid "Percentage must be a number above 0"
+msgstr ""
+
+#: eshop-discount-codes.php:91
+msgid "The date you have chosen is not valid"
+msgstr ""
+
+#: eshop-discount-codes.php:101
+msgid "You must specify a code"
+msgstr ""
+
+#: eshop-discount-codes.php:107
+msgid "That code already exists"
+msgstr ""
+
+#: eshop-discount-codes.php:116
+msgid "How many times can this be used - must be numeric, or blank"
+msgstr ""
+
+#: eshop-discount-codes.php:119
+msgid "There were some errors:"
+msgstr ""
+
+#: eshop-discount-codes.php:149
+msgid "Discount code details updated"
+msgstr ""
+
+#: eshop-discount-codes.php:157
+msgid "Discount code details entered"
+msgstr ""
+
+#: eshop-discount-codes.php:169
+msgid "Suggested random codes:"
+msgstr ""
+
+#: eshop-discount-codes.php:177
+msgid "Enter new code"
+msgstr ""
+
+#: eshop-discount-codes.php:181
+#: eshop-admin-functions.php:47
+#: eshop-dashboard.php:283
+msgid "eShop Discount Codes"
+msgstr ""
+
+#: eshop-discount-codes.php:187
+msgid "Discount type"
+msgstr ""
+
+#: eshop-discount-codes.php:189
+#: eshop-shortcodes.php:1183
+msgid "Please select"
+msgstr ""
+
+#: eshop-discount-codes.php:190
+msgid "Percentage"
+msgstr ""
+
+#: eshop-discount-codes.php:191
+#: eshop-discount-codes.php:303
+msgid "%  - Limited by Uses"
+msgstr ""
+
+#: eshop-discount-codes.php:192
+#: eshop-discount-codes.php:307
+msgid "%  - Limited by Date"
+msgstr ""
+
+#: eshop-discount-codes.php:193
+#: eshop-discount-codes.php:310
+msgid "%  - Limited by Uses and Date"
+msgstr ""
+
+#: eshop-discount-codes.php:195
+msgid "Free Shipping"
+msgstr ""
+
+#: eshop-discount-codes.php:196
+#: eshop-discount-codes.php:313
+msgid "Free Ship - Limited by Uses"
+msgstr ""
+
+#: eshop-discount-codes.php:197
+#: eshop-discount-codes.php:317
+msgid "Free Ship - Limited by Date"
+msgstr ""
+
+#: eshop-discount-codes.php:198
+#: eshop-discount-codes.php:320
+msgid "Free Ship - Limited by Uses and Date"
+msgstr ""
+
+#: eshop-discount-codes.php:201
+#: eshop-discount-codes.php:276
+#: eshop-shipping.php:157
+#: eshop-shipping.php:172
+#: eshop-shipping.php:189
+#: eshop-shipping.php:308
+#: eshop-shipping.php:320
+#: eshop-shipping.php:328
+msgid "Code"
+msgstr ""
+
+#: eshop-discount-codes.php:203
+msgid "Discount percentage:"
+msgstr ""
+
+#: eshop-discount-codes.php:205
+msgid "How many times can this be used (leave blank for unlimited)"
+msgstr ""
+
+#: eshop-discount-codes.php:207
+#: eshop-discount-codes.php:280
+msgid "End Date"
+msgstr ""
+
+#: eshop-discount-codes.php:208
+#: eshop-base.php:515
+msgid "Year"
+msgstr ""
+
+#: eshop-discount-codes.php:229
+#: eshop-base.php:537
+msgid "Month"
+msgstr ""
+
+#: eshop-discount-codes.php:244
+#: eshop-base.php:552
+msgid "Day"
+msgstr ""
+
+#: eshop-discount-codes.php:260
+#: eshop-discount-codes.php:282
+msgid "Active?"
+msgstr ""
+
+#: eshop-discount-codes.php:271
+msgid "Current Discount Codes"
+msgstr ""
+
+#: eshop-discount-codes.php:272
+#: eshop-admin-functions.php:47
+msgid "Discount Codes"
+msgstr ""
+
+#: eshop-discount-codes.php:273
+msgid "Discount codes reference table"
+msgstr ""
+
+#: eshop-discount-codes.php:277
+#: eshop-settings-extends.php:420
+msgid "Discount"
+msgstr ""
+
+#: eshop-discount-codes.php:278
+#: eshop-templates.php:23
+#: eshop-options.php:182
+msgid "Type"
+msgstr ""
+
+#: eshop-discount-codes.php:279
+msgid "Remaining"
+msgstr ""
+
+#: eshop-discount-codes.php:281
+msgid "Used"
+msgstr ""
+
+#: eshop-discount-codes.php:283
+#: eshop-discount-codes.php:298
+#: cart-functions.php:59
+#: eshop-shipping.php:161
+#: eshop-shipping.php:177
+#: eshop-shipping.php:311
+#: eshop-shipping.php:323
+#: eshop-orders.php:47
+#: eshop-downloads.php:270
+#: eshop-options.php:159
+msgid "Delete"
+msgstr ""
+
+#: eshop-discount-codes.php:296
+msgid "Unlimited"
+msgstr ""
+
+#: eshop-discount-codes.php:304
+#: eshop-discount-codes.php:314
+msgid "Not applicable"
+msgstr ""
+
+#: eshop-discount-codes.php:325
+msgid "Edit this discount"
+msgstr ""
+
+#: eshop-user-orders.php:18
+#: eshop-user-orders.php:142
+msgid "There are no orders to display."
+msgstr ""
+
+#: eshop-user-orders.php:70
+#: eshop-orders.php:156
+msgid "eshop Order Listing"
+msgstr ""
+
+#: eshop-user-orders.php:73
+#: eshop-orders.php:159
+msgid "reference number"
+msgstr ""
+
+#: eshop-user-orders.php:74
+msgid "Ordered on"
+msgstr ""
+
+#: eshop-user-orders.php:75
+#: eshop-orders.php:165
+msgid "Transaction ID"
+msgstr ""
+
+#: eshop-user-orders.php:76
+#: eshop-orders.php:162
+msgid "Items"
+msgstr ""
+
+#: eshop-user-orders.php:78
+#: eshop-all-data.php:17
+msgid "Order Status"
+msgstr ""
+
+#: eshop-user-orders.php:96
+#: eshop-user-orders.php:170
+msgid "Awaiting Dispatch"
+msgstr ""
+
+#: eshop-user-orders.php:97
+#: eshop-user-orders.php:171
+#: eshop-dashboard.php:163
+#: eshop-orders.php:238
+#: eshop-orders.php:277
+#: eshop-orders.php:428
+#: eshop-orders.php:474
+#: eshop-orders.php:489
+msgid "Pending"
+msgstr ""
+
+#: eshop-user-orders.php:98
+#: eshop-user-orders.php:172
+#: eshop-dashboard.php:137
+#: eshop-dashboard.php:178
+#: eshop-orders.php:239
+#: eshop-orders.php:276
+#: eshop-orders.php:428
+#: eshop-orders.php:476
+#: eshop-orders.php:488
+msgid "Awaiting Payment"
+msgstr ""
+
+#: eshop-user-orders.php:99
+#: eshop-user-orders.php:173
+#: eshop-dashboard.php:134
+#: eshop-dashboard.php:175
+#: eshop-orders.php:236
+#: eshop-orders.php:275
+#: eshop-orders.php:428
+#: eshop-orders.php:475
+#: eshop-orders.php:486
+msgid "Shipped"
+msgstr ""
+
+#: eshop-user-orders.php:100
+#: eshop-user-orders.php:174
+#: eshop-dashboard.php:169
+#: eshop-orders.php:241
+#: eshop-orders.php:278
+#: eshop-orders.php:428
+#: eshop-orders.php:478
+#: eshop-orders.php:491
+msgid "Deleted"
+msgstr ""
+
+#: eshop-user-orders.php:101
+#: eshop-user-orders.php:175
+#: eshop-dashboard.php:166
+#: ogone.php:294
+#: eshop-orders.php:240
+#: eshop-orders.php:279
+#: eshop-orders.php:428
+#: eshop-orders.php:477
+#: eshop-orders.php:490
+msgid "Failed"
+msgstr ""
+
+#: eshop-user-orders.php:107
+#: eshop-orders.php:191
+msgid " of "
+msgstr ""
+
+#: eshop-user-orders.php:115
+#: eshop-orders.php:203
+msgid "View complete order details"
+msgstr ""
+
+#: eshop-user-orders.php:153
+#: eshop-admin-functions.php:52
+msgid "My Orders"
+msgstr ""
+
+#: eshop-user-orders.php:176
+#: eshop-user-orders.php:192
+#: eshop-orders.php:499
+#: eshop-orders.php:518
+msgid "Order Details"
+msgstr ""
+
+#: eshop-user-orders.php:183
+#: eshop-all-data.php:18
+#: eshop-orders.php:506
+msgid "Transaction ID:"
+msgstr ""
+
+#: eshop-user-orders.php:186
+msgid "Note:"
+msgstr ""
+
+#: eshop-user-orders.php:191
+#: eshop-orders.php:517
+msgid "Table for order details"
+msgstr ""
+
+#: eshop-user-orders.php:195
+#: eshop-all-data.php:19
+#: eshop-orders.php:521
+msgid "Product Name"
+msgstr ""
+
+#: eshop-user-orders.php:196
+#: eshop-all-data.php:20
+#: eshop-orders.php:522
+msgid "Item or Unit Data"
+msgstr ""
+
+#: eshop-user-orders.php:197
+#: eshop-all-data.php:21
+#: eshop-orders.php:523
+msgid "Download?"
+msgstr ""
+
+#: eshop-user-orders.php:198
+#: eshop-all-data.php:22
+#: eshop-orders.php:524
+#: eshop-base.php:491
+msgid "Quantity"
+msgstr ""
+
+#: eshop-user-orders.php:201
+#: eshop-orders.php:527
+msgid "Tax Rate"
+msgstr ""
+
+#: eshop-user-orders.php:202
+#: eshop-orders.php:528
+msgid "Tax amt"
+msgstr ""
+
+#: eshop-user-orders.php:233
+#: eshop-orders.php:559
+msgid "Yes - remaining:"
+msgstr ""
+
+#: eshop-user-orders.php:236
+#: eshop-orders.php:562
+msgid "Download Item Missing"
+msgstr ""
+
+#: eshop-user-orders.php:261
+#: cart-functions.php:924
+#: eshop-orders.php:587
+msgid "Processing&#8230;"
+msgstr ""
+
+#: eshop-user-orders.php:262
+#: eshop-orders.php:588
+msgid "Total &raquo;"
+msgstr ""
+
+#: eshop-user-orders.php:264
+#: eshop-orders.php:590
+msgid "Total paid via %1$s &raquo;"
+msgstr ""
+
+#: eshop-user-orders.php:267
+#: eshop-orders.php:593
+msgid "Total Tax &raquo;"
+msgstr ""
+
+#: eshop-user-orders.php:271
+#: eshop-orders.php:597
+msgid "Total with tax &raquo;"
+msgstr ""
+
+#: eshop-user-orders.php:276
+#: eshop-all-data.php:25
+#: cart-functions.php:1258
+#: eshop-orders.php:602
+msgid "Order placed on"
+msgstr ""
+
+#: eshop-user-orders.php:279
+msgid "Reference:"
+msgstr ""
+
+#: eshop-user-orders.php:281
+#: eshop-orders.php:608
+msgid "Invoice"
+msgstr ""
+
+#: eshop-user-orders.php:284
+#: eshop-user-orders.php:321
+#: eshop-orders.php:614
+#: eshop-orders.php:654
+msgid "Name: "
+msgstr ""
+
+#: eshop-user-orders.php:285
+#: eshop-user-orders.php:295
+#: eshop-user-orders.php:322
+#: eshop-orders.php:615
+#: eshop-orders.php:625
+#: eshop-orders.php:655
+msgid "Company: "
+msgstr ""
+
+#: eshop-user-orders.php:288
+#: eshop-user-orders.php:323
+#: eshop-orders.php:618
+#: eshop-orders.php:656
+msgid "Phone: "
+msgstr ""
+
+#: eshop-user-orders.php:318
+msgid "Shipping Zone: "
+msgstr ""
+
+#: eshop-user-orders.php:320
+#: eshop-all-data.php:71
+#: eshop-admin-functions.php:43
+#: cart-functions.php:277
+#: cart-functions.php:1084
+#: cart-functions.php:1225
+#: eshop-orders.php:653
+#: eshop-shortcodes.php:1664
+#: eshop-shortcodes.php:1673
+msgid "Shipping"
+msgstr ""
+
+#: eshop-user-orders.php:348
+msgid "Shipping Zone:"
+msgstr ""
+
+#: eshop-user-orders.php:356
+#: cart-functions.php:1293
+msgid "Paypal memo:"
+msgstr ""
+
+#: eshop-user-orders.php:360
+#: cart-functions.php:1299
+msgid "Order comments:"
+msgstr ""
+
+#: eshop-user-orders.php:367
+msgid "Nothing to see here, move along."
+msgstr ""
+
+#: eshop-all-data.php:24
+#: eshop-dashboard.php:150
+#: cart-functions.php:1254
+msgid "Total"
+msgstr ""
+
+#: eshop-all-data.php:31
+msgid "City: "
+msgstr ""
+
+#: eshop-all-data.php:33
+msgid "Zip"
+msgstr ""
+
+#: eshop-all-data.php:35
+msgid "Shipping Zone"
+msgstr ""
+
+#: eshop-all-data.php:36
+msgid "Ship To Name"
+msgstr ""
+
+#: eshop-all-data.php:37
+msgid "Ship To Company"
+msgstr ""
+
+#: eshop-all-data.php:38
+msgid "Ship To Phone"
+msgstr ""
+
+#: eshop-all-data.php:39
+msgid "Ship To Address"
+msgstr ""
+
+#: eshop-all-data.php:40
+msgid "Ship to City"
+msgstr ""
+
+#: eshop-all-data.php:41
+msgid "Ship to State/County/Province"
+msgstr ""
+
+#: eshop-all-data.php:42
+msgid "Ship to Zip"
+msgstr ""
+
+#: eshop-all-data.php:43
+msgid "Ship to Country"
+msgstr ""
+
+#: eshop-all-data.php:44
+msgid "Ship To Shipping Zone:"
+msgstr ""
+
+#: eshop-all-data.php:45
+#: eshop-orders.php:693
+msgid "Customer paypal memo:"
+msgstr ""
+
+#: eshop-all-data.php:46
+#: eshop-orders.php:606
+msgid "Customer reference:"
+msgstr ""
+
+#: eshop-all-data.php:47
+#: eshop-orders.php:697
+msgid "Customer order comments:"
+msgstr ""
+
+#: user.php:57
+msgid "Shopping Cart information"
+msgstr ""
+
+#: user.php:58
+msgid "Filling in fields here will save you having to enter them each time you purchase something from our shop."
+msgstr ""
+
+#: user.php:64
+msgid "Business users only."
+msgstr ""
+
+#: user.php:85
+msgid "City"
+msgstr ""
+
+#: eshop-admin-functions.php:40
+#: eshop-admin-functions.php:55
+#: eshop-settings-class.php:25
+msgid "eShop"
+msgstr ""
+
+#: eshop-admin-functions.php:42
+#: eshop-admin-functions.php:52
+msgid "eShop Orders"
+msgstr ""
+
+#: eshop-admin-functions.php:42
+msgid "Orders"
+msgstr ""
+
+#: eshop-admin-functions.php:43
+msgid "eShop Shipping"
+msgstr ""
+
+#: eshop-admin-functions.php:44
+#: eshop-widget.php:360
+msgid "eShop Products"
+msgstr ""
+
+#: eshop-admin-functions.php:45
+msgid "eShop Options"
+msgstr ""
+
+#: eshop-admin-functions.php:46
+#: eshop-settings-extends.php:292
+msgid "eShop Downloads"
+msgstr ""
+
+#: eshop-admin-functions.php:48
+#: eshop-settings-class.php:72
+#: eshop-settings-extends.php:850
+msgid "eShop Base"
+msgstr ""
+
+#: eshop-admin-functions.php:48
+msgid "Base"
+msgstr ""
+
+#: eshop-admin-functions.php:49
+#: eshop-templates.php:19
+msgid "eShop Email Templates"
+msgstr ""
+
+#: eshop-admin-functions.php:49
+msgid "Emails"
+msgstr ""
+
+#: eshop-admin-functions.php:50
+msgid "eShop About"
+msgstr ""
+
+#: eshop-admin-functions.php:50
+msgid "About &amp; Help"
+msgstr ""
+
+#: eshop-admin-functions.php:55
+msgid "eShop Style"
+msgstr ""
+
+#: eshop-admin-functions.php:56
+#: eshop-uninstall.php:16
+msgid "eShop Uninstall"
+msgstr ""
+
+#: eshop-admin-functions.php:58
+msgid "eShop Help"
+msgstr ""
+
+#: eshop-admin-functions.php:60
+#: eshop-settings-class.php:32
+msgid "<a href=\"http://quirm.net/wiki/eshop/\">eShop Wiki</a>"
+msgstr ""
+
+#: eshop-admin-functions.php:61
+#: eshop-settings-class.php:33
+msgid "<a href=\"http://wordpress.org/tags/eshop\">Wordpress forums</a>"
+msgstr ""
+
+#: eshop-admin-functions.php:62
+#: eshop-settings-class.php:34
+msgid "<a href=\"http://quirm.net/forum/forum.php?id=14\">Quirm.net</a>"
+msgstr ""
+
+#: eshop-admin-functions.php:271
+#: cart-functions.php:1599
+#: cart-functions.php:1602
+msgid "Powered by"
+msgstr ""
+
+#: eshop-admin-functions.php:271
+#: cart-functions.php:1599
+msgid "Created by"
+msgstr ""
+
+#: eshop-admin-functions.php:286
+msgid "<br /><strong style=\"color:#800;\">Note:</strong> Please review the <a class=\"thickbox\" href=\"%1$s\">changelog</a> before upgrading."
+msgstr ""
+
+#: eshop-admin-functions.php:295
+msgid "eShop is currently <span class=\"live\">Live</span>."
+msgstr ""
+
+#: eshop-admin-functions.php:297
+msgid "eShop is currently in <span class=\"test\">Test Mode</span>."
+msgstr ""
+
+#: eshop-admin-functions.php:316
+msgid " Merchant Gateways in use:"
+msgstr ""
+
+#: eshop-admin-functions.php:318
+msgid " No Merchant Gateway selected."
+msgstr ""
+
+#: eshop-dashboard.php:23
+msgid "Top Download Purchases"
+msgstr ""
+
+#: eshop-dashboard.php:24
+#: eshop-dashboard.php:47
+#: eshop-dashboard.php:110
+#: eshop-downloads.php:211
+#: eshop-downloads.php:257
+#: eshop-downloads.php:368
+#: eshop-downloads.php:384
+msgid "Purchases"
+msgstr ""
+
+#: eshop-dashboard.php:46
+msgid "Top Sellers"
+msgstr ""
+
+#: eshop-dashboard.php:107
+msgid "Products."
+msgstr ""
+
+#: eshop-dashboard.php:108
+msgid "Products in stock."
+msgstr ""
+
+#: eshop-dashboard.php:109
+msgid "Featured products."
+msgstr ""
+
+#: eshop-dashboard.php:111
+msgid "Total Downloads"
+msgstr ""
+
+#: eshop-dashboard.php:112
+msgid "Total Download Purchases"
+msgstr ""
+
+#: eshop-dashboard.php:131
+#: eshop-dashboard.php:172
+#: eshop-dashboard.php:253
+#: eshop-templates.php:23
+#: eshop-templates.php:36
+#: eshop-orders.php:237
+#: eshop-orders.php:274
+#: eshop-orders.php:428
+#: eshop-orders.php:473
+#: eshop-orders.php:487
+msgid "Active"
+msgstr ""
+
+#: eshop-dashboard.php:146
+msgid "Order Type"
+msgstr ""
+
+#: eshop-dashboard.php:147
+msgid "# Orders"
+msgstr ""
+
+#: eshop-dashboard.php:148
+msgid "Sub Total"
+msgstr ""
+
+#: eshop-dashboard.php:149
+#: eshop-settings-class.php:72
+#: eshop-settings-extends.php:850
+#: eshop-shortcodes.php:1462
+msgid "Sales Tax"
+msgstr ""
+
+#: eshop-dashboard.php:199
+msgid "Totals"
+msgstr ""
+
+#: eshop-dashboard.php:214
+msgid "Includes all orders."
+msgstr ""
+
+#: eshop-dashboard.php:220
+#: cart-functions.php:852
+msgid "cash"
+msgstr ""
+
+#: eshop-dashboard.php:225
+#: cart-functions.php:857
+msgid "bank"
+msgstr ""
+
+#: eshop-dashboard.php:231
+msgid "order"
+msgstr ""
+
+#: eshop-dashboard.php:231
+msgid "orders"
+msgstr ""
+
+#: eshop-dashboard.php:239
+msgid "No active gateways.."
+msgstr ""
+
+#: eshop-dashboard.php:252
+msgid "Total Available"
+msgstr ""
+
+#: eshop-dashboard.php:254
+msgid "Total codes used"
+msgstr ""
+
+#: eshop-dashboard.php:266
+msgid "Download all transactions"
+msgstr ""
+
+#: eshop-dashboard.php:267
+msgid "Mac users Download all transactions"
+msgstr ""
+
+#: eshop-dashboard.php:274
+msgid "Delete all orders and reset all stats"
+msgstr ""
+
+#: eshop-dashboard.php:280
+msgid "eShop Product Stats"
+msgstr ""
+
+#: eshop-dashboard.php:281
+msgid "eShop Orders Stats"
+msgstr ""
+
+#: eshop-dashboard.php:282
+msgid "eShop Merchant Gateways"
+msgstr ""
+
+#: eshop-dashboard.php:284
+msgid "eShop Data"
+msgstr ""
+
+#: eshop-templates.php:10
+msgid "The Template Has Been Updated"
+msgstr ""
+
+#: eshop-templates.php:15
+msgid "The Template Has Been Changed"
+msgstr ""
+
+#: eshop-templates.php:21
+msgid "Use this page to modify your default email templates"
+msgstr ""
+
+#: eshop-templates.php:23
+msgid "Template?"
+msgstr ""
+
+#: eshop-templates.php:23
+#: eshop-orders.php:245
+#: eshop-orders.php:495
+msgid "Change"
+msgstr ""
+
+#: eshop-templates.php:38
+msgid "Deactivate"
+msgstr ""
+
+#: eshop-templates.php:40
+msgid "Activate"
+msgstr ""
+
+#: eshop-templates.php:45
+msgid "Template is blank"
+msgstr ""
+
+#: eshop-templates.php:46
+msgid "Template exists"
+msgstr ""
+
+#: eshop-templates.php:48
+msgid "edit"
+msgstr ""
+
+#: eshop-templates.php:63
+msgid "Email Template Editor"
+msgstr ""
+
+#: eshop-templates.php:64
+msgid "Use this simple file editor to modify the default email template file."
+msgstr ""
+
+#: eshop-templates.php:67
+msgid "Template:"
+msgstr ""
+
+#: eshop-templates.php:68
+msgid "Subject"
+msgstr ""
+
+#: eshop-templates.php:70
+msgid "Email Content"
+msgstr ""
+
+#: eshop-templates.php:78
+msgid "Update Template"
+msgstr ""
+
+#: eshop-templates.php:83
+msgid "Template tags for Email Content"
+msgstr ""
+
+#: eshop-templates.php:85
+msgid "the status of the order."
+msgstr ""
+
+#: eshop-templates.php:86
+msgid "Customers First Name."
+msgstr ""
+
+#: eshop-templates.php:87
+msgid "Customers Full Name"
+msgstr ""
+
+#: eshop-templates.php:88
+msgid "Customers Email address"
+msgstr ""
+
+#: eshop-templates.php:89
+msgid "The contents of the customers order (i.e. their shopping cart)"
+msgstr ""
+
+#: eshop-templates.php:90
+msgid "A Download link along with the customers email address and password. <em>Only used when an order contains downloads</em>. (not used for cash or bank sales)."
+msgstr ""
+
+#: eshop-templates.php:91
+msgid "Customers Address"
+msgstr ""
+
+#: eshop-templates.php:92
+msgid "The reference and other messages provided by the customer."
+msgstr ""
+
+#: eshop-templates.php:93
+msgid "Customers shipping address phone number."
+msgstr ""
+
+#: eshop-templates.php:94
+msgid "Date and time of order."
+msgstr ""
+
+#: eshop-templates.php:97
+msgid "To change the default email that notifies the customer when signing up to you site(if enabled) you may need to install another plugin such as <a href=\"http://wordpress.org/extend/plugins/new-user-email-set-up/\">New user Email Set Up</a>."
+msgstr ""
+
+#: ideallite/ideallite.class.php:100
+msgid "<strong>Note:</strong> Submit to finalize order at iDeal."
+msgstr ""
+
+#: ideallite/ideallite.class.php:116
+msgid "If you are not automatically redirected to iDeal, please use the <em>Proceed to iDeal</em> button."
+msgstr ""
+
+#: ideallite/ideallite.class.php:140
+msgid "Proceed to iDeal &raquo;"
+msgstr ""
+
+#: authorizenet.php:211
+#: authorizenet.php:273
+msgid "authorizenet IPN -"
+msgstr ""
+
+#: authorizenet.php:214
+#: authorizenet.php:276
+msgid "Testing: authorizenet IPN - "
+msgstr ""
+
+#: eshop-uninstall.php:19
+msgid "Confirm uninstall of eShop"
+msgstr ""
+
+#: eshop-uninstall.php:20
+msgid "Are you really sure you want to do this? All information will be lost and this action is irreversible."
+msgstr ""
+
+#: eshop-uninstall.php:24
+msgid "Confirm Uninstall"
+msgstr ""
+
+#: eshop-uninstall.php:53
+msgid "MySQL Tables - deleted"
+msgstr ""
+
+#: eshop-uninstall.php:57
+msgid "Options - deleted"
+msgstr ""
+
+#: eshop-uninstall.php:67
+msgid "Product Information - deleted"
+msgstr ""
+
+#: eshop-uninstall.php:71
+msgid "User Meta - deleted"
+msgstr ""
+
+#: eshop-uninstall.php:98
+msgid "Files uploaded via the plugin -  deleted"
+msgstr ""
+
+#: eshop-uninstall.php:111
+msgid "eShop template files deleted"
+msgstr ""
+
+#: eshop-uninstall.php:132
+msgid "Widgets - deleted"
+msgstr ""
+
+#: eshop-uninstall.php:140
+msgid "Plugin deactivated"
+msgstr ""
+
+#: eshop-uninstall.php:142
+msgid "eShop uninstalled."
+msgstr ""
+
+#: eshop-uninstall.php:145
+msgid "Uninstalling eShop will result in the following:"
+msgstr ""
+
+#: eshop-uninstall.php:147
+msgid "Removal of files generated by the plugin."
+msgstr ""
+
+#: eshop-uninstall.php:148
+msgid "Removal of files uploaded via the plugin (downloads)."
+msgstr ""
+
+#: eshop-uninstall.php:149
+msgid "Removal of the database tables created by the plugin."
+msgstr ""
+
+#: eshop-uninstall.php:150
+msgid "Removal of meta data(product information) associated with a product page."
+msgstr ""
+
+#: eshop-uninstall.php:151
+msgid "Removal of User meta data(address fields etc.)."
+msgstr ""
+
+#: eshop-uninstall.php:152
+msgid "Deactivation and removal of eShop widgets."
+msgstr ""
+
+#: eshop-uninstall.php:153
+msgid "Deactivation of the plugin."
+msgstr ""
+
+#: eshop-uninstall.php:155
+msgid "Uninstalling the plugin will not affect the following, and will therefore have to be deleted manually:"
+msgstr ""
+
+#: eshop-uninstall.php:157
+msgid "Page content associated with products."
+msgstr ""
+
+#: eshop-uninstall.php:158
+msgid "Pages generated by the plugin."
+msgstr ""
+
+#: eshop-uninstall.php:159
+msgid "The plugin itself will not be deleted."
+msgstr ""
+
+#: eshop-uninstall.php:161
+msgid "Uninstall"
+msgstr ""
+
+#: index.php:1
+msgid "Directory Access Prohibited"
+msgstr ""
+
+#: eshop-settings-class.php:25
+#: eshop-settings-class.php:91
+#: eshop-settings-extends.php:871
+msgid "eShop Settings"
+msgstr ""
+
+#: eshop-settings-class.php:30
+msgid "eShop help:"
+msgstr ""
+
+#: eshop-settings-class.php:52
+msgid "eShop Admin"
+msgstr ""
+
+#: eshop-settings-class.php:72
+#: eshop-settings-extends.php:850
+msgid "General"
+msgstr ""
+
+#: eshop-settings-class.php:72
+#: eshop-settings-extends.php:850
+msgid "Merchant Gateways"
+msgstr ""
+
+#: eshop-settings-class.php:72
+#: eshop-settings-extends.php:408
+#: eshop-settings-extends.php:850
+#: eshop-shortcodes.php:878
+msgid "Discounts"
+msgstr ""
+
+#: eshop-settings-class.php:72
+#: eshop-settings-extends.php:850
+msgid "Special Pages"
+msgstr ""
+
+#: eshop-settings-class.php:103
+#: eshop-settings-extends.php:85
+msgid "eShop Base product data has been reset."
+msgstr ""
+
+#: eshop-settings-class.php:105
+msgid "eshop Settings have been updated."
+msgstr ""
+
+#: eshop-settings-class.php:120
+#: eshop-settings-class.php:128
+#: eshop-settings-extends.php:892
+#: eshop-settings-extends.php:904
+msgid "Save Changes"
+msgstr ""
+
+#: eshop-settings-class.php:155
+#: eshop-settings-extends.php:58
+#: eshop-settings-extends.php:140
+#: eshop-settings-extends.php:363
+#: eshop-settings-extends.php:437
+#: eshop-settings-extends.php:931
+#: eshop-settings-extends.php:1376
+#: eshop-settings-extends.php:1674
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: eshop-settings-class.php:183
+msgid "eShop status"
+msgstr ""
+
+#: eshop-settings-class.php:187
+#: eshop-settings-class.php:190
+#: eshop-settings-extends.php:808
+#: eshop-settings-extends.php:811
+msgid "Live"
+msgstr ""
+
+#: eshop-settings-class.php:188
+#: eshop-settings-class.php:191
+#: eshop-settings-extends.php:809
+#: eshop-settings-extends.php:812
+msgid "Testing"
+msgstr ""
+
+#: eshop-settings-class.php:195
+#: eshop-settings-extends.php:834
+msgid "Orders per page"
+msgstr ""
+
+#: eshop-email.php:21
+msgid "eShop Customer Contact"
+msgstr ""
+
+#: eshop-email.php:21
+msgid "Use this form to notify the selected customer at any time, for any reason."
+msgstr ""
+
+#: eshop-email.php:40
+msgid "Email sent successfully."
+msgstr ""
+
+#: eshop-email.php:41
+msgid "&laquo; Return to Order Detail"
+msgstr ""
+
+#: eshop-email.php:67
+msgid "Send a notification to:"
+msgstr ""
+
+#: eshop-email.php:68
+msgid "Select a reply-to address:"
+msgstr ""
+
+#: eshop-email.php:88
+msgid "Enter your subject line:"
+msgstr ""
+
+#: eshop-email.php:89
+msgid "Enter your custom message:"
+msgstr ""
+
+#: eshop-email.php:93
+msgid "Send Email"
+msgstr ""
+
+#: eshop-email.php:98
+msgid "Nothing here yet."
+msgstr ""
+
+#: cash/cash.class.php:70
+#: bank/bank.class.php:70
+msgid "<strong>Note:</strong> Submit to finalize your order."
+msgstr ""
+
+#: cash/cash.class.php:84
+#: bank/bank.class.php:84
+msgid "If you are not automatically redirected, please use the <em>Proceed</em> button."
+msgstr ""
+
+#: cash/cash.class.php:94
+#: bank/bank.class.php:93
+msgid "Proceed &raquo;"
+msgstr ""
+
+#: cart-functions.php:42
+msgid "Shopping cart contents overview"
+msgstr ""
+
+#: cart-functions.php:43
+msgid "Shopping Cart"
+msgstr ""
+
+#: cart-functions.php:46
+msgid "Item Description"
+msgstr ""
+
+#: cart-functions.php:47
+msgid "<abbr title=\"Quantity\">Qty</abbr>"
+msgstr ""
+
+#: cart-functions.php:49
+#: cart-functions.php:197
+msgid "Sub-Total"
+msgstr ""
+
+#: cart-functions.php:54
+msgid "Tax %"
+msgstr ""
+
+#: cart-functions.php:55
+msgid "Tax Amt"
+msgstr ""
+
+#: cart-functions.php:171
+msgid "Delete this item"
+msgstr ""
+
+#: cart-functions.php:187
+msgid "Including Discount of <span>%s%%</span>"
+msgstr ""
+
+#: cart-functions.php:275
+msgid "Change Shipping"
+msgstr ""
+
+#: cart-functions.php:306
+msgid "(excl.tax)"
+msgstr ""
+
+#: cart-functions.php:309
+msgid "Total Order Charges"
+msgstr ""
+
+#: cart-functions.php:309
+#: cart-functions.php:317
+msgid "%1$s%2$s <span>%3$s</span>"
+msgstr ""
+
+#: cart-functions.php:317
+msgid "(incl.tax)"
+msgstr ""
+
+#: cart-functions.php:327
+msgid "Update Cart"
+msgstr ""
+
+#: cart-functions.php:328
+msgid "Empty Cart"
+msgstr ""
+
+#: cart-functions.php:339
+msgid "Test Mode &#8212; No money will be collected."
+msgstr ""
+
+#: cart-functions.php:342
+msgid "Discount Code <span>%s</span> has been applied to your cart."
+msgstr ""
+
+#: cart-functions.php:350
+msgid "Edit Cart"
+msgstr ""
+
+#: cart-functions.php:351
+#: eshop-shortcodes.php:51
+#: eshop-widget.php:51
+#: eshop-widget.php:62
+#: eshop-widget.php:177
+#: eshop-widget.php:191
+msgid "Checkout"
+msgstr ""
+
+#: cart-functions.php:1112
+msgid "Test Mode &#8212; No money will be collected. This page will not auto redirect in test mode."
+msgstr ""
+
+#: cart-functions.php:1207
+msgid "Order Received"
+msgstr ""
+
+#: cart-functions.php:1208
+msgid "Pending Payment"
+msgstr ""
+
+#: cart-functions.php:1214
+msgid "Transaction id:"
+msgstr ""
+
+#: cart-functions.php:1226
+msgid "Shipping Charge:"
+msgstr ""
+
+#: cart-functions.php:1230
+#: cart-functions.php:1239
+msgid "Sales Tax:"
+msgstr ""
+
+#: cart-functions.php:1235
+msgid "Quantity:"
+msgstr ""
+
+#: cart-functions.php:1235
+msgid "Price:"
+msgstr ""
+
+#: cart-functions.php:1260
+msgid "Mailing Address:"
+msgstr ""
+
+#: cart-functions.php:1275
+msgid "Shipping Address:"
+msgstr ""
+
+#: cart-functions.php:1279
+msgid "Shipping address phone number:"
+msgstr ""
+
+#: cart-functions.php:1296
+msgid "Reference/PO:"
+msgstr ""
+
+#: cart-functions.php:1303
+msgid "of"
+msgstr ""
+
+#: cart-functions.php:1386
+msgid "abcdefghijkmnopqrstuvwxyz23456789ABCDEFGHIJKLMNPQRSTUVWXYZ"
+msgstr ""
+
+#: cart-functions.php:1560
+msgid "Sorry there was an error with the download"
+msgstr ""
+
+#: cart-functions.php:1600
+msgid "Version"
+msgstr ""
+
+#: cart-functions.php:1783
+msgid "Stock Available not set, as all details were not filled in."
+msgstr ""
+
+#: cart-functions.php:1784
+msgid "Price incorrect, please only enter a numeric value."
+msgstr ""
+
+#: cart-functions.php:1785
+msgid "Weight incorrect, please only enter a numeric value."
+msgstr ""
+
+#: cart-functions.php:1786
+msgid "Stock Quantity is incorrect, please only enter a numeric value."
+msgstr ""
+
+#: cart-functions.php:1787
+msgid "Sale Price incorrect, please only enter a numeric value."
+msgstr ""
+
+#: cart-functions.php:1788
+msgid "eShop settings updated."
+msgstr ""
+
+#: cart-functions.php:1855
+#: cart-functions.php:2106
+msgid "Error: The quantity must contain numbers only, with a maximum of %s."
+msgstr ""
+
+#: cart-functions.php:1863
+#: cart-functions.php:1870
+#: cart-functions.php:1941
+#: cart-functions.php:1948
+#: cart-functions.php:2070
+#: cart-functions.php:2077
+#: cart-functions.php:2114
+#: cart-functions.php:2120
+msgid "Warning: The quantity must equal or be greater than %s, with a maximum of %s."
+msgstr ""
+
+#: cart-functions.php:1879
+msgid "Warning: you must supply a quantity."
+msgstr ""
+
+#: cart-functions.php:1904
+msgid "Error: That product is currently not available."
+msgstr ""
+
+#: cart-functions.php:1956
+#: cart-functions.php:1990
+msgid "Error: The quantity must contain numbers only, with a 999 maximum."
+msgstr ""
+
+#: cart-functions.php:1958
+#: cart-functions.php:1992
+#: cart-functions.php:2108
+msgid "Error: That quantity is not available for that product."
+msgstr ""
+
+#: cart-functions.php:2277
+msgid "eShop Test Mode"
+msgstr ""
+
+#: cart-functions.php:2279
+msgid "eShop is Live"
+msgstr ""
+
+#: cart-functions.php:2288
+msgid "This note is only visible to eShop Admins"
+msgstr ""
+
+#: cart-functions.php:2288
+msgid "Admin note: eShop is currently in test mode, and only admins can place orders."
+msgstr ""
+
+#: cash.php:56
+msgid "Cash awaiting payment -"
+msgstr ""
+
+#: cash.php:59
+msgid "Testing: Cash awaiting payment - "
+msgstr ""
+
+#: cash.php:83
+msgid "A cash purchase was made"
+msgstr ""
+
+#: eshop-settings-extends.php:4
+msgid "eShop Base Options"
+msgstr ""
+
+#: eshop-settings-extends.php:5
+msgid "Reset eShop Base"
+msgstr ""
+
+#: eshop-settings-extends.php:11
+msgid "Brand"
+msgstr ""
+
+#: eshop-settings-extends.php:12
+msgid "Condition"
+msgstr ""
+
+#: eshop-settings-extends.php:26
+msgid "Product expiry in days"
+msgstr ""
+
+#: eshop-settings-extends.php:40
+msgid "Product type"
+msgstr ""
+
+#: eshop-settings-extends.php:41
+msgid "Payment Accepted <small> comma delimited list of payment methods available.</small>"
+msgstr ""
+
+#: eshop-settings-extends.php:48
+msgid "This resets all product data entered on the <a href=\"admin.php?page=eshop-base.php\">eShop Base Products</a> page."
+msgstr ""
+
+#: eshop-settings-extends.php:49
+msgid "Reset Now"
+msgstr ""
+
+#: eshop-settings-extends.php:86
+msgid "eShop Base settings updated."
+msgstr ""
+
+#: eshop-settings-extends.php:94
+msgid "Continue Shopping Link"
+msgstr ""
+
+#: eshop-settings-extends.php:95
+msgid "Links to extra pages"
+msgstr ""
+
+#: eshop-settings-extends.php:96
+msgid "Automatically created pages"
+msgstr ""
+
+#: eshop-settings-extends.php:103
+msgid "If you enter the page id of your main Shop page, then eShop will use that for the <strong>Continue Shopping</strong> link. Leave this blank and eShop will either link to the last product, or to the main page of your site automatically."
+msgstr ""
+
+#: eshop-settings-extends.php:104
+msgid "Shop Page - page id number"
+msgstr ""
+
+#: eshop-settings-extends.php:113
+msgid "These links automatically appear on the checkout page."
+msgstr ""
+
+#: eshop-settings-extends.php:114
+msgid "Shipping rates - page id number"
+msgstr ""
+
+#: eshop-settings-extends.php:115
+msgid "Privacy Policy - page id number"
+msgstr ""
+
+#: eshop-settings-extends.php:116
+msgid "Help - page id number"
+msgstr ""
+
+#: eshop-settings-extends.php:117
+msgid "Tax rates - page id number"
+msgstr ""
+
+#: eshop-settings-extends.php:125
+msgid "<strong>Warning:</strong> Changes made here amend the page id of the automatically created pages - change with extreme care."
+msgstr ""
+
+#: eshop-settings-extends.php:126
+msgid "Cart - page id number"
+msgstr ""
+
+#: eshop-settings-extends.php:127
+msgid "Checkout - page id number"
+msgstr ""
+
+#: eshop-settings-extends.php:128
+msgid "Successful payment  - page id number"
+msgstr ""
+
+#: eshop-settings-extends.php:129
+msgid "Cancelled payment - page id number"
+msgstr ""
+
+#: eshop-settings-extends.php:130
+msgid "Downloads - page id number"
+msgstr ""
+
+#: eshop-settings-extends.php:274
+msgid "The Privacy Policy page needs to be a valid page id number."
+msgstr ""
+
+#: eshop-settings-extends.php:275
+msgid "The Help page needs to be a valid page id number."
+msgstr ""
+
+#: eshop-settings-extends.php:276
+msgid "The Shipping rates page needs to be a valid page id number."
+msgstr ""
+
+#: eshop-settings-extends.php:277
+msgid "The Main Shop page needs to be a valid page id number."
+msgstr ""
+
+#: eshop-settings-extends.php:278
+msgid "The Cart page needs to be a valid page id number."
+msgstr ""
+
+#: eshop-settings-extends.php:279
+msgid "The Cancelled payment page needs to be a valid page id number."
+msgstr ""
+
+#: eshop-settings-extends.php:280
+msgid "The Checkout page needs to be a valid page id number."
+msgstr ""
+
+#: eshop-settings-extends.php:281
+msgid "The Successful payment page needs to be a page id number."
+msgstr ""
+
+#: eshop-settings-extends.php:282
+msgid "The Downloads page needs to be a page id number."
+msgstr ""
+
+#: eshop-settings-extends.php:283
+msgid "Tax rates page ID was not a valid page id number."
+msgstr ""
+
+#: eshop-settings-extends.php:284
+msgid "eShop Page settings updated."
+msgstr ""
+
+#: eshop-settings-extends.php:293
+msgid "eShop Downloads Only"
+msgstr ""
+
+#: eshop-settings-extends.php:294
+msgid "eShop emails"
+msgstr ""
+
+#: eshop-settings-extends.php:300
+msgid "Download attempts"
+msgstr ""
+
+#: eshop-settings-extends.php:304
+msgid "As some downloads can be quite large, people may experience errors if they try and download all files in one go."
+msgstr ""
+
+#: eshop-settings-extends.php:305
+msgid "Hide download all form"
+msgstr ""
+
+#: eshop-settings-extends.php:323
+msgid "Change this setting only if you are using eShop for downloadable sales only, reduces the checkout form to bare minimum."
+msgstr ""
+
+#: eshop-settings-extends.php:324
+msgid "Downloads Only"
+msgstr ""
+
+#: eshop-settings-extends.php:342
+msgid "By default the Downloads code and url is hidden from the Cash/Bank emails, as they have not been paid for."
+msgstr ""
+
+#: eshop-settings-extends.php:343
+msgid "Show Download details in emails"
+msgstr ""
+
+#: eshop-settings-extends.php:387
+msgid "Number of download attempts should be numeric, a default of 3 has been applied."
+msgstr ""
+
+#: eshop-settings-extends.php:388
+msgid "eShop Download settings updated."
+msgstr ""
+
+#: eshop-settings-extends.php:396
+msgid "eShop Discounts"
+msgstr ""
+
+#: eshop-settings-extends.php:403
+msgid "In all cases deleting the entry will disable the discount."
+msgstr ""
+
+#: eshop-settings-extends.php:404
+#: eshop-settings-extends.php:405
+#: eshop-shortcodes.php:874
+#: eshop-shortcodes.php:875
+msgid "Discount for amount sold"
+msgstr ""
+
+#: eshop-settings-extends.php:409
+#: eshop-settings-extends.php:419
+#: eshop-shortcodes.php:879
+msgid "Spend"
+msgstr ""
+
+#: eshop-settings-extends.php:410
+#: eshop-shortcodes.php:880
+msgid "% Discount"
+msgstr ""
+
+#: eshop-settings-extends.php:427
+msgid "Spend over to get free shipping"
+msgstr ""
+
+#: eshop-settings-extends.php:475
+msgid "\"Spend over to get free shipping\" must be numeric!"
+msgstr ""
+
+#: eshop-settings-extends.php:476
+msgid "Either \"Spend\" or \"% Discount\" was not valid so both values were unset!"
+msgstr ""
+
+#: eshop-settings-extends.php:477
+msgid "\"Spend\" and \"% Discount\" must be numeric!"
+msgstr ""
+
+#: eshop-settings-extends.php:478
+msgid "<strong>Warning</strong> % Discount is equal to or over 100%!"
+msgstr ""
+
+#: eshop-settings-extends.php:479
+msgid "eShop Discount settings updated."
+msgstr ""
+
+#: eshop-settings-extends.php:488
+msgid "Orders Display"
+msgstr ""
+
+#: eshop-settings-extends.php:489
+msgid "Cron"
+msgstr ""
+
+#: eshop-settings-extends.php:490
+msgid "Business Details"
+msgstr ""
+
+#: eshop-settings-extends.php:492
+msgid "Product Details"
+msgstr ""
+
+#: eshop-settings-extends.php:493
+msgid "Display Options"
+msgstr ""
+
+#: eshop-settings-extends.php:494
+msgid "Cart Options"
+msgstr ""
+
+#: eshop-settings-extends.php:495
+msgid "Checkout Options"
+msgstr ""
+
+#: eshop-settings-extends.php:496
+msgid "Cacheability"
+msgstr ""
+
+#: eshop-settings-extends.php:502
+msgid "Cron Email address"
+msgstr ""
+
+#: eshop-settings-extends.php:509
+msgid "eShop From email address"
+msgstr ""
+
+#: eshop-settings-extends.php:510
+msgid "Available business email addresses"
+msgstr ""
+
+#: eshop-settings-extends.php:519
+msgid "Options per product"
+msgstr ""
+
+#: eshop-settings-extends.php:520
+msgid "Stock Control"
+msgstr ""
+
+#: eshop-settings-extends.php:520
+msgid " <small>(Warning: setting this will make all products have zero stock, each one will have to be set manually.</small>)"
+msgstr ""
+
+#: eshop-settings-extends.php:525
+msgid "Min/Max Quantities"
+msgstr ""
+
+#: eshop-settings-extends.php:530
+msgid "Minimum purchase quantity per product (leave blank for no limit)"
+msgstr ""
+
+#: eshop-settings-extends.php:531
+msgid "Maximum purchase quantity per product (leave blank for no limit)"
+msgstr ""
+
+#: eshop-settings-extends.php:533
+msgid "Use Sale prices"
+msgstr ""
+
+#: eshop-settings-extends.php:561
+msgid "For site wide display of Product Details, can be amended per product by the addition of the shortcode <code>[eshop_details]</code>"
+msgstr ""
+
+#: eshop-settings-extends.php:562
+msgid "Add product details section to every page with details to display. <small>(adding the shortcode will override settings here)</small>"
+msgstr ""
+
+#: eshop-settings-extends.php:567
+#: eshop-shipping.php:370
+#: eshop-shipping.php:499
+msgid "Class"
+msgstr ""
+
+#: eshop-settings-extends.php:567
+msgid "(changes the standard class)"
+msgstr ""
+
+#: eshop-settings-extends.php:568
+msgid "Show"
+msgstr ""
+
+#: eshop-settings-extends.php:568
+msgid "(which details, separated by commas, to show and in which order - acceptable values and the default order: sku, description, options, optionset, shipping)"
+msgstr ""
+
+#: eshop-settings-extends.php:569
+msgid "Option Hide"
+msgstr ""
+
+#: eshop-settings-extends.php:569
+msgid "(which details, separated by commas, to hide from the options and options sets and in which order - acceptable values: price, saleprice, tax, download, weight, filesize, stockqty)"
+msgstr ""
+
+#: eshop-settings-extends.php:570
+msgid "Out of Stock message"
+msgstr ""
+
+#: eshop-settings-extends.php:573
+msgid "General product settings."
+msgstr ""
+
+#: eshop-settings-extends.php:574
+msgid "Symbol"
+msgstr ""
+
+#: eshop-settings-extends.php:575
+msgid "Use an add to cart image or button?"
+msgstr ""
+
+#: eshop-settings-extends.php:579
+#: eshop-settings-extends.php:582
+#: eshop-base.php:148
+#: eshop-base.php:373
+#: eshop-widget.php:271
+msgid "Image"
+msgstr ""
+
+#: eshop-settings-extends.php:580
+#: eshop-settings-extends.php:583
+msgid "Button"
+msgstr ""
+
+#: eshop-settings-extends.php:587
+msgid "Add to cart, without going to cart page. This may not be suitable for all themes. Works best when displaying the full cart from the eShop Cart Widget."
+msgstr ""
+
+#: eshop-settings-extends.php:602
+msgid "Add text before or after addtocart form (will not appear in listings) - will accept HTML"
+msgstr ""
+
+#: eshop-settings-extends.php:603
+msgid "Text to add"
+msgstr ""
+
+#: eshop-settings-extends.php:604
+msgid "Placement"
+msgstr ""
+
+#: eshop-settings-extends.php:609
+msgid "Before"
+msgstr ""
+
+#: eshop-settings-extends.php:610
+msgid "After"
+msgstr ""
+
+#: eshop-settings-extends.php:618
+msgid "Show add to cart forms on WordPress post listings. <span class=\"warn\"><span>Warning</span> this can invalidate your html!</span>"
+msgstr ""
+
+#: eshop-settings-extends.php:630
+msgid "Hide sub pages from menu until top level page is visited."
+msgstr ""
+
+#: eshop-settings-extends.php:642
+msgid "Hide cart and checkout pages until items are in cart."
+msgstr ""
+
+#: eshop-settings-extends.php:654
+msgid "Add image to search results"
+msgstr ""
+
+#: eshop-settings-extends.php:659
+#: eshop-settings-extends.php:663
+#: eshop-settings-extends.php:667
+msgid "All pages and posts"
+msgstr ""
+
+#: eshop-settings-extends.php:660
+#: eshop-settings-extends.php:664
+#: eshop-settings-extends.php:668
+msgid "eShop products pages and posts only"
+msgstr ""
+
+#: eshop-settings-extends.php:672
+msgid "Display eShop credits"
+msgstr ""
+
+#: eshop-settings-extends.php:690
+msgid "Percentage size of thumbnail image shown in cart - leave blank to not show the image."
+msgstr ""
+
+#: eshop-settings-extends.php:697
+msgid "Hide the Additional information form fields."
+msgstr ""
+
+#: eshop-settings-extends.php:709
+msgid "Hide the shipping address form fields."
+msgstr ""
+
+#: eshop-settings-extends.php:721
+msgid "Minimal checkout form. (this also disables shipping costs)"
+msgstr ""
+
+#: eshop-settings-extends.php:733
+msgid "Add a required checkbox to the checkout."
+msgstr ""
+
+#: eshop-settings-extends.php:745
+msgid "Text for the required checkbox."
+msgstr ""
+
+#: eshop-settings-extends.php:746
+msgid "Page id (transforms text above into a link)."
+msgstr ""
+
+#: eshop-settings-extends.php:748
+msgid "Allow users to sign up to your site."
+msgstr ""
+
+#: eshop-settings-extends.php:763
+msgid "Change sign up text."
+msgstr ""
+
+#: eshop-settings-extends.php:765
+msgid "Allow zero cost orders."
+msgstr ""
+
+#: eshop-settings-extends.php:786
+msgid "Disable WP Supercache for eShop pages including cart, checkout and pages using shortcodes."
+msgstr ""
+
+#: eshop-settings-extends.php:804
+#: eshop-downloads.php:381
+msgid "Status"
+msgstr ""
+
+#: eshop-settings-extends.php:864
+msgid "eShop Status"
+msgstr ""
+
+#: eshop-settings-extends.php:1022
+msgid "Orders per page should be numeric, a default of 10 has been applied."
+msgstr ""
+
+#: eshop-settings-extends.php:1023
+msgid "Options per product should be numeric and be greater than 0, a default of 3 has been applied."
+msgstr ""
+
+#: eshop-settings-extends.php:1024
+msgid "The number entered for the image in the cart must be numeric, a default of 75 has been applied."
+msgstr ""
+
+#: eshop-settings-extends.php:1025
+msgid "Currency Symbol was missing, the default $ has been applied."
+msgstr ""
+
+#: eshop-settings-extends.php:1026
+msgid "You must have a Merchant Gateway selected before you can go live!"
+msgstr ""
+
+#: eshop-settings-extends.php:1027
+msgid "You must have set an eShop from email address before you can go live!"
+msgstr ""
+
+#: eshop-settings-extends.php:1028
+msgid "eShop general settings updated."
+msgstr ""
+
+#: eshop-settings-extends.php:1037
+msgid "General Settings"
+msgstr ""
+
+#: eshop-settings-extends.php:1038
+msgid "Paypal"
+msgstr ""
+
+#: eshop-settings-extends.php:1039
+msgid "Payson"
+msgstr ""
+
+#: eshop-settings-extends.php:1040
+msgid "iDeal Lite"
+msgstr ""
+
+#: eshop-settings-extends.php:1041
+msgid "eProcessingNetwork"
+msgstr ""
+
+#: eshop-settings-extends.php:1042
+msgid "Cash"
+msgstr ""
+
+#: eshop-settings-extends.php:1043
+msgid "Bank (wire transfer)"
+msgstr ""
+
+#: eshop-settings-extends.php:1044
+msgid "Webtopay"
+msgstr ""
+
+#: eshop-settings-extends.php:1045
+msgid "Authorize.net"
+msgstr ""
+
+#: eshop-settings-extends.php:1046
+msgid "ogone"
+msgstr ""
+
+#: eshop-settings-extends.php:1055
+msgid "Business Location"
+msgstr ""
+
+#: eshop-settings-extends.php:1071
+msgid "Don't forget to set the<br /><a href=\"%s\">State/County/Province</a><br />on the shipping pages."
+msgstr ""
+
+#: eshop-settings-extends.php:1072
+msgid "Currency Code"
+msgstr ""
+
+#: eshop-settings-extends.php:1076
+msgid "Pounds Sterling"
+msgstr ""
+
+#: eshop-settings-extends.php:1077
+msgid "U.S. Dollars"
+msgstr ""
+
+#: eshop-settings-extends.php:1078
+msgid "Euros"
+msgstr ""
+
+#: eshop-settings-extends.php:1079
+msgid "Argentinean Pesos"
+msgstr ""
+
+#: eshop-settings-extends.php:1080
+msgid "Australian Dollars"
+msgstr ""
+
+#: eshop-settings-extends.php:1081
+msgid "Brazilian Real"
+msgstr ""
+
+#: eshop-settings-extends.php:1082
+msgid "Bulgarian Lev"
+msgstr ""
+
+#: eshop-settings-extends.php:1083
+msgid "Canadian Dollars"
+msgstr ""
+
+#: eshop-settings-extends.php:1084
+msgid "Czech Koruna"
+msgstr ""
+
+#: eshop-settings-extends.php:1085
+msgid "Danish Krone"
+msgstr ""
+
+#: eshop-settings-extends.php:1086
+msgid "Hong Kong Dollar"
+msgstr ""
+
+#: eshop-settings-extends.php:1087
+msgid "Hungarian Forint"
+msgstr ""
+
+#: eshop-settings-extends.php:1088
+msgid "Indian Rupee"
+msgstr ""
+
+#: eshop-settings-extends.php:1089
+msgid "Israeli Shekel"
+msgstr ""
+
+#: eshop-settings-extends.php:1090
+msgid "Japan Yen"
+msgstr ""
+
+#: eshop-settings-extends.php:1091
+msgid "Latvijas lats"
+msgstr ""
+
+#: eshop-settings-extends.php:1092
+msgid "Lithuanian Litas"
+msgstr ""
+
+#: eshop-settings-extends.php:1093
+msgid "Mexican Peso"
+msgstr ""
+
+#: eshop-settings-extends.php:1094
+msgid "New Zealand Dollar"
+msgstr ""
+
+#: eshop-settings-extends.php:1095
+msgid "Norwegian Krone"
+msgstr ""
+
+#: eshop-settings-extends.php:1096
+msgid "Philippine Pesos"
+msgstr ""
+
+#: eshop-settings-extends.php:1097
+msgid "Polish Zloty"
+msgstr ""
+
+#: eshop-settings-extends.php:1098
+msgid "Ringgit Malaysia"
+msgstr ""
+
+#: eshop-settings-extends.php:1099
+msgid "Singapore Dollar"
+msgstr ""
+
+#: eshop-settings-extends.php:1100
+msgid "South African Rand"
+msgstr ""
+
+#: eshop-settings-extends.php:1101
+msgid "Swedish Krona"
+msgstr ""
+
+#: eshop-settings-extends.php:1102
+msgid "Swiss Franc"
+msgstr ""
+
+#: eshop-settings-extends.php:1103
+msgid "Turkish Lira"
+msgstr ""
+
+#: eshop-settings-extends.php:1126
+msgid "Accept payment by Paypal"
+msgstr ""
+
+#: eshop-settings-extends.php:1127
+msgid "Main account Email address"
+msgstr ""
+
+#: eshop-settings-extends.php:1128
+msgid "Secondary Email address"
+msgstr ""
+
+#: eshop-settings-extends.php:1130
+msgid "Send buyers email address to paypal?"
+msgstr ""
+
+#: eshop-settings-extends.php:1130
+msgid "This affects the form that Paypal shows to the customer."
+msgstr ""
+
+#: eshop-settings-extends.php:1151
+msgid "<strong>Warning:</strong> Payson has a minimum purchase value of 4 SEK (when last checked). All payments to Payson are in SEK, irrespective of settings above."
+msgstr ""
+
+#: eshop-settings-extends.php:1158
+msgid "Accept payment by Payson"
+msgstr ""
+
+#: eshop-settings-extends.php:1159
+#: eshop-settings-extends.php:1194
+#: eshop-settings-extends.php:1215
+#: eshop-settings-extends.php:1236
+#: eshop-settings-extends.php:1257
+#: eshop-settings-extends.php:1284
+#: eshop-settings-extends.php:1303
+#: eshop-settings-extends.php:1342
+msgid "Email address"
+msgstr ""
+
+#: eshop-settings-extends.php:1160
+msgid "Agent ID"
+msgstr ""
+
+#: eshop-settings-extends.php:1161
+msgid "Secret Key"
+msgstr ""
+
+#: eshop-settings-extends.php:1162
+#: eshop-settings-extends.php:1217
+msgid "Cart Description"
+msgstr ""
+
+#: eshop-settings-extends.php:1163
+msgid "Min. Cart value"
+msgstr ""
+
+#: eshop-settings-extends.php:1187
+msgid "Accept payment by iDeal Lite"
+msgstr ""
+
+#: eshop-settings-extends.php:1188
+msgid "Aquirer"
+msgstr ""
+
+#: eshop-settings-extends.php:1188
+msgid "Use Rabobank, ING Bank or Simulator"
+msgstr ""
+
+#: eshop-settings-extends.php:1189
+msgid "Hash Key"
+msgstr ""
+
+#: eshop-settings-extends.php:1189
+msgid "For Simulator use \"Password\""
+msgstr ""
+
+#: eshop-settings-extends.php:1190
+msgid "Merchant ID"
+msgstr ""
+
+#: eshop-settings-extends.php:1190
+msgid "For Simulator use \"123456789\""
+msgstr ""
+
+#: eshop-settings-extends.php:1191
+msgid "Sub ID"
+msgstr ""
+
+#: eshop-settings-extends.php:1191
+msgid "Unless you know what you're doing. Leave this to \"0\""
+msgstr ""
+
+#: eshop-settings-extends.php:1192
+msgid "Test Mode"
+msgstr ""
+
+#: eshop-settings-extends.php:1192
+msgid "Use \"true\" or \"false\""
+msgstr ""
+
+#: eshop-settings-extends.php:1194
+msgid "Order notifications are sent to this address."
+msgstr ""
+
+#: eshop-settings-extends.php:1195
+msgid "Description for the iDEAL payment"
+msgstr ""
+
+#: eshop-settings-extends.php:1207
+msgid "<strong>Warning:</strong> All payments to eProcessingNetwork are in USD, irrespective of settings above. In test mode totals ending in a single cent are always failed."
+msgstr ""
+
+#: eshop-settings-extends.php:1214
+msgid "Accept payment by eProcessingNetwork"
+msgstr ""
+
+#: eshop-settings-extends.php:1216
+msgid "User ID"
+msgstr ""
+
+#: eshop-settings-extends.php:1228
+msgid "<strong>Note:</strong> payment by other means, usually used for offline payments."
+msgstr ""
+
+#: eshop-settings-extends.php:1235
+msgid "Accept cash payments"
+msgstr ""
+
+#: eshop-settings-extends.php:1237
+msgid "Change Cash name to"
+msgstr ""
+
+#: eshop-settings-extends.php:1249
+msgid "<strong>Note:</strong> payment by other means, such as wire transfer - behaves just like Cash."
+msgstr ""
+
+#: eshop-settings-extends.php:1256
+msgid "Accept bank payments"
+msgstr ""
+
+#: eshop-settings-extends.php:1258
+msgid "Change bank name to"
+msgstr ""
+
+#: eshop-settings-extends.php:1275
+msgid "Accept webtopay payments"
+msgstr ""
+
+#: eshop-settings-extends.php:1276
+msgid "Webtopay user ID"
+msgstr ""
+
+#: eshop-settings-extends.php:1278
+msgid "Webtopay language (ENG ESP EST FIN FRE GEO GER ITA LAV LIT NOR POL ROU RUS SPA SWE)"
+msgstr ""
+
+#: eshop-settings-extends.php:1280
+msgid "Webtopay project ID"
+msgstr ""
+
+#: eshop-settings-extends.php:1282
+msgid "Webtopay signature password"
+msgstr ""
+
+#: eshop-settings-extends.php:1302
+msgid "Accept payment by Authorize.net"
+msgstr ""
+
+#: eshop-settings-extends.php:1304
+msgid "API Login ID"
+msgstr ""
+
+#: eshop-settings-extends.php:1305
+msgid "Transaction Key"
+msgstr ""
+
+#: eshop-settings-extends.php:1306
+msgid "MD5-Hash Phrase(was Secret Answer)"
+msgstr ""
+
+#: eshop-settings-extends.php:1307
+#: eshop-settings-extends.php:1341
+msgid "Cart description"
+msgstr ""
+
+#: eshop-settings-extends.php:1308
+msgid "Use Developer test account when in test mode."
+msgstr ""
+
+#: eshop-settings-extends.php:1324
+msgid "Accept payment by ogone"
+msgstr ""
+
+#: eshop-settings-extends.php:1325
+msgid "All fields are required."
+msgstr ""
+
+#: eshop-settings-extends.php:1327
+msgid "The following information must be entered at ogone"
+msgstr ""
+
+#: eshop-settings-extends.php:1328
+msgid "The following 2 links need to be entered into the Technical information > transaction feedback page."
+msgstr ""
+
+#: eshop-settings-extends.php:1329
+msgid "HTTP redirection in the browser/URL of the merchant's post-payment page:"
+msgstr ""
+
+#: eshop-settings-extends.php:1330
+msgid "If the payment's status is \"accepted\", \"on hold\" or \"uncertain\"."
+msgstr ""
+
+#: eshop-settings-extends.php:1332
+msgid "If the payment's status is \"cancelled by the client\" or \"too many rejections by the acquirer\"."
+msgstr ""
+
+#: eshop-settings-extends.php:1334
+msgid "The following link needs to be entered into the Technical information > Data and origin verification page."
+msgstr ""
+
+#: eshop-settings-extends.php:1335
+msgid "Checks for e-Commerce:"
+msgstr ""
+
+#: eshop-settings-extends.php:1336
+msgid "URL of the merchant page containing the payment form that will call the page:orderstandard.asp"
+msgstr ""
+
+#: eshop-settings-extends.php:1339
+msgid "PSPID"
+msgstr ""
+
+#: eshop-settings-extends.php:1340
+msgid "SHA Passphrases - set SHA-OUT &amp; SHA-IN to the same value."
+msgstr ""
+
+#: eshop-settings-extends.php:1473
+msgid "No Merchant Gateway selected, eShop has been put in Test Mode"
+msgstr ""
+
+#: eshop-settings-extends.php:1474
+msgid "eShop Merchant Gateways updated."
+msgstr ""
+
+#: eshop-settings-extends.php:1482
+#: eshop-settings-extends.php:1492
+msgid "Enable Tax"
+msgstr ""
+
+#: eshop-settings-extends.php:1483
+msgid "eShop Tax Settings"
+msgstr ""
+
+#: eshop-settings-extends.php:1484
+msgid "eShop Tax Rates"
+msgstr ""
+
+#: eshop-settings-extends.php:1510
+msgid "Tax by (Shipping) Zones"
+msgstr ""
+
+#: eshop-settings-extends.php:1515
+msgid "Number of Tax bands"
+msgstr ""
+
+#: eshop-settings-extends.php:1517
+msgid "Tax shipping?"
+msgstr ""
+
+#: eshop-settings-extends.php:1519
+msgid "No, or select tax band"
+msgstr ""
+
+#: eshop-settings-extends.php:1532
+msgid "Default tax % for downloads only stores"
+msgstr ""
+
+#: eshop-settings-extends.php:1552
+msgid "Local Tax rates (for your Country)."
+msgstr ""
+
+#: eshop-settings-extends.php:1555
+#: eshop-shortcodes.php:1825
+msgid "Tax rates for Other Countries."
+msgstr ""
+
+#: eshop-settings-extends.php:1563
+#: eshop-shortcodes.php:1833
+msgid "Tax Band"
+msgstr ""
+
+#: eshop-settings-extends.php:1578
+#: eshop-settings-extends.php:1609
+#: eshop-settings-extends.php:1644
+#: eshop-shortcodes.php:1844
+msgid "All Zones"
+msgstr ""
+
+#: eshop-settings-extends.php:1664
+msgid "Will appear here once number of bands has been set."
+msgstr ""
+
+#: eshop-settings-extends.php:1749
+msgid "Number of tax bands should be numeric."
+msgstr ""
+
+#: eshop-settings-extends.php:1750
+msgid "Unknown tax rate should be numeric"
+msgstr ""
+
+#: eshop-settings-extends.php:1751
+msgid "eShop Sales Tax settings updated."
+msgstr ""
+
+#: eshop-shipping.php:43
+#: eshop-shipping.php:415
+msgid "Shipping Rates"
+msgstr ""
+
+#: eshop-shipping.php:43
+#: eshop-shipping.php:153
+msgid "Countries"
+msgstr ""
+
+#: eshop-shipping.php:81
+#: eshop-shipping.php:83
+#: eshop-shipping.php:228
+#: eshop-shipping.php:230
+#: eshop-shipping.php:239
+#: eshop-shipping.php:241
+msgid "is not valid."
+msgstr ""
+
+#: eshop-shipping.php:81
+#: eshop-shipping.php:83
+#: eshop-shipping.php:228
+#: eshop-shipping.php:230
+#: eshop-shipping.php:239
+#: eshop-shipping.php:241
+#: eshop-shipping.php:253
+msgid "State:"
+msgstr ""
+
+#: eshop-shipping.php:81
+#: eshop-shipping.php:83
+#: eshop-shipping.php:95
+#: eshop-shipping.php:228
+#: eshop-shipping.php:230
+#: eshop-shipping.php:239
+#: eshop-shipping.php:241
+#: eshop-shipping.php:253
+msgid "Zone:"
+msgstr ""
+
+#: eshop-shipping.php:106
+msgid "You cannot delete all the Countries!"
+msgstr ""
+
+#: eshop-shipping.php:112
+#: eshop-shipping.php:260
+#: eshop-base.php:313
+msgid "<strong>Error</strong> the following were not valid:"
+msgstr ""
+
+#: eshop-shipping.php:114
+msgid "Country Shipping Zones changed successfully."
+msgstr ""
+
+#: eshop-shipping.php:118
+msgid "Country Shipping Zones"
+msgstr ""
+
+#: eshop-shipping.php:121
+msgid "&#8220;Code&#8221; is the 2 letter state abbreviation, followed by &#8220;Country Name,&#8221; then the shipping &#8220;Zone&#8221; (use 1-5)."
+msgstr ""
+
+#: eshop-shipping.php:122
+msgid "&#8220;List&#8221; promotes that country to appear at the top of the list."
+msgstr ""
+
+#: eshop-shipping.php:123
+msgid "Warning: deleting all will cause eShop to stop functioning."
+msgstr ""
+
+#: eshop-shipping.php:126
+msgid "Filter"
+msgstr ""
+
+#: eshop-shipping.php:127
+#: eshop-shipping.php:159
+#: eshop-shipping.php:174
+#: eshop-shipping.php:191
+#: eshop-shipping.php:310
+#: eshop-shipping.php:322
+#: eshop-shipping.php:330
+#: eshop-shipping.php:370
+msgid "Zone"
+msgstr ""
+
+#: eshop-shipping.php:151
+#: eshop-shipping.php:302
+msgid "Shipping Zones"
+msgstr ""
+
+#: eshop-shipping.php:152
+msgid "Countries, with their 2 letter code, and applicable zone"
+msgstr ""
+
+#: eshop-shipping.php:160
+#: eshop-shipping.php:176
+#: eshop-shipping.php:280
+msgid "List"
+msgstr ""
+
+#: eshop-shipping.php:173
+#: eshop-shipping.php:190
+msgid "Country name"
+msgstr ""
+
+#: eshop-shipping.php:200
+#: eshop-shipping.php:338
+msgid "Update Shipping Zones"
+msgstr ""
+
+#: eshop-shipping.php:262
+msgid "Specific Shipping Zones changed successfully"
+msgstr ""
+
+#: eshop-shipping.php:270
+msgid "State/County/Province Shipping Zones"
+msgstr ""
+
+#: eshop-shipping.php:273
+msgid "&#8220;Code&#8221; is the 4 letter(maximum usual is 2) abbreviation and must be unique, followed by &#8220;Name&#8221;, then the shipping &#8220;Zone&#8221; (use 1-5)."
+msgstr ""
+
+#: eshop-shipping.php:274
+msgid "Example: AZ, Arizona,4"
+msgstr ""
+
+#: eshop-shipping.php:275
+msgid "Warning: deleting all may cause eShop to stop functioning."
+msgstr ""
+
+#: eshop-shipping.php:279
+msgid "Set State/County/Province"
+msgstr ""
+
+#: eshop-shipping.php:295
+msgid "Use All"
+msgstr ""
+
+#: eshop-shipping.php:304
+msgid "States, with their 2 letter code, and applicable zone"
+msgstr ""
+
+#: eshop-shipping.php:321
+#: eshop-shipping.php:329
+msgid "Statename"
+msgstr ""
+
+#: eshop-shipping.php:410
+msgid "<strong>Error</strong> the following were not valid amounts:"
+msgstr ""
+
+#: eshop-shipping.php:412
+msgid "Shipping Rates changed successfully."
+msgstr ""
+
+#: eshop-shipping.php:419
+msgid "The following are the shipping rates by class and zone."
+msgstr ""
+
+#: eshop-shipping.php:420
+msgid "<strong>Warning:</strong> changing which method you use <em>may</em> affect the full table of shipping rates. To change from one method to another, first <em>update</em>\tyour choice, and the relevant table will then appear."
+msgstr ""
+
+#: eshop-shipping.php:422
+msgid "Shipping rate calculation"
+msgstr ""
+
+#: eshop-shipping.php:428
+msgid "( per quantity of 1, prices reduced for additional items )"
+msgstr ""
+
+#: eshop-shipping.php:430
+msgid "( once per shipping class no matter what quantity is ordered )"
+msgstr ""
+
+#: eshop-shipping.php:432
+msgid "( one overall charge no matter what quantity is ordered )"
+msgstr ""
+
+#: eshop-shipping.php:434
+msgid "( by weight &amp; zone. )"
+msgstr ""
+
+#: eshop-shipping.php:436
+msgid "Method "
+msgstr ""
+
+#: eshop-shipping.php:439
+msgid "Shipping Zones by (for Methods 1-3)"
+msgstr ""
+
+#: eshop-shipping.php:449
+msgid "Number of Zones to utilise"
+msgstr ""
+
+#: eshop-shipping.php:459
+msgid "Default Zone for unknown State/County/Province"
+msgstr ""
+
+#: eshop-shipping.php:469
+msgid "Show Shipping Zones on Shipping Rates Page"
+msgstr ""
+
+#: eshop-shipping.php:476
+msgid "Shipping Modes (by weight) - 1 mode per line"
+msgstr ""
+
+#: eshop-shipping.php:485
+msgid "Weight units"
+msgstr ""
+
+#: eshop-shipping.php:488
+msgid "Update Shipping rate calculation"
+msgstr ""
+
+#: eshop-shipping.php:494
+msgid "Shipping Classes and Zones"
+msgstr ""
+
+#: eshop-shipping.php:496
+msgid "Shipping rates by class and zone"
+msgstr ""
+
+#: eshop-shipping.php:527
+#: eshop-shortcodes.php:975
+msgid "(First Item)"
+msgstr ""
+
+#: eshop-shipping.php:529
+#: eshop-shortcodes.php:977
+msgid "(Additional Items)"
+msgstr ""
+
+#: eshop-shipping.php:537
+#: eshop-shipping.php:559
+msgid "%1$s class"
+msgstr ""
+
+#: eshop-shipping.php:567
+msgid "A"
+msgstr ""
+
+#: eshop-shipping.php:571
+#: eshop-shortcodes.php:1016
+msgid "(Overall charge)"
+msgstr ""
+
+#: eshop-shipping.php:586
+#: eshop-shipping.php:663
+msgid "Update Shipping Rates"
+msgstr ""
+
+#: eshop-shipping.php:594
+msgid "Shipping Modes, by weight and zone"
+msgstr ""
+
+#: eshop-shipping.php:611
+msgid "Shipping Zones by"
+msgstr ""
+
+#: eshop-shipping.php:618
+msgid "Max weight allowed"
+msgstr ""
+
+#: eshop-shipping.php:622
+#: eshop-shortcodes.php:1057
+msgid "Starting weight"
+msgstr ""
+
+#: eshop-shipping.php:668
+msgid "No modes setup"
+msgstr ""
+
+#: payson.php:187
+#: payson.php:251
+msgid "Payson IPN -"
+msgstr ""
+
+#: payson.php:190
+#: payson.php:254
+msgid "Testing: Payson IPN - "
+msgstr ""
+
+#: eshop-base-feed.php:12
+msgid "Product feed for %1$s"
+msgstr ""
+
+#: eshop-base-feed.php:13
+msgid "eShop: Accessible e-commerce plugin for Wordpress"
+msgstr ""
+
+#: public-functions.php:232
+msgid "Warning: you must supply a valid quantity."
+msgstr ""
+
+#: public-functions.php:243
+msgid "<p>Added</p>"
+msgstr ""
+
+#: ideallite.php:307
+#: ideallite.php:372
+msgid "iDeal -"
+msgstr ""
+
+#: ideallite.php:310
+#: ideallite.php:375
+msgid "Testing: ideallite IPN - "
+msgstr ""
+
+#: ideallite.php:346
+msgid "More information"
+msgstr ""
+
+#: ideallite.php:388
+msgid "ERROR Payment"
+msgstr ""
+
+#: ideallite.php:392
+msgid "Cancelled Payment"
+msgstr ""
+
+#: payson/payson.class.php:70
+msgid "<strong>Note:</strong> Submit to finalize order at Payson."
+msgstr ""
+
+#: payson/payson.class.php:84
+msgid "If you are not automatically redirected to Payson, please use the <em>Proceed to Payson</em> button."
+msgstr ""
+
+#: payson/payson.class.php:102
+msgid "Payson minimum of %s SEK applied."
+msgstr ""
+
+#: payson/payson.class.php:131
+msgid "Proceed to Payson &raquo;"
+msgstr ""
+
+#: eshop.php:62
+msgid ""
+"You may have some outstanding orders to process\n"
+"\n"
+"regards\n"
+"\n"
+"Your eShop plugin"
+msgstr ""
+
+#: eshop.php:65
+msgid ": outstanding orders"
+msgstr ""
+
+#: ogone.php:233
+#: ogone.php:295
+msgid "ogone IPN -"
+msgstr ""
+
+#: ogone.php:236
+#: ogone.php:298
+msgid "Testing: ogone IPN - "
+msgstr ""
+
+#: ogone.php:297
+msgid "TEST-Failed"
+msgstr ""
+
+#: ogone.php:307
+msgid "eshop INVALID Payment"
+msgstr ""
+
+#: ogone.php:310
+msgid "eshop Invalid and Failed Payment"
+msgstr ""
+
+#: ogone/ogone.class.php:68
+msgid "<strong>Note:</strong> Submit to finalize order at ogone."
+msgstr ""
+
+#: ogone/ogone.class.php:82
+msgid "If you are not automatically redirected to ogone, please use the <em>Proceed to ogone</em> button."
+msgstr ""
+
+#: ogone/ogone.class.php:89
+msgid "Proceed to ogone"
+msgstr ""
+
+#: eshop-orders.php:38
+msgid "Records deleted"
+msgstr ""
+
+#: eshop-orders.php:46
+msgid "Delete all orders and reset all stats <small>(this action cannot be undone)</small>"
+msgstr ""
+
+#: eshop-orders.php:64
+msgid "Notes changed successfully."
+msgstr ""
+
+#: eshop-orders.php:66
+msgid "Error: Notes were not changed."
+msgstr ""
+
+#: eshop-orders.php:144
+#: eshop-downloads.php:362
+#: eshop-base.php:104
+msgid "Sort Orders by &raquo;"
+msgstr ""
+
+#: eshop-orders.php:145
+#: eshop-downloads.php:365
+#: eshop-widget.php:463
+msgid "Date Ascending"
+msgstr ""
+
+#: eshop-orders.php:146
+#: eshop-downloads.php:366
+#: eshop-widget.php:464
+msgid "Date Descending"
+msgstr ""
+
+#: eshop-orders.php:149
+#: eshop-orders.php:161
+msgid "Customer"
+msgstr ""
+
+#: eshop-orders.php:160
+msgid "Date/Time"
+msgstr ""
+
+#: eshop-orders.php:164
+msgid "Contains Downloads"
+msgstr ""
+
+#: eshop-orders.php:166
+msgid "Bulk"
+msgstr ""
+
+#: eshop-orders.php:199
+#: eshop-orders.php:612
+msgid "Profile for %1$s"
+msgstr ""
+
+#: eshop-orders.php:233
+msgid "Change Orders Status"
+msgstr ""
+
+#: eshop-orders.php:234
+msgid "Mark orders as:"
+msgstr ""
+
+#: eshop-orders.php:255
+msgid "Complete Order Deletion"
+msgstr ""
+
+#: eshop-orders.php:256
+msgid "Orders that are "
+msgstr ""
+
+#: eshop-orders.php:265
+msgid "hours old"
+msgstr ""
+
+#: eshop-orders.php:281
+msgid "There are no %s orders."
+msgstr ""
+
+#: eshop-orders.php:294
+msgid "That order has now been deleted from the system."
+msgstr ""
+
+#: eshop-orders.php:345
+msgid "Active Order"
+msgstr ""
+
+#: eshop-orders.php:346
+msgid "Pending Order"
+msgstr ""
+
+#: eshop-orders.php:347
+#: eshop-orders.php:364
+msgid "Orders Awaiting Payment"
+msgstr ""
+
+#: eshop-orders.php:348
+msgid "Shipped Order"
+msgstr ""
+
+#: eshop-orders.php:349
+msgid "Deleted Order"
+msgstr ""
+
+#: eshop-orders.php:350
+msgid "Failed Order"
+msgstr ""
+
+#: eshop-orders.php:355
+msgid "Active Orders"
+msgstr ""
+
+#: eshop-orders.php:358
+msgid "Pending Orders"
+msgstr ""
+
+#: eshop-orders.php:361
+msgid "Failed Orders"
+msgstr ""
+
+#: eshop-orders.php:367
+msgid "Shipped Orders"
+msgstr ""
+
+#: eshop-orders.php:370
+msgid "Deleted Orders"
+msgstr ""
+
+#: eshop-orders.php:376
+#: eshop-base.php:579
+msgid "Error"
+msgstr ""
+
+#: eshop-orders.php:391
+msgid " hours"
+msgstr ""
+
+#: eshop-orders.php:392
+msgid "1 day"
+msgstr ""
+
+#: eshop-orders.php:401
+msgid "Deleted orders older than"
+msgstr ""
+
+#: eshop-orders.php:401
+msgid "have now been <strong>completely</strong> deleted."
+msgstr ""
+
+#: eshop-orders.php:403
+msgid "There was an error, and nothing has been deleted."
+msgstr ""
+
+#: eshop-orders.php:410
+#: eshop-orders.php:419
+msgid "Order status changed successfully."
+msgstr ""
+
+#: eshop-orders.php:421
+msgid "No orders were selected."
+msgstr ""
+
+#: eshop-orders.php:458
+msgid "Download allowance increased."
+msgstr ""
+
+#: eshop-orders.php:483
+msgid "Change Order Status"
+msgstr ""
+
+#: eshop-orders.php:484
+msgid "Mark order as:"
+msgstr ""
+
+#: eshop-orders.php:509
+msgid "Admin Note:"
+msgstr ""
+
+#: eshop-orders.php:511
+msgid "Edit admin note"
+msgstr ""
+
+#: eshop-orders.php:513
+msgid "Add admin note"
+msgstr ""
+
+#: eshop-orders.php:560
+msgid "Increase download allowance by 1"
+msgstr ""
+
+#: eshop-orders.php:560
+msgid "Increase"
+msgstr ""
+
+#: eshop-orders.php:603
+msgid "Affiliate Reference:"
+msgstr ""
+
+#: eshop-orders.php:616
+msgid "Send a form email"
+msgstr ""
+
+#: eshop-orders.php:616
+msgid "(sends a form email)"
+msgstr ""
+
+#: eshop-orders.php:705
+msgid "Notes"
+msgstr ""
+
+#: eshop-orders.php:706
+msgid "Admin Note"
+msgstr ""
+
+#: eshop-orders.php:711
+msgid "Note for customer (will be displayed on their order view page)"
+msgstr ""
+
+#: eshop-orders.php:716
+msgid "Update Notes"
+msgstr ""
+
+#: eshop-orders.php:720
+msgid "Completely delete this order?"
+msgstr ""
+
+#: eshop-orders.php:720
+msgid "<small><strong>Warning:</strong> this order will be completely deleted and cannot be recovered at a later date.</small>"
+msgstr ""
+
+#: eshop-add-cart.php:65
+msgid "Order"
+msgstr ""
+
+#: eshop-add-cart.php:100
+#: eshop-add-cart.php:115
+#: eshop-add-cart.php:126
+#: eshop-add-cart.php:139
+msgid " + %1$s%2$s"
+msgstr ""
+
+#: eshop-add-cart.php:240
+msgid "@ %1$s%2$s"
+msgstr ""
+
+#: eshop-add-cart.php:265
+msgid "<abbr title=\"Quantity\">Qty</abbr>:"
+msgstr ""
+
+#: eshop-add-cart.php:280
+#: eshop-add-cart.php:282
+msgid "Add to Cart"
+msgstr ""
+
+#: eshop-add-cart.php:280
+#: eshop-add-cart.php:282
+msgid "Add selected item to your shopping basket"
+msgstr ""
+
+#: eshop-shortcodes.php:44
+#: eshop-widget.php:44
+#: eshop-widget.php:164
+msgid "<span>%d</span> product in cart."
+msgid_plural "<span>%d</span> products in cart."
+msgstr[0] ""
+msgstr[1] ""
+
+#: eshop-shortcodes.php:48
+#: eshop-widget.php:48
+#: eshop-widget.php:169
+msgid "<span>%d</span> item in cart."
+msgid_plural "<span>%d</span> items in cart."
+msgstr[0] ""
+msgstr[1] ""
+
+#: eshop-shortcodes.php:50
+#: eshop-widget.php:50
+#: eshop-widget.php:61
+#: eshop-widget.php:176
+#: eshop-widget.php:190
+msgid "View Cart"
+msgstr ""
+
+#: eshop-shortcodes.php:191
+msgid "No products found for that letter or number."
+msgstr ""
+
+#: eshop-shortcodes.php:721
+#: eshop-shortcodes.php:799
+#: eshop-widget.php:670
+#: eshop-widget.php:692
+msgid "On Sale"
+msgstr ""
+
+#: eshop-shortcodes.php:898
+msgid "Free Shipping if you spend over"
+msgstr ""
+
+#: eshop-shortcodes.php:948
+msgid "This is a table of our online order shipping rates"
+msgstr ""
+
+#: eshop-shortcodes.php:949
+msgid "Shipping rates by class and zone <small>(subject to change)</small>"
+msgstr ""
+
+#: eshop-shortcodes.php:950
+msgid "Ship Class"
+msgstr ""
+
+#: eshop-shortcodes.php:1032
+msgid "(Free)"
+msgstr ""
+
+#: eshop-shortcodes.php:1076
+#: eshop-shortcodes.php:1580
+#: eshop-shortcodes.php:1635
+#: eshop-shortcodes.php:1721
+msgid "%1$s %2$s"
+msgstr ""
+
+#: eshop-shortcodes.php:1130
+msgid "Check your shipping zone"
+msgstr ""
+
+#: eshop-shortcodes.php:1162
+#: eshop-shortcodes.php:1211
+msgid "%1$s is in Zone %2$s"
+msgstr ""
+
+#: eshop-shortcodes.php:1182
+msgid "State, County or Province"
+msgstr ""
+
+#: eshop-shortcodes.php:1265
+#: eshop-shortcodes.php:1772
+msgid "The order was cancelled."
+msgstr ""
+
+#: eshop-shortcodes.php:1266
+#: eshop-shortcodes.php:1366
+msgid "We have not emptied your shopping cart in case you want to make changes."
+msgstr ""
+
+#: eshop-shortcodes.php:1303
+#: eshop-shortcodes.php:1327
+#: eshop-shortcodes.php:1352
+msgid "View your downloads"
+msgstr ""
+
+#: eshop-shortcodes.php:1360
+msgid "Your iDEAL payment has been succesfully received."
+msgstr ""
+
+#: eshop-shortcodes.php:1361
+msgid "We will get on it as soon as possible."
+msgstr ""
+
+#: eshop-shortcodes.php:1363
+#: eshop-shortcodes.php:1372
+msgid "The payment failed at iDEAL."
+msgstr ""
+
+#: eshop-shortcodes.php:1364
+msgid "Your iDEAL payment has not been received yet, and currently has status \"ERROR\"."
+msgstr ""
+
+#: eshop-shortcodes.php:1365
+#: eshop-shortcodes.php:1370
+msgid "Please try to checkout your order again."
+msgstr ""
+
+#: eshop-shortcodes.php:1368
+msgid "The payment was cancelled at iDEAL."
+msgstr ""
+
+#: eshop-shortcodes.php:1369
+msgid "Your iDEAL payment has not been revieced yet, and currently has status \"CANCEL\"."
+msgstr ""
+
+#: eshop-shortcodes.php:1373
+msgid "Please try checkout your order again."
+msgstr ""
+
+#: eshop-shortcodes.php:1468
+msgid "File Size"
+msgstr ""
+
+#: eshop-shortcodes.php:1595
+msgid "Sales tax rates"
+msgstr ""
+
+#: eshop-shortcodes.php:1609
+msgid "Additional Options"
+msgstr ""
+
+#: eshop-shortcodes.php:1642
+#: eshop-options.php:148
+#: eshop-options.php:232
+msgid "Product Options by option and price"
+msgstr ""
+
+#: eshop-shortcodes.php:1666
+#: eshop-shortcodes.php:1668
+msgid "Shipping Rate:"
+msgstr ""
+
+#: eshop-shortcodes.php:1773
+msgid "We have not deleted the contents of your shopping cart in case you may want to edit its content."
+msgstr ""
+
+#: eshop-shortcodes.php:1783
+msgid "&laquo; Continue Shopping"
+msgstr ""
+
+#: eshop-shortcodes.php:1822
+msgid "Local Tax rates."
+msgstr ""
+
+#: eshop-shortcodes.php:1887
+msgid "Check your tax zone"
+msgstr ""
+
+#: eshop-downloads.php:37
+msgid "Missing"
+msgstr ""
+
+#: eshop-downloads.php:39
+msgid "Available"
+msgstr ""
+
+#: eshop-downloads.php:59
+msgid ".Collection"
+msgstr ""
+
+#: eshop-downloads.php:87
+msgid "The uploaded file exceeds the <code>upload_max_filesize</code> directive in <code>php.ini</code>."
+msgstr ""
+
+#: eshop-downloads.php:88
+msgid "The uploaded file exceeds the <em>MAX_FILE_SIZE</em> directive that was specified in the HTML form."
+msgstr ""
+
+#: eshop-downloads.php:89
+msgid "The uploaded file was only partially uploaded."
+msgstr ""
+
+#: eshop-downloads.php:90
+msgid "No file was uploaded."
+msgstr ""
+
+#: eshop-downloads.php:91
+msgid "Missing a temporary folder."
+msgstr ""
+
+#: eshop-downloads.php:92
+msgid "Failed to write file to disk."
+msgstr ""
+
+#: eshop-downloads.php:103
+msgid "No file indicated"
+msgstr ""
+
+#: eshop-downloads.php:109
+msgid "File moved"
+msgstr ""
+
+#: eshop-downloads.php:111
+msgid "Failed to move file"
+msgstr ""
+
+#: eshop-downloads.php:114
+#: eshop-downloads.php:117
+msgid "Error uploading file"
+msgstr ""
+
+#: eshop-downloads.php:117
+msgid "it <strong>already exists!</strong>"
+msgstr ""
+
+#: eshop-downloads.php:120
+msgid "A title must be provided."
+msgstr ""
+
+#: eshop-downloads.php:127
+msgid "has successfully overwritten existing file"
+msgstr ""
+
+#: eshop-downloads.php:135
+msgid "has successfully uploaded"
+msgstr ""
+
+#: eshop-downloads.php:152
+msgid "File deleted successfully"
+msgstr ""
+
+#: eshop-downloads.php:163
+msgid "File updated successfully"
+msgstr ""
+
+#: eshop-downloads.php:167
+msgid "The title for the file cannot be blank!"
+msgstr ""
+
+#: eshop-downloads.php:170
+msgid "Downloads should to be a number!"
+msgstr ""
+
+#: eshop-downloads.php:173
+msgid "Purchases should to be a number!"
+msgstr ""
+
+#: eshop-downloads.php:176
+msgid "Some errors were found:"
+msgstr ""
+
+#: eshop-downloads.php:199
+msgid "Edit File details"
+msgstr ""
+
+#: eshop-downloads.php:201
+msgid "downloadable file details"
+msgstr ""
+
+#: eshop-downloads.php:202
+msgid "File details"
+msgstr ""
+
+#: eshop-downloads.php:206
+#: eshop-downloads.php:255
+#: eshop-downloads.php:364
+#: eshop-downloads.php:379
+#: eshop-downloads.php:468
+#: eshop-widget.php:435
+#: eshop-widget.php:461
+msgid "Title"
+msgstr ""
+
+#: eshop-downloads.php:207
+#: eshop-downloads.php:380
+msgid "Size"
+msgstr ""
+
+#: eshop-downloads.php:208
+msgid "File name"
+msgstr ""
+
+#: eshop-downloads.php:209
+#: eshop-downloads.php:382
+msgid "Upload Date"
+msgstr ""
+
+#: eshop-downloads.php:239
+msgid "This file is associated with the following product pages:"
+msgstr ""
+
+#: eshop-downloads.php:246
+msgid "You can only delete this file if it is <strong>not</strong> associated with a product page."
+msgstr ""
+
+#: eshop-downloads.php:252
+msgid "Amend File details"
+msgstr ""
+
+#: eshop-downloads.php:263
+msgid "Amend details"
+msgstr ""
+
+#: eshop-downloads.php:273
+msgid "Delete File"
+msgstr ""
+
+#: eshop-downloads.php:281
+msgid "Product not found"
+msgstr ""
+
+#: eshop-downloads.php:357
+#: eshop-downloads.php:435
+msgid "Downloadable Products"
+msgstr ""
+
+#: eshop-downloads.php:371
+msgid "Total Downloads:"
+msgstr ""
+
+#: eshop-downloads.php:372
+msgid "Total Purchases:"
+msgstr ""
+
+#: eshop-downloads.php:374
+msgid "download listing"
+msgstr ""
+
+#: eshop-downloads.php:375
+msgid "Available downloads"
+msgstr ""
+
+#: eshop-downloads.php:401
+msgid "edit details for"
+msgstr ""
+
+#: eshop-downloads.php:437
+msgid "You currently have no downloadable products"
+msgstr ""
+
+#: eshop-downloads.php:449
+msgid "<strong>Warning!</strong>The download directory is not currently writable! File permissions must first be changed."
+msgstr ""
+
+#: eshop-downloads.php:457
+msgid "Upload a File"
+msgstr ""
+
+#: eshop-downloads.php:464
+msgid "Use this to upload your local file. Max file size is "
+msgstr ""
+
+#: eshop-downloads.php:466
+msgid "Upload"
+msgstr ""
+
+#: eshop-downloads.php:469
+msgid "Local File"
+msgstr ""
+
+#: eshop-downloads.php:471
+msgid "Overwrite file if it exists"
+msgstr ""
+
+#: eshop-downloads.php:480
+msgid "Upload File"
+msgstr ""
+
+#: eshop-downloads.php:489
+msgid "Unknown Download Files"
+msgstr ""
+
+#: eshop-downloads.php:497
+msgid "Add all unknown download files"
+msgstr ""
+
+#: eshop-base.php:22
+msgid "eShop Base Products"
+msgstr ""
+
+#: eshop-base.php:28
+msgid "Download the xml file"
+msgstr ""
+
+#: eshop-base.php:29
+msgid "Mac - Download the xml file"
+msgstr ""
+
+#: eshop-base.php:30
+msgid "View xml file"
+msgstr ""
+
+#: eshop-base.php:31
+msgid "Direct link to file for Google Base: <a href=\"%1$s\">%1$s</a>"
+msgstr ""
+
+#: eshop-base.php:137
+#: eshop-base.php:363
+msgid "product listing"
+msgstr ""
+
+#: eshop-base.php:187
+msgid "Change details"
+msgstr ""
+
+#: eshop-base.php:298
+msgid "Quantity was not numeric, a default of 25 has been applied."
+msgstr ""
+
+#: eshop-base.php:315
+msgid "eshop Base details for this product have been updated."
+msgstr ""
+
+#: eshop-base.php:326
+msgid "eShop Base Product"
+msgstr ""
+
+#: eshop-base.php:466
+msgid "Additional settings"
+msgstr ""
+
+#: eshop-base.php:471
+msgid "Others"
+msgstr ""
+
+#: eshop-base.php:481
+msgid "Brand <small>The brand name of the product</small>"
+msgstr ""
+
+#: eshop-base.php:483
+msgid "EAN <small>European Article Number is a 13 digit number often below the bar code of the item.</small>"
+msgstr ""
+
+#: eshop-base.php:485
+msgid "ISBN <small>The unique 10- or 13-digit number assigned to every printed book.</small>"
+msgstr ""
+
+#: eshop-base.php:487
+msgid "MPN <small>Manufacturer's Part Number is a unique code determined by the manufacturer for that product.</small>"
+msgstr ""
+
+#: eshop-base.php:489
+msgid "Product type <small>The type of product being offered.</small>"
+msgstr ""
+
+#: eshop-base.php:493
+msgid "Condition <small>the condition of this product</small>"
+msgstr ""
+
+#: eshop-base.php:514
+msgid "Expiration date <small>(or how long a product will be available.)</small>"
+msgstr ""
+
+#: eshop-base.php:580
+msgid "That product does not exist!"
+msgstr ""
+
+#: eshop-options.php:25
+msgid "Return"
+msgstr ""
+
+#: eshop-options.php:33
+msgid "Option Set Deleted"
+msgstr ""
+
+#: eshop-options.php:41
+#: eshop-options.php:72
+msgid "Only the first option field is used for this type."
+msgstr ""
+
+#: eshop-options.php:63
+msgid "Option Set Updated"
+msgstr ""
+
+#: eshop-options.php:94
+msgid "Option Set Created"
+msgstr ""
+
+#: eshop-options.php:98
+msgid "Sorry that name isn't allowed. Try another name."
+msgstr ""
+
+#: eshop-options.php:115
+msgid "<strong>Warning:</strong> Changing these will affect <strong>all</strong> products using these options"
+msgstr ""
+
+#: eshop-options.php:137
+msgid "Display Name"
+msgstr ""
+
+#: eshop-options.php:138
+#: eshop-options.php:221
+msgid "Set display type"
+msgstr ""
+
+#: eshop-options.php:140
+#: eshop-options.php:187
+#: eshop-options.php:223
+msgid "Dropdown"
+msgstr ""
+
+#: eshop-options.php:141
+#: eshop-options.php:187
+#: eshop-options.php:224
+msgid "Checkboxes"
+msgstr ""
+
+#: eshop-options.php:142
+#: eshop-options.php:187
+#: eshop-options.php:225
+#: eshop-widget.php:272
+#: eshop-widget.php:441
+msgid "Text"
+msgstr ""
+
+#: eshop-options.php:143
+#: eshop-options.php:187
+#: eshop-options.php:226
+msgid "Textarea"
+msgstr ""
+
+#: eshop-options.php:145
+#: eshop-options.php:228
+msgid "Short Admin Name"
+msgstr ""
+
+#: eshop-options.php:149
+#: eshop-options.php:233
+msgid "Options for"
+msgstr ""
+
+#: eshop-options.php:175
+msgid "Existing Option Sets"
+msgstr ""
+
+#: eshop-options.php:177
+msgid "Option sets reference table"
+msgstr ""
+
+#: eshop-options.php:180
+msgid "Admin Name"
+msgstr ""
+
+#: eshop-options.php:181
+msgid "Public Name"
+msgstr ""
+
+#: eshop-options.php:207
+msgid "Create New Option Set"
+msgstr ""
+
+#: eshop-options.php:209
+#: eshop-options.php:238
+msgid "Create"
+msgstr ""
+
+#: eshop-widget.php:17
+msgid "Displays a simplified or full cart"
+msgstr ""
+
+#: eshop-widget.php:18
+msgid "eShop Cart"
+msgstr ""
+
+#: eshop-widget.php:94
+#: eshop-widget.php:249
+#: eshop-widget.php:345
+#: eshop-widget.php:774
+msgid "Title:"
+msgstr ""
+
+#: eshop-widget.php:98
+#: eshop-widget.php:258
+msgid "Show when empty"
+msgstr ""
+
+#: eshop-widget.php:103
+#: eshop-widget.php:253
+#: eshop-widget.php:446
+msgid "What to show"
+msgstr ""
+
+#: eshop-widget.php:105
+msgid "Total number of different products"
+msgstr ""
+
+#: eshop-widget.php:106
+msgid "Total number of different items"
+msgstr ""
+
+#: eshop-widget.php:107
+msgid "Both"
+msgstr ""
+
+#: eshop-widget.php:108
+#: eshop-widget.php:256
+msgid "Full Cart"
+msgstr ""
+
+#: eshop-widget.php:112
+#: eshop-widget.php:279
+msgid "Text to show when Cart is empty:"
+msgstr ""
+
+#: eshop-widget.php:125
+msgid "Displays eShop cart"
+msgstr ""
+
+#: eshop-widget.php:126
+msgid "eShop Cart (Improved)"
+msgstr ""
+
+#: eshop-widget.php:174
+msgid "<span>%s</span> cart total."
+msgstr ""
+
+#: eshop-widget.php:255
+msgid "Just totals"
+msgstr ""
+
+#: eshop-widget.php:264
+msgid "Total Number of Items"
+msgstr ""
+
+#: eshop-widget.php:265
+msgid "Total Quantity of Items"
+msgstr ""
+
+#: eshop-widget.php:266
+msgid "Cart Total"
+msgstr ""
+
+#: eshop-widget.php:270
+msgid "Image + Text"
+msgstr ""
+
+#: eshop-widget.php:274
+msgid "% size image to display"
+msgstr ""
+
+#: eshop-widget.php:292
+msgid "Displays accepted payment logos"
+msgstr ""
+
+#: eshop-widget.php:293
+msgid "eShop Payments Accepted"
+msgstr ""
+
+#: eshop-widget.php:359
+msgid "Displays products"
+msgstr ""
+
+#: eshop-widget.php:438
+msgid "Images or text"
+msgstr ""
+
+#: eshop-widget.php:440
+msgid "Images"
+msgstr ""
+
+#: eshop-widget.php:443
+msgid "&#37; size image to display"
+msgstr ""
+
+#: eshop-widget.php:449
+msgid "New"
+msgstr ""
+
+#: eshop-widget.php:450
+msgid "Random"
+msgstr ""
+
+#: eshop-widget.php:451
+msgid "Specific products"
+msgstr ""
+
+#: eshop-widget.php:452
+msgid "Best Sellers"
+msgstr ""
+
+#: eshop-widget.php:453
+msgid "Category names"
+msgstr ""
+
+#: eshop-widget.php:454
+msgid "Category ID"
+msgstr ""
+
+#: eshop-widget.php:455
+msgid "Tags"
+msgstr ""
+
+#: eshop-widget.php:456
+msgid "Tag ID"
+msgstr ""
+
+#: eshop-widget.php:459
+msgid "Featured/Sale Order by"
+msgstr ""
+
+#: eshop-widget.php:462
+msgid "Menu Order"
+msgstr ""
+
+#: eshop-widget.php:466
+msgid "How many to show"
+msgstr ""
+
+#: eshop-widget.php:476
+msgid "Page, Post, Tag &amp; Category IDs or Tag/Category names - comma separated"
+msgstr ""
+
+#: eshop-widget.php:718
+msgid "Displays a product search, optional link to an index page, and a random wiki page link"
+msgstr ""
+
+#: eshop-widget.php:719
+msgid "eShop Product Search"
+msgstr ""
+
+#: eshop-widget.php:737
+#: eshop-widget.php:784
+msgid "Find"
+msgstr ""
+
+#: eshop-widget.php:746
+msgid "Random product"
+msgstr ""
+
+#: eshop-widget.php:778
+msgid "Show search form"
+msgstr ""
+
+#: eshop-widget.php:786
+msgid "All Products"
+msgstr ""
+
+#: eshop-widget.php:787
+msgid "Only Products in Stock"
+msgstr ""
+
+#: eshop-widget.php:790
+msgid "Show random product link"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "eShop for Wordpress"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/extend/plugins/eshop/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "The accessible shopping cart for WordPress 3.0 and above."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Rich Pedley"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://quirm.net/"
+msgstr ""
+
