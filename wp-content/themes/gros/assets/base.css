@@ -143,14 +143,13 @@ dd {
 
 table {
   width: 100%;
-  margin-bottom: 5em;
 }
 td, th, tr {
   vertical-align: top;
   text-align: left;
+  padding: .625em;
 }
 th {
-  padding-left: 0;
   font-weight: bold;
 }
 td {

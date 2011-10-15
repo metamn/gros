@@ -13,11 +13,17 @@
 	      echo do_shortcode('[eshop_addtocart]');  
 	    } else { ?>
 	      <p>
-	        Pentru a vedea preturile, va rugam <a title="Intrare in cont" class="button" href="<?php echo esc_url( home_url( '/intrare-cont' ) ); ?>">sa va autentificati</a>. 
+	        Pentru a vedea preturile, va rugam 
 	      </p>
 	      <p>
-	        Daca nu aveti inca cont la noi, va rugam <a title="Inregistrare cont" class="button" href="<?php echo esc_url( home_url( '/inregistrare-cont' ) ); ?>">sa va inregistrati aici</a>.	      
+	        <a title="Intrare in cont" class="button" href="<?php echo esc_url( home_url( '/intrare-cont' ) ); ?>">sa va autentificati</a>
+	      </p>
+	      <p>
+	        Daca nu aveti inca cont la noi, va rugam	      
         </p>	      
+        <p>
+          <a title="Inregistrare cont" class="button" href="<?php echo esc_url( home_url( '/inregistrare-cont' ) ); ?>">sa va inregistrati aici</a>
+        </p>
 	   <?php } ?>
 	</div>
 </div>

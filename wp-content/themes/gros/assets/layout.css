@@ -63,20 +63,22 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
   text-align: center;
 }
 
-#products #product {
+.home #product {
   float: left;
   width: 45%;
   height: 15em;
   margin: 0 5% 5% 0;
 }
-#products #product #title {
+.home #product #title,
+.page #product #title {
   position: relative;
   top: -15.3em;
   height: 12.5em;
   width: 94.5%;
   padding: 1.25em 2%;
 }
-#products #product #title h1 {
+.home #product #title h1,
+.page #product #title h1 {
   padding: 0;
 }
 
@@ -85,13 +87,24 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 /* Products
 */
 
+.category #access, .single #access {
+  margin-right: 15%;
+}
+
 .category #product, .single #product {
   width: 30%;
   margin-right: 5%;
-  float: left;
+  float: left;  
+  text-align: center;
 }
 .category #product.c3, .single #product.c3 {
   margin-right: 0;
+}
+.category #product > div, .single #product > div {
+  padding: 0 .625em 2.5em;
+}
+.category #product #title, .single #product #title {
+  height: 8.5em;
 }
 .category #product #details, .single #product #details {
   display: none;
@@ -99,6 +112,10 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 .category #product h3, .single #product h3 {
   padding: .312em;
   cursor: pointer;
+}
+
+#product #shopping, #product #details {
+  text-align: left;
 }
 
 .single #nav-single, .single #comments {
@@ -112,6 +129,7 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 
 .page #products #product {
   width: 75%;
+  height: 15em;
 }
 .page #products #product #title {
   top: -13.3em;
@@ -127,15 +145,15 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 #shopping {
   padding: 1.25em 0;
 }
-.page form.eshop, 
-.page table.eshop tr th,
-.page table.eshop tr td {
+form.eshop, 
+table.eshop tr th,
+table.eshop tr td {
   padding: 1.25em;
 }
-.page table.eshop {
+table.eshop {
   margin-bottom: 0;
 }
-.page fieldset.fld1 {
+fieldset.fld1 {
   border: none;
 }
 
@@ -169,32 +187,44 @@ form.eshop ul li {
 form.eshop input.iqty {
   width: 10%;
 }
-.single .eshopdetails {
+.eshopdetails {
   display: none;
 }
 form.eshop legend {
   display: none;
 }
-.page tr, .page th, .page  td {
+tr, th, td {
   vertical-align: middle;
 }
-.page tr.stotal th,
-.page tr.stotal td {
+tr.stotal th,
+tr.stotal td {
   padding-top: 1.25em;
 }
-.page form.eshopcart table #cartDelete img,
-.page form.eshopcart table caption {
+form.eshopcart table #cartDelete img,
+form.eshopcart table caption {
   display: none;
 }
-.page ul.continue-proceed {
+ul.continue-proceed {
   list-style: none;
   margin: 2.5em 0;
 }
-.page ul.continue-proceed li {
+ul.continue-proceed li {
   float: left;
   position: relative;
   margin-right: 1.25em;
 }
+.cartopt {
+  margin-top: 1.25em;
+}
+
+.cartlink, .checkoutlink {
+  border-radius: 6px 6px 6px 6px;
+  cursor: pointer;
+  padding: 0.55em;
+  display: inline-block;
+  margin-bottom: 1.25em;
+}
+
 
 
 /* Login form , WP Members

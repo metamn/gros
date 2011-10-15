@@ -1,7 +1,7 @@
 
 
 body {
-  font-family: Abel, Arial, sans-serif;
+  font-family: Abel, sans-serif;
   color: #2B2922;
   background: url(stripe.png) transparent;
 }
@@ -28,7 +28,7 @@ a, a:visited {
 /* Frontpage
 */
 
-#question, .single h1.entry-title a {
+#question {
   background: #DC574E;
   text-shadow: 1px 1px #e2726a; /* +2 */
 }
@@ -40,14 +40,17 @@ a, a:visited {
   border-color: #DC574E transparent transparent;
 }
 
-#products #product #title {
+.home #product #title,
+.page #product #title {
   background: #2B2922;
   opacity: 0;
 }
-#products #product #title a {
+.home #product #title a,
+.page #product #title a {
   color: white;
+  text-shadow: 1px 1px #333;
 }
-#products #products img, .single article img {
+#product img {
   border: 1px solid #eee;
   width: 98%;
 }
@@ -56,9 +59,17 @@ a, a:visited {
 /* Single
 */
 
-
-#product.active {
-  background: red;
+.category #product, .single #product {
+  background: #fff;
+}
+#product.active, #product.highlight {
+  background: #f9f9f9;
+  box-shadow: 0 3px 10px #999;
+  -moz-box-shadow: 0 3px 10px #999;
+  -webkit-box-shadow: 0 3px 10px #999;
+}
+#product.active h1, #product.highlight h1 {
+  border-bottom: 1px dashed;
 }
 
 
@@ -76,15 +87,26 @@ a, a:visited {
 /* Shopping cart and all forms
 */
 
-form.eshop, table.eshop, #wpmem_reg, #wpmem_login {
-  background: #F7E4A2;
+table.eshop, #wpmem_reg, #wpmem_login {
+  background: #eee;
+}
+table.eshop {
+  border-bottom: 1px solid #999;
+  width: 65%;
+}
+table.eshop td, 
+table.eshop th {
+  border-bottom: 1px dotted #999;
+}
+form.eshop {
+  background: #ddd;
 }
 form.eshop fieldset {
-  border-color: #eee;
+  border-color: #e5e5e5;
 }
 
 
-input, textarea, .button, li.gotocheckout {  
+input, textarea, .button, li.gotocheckout, .cartlink, .checkoutlink {  
   -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
 	box-shadow: inset 0px 1px 0px 0px #ffffff;
@@ -100,7 +122,7 @@ input, textarea, .button, li.gotocheckout {
 	text-decoration:none !important;
 	text-shadow: 1px 1px 0px #dbe4bc;	
 }
-input.button:hover, a.button:hover {
+input.button:hover, a.button:hover, a.cartlink:hover, a.checkoutlink:hover {
 	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8da342), color-stop(1, #A7BD5B) );
 	background: -moz-linear-gradient( center top, #8da342 5%, #A7BD5B 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8da342', endColorstr='#A7BD5B');
@@ -109,6 +131,7 @@ input.button:hover, a.button:hover {
 input.text, input.password, textarea {
   background: #fff;
 }
+
 
 
 
