@@ -1,7 +1,7 @@
 
 
 body {
-  font-family: Abel, sans-serif;
+  font-family: Abel, Arial, sans-serif;
   color: #2B2922;
   background: url(stripe.png) transparent;
 }
@@ -13,6 +13,14 @@ a, a:visited {
 }
 #access a:hover, a:hover {
   text-decoration: underline;
+}
+
+
+/* Header
+*/
+
+#access ul li {
+  background: white;
 }
 
 
@@ -34,8 +42,11 @@ a, a:visited {
   border-color: #DC574E transparent transparent;
 }
 
-#products h1 a {
+#product #title {
   background: #2B2922;
+  opacity: 0;
+}
+#product #title a {
   color: white;
 }
 #products img, .single article img {

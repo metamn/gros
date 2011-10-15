@@ -8,7 +8,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" class="col col-1">
   <header class="entry-header">
 		<h1 class="entry-title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 	</header><!-- .entry-header -->
@@ -34,27 +34,8 @@
 	</footer>
 </article><!-- #post-<?php the_ID(); ?> -->
 
-<aside>
-  <div id="products">
-    <ul>
-      <?php
-        $current = $post->ID;
-        
-        global $post;
-        $args = array('category_name' => 'produse', 'order' => 'ASC' );
-        $myposts = get_posts( $args );
-        
-        foreach( $myposts as $post ) :	setup_postdata($post);
-          if ($post->ID != $current) { ?>
-          <li>
-            <h1>
-              <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-            </h1>
-            <?php the_content(); ?>
-          </li>
-        <?php } endforeach; ?>
-    </ul>
-  </div>
+<aside class="col col-2">
+  <?php include 'products.php' ?>
 </aside>
 
 <div class="clear"></div>

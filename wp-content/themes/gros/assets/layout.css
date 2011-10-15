@@ -13,17 +13,13 @@
 */
 
 .col {
-  width: 45%;
+  width: 60%;
   float: left;
 }
-.col-1 {
-  margin-right: 10%;
+.col-2 {
+  width: 30%;
+  margin-left: 5%;
 }
-#products.col-2 {
-  position: relative;
-  top: -2.5em;
-}
-
 
 
 
@@ -42,6 +38,9 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 /* Header
 */
 
+#branding h1 {
+  padding-top: 0;
+}
 #branding img {
   width: 40%;
 }
@@ -53,7 +52,7 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 
 #question, #answer {
   padding: 1.25em;
-  font-size: 200%;
+  font-size: 130%;
 }
 .triangle-bottom {
   border-width: 2.5em;
@@ -64,15 +63,21 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
   text-align: center;
 }
 
-#products h1 {
-  margin-left: 1.25em;
+#product {
+  float: left;
+  width: 45%;
+  height: 15em;
+  margin: 0 5% 5% 0;
 }
-#products li {
-  margin-bottom: 3.75em;
+#product #title {
+  position: relative;
+  top: -15.3em;
+  height: 12.5em;
+  width: 94.5%;
+  padding: 1.25em 2%;
 }
-#products ul {
-  list-style: none;
-  margin: 0;
+#product #title h1 {
+  padding: 0;
 }
 
 
@@ -85,19 +90,10 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 #nav-single {
   display: none;
 }
-.single #access {
-  margin-left: 11.5em;
-}
 
-.single article, .single aside {
-  float: left;
-}
-.single article, .single #comments {
-  width: 60%;
-  margin-right: 10%;
-}
-.single aside {
-  width: 30%;
+.single #product {
+  width: 80%;
+  margin: 0 0 10%;
 }
 .single aside ul ul {
   display: none;
@@ -236,10 +232,6 @@ input.buttons {
 /* General
 */
 
-h1 a {
-  padding: 0 .312em;
-}
-
 
 img {
   width: 100%;
@@ -264,7 +256,7 @@ img {
 */
 
 #access {
-  margin: .625em 0 0 7%;
+  margin: .625em 0;
 }
 #access ul {
 	list-style: none;
@@ -273,6 +265,7 @@ img {
 	float: left;
 	position: relative;
 	margin-bottom: 0;
+	padding: .312em;
 }
 #access a {
 	display: block;

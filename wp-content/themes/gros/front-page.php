@@ -17,7 +17,11 @@ get_header(); ?>
     <div id="primary">
 		  <div id="content" role="main">
         
-        <div id="info" class="col col-1">
+        <div class="col col-1">
+          <?php include 'products.php' ?>
+        </div>
+        
+        <div id="info" class="col col-2">
           <div id="question">
             <p>
               Aveti un magazin si cautati un furnizor pentru noi produse? 
@@ -34,7 +38,7 @@ get_header(); ?>
           </div>
         </div>
         
-        <?php include 'products.php' ?>
+        
         
         
 			</div><!-- #content -->
