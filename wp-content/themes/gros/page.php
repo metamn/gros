@@ -20,11 +20,11 @@ get_header(); ?>
         <div id="info" class="col col-1">
 				  <?php the_post(); ?>
 				  <?php get_template_part( 'content', 'page' ); ?>
-				  <?php comments_template( '', true ); ?>
 				</div>
 				
-				
-				<?php include 'products.php' ?>
+				<div class="col col-2">
+				  <?php include 'products.php' ?>
+				</div>
 
 			</div><!-- #content -->
 		</div><!-- #primary -->

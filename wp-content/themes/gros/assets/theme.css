@@ -28,8 +28,6 @@ a, a:visited {
 /* Frontpage
 */
 
-
-
 #question, .single h1.entry-title a {
   background: #DC574E;
   text-shadow: 1px 1px #e2726a; /* +2 */
@@ -42,18 +40,26 @@ a, a:visited {
   border-color: #DC574E transparent transparent;
 }
 
-#product #title {
+#products #product #title {
   background: #2B2922;
   opacity: 0;
 }
-#product #title a {
+#products #product #title a {
   color: white;
 }
-#products img, .single article img {
+#products #products img, .single article img {
   border: 1px solid #eee;
   width: 98%;
 }
 
+
+/* Single
+*/
+
+
+#product.active {
+  background: red;
+}
 
 
 /* Footer
@@ -65,14 +71,6 @@ a, a:visited {
   margin: 1.25em 0;
 }
 
-
-/* Single
-*/
-
-
-article, #comments {
-  background: white;
-}
 
 
 /* Shopping cart and all forms
