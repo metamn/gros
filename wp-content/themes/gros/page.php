@@ -25,6 +25,15 @@ get_header(); ?>
 				<div class="col col-2">
 				  <?php include 'products.php' ?>
 				</div>
+				
+				<div id="userinfo" class="hidden">
+				  <?php
+				    $current_user = wp_get_current_user();
+            if (!($current_user->ID == 0)) { ?>
+              <span id="name"><?php echo $current_user->user_firstname . $current_user->user_lastname ?></span>
+				      <span id="email"><?php echo $current_user->user_email ?></span>
+          <?php } ?>				  
+				</div>
 
 			</div><!-- #content -->
 		</div><!-- #primary -->

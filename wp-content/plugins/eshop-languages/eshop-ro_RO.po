@@ -1415,7 +1415,7 @@ msgstr ""
 
 #: checkout.php:795
 msgid "<span class=\"noprint\">Please Confirm </span>Your Details"
-msgstr ""
+msgstr "<span class=\"noprint\">Va rugam confirmati </span>detaliile Dvs."
 
 #: checkout.php:817
 #: checkout.php:865
@@ -2927,7 +2927,7 @@ msgstr ""
 
 #: cart-functions.php:350
 msgid "Edit Cart"
-msgstr ""
+msgstr "Modificare cos"
 
 #: cart-functions.php:351
 #: eshop-shortcodes.php:51
@@ -2936,7 +2936,7 @@ msgstr ""
 #: eshop-widget.php:177
 #: eshop-widget.php:191
 msgid "Checkout"
-msgstr ""
+msgstr "Finalizare comanda"
 
 #: cart-functions.php:1112
 msgid "Test Mode &#8212; No money will be collected. This page will not auto redirect in test mode."
@@ -4380,7 +4380,7 @@ msgstr ""
 
 #: public-functions.php:243
 msgid "<p>Added</p>"
-msgstr ""
+msgstr "<p>Adaugat cu succes</p>"
 
 #: ideallite.php:307
 #: ideallite.php:372

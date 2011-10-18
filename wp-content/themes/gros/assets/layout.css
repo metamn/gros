@@ -66,20 +66,25 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 .home #product {
   float: left;
   width: 45%;
-  height: 15em;
+}
+.home #product, .page #product {
   margin: 0 5% 5% 0;
+}
+.home #product, 
+.home #product #title,
+.home #product #body,
+.page #product, 
+.page #product #title,
+.page #product #body {
+  overflow: hidden;
 }
 .home #product #title,
 .page #product #title {
-  position: relative;
-  top: -15.3em;
-  height: 12.5em;
-  width: 94.5%;
-  padding: 1.25em 2%;
+  position: relative;  
 }
 .home #product #title h1,
 .page #product #title h1 {
-  padding: 0;
+  padding: .312em;
 }
 
 
@@ -88,7 +93,7 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 */
 
 .category #access, .single #access {
-  margin-right: 15%;
+  margin-left: 20%;
 }
 
 .category #product, .single #product {
@@ -108,11 +113,16 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 }
 .category #product #details, .single #product #details {
   display: none;
+  padding: 1.25em .625em;
+}
+.category #product #body, .single #product #body {
+  padding: 1.25em 0;
 }
 .category #product h3, .single #product h3 {
   padding: .312em;
   cursor: pointer;
 }
+
 
 #product #shopping, #product #details {
   text-align: left;
@@ -124,23 +134,12 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 
 
 
-/* Page
-*/
-
-.page #products #product {
-  width: 75%;
-  height: 15em;
-}
-.page #products #product #title {
-  top: -13.3em;
-}
-
-
-
-
-
 /* Shopping cart
 */
+
+secondary {
+  margin: 2.5em 0;
+}
 
 #shopping {
   padding: 1.25em 0;
@@ -152,6 +151,9 @@ table.eshop tr td {
 }
 table.eshop {
   margin-bottom: 0;
+}
+.single table.eshop, .category table.eshop {
+  width: 65%;
 }
 fieldset.fld1 {
   border: none;
@@ -224,6 +226,7 @@ ul.continue-proceed li {
   display: inline-block;
   margin-bottom: 1.25em;
 }
+
 
 
 

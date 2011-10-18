@@ -3,6 +3,13 @@ jQuery.noConflict();
 // Use jQuery via jQuery(...)
 jQuery(document).ready(function(){
 
+
+  // Populate checkout adderess & email
+  var userName = jQuery("#userinfo #name").html();
+  var userEmail = jQuery("#userinfo #email").html();
+  jQuery(".eshopcheckoutconf ul.confirm li").first().html("<span class='items fullname'>Nume: </span>" + userName);
+  jQuery(".eshopcheckoutconf ul.confirm li.email").html("<span class='items'>Email: </span>" + userEmail);
+
   // Highligh the active product on cursor move
   jQuery(".category #product, .single #product").hover(
     function () {

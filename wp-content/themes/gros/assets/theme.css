@@ -56,6 +56,7 @@ a, a:visited {
 }
 
 
+
 /* Single
 */
 
@@ -68,9 +69,22 @@ a, a:visited {
   -moz-box-shadow: 0 3px 10px #999;
   -webkit-box-shadow: 0 3px 10px #999;
 }
-#product.active h1, #product.highlight h1 {
-  border-bottom: 1px dashed;
+#product.active #body, #product.highlight #body {
+  border-top: 1px dotted #eee;
 }
+#product #details {
+  border-top: 1px dotted;
+  border-bottom: 1px dotted;
+}
+
+
+article {
+  background: #fff;
+}
+
+  
+
+
 
 
 /* Footer
@@ -92,7 +106,6 @@ table.eshop, #wpmem_reg, #wpmem_login {
 }
 table.eshop {
   border-bottom: 1px solid #999;
-  width: 65%;
 }
 table.eshop td, 
 table.eshop th {

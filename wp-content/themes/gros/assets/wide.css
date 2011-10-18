@@ -1,0 +1,28 @@
+/* Startpage
+*/
+
+.home #product, 
+.home #product #title,
+.home #product #body {
+  height: 15em;
+}
+.home #product #title {
+  top: -15.5em;
+}
+
+
+/* Page
+*/
+
+
+.page #product, 
+.page #product #title,
+.page #product #body {
+  height: 15.5em;
+}
+.page #product #title {
+  top: -16.8em; 
+}
+.page #product #title h1 {
+  padding-top: .612em; 
+}

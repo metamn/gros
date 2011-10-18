@@ -1,0 +1,25 @@
+/* Startpage
+*/
+
+.home #product, 
+.home #product #title,
+.home #product #body {
+  height: 11em;
+}
+.home #product #title {
+  top: -11.4em;
+}
+
+
+/* Page
+*/
+
+
+.page #product, 
+.page #product #title,
+.page #product #body {
+  height: 12em;
+}
+.page #product #title {
+  top: -12.5em; 
+}
