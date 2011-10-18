@@ -752,7 +752,7 @@ function wpmem_login_form_NEW( $page, $arr )
 	if ( ( WPMEM_MSURL != null || $page == 'members' ) && $arr[7] == 'login' ) { 
 		
 		$link = wpmem_chk_qstr( WPMEM_MSURL );	
-		$form = $form . __('Forgot password?', 'wp-members') . '&nbsp;<a href="' . $link . 'a=pwdreset">' . __('Click here to reset', 'wp-members') . '</a>';
+		$form = $form . __('V-ati uitat parola?', 'wp-members') . '&nbsp;<a href="' . $link . 'a=pwdreset">' . __('Click aici pentru a reseta', 'wp-members') . '</a>';
 
 	}
 	
@@ -762,7 +762,7 @@ function wpmem_login_form_NEW( $page, $arr )
 	if ( ( WPMEM_REGURL != null ) && $arr[7] == 'login' ) { 
 
 		$link = wpmem_chk_qstr( WPMEM_REGURL );	
-		$form = $form . __('New User?', 'wp-members') . '&nbsp;<a href="' . $link . '">' . __('Click here to register', 'wp-members') . '</a>';
+		$form = $form . __('Inca nu aveti cont?', 'wp-members') . '&nbsp;<a href="' . $link . '">' . __('Click aici pentru inregistrare cont', 'wp-members') . '</a>';
 
 	}			
 	
