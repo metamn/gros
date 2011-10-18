@@ -32,6 +32,8 @@ get_header(); ?>
             if (!($current_user->ID == 0)) { ?>
               <span id="name"><?php echo $current_user->user_firstname . $current_user->user_lastname ?></span>
 				      <span id="email"><?php echo $current_user->user_email ?></span>
+				      <span id="firstname"><?php echo $current_user->user_firstname ?></span>
+				      <span id="lastname"><?php echo $current_user->user_lastname ?></span>
           <?php } ?>				  
 				</div>
 

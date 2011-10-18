@@ -89,7 +89,7 @@ if ( ! function_exists( 'wpmem_inc_resetpassword' ) ):
  */
 function wpmem_inc_resetpassword()
 { 
-	$arr = array(__('Reset Forgotten Password', 'wp-members'), __('Username', 'wp-members'), 'text', 'user', __('Email', 'wp-members'), 'text', 'email', 'pwdreset', __('Reset Password', 'wp-members'), 'username', 'textbox');
+	$arr = array(__('Resetare parola', 'wp-members'), __('Nume utilizator', 'wp-members'), 'text', 'user', __('Email', 'wp-members'), 'text', 'email', 'pwdreset', __('Resetare parola', 'wp-members'), 'username', 'textbox');
     $str = wpmem_login_form( 'page', $arr );
 	return $str;
 }
@@ -147,7 +147,7 @@ function wpmem_login_form_OLD ( $page, $arr )
 
 		$link = wpmem_chk_qstr( WPMEM_MSURL );
 		$form = $form . '<tr>
-		  <td colspan="2">' . __('Forgot password?', 'wp-members') . '&nbsp;<a href="' . $link . 'a=pwdreset">' . __('Click here to reset', 'wp-members') . '</a></td>
+		  <td colspan="2">' . __('V-ati uitat parola?', 'wp-members') . '&nbsp;<a href="' . $link . 'a=pwdreset">' . __('Click pentru o parola noua', 'wp-members') . '</a></td>
 		</tr>';
 	
 	}
@@ -156,7 +156,7 @@ function wpmem_login_form_OLD ( $page, $arr )
 	
 		$link = wpmem_chk_qstr( WPMEM_REGURL );
 		$form = $form . '<tr>
-			<td colspan="2">' . __('New User?', 'wp-members') . '&nbsp;<a href="'. $link . '">' . __('Click here to register', 'wp-members') . '</a></td>
+			<td colspan="2">' . __('Inca nu aveti cont?', 'wp-members') . '&nbsp;<a href="'. $link . '">' . __('Click aici pentru inregistrare cont nou', 'wp-members') . '</a></td>
 		</tr>';
 	}
 	
@@ -214,12 +214,12 @@ function wpmem_inc_registration_OLD( $toggle = 'new', $heading = '' )
 	
 	if ($toggle == 'edit') {
 		$form = $form . '<tr> 
-			  <td width="49%" align="right">' . __('Username', 'wp-members') . ':</td>
+			  <td width="49%" align="right">' . __('Nume utilizator', 'wp-members') . ':</td>
 			  <td width="51%" align="left">' . $userdata->user_login . '</td>
 			</tr>';			
 	} else {
 		$form = $form . '<tr> 
-			  <td width="49%" align="right">' . __('Choose a Username', 'wp-members') . '<font color="red">*</font></td>
+			  <td width="49%" align="right">' . __('Nume utilizator', 'wp-members') . '<font color="red">*</font></td>
 			  <td width="51%"><input name="log" type="text" value="' . stripslashes( $username ) . '" /></td>
 			</tr>';
 	}
@@ -298,7 +298,7 @@ function wpmem_inc_registration_OLD( $toggle = 'new', $heading = '' )
 				if ($wpmem_fields[$row][5] == 'y') { $form = $form . "<font color=\"red\">*</font>"; }
 				
 				$tos_pop = "<a href=\"#\" onClick=\"window.open('".WP_PLUGIN_URL."/wp-members/wp-members-tos.php','mywindow');\">";
-				$form = $form . sprintf( __('Please indicate that you have read and agree to the %s Terms of Service %s', 'wp-members'), $tos_pop, '</a>');
+				$form = $form . sprintf( __('Sunt de acord cu %s Termenii si conditiile %s magazinului Gros', 'wp-members'), $tos_pop, '</a>');
 			
 			} else {
 			
@@ -345,14 +345,14 @@ function wpmem_inc_registration_OLD( $toggle = 'new', $heading = '' )
 	}
 	$form = $form . '
 				<input name="redirect_to" type="hidden" value="' . get_permalink() . '" />
-				<input name="Submit" type="submit" value="submit" /> 
+				<input name="Submit" type="submit" value="Trimitere date" /> 
 				&nbsp;&nbsp; 
-				<input name="Reset" type="reset" value="Clear Form" />
+				<input name="Reset" type="reset" value="Stergere date din formular" />
 			  </td>
 			</tr>
 			<tr>
 			  <td>&nbsp;</td>
-			  <td><font color="red">*</font> ' . __('Required field', 'wp-members') . '</td>
+			  <td><font color="red">*</font> ' . __('Obligatoriu', 'wp-members') . '</td>
 			</tr>';
 	
 	$form = $form . wpmem_inc_attribution();
