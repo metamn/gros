@@ -111,7 +111,7 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 .category #product #title, .single #product #title {
   height: 8.5em;
 }
-.category #product #details, .single #product #details {
+.category #product .pane, .single #product .pane {
   display: none;
   padding: 1.25em .625em;
 }
@@ -121,6 +121,9 @@ h3 { font-size:1.5em; padding:1.45833em 0; }
 .category #product h3, .single #product h3 {
   padding: .312em;
   cursor: pointer;
+}
+.category #product ul, .single #product ul {
+  text-align: left;
 }
 
 
