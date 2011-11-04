@@ -39,7 +39,7 @@ if ( get_option('db_upgraded') ) {
 	 * @since 2.8
 	 */
 	do_action('after_db_upgrade');
-} elseif ( get_option('db_version') != $wp_db_version && empty($_POST) ) {
+} elseif ( get_option('db_version') != $wp_db_version ) {
 	if ( !is_multisite() ) {
 		wp_redirect(admin_url('upgrade.php?_wp_http_referer=' . urlencode(stripslashes($_SERVER['REQUEST_URI']))));
 		exit;
@@ -183,9 +183,13 @@ if ( isset($plugin_page) ) {
 		exit;
 	}
 
-	if ( ! isset($wp_importers[$importer]) || ! is_callable($wp_importers[$importer][2]) ) {
-		wp_redirect( admin_url( 'import.php?invalid=' . $importer ) );
-		exit;
+	// Allow plugins to define importers as well
+	if ( !isset($wp_importers) || !isset($wp_importers[$importer]) || ! is_callable($wp_importers[$importer][2])) {
+		if (! file_exists(ABSPATH . "wp-admin/import/$importer.php")) {
+			wp_redirect( admin_url( 'import.php?invalid=' . $importer ) );
+			exit;
+		}
+		include(ABSPATH . "wp-admin/import/$importer.php");
 	}
 
 	$parent_file = 'tools.php';
@@ -207,7 +211,8 @@ if ( isset($plugin_page) ) {
 	include(ABSPATH . 'wp-admin/admin-footer.php');
 
 	// Make sure rules are flushed
-	flush_rewrite_rules(false);
+	global $wp_rewrite;
+	$wp_rewrite->flush_rules(false);
 
 	exit();
 } else {

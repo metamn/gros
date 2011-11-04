@@ -18,8 +18,8 @@ require_once('./admin.php');
 if (!current_user_can('upload_files'))
 	wp_die(__('You do not have permission to upload files.'));
 
-wp_enqueue_script('plupload-full');
-wp_enqueue_script('plupload-handlers');
+wp_enqueue_script('swfupload-all');
+wp_enqueue_script('swfupload-handlers');
 wp_enqueue_script('image-edit');
 wp_enqueue_script('set-post-thumbnail' );
 wp_enqueue_style('imgareaselect');
@@ -92,7 +92,7 @@ if ( isset($_GET['inline']) ) {
 	</script>
 	<input type="hidden" name="post_id" id="post_id" value="0" />
 	<?php wp_nonce_field('media-form'); ?>
-	<div id="media-items" class="hide-if-no-js"></div>
+	<div id="media-items" class="hide-if-no-js"> </div>
 	<?php submit_button( __( 'Save all changes' ), 'button savebutton hide-if-no-js', 'save' ); ?>
 	</form>
 	</div>
@@ -117,7 +117,7 @@ if ( isset($_GET['inline']) ) {
 	$body_id = 'media-upload';
 
 	// let the action code decide how to handle the request
-	if ( $tab == 'type' || $tab == 'type_url' || ! array_key_exists( $tab , media_upload_tabs() ) )
+	if ( $tab == 'type' || $tab == 'type_url' )
 		do_action("media_upload_$type");
 	else
 		do_action("media_upload_$tab");

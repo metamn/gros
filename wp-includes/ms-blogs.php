@@ -16,7 +16,10 @@
 function wpmu_update_blogs_date() {
 	global $wpdb;
 
-	update_blog_details( $wpdb->blogid, array('last_updated' => current_time('mysql', true)) );
+	// TODO: use update_blog_details
+
+	$wpdb->update( $wpdb->blogs, array('last_updated' => current_time('mysql', true)), array('blog_id' => $wpdb->blogid) );
+	refresh_blog_details( $wpdb->blogid );
 
 	do_action( 'wpmu_blog_updated', $wpdb->blogid );
 }
@@ -320,16 +323,13 @@ function update_blog_details( $blog_id, $details = array() ) {
  * @since MU
  * @uses apply_filters() Calls 'blog_option_$optionname' with the option name value.
  *
- * @param int $blog_id Optional. Blog ID, can be null to refer to the current blog.
+ * @param int $blog_id is the id of the blog.
  * @param string $setting Name of option to retrieve. Should already be SQL-escaped.
  * @param string $default (optional) Default value returned if option not found.
  * @return mixed Value set for the option.
  */
 function get_blog_option( $blog_id, $setting, $default = false ) {
 	global $wpdb;
-
-	if ( null === $blog_id )
-		$blog_id = $wpdb->blogid;
 
 	$key = $blog_id . '-' . $setting . '-blog_option';
 	$value = wp_cache_get( $key, 'site-options' );
@@ -383,17 +383,14 @@ function get_blog_option( $blog_id, $setting, $default = false ) {
  * @param int $id The blog id
  * @param string $key The option key
  * @param mixed $value The option value
- * @return bool True on success, false on failure.
  */
 function add_blog_option( $id, $key, $value ) {
 	$id = (int) $id;
 
 	switch_to_blog($id);
-	$return = add_option( $key, $value );
+	add_option( $key, $value );
 	restore_current_blog();
-	if ( $return )
-		wp_cache_set( $id . '-' . $key . '-blog_option', $value, 'site-options' );
-	return $return;
+	wp_cache_set( $id . '-' . $key . '-blog_option', $value, 'site-options' );
 }
 
 /**
@@ -403,17 +400,14 @@ function add_blog_option( $id, $key, $value ) {
  *
  * @param int $id The blog id
  * @param string $key The option key
- * @return bool True on success, false on failure.
  */
 function delete_blog_option( $id, $key ) {
 	$id = (int) $id;
 
 	switch_to_blog($id);
-	$return = delete_option( $key );
+	delete_option( $key );
 	restore_current_blog();
-	if ( $return )
-		wp_cache_set( $id . '-' . $key . '-blog_option', '', 'site-options' );
-	return $return;
+	wp_cache_set( $id . '-' . $key . '-blog_option', '', 'site-options' );
 }
 
 /**
@@ -424,7 +418,6 @@ function delete_blog_option( $id, $key ) {
  * @param int $id The blog id
  * @param string $key The option key
  * @param mixed $value The option value
- * @return bool True on success, false on failrue.
  */
 function update_blog_option( $id, $key, $value, $deprecated = null ) {
 	$id = (int) $id;
@@ -433,14 +426,12 @@ function update_blog_option( $id, $key, $value, $deprecated = null ) {
 		_deprecated_argument( __FUNCTION__, '3.1' );
 
 	switch_to_blog($id);
-	$return = update_option( $key, $value );
+	update_option( $key, $value );
 	restore_current_blog();
 
 	refresh_blog_details( $id );
 
-	if ( $return )
-		wp_cache_set( $id . '-' . $key . '-blog_option', $value, 'site-options');
-	return $return;
+	wp_cache_set( $id . '-' . $key . '-blog_option', $value, 'site-options');
 }
 
 /**

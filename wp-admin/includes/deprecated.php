@@ -15,13 +15,13 @@
 /**
  * @since 2.1
  * @deprecated 2.1
- * @deprecated Use wp_editor().
- * @see wp_editor()
+ * @deprecated Use wp_tiny_mce().
+ * @see wp_tiny_mce()
  */
 function tinymce_include() {
-	_deprecated_function( __FUNCTION__, '2.1', 'wp_editor()' );
+	_deprecated_function( __FUNCTION__, '2.1', 'wp_tiny_mce()' );
 
-	wp_editor('', 'content');
+	wp_tiny_mce();
 }
 
 /**
@@ -37,7 +37,7 @@ function documentation_link() {
 }
 
 /**
- * Calculates the new dimensions for a downsampled image.
+ * Calculates the new dimentions for a downsampled image.
  *
  * @since 2.0.0
  * @deprecated 3.0.0
@@ -255,7 +255,7 @@ function get_editable_user_ids( $user_id, $exclude_zeros = true, $post_type = 'p
 
 	if ( ! $user->has_cap($post_type_obj->cap->edit_others_posts) ) {
 		if ( $user->has_cap($post_type_obj->cap->edit_posts) || ! $exclude_zeros )
-			return array($user->ID);
+			return array($user->id);
 		else
 			return array();
 	}
@@ -700,107 +700,4 @@ function get_others_pending($user_id) {
 function wp_dashboard_quick_press_output() {
 	_deprecated_function( __FUNCTION__, '3.2', 'wp_dashboard_quick_press()' );
 	wp_dashboard_quick_press();
-}
-
-/**
- * @since 2.7.0
- * @deprecated 3.3
- * @deprecated Use wp_editor()
- * @see wp_editor()
- */
-function wp_tiny_mce() {
-	_deprecated_function( __FUNCTION__, '3.3', 'wp_editor()' );
-	
-	wp_editor('', 'content');
-}
-
-/**
- * @deprecated 3.3.0
- * @deprecated Use wp_editor()
- * @see wp_editor()
- */
-function wp_preload_dialogs() {
-	_deprecated_function( __FUNCTION__, '3.3', 'wp_editor()' );
-}
-
-/**
- * @deprecated 3.3.0
- * @deprecated Use wp_editor()
- * @see wp_editor()
- */
-function wp_print_editor_js() {
-	_deprecated_function( __FUNCTION__, '3.3', 'wp_editor()' );
-}
-
-/**
- * @deprecated 3.3.0
- * @deprecated Use wp_editor()
- * @see wp_editor()
- */
-function wp_quicktags() {
-	_deprecated_function( __FUNCTION__, '3.3', 'wp_editor()' );
-}
-
-/**
- * @deprecated 3.3.0
- * @deprecated Use wp_editor()
- * @see wp_editor()
- */
-function wp_fullscreen_html() {
-	_deprecated_function( __FUNCTION__, '3.3', 'wp_editor()' );
-}
-
-/**
- * Returns the screen layout options.
- *
- * @since 2.8.0
- * @deprecated 3.3.0
- * @deprecated Use $current_screen->render_screen_layout()
- * @see WP_Screen::render_screen_layout()
- */
-function screen_layout( $screen ) {
-	_deprecated_function( __FUNCTION__, '3.3', '$current_screen->render_screen_layout()' );
-
-	$current_screen = get_current_screen();
-
-	if ( ! $current_screen )
-		return '';
-
-	ob_start();
-	$current_screen->render_screen_layout();
-	return ob_get_clean();
-}
-
-/**
- * Returns the screen's per-page options.
- *
- * @since 2.8.0
- * @deprecated 3.3.0
- * @deprecated Use $current_screen->render_per_page_options()
- * @see WP_Screen::render_per_page_options()
- */
-function screen_options( $screen ) {
-	_deprecated_function( __FUNCTION__, '3.3', '$current_screen->render_per_page_options()' );
-
-	$current_screen = get_current_screen();
-
-	if ( ! $current_screen )
-		return '';
-
-	ob_start();
-	$current_screen->render_per_page_options();
-	return ob_get_clean();
-}
-
-/**
- * Renders the screen's help.
- *
- * @since 2.7.0
- * @deprecated 3.3.0
- * @deprecated Use $current_screen->render_screen_meta()
- * @see WP_Screen::render_screen_meta()
- */
-function screen_meta( $screen ) {
-	$current_screen = get_current_screen();
-	$current_screen->render_screen_meta();
 }

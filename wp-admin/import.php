@@ -43,6 +43,7 @@ if ( ! empty( $_GET['invalid'] ) && !empty($popular_importers[$_GET['invalid']][
 
 add_thickbox();
 wp_enqueue_script( 'plugin-install' );
+wp_admin_css( 'plugin-install' );
 
 require_once ('admin-header.php');
 $parent_file = 'tools.php';
@@ -58,11 +59,29 @@ $parent_file = 'tools.php';
 
 <?php
 
+// Load all importers so that they can register.
+$import_loc = 'wp-admin/import';
+$import_root = ABSPATH . $import_loc;
+
+if ( file_exists( $import_root ) ) {
+	$imports_dir = opendir($import_root);
+	if ($imports_dir) {
+		while (($file = readdir($imports_dir)) !== false) {
+			if ($file[0] == '.') {
+				continue;
+			} elseif (substr($file, -4) == '.php') {
+				require_once($import_root . '/' . $file);
+			}
+		}
+	}
+	closedir( $imports_dir );
+}
+
 $importers = get_importers();
 
 // If a popular importer is not registered, create a dummy registration that links to the plugin installer.
 foreach ( $popular_importers as $pop_importer => $pop_data ) {
-	if ( isset( $importers[$pop_importer] ) )
+	if ( isset($importers[$pop_importer] ) )
 		continue;
 	if ( isset( $pop_data[3] ) && isset( $importers[ $pop_data[3] ] ) )
 		continue;
@@ -70,12 +89,12 @@ foreach ( $popular_importers as $pop_importer => $pop_data ) {
 	$importers[$pop_importer] = $popular_importers[$pop_importer];
 }
 
-if ( empty($importers) ) {
+if (empty ($importers)) {
 	echo '<p>'.__('No importers are available.').'</p>'; // TODO: make more helpful
 } else {
 	uasort($importers, create_function('$a, $b', 'return strcmp($a[0], $b[0]);'));
 ?>
-<table class="widefat importers" cellspacing="0">
+<table class="widefat" cellspacing="0">
 
 <?php
 	$style = '';
@@ -94,16 +113,10 @@ if ( empty($importers) ) {
 											'"title="' . esc_attr__('Activate importer') . '"">' . $data[0] . '</a>';
 				}
 			}
-			if ( empty($action) ) {
-				if ( is_main_site() ) {
-					$action = '<a href="' . esc_url( network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $plugin_slug .
+			if ( empty($action) )
+				$action = '<a href="' . esc_url( network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $plugin_slug .
 										'&from=import&TB_iframe=true&width=600&height=550' ) ) . '" class="thickbox" title="' .
 										esc_attr__('Install importer') . '">' . $data[0] . '</a>';
-				} else {
-					$action = $data[0];
-					$data[1] = sprintf( __( 'This importer is not installed. Please install importers from <a href="%s">the main site</a>.' ), get_admin_url( $current_site->blog_id, 'import.php' ) );
-				}
-			}
 		} else {
 			$action = "<a href='" . esc_url("admin.php?import=$id") . "' title='" . esc_attr( wptexturize(strip_tags($data[1])) ) ."'>{$data[0]}</a>";
 		}

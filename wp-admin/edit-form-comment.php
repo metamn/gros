@@ -54,7 +54,7 @@ $comment->comment_author_email = esc_attr($comment->comment_author_email);
 
 <div class="misc-pub-section curtime misc-pub-section-last">
 <?php
-// translators: Publish box date format, see http://php.net/date
+// translators: Publish box date formt, see http://php.net/date
 $datef = __( 'M j, Y @ G:i' );
 $stamp = __('Submitted on: <b>%1$s</b>');
 $date = date_i18n( $datef, strtotime( $comment->comment_date ) );
@@ -120,10 +120,8 @@ $date = date_i18n( $datef, strtotime( $comment->comment_date ) );
 </div>
 
 <div id="postdiv" class="postarea">
-<?php
-	$quicktags_settings = array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' );
-	wp_editor( $comment->comment_content, 'content', array( 'media_buttons' => false, 'tinymce' => false, 'quicktags' => $quicktags_settings ) );
-	wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false ); ?>
+<?php the_editor($comment->comment_content, 'content', 'newcomment_author_url', false, 4, false); ?>
+<?php wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false ); ?>
 </div>
 
 <?php

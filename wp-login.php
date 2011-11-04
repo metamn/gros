@@ -1,4 +1,3 @@
-
 <?php
 /**
  * WordPress User Page
@@ -57,13 +56,13 @@ function login_header($title = 'Log In', $message = '', $wp_error = '') {
 		add_action( 'login_head', 'wp_shake_js', 12 );
 
 	?>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 <head>
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<title><?php bloginfo('name'); ?> &rsaquo; <?php echo $title; ?></title>
 <?php
-	wp_admin_css( 'wp-admin', true );
+	wp_admin_css( 'login', true );
 	wp_admin_css( 'colors-fresh', true );
 
 	if ( $is_iphone ) { ?>
@@ -136,7 +135,6 @@ if(typeof wpOnload=='function')wpOnload();
 <?php endif; ?>
 
 <?php do_action('login_footer'); ?>
-<div class="clear"></div>
 </body>
 </html>
 <?php
@@ -173,12 +171,12 @@ function retrieve_password() {
 		$errors->add('empty_username', __('<strong>ERROR</strong>: Enter a username or e-mail address.'));
 
 	if ( strpos($_POST['user_login'], '@') ) {
-		$user_data = get_user_by('email', trim($_POST['user_login']));
+		$user_data = get_user_by_email(trim($_POST['user_login']));
 		if ( empty($user_data) )
 			$errors->add('invalid_email', __('<strong>ERROR</strong>: There is no user registered with that email address.'));
 	} else {
 		$login = trim($_POST['user_login']);
-		$user_data = get_user_by('login', $login);
+		$user_data = get_userdatabylogin($login);
 	}
 
 	do_action('lostpassword_post');
@@ -520,7 +518,7 @@ case 'register' :
 	</p>
 	<p>
 		<label><?php _e('E-mail') ?><br />
-		<input type="email" name="user_email" id="user_email" class="input" value="<?php echo esc_attr(stripslashes($user_email)); ?>" size="25" tabindex="20" /></label>
+		<input type="text" name="user_email" id="user_email" class="input" value="<?php echo esc_attr(stripslashes($user_email)); ?>" size="25" tabindex="20" /></label>
 	</p>
 <?php do_action('register_form'); ?>
 	<p id="reg_passmail"><?php _e('A password will be e-mailed to you.') ?></p>
@@ -546,7 +544,7 @@ default:
 	// If the user wants ssl but the session is not ssl, force a secure cookie.
 	if ( !empty($_POST['log']) && !force_ssl_admin() ) {
 		$user_name = sanitize_user($_POST['log']);
-		if ( $user = get_user_by('login', $user_name) ) {
+		if ( $user = get_userdatabylogin($user_name) ) {
 			if ( get_user_option('use_ssl', $user->ID) ) {
 				$secure_cookie = true;
 				force_ssl_admin(true);
@@ -588,10 +586,10 @@ default:
 
 		if ( ( empty( $redirect_to ) || $redirect_to == 'wp-admin/' || $redirect_to == admin_url() ) ) {
 			// If the user doesn't belong to a blog, send them to user admin. If the user can't edit posts, send them to their profile.
-			if ( is_multisite() && !get_active_blog_for_user($user->ID) && !is_super_admin( $user->ID ) )
+			if ( is_multisite() && !get_active_blog_for_user($user->id) && !is_super_admin( $user->id ) )
 				$redirect_to = user_admin_url();
 			elseif ( is_multisite() && !$user->has_cap('read') )
-				$redirect_to = get_dashboard_url( $user->ID );
+				$redirect_to = get_dashboard_url( $user->id );
 			elseif ( !$user->has_cap('edit_posts') )
 				$redirect_to = admin_url('profile.php');
 		}

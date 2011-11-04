@@ -1,6 +1,8 @@
 <?php
 class WP_Admin_Bar {
+	var $changed_locale = false;
 	var $menu;
+	var $need_to_change_locale = false;
 	var $proto = 'http://';
 	var $user;
 
@@ -12,19 +14,18 @@ class WP_Admin_Bar {
 		$this->user = new stdClass;
 		$this->menu = new stdClass;
 
-		if ( is_user_logged_in() ) {
-			/* Populate settings we need for the menu based on the current user. */
-			$this->user->blogs = get_blogs_of_user( get_current_user_id() );
-			if ( is_multisite() ) {
-				$this->user->active_blog = get_active_blog_for_user( get_current_user_id() );
-				$this->user->domain = empty( $this->user->active_blog ) ? user_admin_url() : trailingslashit( get_home_url( $this->user->active_blog->blog_id ) );
-				$this->user->account_domain = $this->user->domain;
-			} else {
-				$this->user->active_blog = $this->user->blogs[get_current_blog_id()];
-				$this->user->domain = trailingslashit( home_url() );
-				$this->user->account_domain = $this->user->domain;
-			}
+		/* Populate settings we need for the menu based on the current user. */
+		$this->user->blogs = get_blogs_of_user( get_current_user_id() );
+		if ( is_multisite() ) {
+			$this->user->active_blog = get_active_blog_for_user( get_current_user_id() );
+			$this->user->domain = empty( $this->user->active_blog ) ? user_admin_url() : trailingslashit( get_home_url( $this->user->active_blog->blog_id ) );
+			$this->user->account_domain = $this->user->domain;
+		} else {
+			$this->user->active_blog = $this->user->blogs[get_current_blog_id()];
+			$this->user->domain = trailingslashit( home_url() );
+			$this->user->account_domain = $this->user->domain;
 		}
+		$this->user->locale = get_locale();
 
 		add_action( 'wp_head', 'wp_admin_bar_header' );
 
@@ -88,13 +89,20 @@ class WP_Admin_Bar {
 
 	function render() {
 		?>
-		<div id="wpadminbar" class="nojq nojs">
+		<div id="wpadminbar">
 			<div class="quicklinks">
-				<ul class="ab-top-menu">
+				<ul>
 					<?php foreach ( (array) $this->menu as $id => $menu_item ) : ?>
 						<?php $this->recursive_render( $id, $menu_item ) ?>
 					<?php endforeach; ?>
 				</ul>
+			</div>
+
+			<div id="adminbarsearch-wrap">
+				<form action="<?php echo home_url(); ?>" method="get" id="adminbarsearch">
+					<input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150" />
+					<input type="submit" class="adminbar-button" value="<?php _e('Search'); ?>"/>
+				</form>
 			</div>
 		</div>
 
@@ -156,8 +164,6 @@ class WP_Admin_Bar {
 	function add_node( $parent_id, &$menu, $child ) {
 		foreach( $menu as $id => $menu_item ) {
 			if ( $parent_id == $id ) {
-				if ( ! isset( $menu->{$parent_id}['children'] ) )
-					$menu->{$parent_id}['children'] = new stdClass;
 				$menu->{$parent_id}['children']->{$child['id']} = $child;
 				$child = null;
 				return true;
@@ -173,25 +179,17 @@ class WP_Admin_Bar {
 	}
 
 	function add_menus() {
-		// User related, aligned right.
 		add_action( 'admin_bar_menu', 'wp_admin_bar_my_account_menu', 10 );
-
-		// Site related.
-		add_action( 'admin_bar_menu', 'wp_admin_bar_wp_menu', 10 );
 		add_action( 'admin_bar_menu', 'wp_admin_bar_my_sites_menu', 20 );
-		add_action( 'admin_bar_menu', 'wp_admin_bar_site_menu', 30 );
-		add_action( 'admin_bar_menu', 'wp_admin_bar_updates_menu', 40 );
-
-		// Content related.
-		add_action( 'admin_bar_menu', 'wp_admin_bar_edit_menu', 50 );
-		add_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
-		add_action( 'admin_bar_menu', 'wp_admin_bar_new_content_menu', 70 );
+		add_action( 'admin_bar_menu', 'wp_admin_bar_dashboard_view_site_menu', 25 );
+		add_action( 'admin_bar_menu', 'wp_admin_bar_edit_menu', 30 );
 		add_action( 'admin_bar_menu', 'wp_admin_bar_shortlink_menu', 80 );
+		add_action( 'admin_bar_menu', 'wp_admin_bar_updates_menu', 70 );
 
-		if ( ! is_admin() ) {
-			add_action( 'admin_bar_menu', 'wp_admin_bar_search_menu', 100 );
-		} else {
-			add_action( 'admin_bar_menu', 'wp_admin_bar_help_menu', 90 );
+		if ( !is_network_admin() && !is_user_admin() ) {
+			add_action( 'admin_bar_menu', 'wp_admin_bar_new_content_menu', 40 );
+			add_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 50 );
+			add_action( 'admin_bar_menu', 'wp_admin_bar_appearance_menu', 60 );
 		}
 
 		do_action( 'add_admin_bar_menus' );
@@ -209,6 +207,31 @@ class WP_Admin_Bar {
 		}
 
 		return false;
+	}
+
+	// TODO: Convert to a core feature for multisite or remove
+	function load_user_locale_translations() {
+		$this->need_to_change_locale = ( get_locale() != $this->user->locale );
+		if ( ! $this->need_to_change_locale )
+			return;
+		/*
+		$this->previous_translations = get_translations_for_domain( 'default' );
+		$this->adminbar_locale_filter = lambda( '$_', '$GLOBALS["wp_admin_bar"]->user->locale;' );
+		unload_textdomain( 'default' );
+		add_filter( 'locale', $this->adminbar_locale_filter );
+		load_default_textdomain();
+		$this->changed_locale = true;
+		*/
+	}
+
+	function unload_user_locale_translations() {
+		global $l10n;
+		if ( ! $this->changed_locale )
+			return;
+		/*
+		remove_filter( 'locale', $this->adminbar_locale_filter );
+		$l10n['default'] = &$this->previous_translations;
+		*/
 	}
 }
 ?>

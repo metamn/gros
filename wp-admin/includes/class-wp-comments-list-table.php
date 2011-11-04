@@ -302,18 +302,18 @@ class WP_Comments_List_Table extends WP_List_Table {
 	}
 
 	function single_row( $a_comment ) {
-		global $post, $comment;
+		global $post, $comment, $the_comment_status;
 
 		$comment = $a_comment;
-		$the_comment_class = join( ' ', get_comment_class( wp_get_comment_status( $comment->comment_ID ) ) );
+		$the_comment_status = wp_get_comment_status( $comment->comment_ID );
 
 		$post = get_post( $comment->comment_post_ID );
 
 		$this->user_can = current_user_can( 'edit_comment', $comment->comment_ID );
 
-		echo "<tr id='comment-$comment->comment_ID' class='$the_comment_class'>";
+		echo "<tr id='comment-$comment->comment_ID' class='$the_comment_status'>";
 		echo $this->single_row_columns( $comment );
-		echo "</tr>\n";
+		echo "</tr>";
 	}
 
 	function column_cb( $comment ) {
@@ -322,12 +322,11 @@ class WP_Comments_List_Table extends WP_List_Table {
 	}
 
 	function column_comment( $comment ) {
-		global $post, $comment_status;
+		global $post, $comment_status, $the_comment_status;
 
 		$user_can = $this->user_can;
 
 		$comment_url = esc_url( get_comment_link( $comment->comment_ID ) );
-		$the_comment_status = wp_get_comment_status( $comment->comment_ID );
 
 		$ptime = date( 'G', strtotime( $comment->comment_date ) );
 		if ( ( abs( time() - $ptime ) ) < 86400 )
@@ -497,8 +496,7 @@ class WP_Comments_List_Table extends WP_List_Table {
 		echo $post_link . '<br />';
 		$this->comments_bubble( $post->ID, $pending_comments );
 		echo '</span> ';
-		$post_type_object = get_post_type_object( $post->post_type );
-		echo "<a href='" . get_permalink( $post->ID ) . "'>" . $post_type_object->labels->view_item . '</a>';
+		echo "<a href='" . get_permalink( $post->ID ) . "'>#</a>";
 		echo '</div>';
 		if ( 'attachment' == $post->post_type && ( $thumb = wp_get_attachment_image( $post->ID, array( 80, 60 ), true ) ) )
 			echo $thumb;

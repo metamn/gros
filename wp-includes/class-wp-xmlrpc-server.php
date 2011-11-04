@@ -8,7 +8,7 @@
 /**
  * WordPress XMLRPC server implementation.
  *
- * Implements compatibility for Blogger API, MetaWeblog API, MovableType, and
+ * Implements compatability for Blogger API, MetaWeblog API, MovableType, and
  * pingback. Additional WordPress API for managing comments, pages, posts,
  * options, etc.
  *
@@ -234,8 +234,9 @@ class wp_xmlrpc_server extends IXR_Server {
 
 		foreach ( (array) has_meta($post_id) as $meta ) {
 			// Don't expose protected fields.
-			if ( ! current_user_can( 'edit_post_meta', $post_id , $meta['meta_key'] ) )
+			if ( strpos($meta['meta_key'], '_wp_') === 0 ) {
 				continue;
+			}
 
 			$custom_fields[] = array(
 				"id"    => $meta['meta_id'],
@@ -261,19 +262,18 @@ class wp_xmlrpc_server extends IXR_Server {
 		foreach ( (array) $fields as $meta ) {
 			if ( isset($meta['id']) ) {
 				$meta['id'] = (int) $meta['id'];
-				$pmeta = get_metadata_by_mid( 'post', $meta['id'] );
-				$meta['value'] = stripslashes_deep( $meta['value'] );
+
 				if ( isset($meta['key']) ) {
-					$meta['key'] = stripslashes( $meta['key'] );
-					if ( $meta['key'] != $pmeta->meta_key )
-						continue;
-					if ( current_user_can( 'edit_post_meta', $post_id, $meta['key'] ) )
-						update_metadata_by_mid( 'post', $meta['id'], $meta['value'] );
-				} elseif ( current_user_can( 'delete_post_meta', $post_id, $pmeta->meta_key ) ) {
-					delete_metadata_by_mid( 'post', $meta['id'] );
+					update_meta($meta['id'], $meta['key'], $meta['value']);
 				}
-			} elseif ( current_user_can( 'add_post_meta', $post_id, stripslashes( $meta['key'] ) ) ) {
-				add_post_meta( $post_id, $meta['key'], $meta['value'] );
+				else {
+					delete_meta($meta['id']);
+				}
+			}
+			else {
+				$_POST['metakeyinput'] = $meta['key'];
+				$_POST['metavalue'] = $meta['value'];
+				add_meta($post_id);
 			}
 		}
 	}
@@ -747,7 +747,7 @@ class wp_xmlrpc_server extends IXR_Server {
 			ORDER BY ID
 		");
 
-		// The date needs to be formatted properly.
+		// The date needs to be formated properly.
 		$num_pages = count($page_list);
 		for ( $i = 0; $i < $num_pages; $i++ ) {
 			$post_date = mysql2date('Ymd\TH:i:s', $page_list[$i]->post_date, false);
@@ -1134,13 +1134,13 @@ class wp_xmlrpc_server extends IXR_Server {
 		if ( !current_user_can( 'moderate_comments' ) )
 			return new IXR_Error( 403, __( 'You are not allowed to moderate comments on this site.' ) );
 
-		if ( ! get_comment($comment_ID) )
-			return new IXR_Error( 404, __( 'Invalid comment ID.' ) );
-
 		if ( !current_user_can( 'edit_comment', $comment_ID ) )
 			return new IXR_Error( 403, __( 'You are not allowed to moderate comments on this site.' ) );
 
 		do_action('xmlrpc_call', 'wp.deleteComment');
+
+		if ( ! get_comment($comment_ID) )
+			return new IXR_Error( 404, __( 'Invalid comment ID.' ) );
 
 		return wp_delete_comment($comment_ID);
 	}
@@ -1184,13 +1184,13 @@ class wp_xmlrpc_server extends IXR_Server {
 		if ( !current_user_can( 'moderate_comments' ) )
 			return new IXR_Error( 403, __( 'You are not allowed to moderate comments on this site.' ) );
 
-		if ( ! get_comment($comment_ID) )
-			return new IXR_Error( 404, __( 'Invalid comment ID.' ) );
-
 		if ( !current_user_can( 'edit_comment', $comment_ID ) )
 			return new IXR_Error( 403, __( 'You are not allowed to moderate comments on this site.' ) );
 
 		do_action('xmlrpc_call', 'wp.editComment');
+
+		if ( ! get_comment($comment_ID) )
+			return new IXR_Error( 404, __( 'Invalid comment ID.' ) );
 
 		if ( isset($content_struct['status']) ) {
 			$statuses = get_comment_statuses();
@@ -1551,7 +1551,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	 *  - username
 	 *  - password
 	 *  - attachment_id
-	 * @return array. Associative array containing:
+	 * @return array. Assocciative array containing:
 	 *  - 'date_created_gmt'
 	 *  - 'parent'
 	 *  - 'link'
@@ -1661,7 +1661,7 @@ class wp_xmlrpc_server extends IXR_Server {
 	}
 
 	/**
-	  * Retrieves a list of post formats used by the site
+	  * Retrives a list of post formats used by the site
 	  *
 	  * @since 3.1
 	  *
@@ -3445,7 +3445,7 @@ class wp_xmlrpc_server extends IXR_Server {
 		} elseif ( isset($urltest['fragment']) ) {
 			// an #anchor is there, it's either...
 			if ( intval($urltest['fragment']) ) {
-				// ...an integer #XXXX (simplest case)
+				// ...an integer #XXXX (simpliest case)
 				$post_ID = (int) $urltest['fragment'];
 				$way = 'from the fragment (numeric)';
 			} elseif ( preg_match('/post-[0-9]+/',$urltest['fragment']) ) {

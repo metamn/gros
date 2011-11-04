@@ -225,6 +225,10 @@ ul#adminmenu {
 	visibility: visible;
 }
 
+#wphead-info {
+	float: right;
+}
+
 #titlediv #title {
 	width: 98%;
 }
@@ -404,7 +408,7 @@ table.ie-fixed {
 	width: 99%;
 }
 
-.inactive-sidebar .widgets-sortables {
+#wp_inactive_widgets {
 	padding-bottom: 8px;
 }
 
@@ -433,7 +437,7 @@ table.ie-fixed {
 }
 
 .widget-liquid-right .widget,
-.inactive-sidebar .widget {
+#wp_inactive_widgets .widget {
 	position: relative;
 }
 

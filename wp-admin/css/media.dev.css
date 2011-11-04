@@ -76,7 +76,9 @@ tr.image-size td {
 }
 
 tr.image-size div.image-size-item {
-	margin: 0 0 5px;
+	float: left;
+	width: 25%;
+	margin: 0;
 }
 
 #library-form .progress,
@@ -135,6 +137,13 @@ abbr.required {
 	border-style: solid;
 }
 
+.hidden {
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	border: none;
+}
+
 /* Specific to Uploader */
 
 #media-upload p.ml-submit {
@@ -148,19 +157,20 @@ abbr.required {
 	font-weight: normal;
 }
 
+#media-upload tr.image-size td.field {
+	text-align: center;
+}
+
 #media-upload #media-items {
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+	border-width: 1px;
+	border-style: solid;
+	border-bottom: none;
 	width: 623px;
 }
 
-#media-upload #media-items:empty {
-	border: 0 none;
-}
-
 #media-upload .media-item {
-	border-style: solid solid none;
-    border-width: 1px 1px 0;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
 	min-height: 36px;
 	width: 100%;
 }
@@ -181,10 +191,19 @@ abbr.required {
 	cursor: default;
 }
 
+#media-upload .slidetoggle {
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+
 #media-upload .describe th.label {
 	padding-top: .2em;
 	text-align: left;
 	min-width: 120px;
+}
+
+#media-upload tr.align td.field {
+	text-align: center;
 }
 
 #media-upload tr.image-size {
@@ -331,7 +350,7 @@ h4.media-sub-title {
 }
 
 #gallery-settings .align .field label {
-	margin: 0 1em 0 3px;
+	margin: 0 1.5em 0 0;
 }
 
 #gallery-settings p.ml-submit {
@@ -360,20 +379,4 @@ h4.media-sub-title {
 
 #sort-buttons span {
 	margin-right: 25px;
-}
-
-p.media-types {
-	margin: 1em;
-}
-
-tr.not-image {
-	display: none;
-}
-
-table.not-image tr.not-image {
-	display: table-row;
-}
-
-table.not-image tr.image-only {
-	display: none;
 }

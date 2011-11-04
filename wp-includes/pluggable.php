@@ -98,31 +98,27 @@ if ( !function_exists('get_userdata') ) :
  * @since 0.71
  *
  * @param int $user_id User ID
- * @return bool|object False on failure, WP_User object on success
+ * @return bool|object False on failure, User DB row object
  */
 function get_userdata( $user_id ) {
-	return get_user_by( 'id', $user_id );
-}
-endif;
+	global $wpdb;
 
-if ( !function_exists('get_user_by') ) :
-/**
- * Retrieve user info by a given field
- *
- * @since 2.8.0
- *
- * @param string $field The field to retrieve the user with.  id | slug | email | login
- * @param int|string $value A value for $field.  A user ID, slug, email address, or login name.
- * @return bool|object False on failure, WP_User object on success
- */
-function get_user_by( $field, $value ) {
-	$userdata = WP_User::get_data_by( $field, $value );
-
-	if ( !$userdata )
+	if ( ! is_numeric( $user_id ) )
 		return false;
 
-	$user = new WP_User;
-	$user->init( $userdata );
+	$user_id = absint( $user_id );
+	if ( ! $user_id )
+		return false;
+
+	$user = wp_cache_get( $user_id, 'users' );
+
+	if ( $user )
+		return $user;
+
+	if ( ! $user = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $wpdb->users WHERE ID = %d LIMIT 1", $user_id ) ) )
+		return false;
+
+	_fill_user( $user );
 
 	return $user;
 }
@@ -134,32 +130,103 @@ if ( !function_exists('cache_users') ) :
  *
  * @since 3.0.0
  *
- * @param array $user_ids User ID numbers list
+ * @param array $users User ID numbers list
  */
-function cache_users( $user_ids ) {
+function cache_users( $users ) {
 	global $wpdb;
 
 	$clean = array();
-	foreach ( $user_ids as $id ) {
+	foreach($users as $id) {
 		$id = (int) $id;
-		if ( !wp_cache_get( $id, 'users' ) ) {
+		if (wp_cache_get($id, 'users')) {
+			// seems to be cached already
+		} else {
 			$clean[] = $id;
 		}
 	}
 
-	if ( empty( $clean ) )
+	if ( 0 == count($clean) )
 		return;
 
-	$list = implode( ',', $clean );
+	$list = implode(',', $clean);
 
-	$users = $wpdb->get_results( "SELECT * FROM $wpdb->users WHERE ID IN ($list)" );
+	$results = $wpdb->get_results("SELECT * FROM $wpdb->users WHERE ID IN ($list)");
 
-	$ids = array();
-	foreach ( $users as $user ) {
-		update_user_caches( $user );
-		$ids[] = $user->ID;
+	_fill_many_users($results);
+}
+endif;
+
+if ( !function_exists('get_user_by') ) :
+/**
+ * Retrieve user info by a given field
+ *
+ * @since 2.8.0
+ *
+ * @param string $field The field to retrieve the user with.  id | slug | email | login
+ * @param int|string $value A value for $field.  A user ID, slug, email address, or login name.
+ * @return bool|object False on failure, User DB row object
+ */
+function get_user_by($field, $value) {
+	global $wpdb;
+
+	switch ($field) {
+		case 'id':
+			return get_userdata($value);
+			break;
+		case 'slug':
+			$user_id = wp_cache_get($value, 'userslugs');
+			$field = 'user_nicename';
+			break;
+		case 'email':
+			$user_id = wp_cache_get($value, 'useremail');
+			$field = 'user_email';
+			break;
+		case 'login':
+			$value = sanitize_user( $value );
+			$user_id = wp_cache_get($value, 'userlogins');
+			$field = 'user_login';
+			break;
+		default:
+			return false;
 	}
-	update_meta_cache( 'user', $ids );
+
+	 if ( false !== $user_id )
+		return get_userdata($user_id);
+
+	if ( !$user = $wpdb->get_row( $wpdb->prepare("SELECT * FROM $wpdb->users WHERE $field = %s", $value) ) )
+		return false;
+
+	_fill_user($user);
+
+	return $user;
+}
+endif;
+
+if ( !function_exists('get_userdatabylogin') ) :
+/**
+ * Retrieve user info by login name.
+ *
+ * @since 0.71
+ *
+ * @param string $user_login User's username
+ * @return bool|object False on failure, User DB row object
+ */
+function get_userdatabylogin($user_login) {
+	return get_user_by('login', $user_login);
+}
+endif;
+
+if ( !function_exists('get_user_by_email') ) :
+/**
+ * Retrieve user info by email.
+ *
+ * @since 2.5
+ *
+ * @param string $email User's email address
+ * @return bool|object False on failure, User DB row object
+ */
+function get_user_by_email($email) {
+	return get_user_by('email', $email);
 }
 endif;
 
@@ -338,13 +405,13 @@ function wp_mail( $to, $subject, $message, $headers = '', $attachments = array()
 		try {
 			// Break $recipient into name and address parts if in the format "Foo <bar@baz.com>"
 			$recipient_name = '';
-			if( preg_match( '/(.*)<(.+)>/', $recipient, $matches ) ) {
+			if( preg_match( '/(.+)\s?<(.+)>/', $recipient, $matches ) ) {
 				if ( count( $matches ) == 3 ) {
 					$recipient_name = $matches[1];
 					$recipient = $matches[2];
 				}
 			}
-			$phpmailer->AddAddress( $recipient, $recipient_name);
+			$phpmailer->AddAddress( trim( $recipient ), $recipient_name);
 		} catch ( phpmailerException $e ) {
 			continue;
 		}
@@ -360,13 +427,13 @@ function wp_mail( $to, $subject, $message, $headers = '', $attachments = array()
 			try {
 				// Break $recipient into name and address parts if in the format "Foo <bar@baz.com>"
 				$recipient_name = '';
-				if( preg_match( '/(.*)<(.+)>/', $recipient, $matches ) ) {
+				if( preg_match( '/(.+)\s?<(.+)>/', $recipient, $matches ) ) {
 					if ( count( $matches ) == 3 ) {
 						$recipient_name = $matches[1];
 						$recipient = $matches[2];
 					}
 				}
-				$phpmailer->AddCc( $recipient, $recipient_name );
+				$phpmailer->AddCc( trim($recipient), $recipient_name );
 			} catch ( phpmailerException $e ) {
 				continue;
 			}
@@ -378,13 +445,13 @@ function wp_mail( $to, $subject, $message, $headers = '', $attachments = array()
 			try {
 				// Break $recipient into name and address parts if in the format "Foo <bar@baz.com>"
 				$recipient_name = '';
-				if( preg_match( '/(.*)<(.+)>/', $recipient, $matches ) ) {
+				if( preg_match( '/(.+)\s?<(.+)>/', $recipient, $matches ) ) {
 					if ( count( $matches ) == 3 ) {
 						$recipient_name = $matches[1];
 						$recipient = $matches[2];
 					}
 				}
-				$phpmailer->AddBcc( $recipient, $recipient_name );
+				$phpmailer->AddBcc( trim($recipient), $recipient_name );
 			} catch ( phpmailerException $e ) {
 				continue;
 			}
@@ -527,7 +594,7 @@ function wp_validate_auth_cookie($cookie = '', $scheme = '') {
 		return false;
 	}
 
-	$user = get_user_by('login', $username);
+	$user = get_userdatabylogin($username);
 	if ( ! $user ) {
 		do_action('auth_cookie_bad_username', $cookie_elements);
 		return false;
@@ -716,7 +783,7 @@ if ( !function_exists('is_user_logged_in') ) :
 function is_user_logged_in() {
 	$user = wp_get_current_user();
 
-	if ( empty( $user->ID ) )
+	if ( $user->id == 0 )
 		return false;
 
 	return true;
@@ -1086,7 +1153,7 @@ function wp_notify_moderator($comment_id) {
 	$comment = get_comment($comment_id);
 	$post = get_post($comment->comment_post_ID);
 	$user = get_userdata( $post->post_author );
-	// Send to the administration and to the post author if the author can modify the comment.
+	// Send to the administation and to the post author if the author can modify the comment.
 	$email_to = array( get_option('admin_email') );
 	if ( user_can($user->ID, 'edit_comment', $comment_id) && !empty($user->user_email) && ( get_option('admin_email') != $user->user_email) )
 		$email_to[] = $user->user_email;
@@ -1241,7 +1308,7 @@ if ( !function_exists('wp_verify_nonce') ) :
  */
 function wp_verify_nonce($nonce, $action = -1) {
 	$user = wp_get_current_user();
-	$uid = (int) $user->ID;
+	$uid = (int) $user->id;
 
 	$i = wp_nonce_tick();
 
@@ -1267,7 +1334,7 @@ if ( !function_exists('wp_create_nonce') ) :
  */
 function wp_create_nonce($action = -1) {
 	$user = wp_get_current_user();
-	$uid = (int) $user->ID;
+	$uid = (int) $user->id;
 
 	$i = wp_nonce_tick();
 
@@ -1432,7 +1499,7 @@ if ( !function_exists('wp_check_password') ) :
  *
  * Maintains compatibility between old version and the new cookie authentication
  * protocol using PHPass library. The $hash parameter is the encrypted password
- * and the function compares the plain text password when encrypted similarly
+ * and the function compares the plain text password when encypted similarly
  * against the already encrypted password to see if they match.
  *
  * For integration with other applications, this function can be overwritten to

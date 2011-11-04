@@ -229,7 +229,7 @@ class WP_List_Table {
 	}
 
 	/**
-	 * Display the list of views available on this table.
+	 * Display the bulk actions dropdown.
 	 *
 	 * @since 3.1.0
 	 * @access public
@@ -326,7 +326,7 @@ class WP_List_Table {
 	 * @access protected
 	 *
 	 * @param array $actions The list of actions
-	 * @param bool $always_visible Whether the actions should be always visible
+	 * @param bool $always_visible Wether the actions should be always visible
 	 * @return string
 	 */
 	function row_actions( $actions, $always_visible = false ) {
@@ -897,14 +897,9 @@ class WP_List_Table {
 	 * @access private
 	 */
 	function _js_vars() {
-		$current_screen = get_current_screen();
-
 		$args = array(
-			'class'  => get_class( $this ),
-			'screen' => array(
-				'id'   => $current_screen->id,
-				'base' => $current_screen->base,
-			)
+			'class' => get_class( $this ),
+			'screen' => get_current_screen()
 		);
 
 		printf( "<script type='text/javascript'>list_args = %s;</script>\n", json_encode( $args ) );

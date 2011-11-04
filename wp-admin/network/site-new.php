@@ -34,7 +34,7 @@ if ( isset($_REQUEST['action']) && 'add-site' == $_REQUEST['action'] ) {
 		wp_die( __( 'Can&#8217;t create an empty site.' ) );
 	$blog = $_POST['blog'];
 	$domain = '';
-	if ( preg_match( '|^([a-zA-Z0-9-])+$|', $blog['domain'] ) )
+	if ( ! preg_match( '/(--)/', $blog['domain'] ) && preg_match( '|^([a-zA-Z0-9-])+$|', $blog['domain'] ) )
 		$domain = strtolower( $blog['domain'] );
 
 	// If not a subdomain install, make sure the domain isn't a reserved word
@@ -82,7 +82,7 @@ if ( isset($_REQUEST['action']) && 'add-site' == $_REQUEST['action'] ) {
 		$content_mail = sprintf( __( "New site created by %1s\n\nAddress: http://%2s\nName: %3s"), $current_user->user_login , $newdomain . $path, stripslashes( $title ) );
 		wp_mail( get_site_option('admin_email'), sprintf( __( '[%s] New Site Created' ), $current_site->site_name ), $content_mail, 'From: "Site Admin" <' . get_site_option( 'admin_email' ) . '>' );
 		wpmu_welcome_notification( $id, $user_id, $password, $title, array( 'public' => 1 ) );
-		wp_redirect( add_query_arg( array( 'update' => 'added', 'id' => $id ), 'site-new.php' ) );
+		wp_redirect( add_query_arg( array('update' => 'added'), 'site-new.php' ) );
 		exit;
 	} else {
 		wp_die( $id->get_error_message() );
@@ -92,7 +92,7 @@ if ( isset($_REQUEST['action']) && 'add-site' == $_REQUEST['action'] ) {
 if ( isset($_GET['update']) ) {
 	$messages = array();
 	if ( 'added' == $_GET['update'] )
-		$messages[] = sprintf( __( 'Site added. <a href="%1$s">Visit Dashboard</a> or <a href="%2$s">Edit Site</a>' ), esc_url( get_admin_url( absint( $_GET['id'] ) ) ), network_admin_url( 'site-info.php?id=' . absint( $_GET['id'] ) ) );
+		$messages[] = __('Site added.');
 }
 
 $title = __('Add New Site');

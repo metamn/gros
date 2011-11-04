@@ -200,33 +200,33 @@ function wp_dashboard() {
 	$hide2 = $hide3 = $hide4 = '';
 	switch ( $screen_layout_columns ) {
 		case 4:
-			$width = 'width:25%;';
+			$width = 'width:24.5%;';
 			break;
 		case 3:
-			$width = 'width:33.333333%;';
+			$width = 'width:32.67%;';
 			$hide4 = 'display:none;';
 			break;
 		case 2:
-			$width = 'width:50%;';
+			$width = 'width:49%;';
 			$hide3 = $hide4 = 'display:none;';
 			break;
 		default:
-			$width = 'width:100%;';
+			$width = 'width:98%;';
 			$hide2 = $hide3 = $hide4 = 'display:none;';
 	}
 ?>
 <div id="dashboard-widgets" class="metabox-holder">
 <?php
-	echo "\t<div id='postbox-container-1' class='postbox-container' style='$width'>\n";
+	echo "\t<div class='postbox-container' style='$width'>\n";
 	do_meta_boxes( $screen->id, 'normal', '' );
 
-	echo "\t</div><div id='postbox-container-2' class='postbox-container' style='{$hide2}$width'>\n";
+	echo "\t</div><div class='postbox-container' style='{$hide2}$width'>\n";
 	do_meta_boxes( $screen->id, 'side', '' );
 
-	echo "\t</div><div id='postbox-container-3' class='postbox-container' style='{$hide3}$width'>\n";
+	echo "\t</div><div class='postbox-container' style='{$hide3}$width'>\n";
 	do_meta_boxes( $screen->id, 'column3', '' );
 
-	echo "\t</div><div id='postbox-container-4' class='postbox-container' style='{$hide4}$width'>\n";
+	echo "\t</div><div class='postbox-container' style='{$hide4}$width'>\n";
 	do_meta_boxes( $screen->id, 'column4', '' );
 ?>
 </div></div>
@@ -531,8 +531,8 @@ function wp_dashboard_quick_press() {
 		</div>
 
 		<?php if ( current_user_can( 'upload_files' ) ) : ?>
-		<div id="wp-content-wrap" class="wp-editor-wrap hide-if-no-js wp-media-buttons">
-			<?php do_action( 'media_buttons', 'content' ); ?>
+		<div id="media-buttons" class="hide-if-no-js">
+			<?php do_action( 'media_buttons' ); ?>
 		</div>
 		<?php endif; ?>
 
@@ -1023,7 +1023,7 @@ function wp_dashboard_plugins_output() {
  * Checks to see if all of the feed url in $check_urls are cached.
  *
  * If $check_urls is empty, look for the rss feed url found in the dashboard
- * widget options of $widget_id. If cached, call $callback, a function that
+ * widget optios of $widget_id. If cached, call $callback, a function that
  * echoes out output for this widget. If not cache, echo a "Loading..." stub
  * which is later replaced by AJAX call (see top of /wp-admin/index.php)
  *
@@ -1258,36 +1258,5 @@ function wp_check_browser_version() {
  * Empty function usable by plugins to output empty dashboard widget (to be populated later by JS).
  */
 function wp_dashboard_empty() {}
-
-/**
- * Displays a welcome panel to introduce users to WordPress.
- *
- * @since 3.3
- */
-function wp_welcome_panel() {
-	?>
-	<div class="welcome-panel">
-		<h3><?php _e( 'Welcome to WordPress!' ); ?></h3>
-		
-		<a class="welcome-panel-close" href="#"><?php _e('Close'); ?></a>
-		
-		<?php
-		// For now, we'll just approximate capabilities for each role.
-		?>
-		
-		<?php if ( current_user_can('switch_themes') ): ?>
-			<p>[admin placeholder]</p>
-		<?php elseif ( current_user_can('edit_others_posts') ): ?>
-			<p>[editor placeholder]</p>
-		<?php elseif ( current_user_can('publish_posts') ): ?>
-			<p>[author placeholder]</p>
-		<?php elseif ( current_user_can('edit_posts') ): ?>
-			<p>[contributor placeholder]</p>
-		<?php else: ?>
-			<p>[subscriber placeholder]</p>
-		<?php endif; ?>
-	</div>
-	<?php
-}
 
 ?>

@@ -469,7 +469,7 @@ function get_themes() {
  *
  * @since 2.9.0
  *
- * @return array|string An array of theme roots keyed by template/stylesheet or a single theme root if all themes have the same root.
+ * @return array|string An arry of theme roots keyed by template/stylesheet or a single theme root if all themes have the same root.
  */
 function get_theme_roots() {
 	global $wp_theme_directories;
@@ -1246,31 +1246,21 @@ function preview_theme_ob_filter_callback( $matches ) {
  * @param string $stylesheet Stylesheet name.
  */
 function switch_theme($template, $stylesheet) {
-	global $wp_theme_directories, $sidebars_widgets;
-
-	if ( is_array( $sidebars_widgets ) )
-		set_theme_mod( 'sidebars_widgets', array( 'time' => time(), 'data' => $sidebars_widgets ) );
-
-	$old_theme = get_current_theme();
+	global $wp_theme_directories;
 
 	update_option('template', $template);
 	update_option('stylesheet', $stylesheet);
-
 	if ( count($wp_theme_directories) > 1 ) {
 		update_option('template_root', get_raw_theme_root($template, true));
 		update_option('stylesheet_root', get_raw_theme_root($stylesheet, true));
 	}
-
 	delete_option('current_theme');
 	$theme = get_current_theme();
-
 	if ( is_admin() && false === get_option( "theme_mods_$stylesheet" ) ) {
 		$default_theme_mods = (array) get_option( "mods_$theme" );
 		add_option( "theme_mods_$stylesheet", $default_theme_mods );
 	}
-
-	update_option( 'theme_switched', $old_theme );
-	do_action( 'switch_theme', $theme );
+	do_action('switch_theme', $theme);
 }
 
 /**
@@ -1793,7 +1783,7 @@ function _custom_background_cb() {
 	}
 ?>
 <style type="text/css">
-body.custom-background { <?php echo trim( $style ); ?> }
+body { <?php echo trim( $style ); ?> }
 </style>
 <?php
 }
@@ -1946,14 +1936,10 @@ function current_theme_supports( $feature ) {
 			if ( true === $_wp_theme_features[$feature] )  // Registered for all types
 				return true;
 			$content_type = $args[0];
-			return in_array( $content_type, $_wp_theme_features[$feature][0] );
-			break;
-
-		case 'post-formats':
-			// specific post formats can be registered by passing an array of types to
-			// add_theme_support()
-			$post_format = $args[0];
-			return in_array( $post_format, $_wp_theme_features[$feature][0] );
+			if ( in_array($content_type, $_wp_theme_features[$feature][0]) )
+				return true;
+			else
+				return false;
 			break;
 	}
 
@@ -1996,14 +1982,4 @@ function _delete_attachment_theme_mod( $id ) {
 
 add_action( 'delete_attachment', '_delete_attachment_theme_mod' );
 
-/**
- * Checks if a theme has been changed and runs 'after_switch_theme' hook on the next WP load
- *
- * @since 3.3
- */
-function check_theme_switched() {
-	if ( false !== ( $old_theme = get_option( 'theme_switched' ) ) && !empty( $old_theme ) ) {
-		do_action( 'after_switch_theme', $old_theme );
-		update_option( 'theme_switched', false );
-	}
-}
+?>

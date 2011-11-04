@@ -29,19 +29,12 @@ setCommentsList = function() {
 
 		$('span.pending-count').each( function() {
 			var a = $(this), n, dif;
-
 			n = a.html().replace(/[^0-9]+/g, '');
-			n = parseInt(n, 10);
-
-			if ( isNaN(n) )
-				return;
-
+			n = parseInt(n,10);
+			if ( isNaN(n) ) return;
 			dif = $('#' + settings.element).is('.' + settings.dimClass) ? 1 : -1;
 			n = n + dif;
-
-			if ( n < 0 )
-				n = 0;
-
+			if ( n < 0 ) { n = 0; }
 			a.closest('.awaiting-mod')[ 0 == n ? 'addClass' : 'removeClass' ]('count-0');
 			updateCount(a, n);
 			dashboardTotals();
@@ -363,9 +356,6 @@ commentReply = {
 		if ( this.cid ) {
 			c = $('#comment-' + this.cid);
 
-			if ( typeof QTags != 'undefined' )
-				QTags.closeAllTags('replycontent');
-
 			if ( this.act == 'edit-comment' )
 				c.fadeIn(300, function(){ c.show() }).css('backgroundColor', '');
 
@@ -375,14 +365,18 @@ commentReply = {
 			$('input', '#edithead').val('');
 			$('.error', '#replysubmit').html('').hide();
 			$('.waiting', '#replysubmit').hide();
-			$('#replycontent').css('height', '');
+
+			if ( $.browser.msie )
+				$('#replycontainer, #replycontent').css('height', '120px');
+			else
+				$('#replycontainer').resizable('destroy').css('height', '120px');
 
 			this.cid = '';
 		}
 	},
 
 	open : function(id, p, a) {
-		var t = this, editRow, rowData, act, c = $('#comment-' + id), h = c.height(), replyButton;
+		var t = this, editRow, rowData, act, h, c = $('#comment-' + id), replyButton;
 
 		t.close();
 		t.cid = id;
@@ -395,9 +389,6 @@ commentReply = {
 		$('#comment_post_ID', editRow).val(p);
 		$('#comment_ID', editRow).val(id);
 
-		if ( h > 120 )
-			$('#replycontent', editRow).css('height', (35+h) + 'px');
-
 		if ( a == 'edit' ) {
 			$('#author', editRow).val( $('div.author', rowData).text() );
 			$('#author-email', editRow).val( $('div.author-email', rowData).text() );
@@ -406,6 +397,13 @@ commentReply = {
 			$('#replycontent', editRow).val( $('textarea.comment', rowData).val() );
 			$('#edithead, #savebtn', editRow).show();
 			$('#replyhead, #replybtn', editRow).hide();
+
+			h = c.height();
+			if ( h > 220 )
+				if ( $.browser.msie )
+					$('#replycontainer, #replycontent', editRow).height(h-105);
+				else
+					$('#replycontainer', editRow).height(h-105);
 
 			c.after( editRow ).fadeOut('fast', function(){
 				$('#replyrow').fadeIn(300, function(){ $(this).show() });
@@ -480,6 +478,8 @@ commentReply = {
 	show : function(xml) {
 		var t = this, r, c, id, bg, pid;
 
+		t.revert();
+
 		if ( typeof(xml) == 'string' ) {
 			t.error({'responseText': xml});
 			return false;
@@ -490,8 +490,6 @@ commentReply = {
 			t.error({'responseText': wpAjax.broken});
 			return false;
 		}
-
-		t.revert();
 
 		r = r.responses[0];
 		c = r.data;
@@ -550,6 +548,8 @@ $(document).ready(function(){
 	commentReply.init();
 	$(document).delegate('span.delete a.delete', 'click', function(){return false;});
 
+	if ( typeof QTags != 'undefined' )
+		ed_reply = new QTags('ed_reply', 'replycontent', 'replycontainer', 'more,fullscreen');
 
 	if ( typeof $.table_hotkeys != 'undefined' ) {
 		make_hotkeys_redirect = function(which) {

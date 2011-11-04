@@ -22,7 +22,11 @@ if ( ! current_theme_supports( 'menus' ) && ! current_theme_supports( 'widgets' 
 if ( ! current_user_can('edit_theme_options') )
 	wp_die( __( 'Cheatin&#8217; uh?' ) );
 
+// Nav Menu CSS
+wp_admin_css( 'nav-menu' );
+
 // jQuery
+wp_enqueue_script( 'jquery' );
 wp_enqueue_script( 'jquery-ui-draggable' );
 wp_enqueue_script( 'jquery-ui-droppable' );
 wp_enqueue_script( 'jquery-ui-sortable' );
@@ -432,12 +436,12 @@ $_wp_nav_menu_max_depth = 0;
 if ( is_nav_menu( $nav_menu_selected_id ) )
 	$edit_markup = wp_get_nav_menu_to_edit( $nav_menu_selected_id  );
 
-function wp_nav_menu_max_depth($classes) {
+function wp_nav_menu_max_depth() {
 	global $_wp_nav_menu_max_depth;
-	return "$classes menu-max-depth-$_wp_nav_menu_max_depth";
+	return "menu-max-depth-$_wp_nav_menu_max_depth";
 }
 
-add_filter('admin_body_class', 'wp_nav_menu_max_depth');
+add_action('admin_body_class','wp_nav_menu_max_depth');
 
 wp_nav_menu_setup();
 wp_initial_nav_menu_meta_boxes();

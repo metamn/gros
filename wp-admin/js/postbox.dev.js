@@ -1,37 +1,30 @@
 var postboxes;
-
 (function($) {
 	postboxes = {
-		add_postbox_toggles : function(page, args) {
-			this.init(page, args);
-
+		add_postbox_toggles : function(page,args) {
+			this.init(page,args);
 			$('.postbox h3, .postbox .handlediv').click( function() {
 				var p = $(this).parent('.postbox'), id = p.attr('id');
-
 				if ( 'dashboard_browser_nag' == id )
 					return;
 
 				p.toggleClass('closed');
 				postboxes.save_state(page);
-
 				if ( id ) {
 					if ( !p.hasClass('closed') && $.isFunction(postboxes.pbshow) )
 						postboxes.pbshow(id);
 					else if ( p.hasClass('closed') && $.isFunction(postboxes.pbhide) )
 						postboxes.pbhide(id);
 				}
-			});
-
+			} );
 			$('.postbox h3 a').click( function(e) {
 				e.stopPropagation();
-			});
-
+			} );
 			$('.postbox a.dismiss').click( function(e) {
 				var hide_id = $(this).parents('.postbox').attr('id') + '-hide';
 				$( '#' + hide_id ).prop('checked', false).triggerHandler('click');
 				return false;
-			});
-
+			} );
 			$('.hide-postbox-tog').click( function() {
 				var box = $(this).val();
 
@@ -45,71 +38,52 @@ var postboxes;
 						postboxes.pbhide( box );
 				}
 				postboxes.save_state(page);
-			});
-
+			} );
 			$('.columns-prefs input[type="radio"]').click(function(){
-				var num = $(this).val(), i, el, done, ps = $('#poststuff');
+				var num = $(this).val(), i, el, p = $('#poststuff');
 
-				num = parseInt(num, 10);
-
-				if ( ps.length ) { // edit pages
-
+				if ( p.length ) { // write pages
 					if ( num == 2 ) {
-						$('.wrap').removeClass('columns-1').addClass('columns-2');
-						ps.addClass('has-right-sidebar');
-
-						if ( !$('#side-info-column #side-sortables').length )
-							$('#side-info-column').append( $('#side-sortables') );
-
+						p.addClass('has-right-sidebar');
+						$('#side-sortables').addClass('temp-border');
 					} else if ( num == 1 ) {
-						$('.wrap').removeClass('columns-2').addClass('columns-1');
-						ps.removeClass('has-right-sidebar');
-
-						if ( !$('#post-body-content #side-sortables').length )
-							$('#normal-sortables').before( $('#side-sortables') );
+						p.removeClass('has-right-sidebar');
+						$('#normal-sortables').append($('#side-sortables').children('.postbox'));
 					}
-
 				} else { // dashboard
 					for ( i = 4; ( i > num && i > 1 ); i-- ) {
-						el = $('#' + postboxes._colname(i) + '-sortables');
-						$('#' + postboxes._colname(i-1) + '-sortables').append(el.children('.postbox'));
+						el = $('#' + colname(i) + '-sortables');
+						$('#' + colname(i-1) + '-sortables').append(el.children('.postbox'));
 						el.parent().hide();
 					}
-
-					for ( i = num; i > 0; i-- ) {
-						el = $('#' + postboxes._colname(i) + '-sortables');
-						done = false;
-
-						if ( el.parent().is(':hidden') ) {
-							switch ( i ) {
-								case 4:
-									if ( $('#column3-sortables .postbox').length > 1 ) {
-										el.append( $('#column3-sortables .postbox').last() );
-										done = true;
-									}
-								case 3:
-									if ( !done && $('#side-sortables .postbox').length > 1 ) {
-										el.append( $('#side-sortables .postbox').last() );
-										done = true;
-									}
-								case 2:
-									if ( !done && $('#normal-sortables .postbox').length > 1 ) {
-										el.append( $('#normal-sortables .postbox').last() );
-										done = true;
-									}
-								default:
-									if ( !done )
-										el.addClass('empty-container')
-							}
-
-							el.parent().show();
-						}
+					for ( i = 1; i <= num; i++ ) {
+						el = $('#' + colname(i) + '-sortables');
+						if ( el.parent().is(':hidden') )
+							el.addClass('temp-border').parent().show();
 					}
-
-					$('.postbox-container:visible').css('width', 100/num + '%');
+					$('.postbox-container:visible').css('width', 98/num + '%');
 				}
 				postboxes.save_order(page);
 			});
+
+			function colname(n) {
+				switch (n) {
+					case 1:
+						return 'normal';
+						break
+					case 2:
+						return 'side';
+						break
+					case 3:
+						return 'column3';
+						break
+					case 4:
+						return 'column4';
+						break
+					default:
+						return '';
+				}
+			}
 		},
 
 		init : function(page, args) {
@@ -138,15 +112,6 @@ var postboxes;
 				receive: function(e,ui) {
 					if ( 'dashboard_browser_nag' == ui.item[0].id )
 						$(ui.sender).sortable('cancel');
-
-					$.each($('.postbox-container:visible'), function(n, el){
-						var first = $('.meta-box-sortables:first', el);
-
-						if ( !first.children('.postbox:visible').length )
-							first.addClass('empty-container');
-						else
-							first.removeClass('empty-container');
-					});
 				}
 			});
 		},
@@ -177,25 +142,6 @@ var postboxes;
 				postVars["order[" + this.id.split('-')[0] + "]"] = $(this).sortable( 'toArray' ).join(',');
 			} );
 			$.post( ajaxurl, postVars );
-		},
-
-		_colname : function(n) {
-			switch (n) {
-				case 1:
-					return 'normal';
-					break
-				case 2:
-					return 'side';
-					break
-				case 3:
-					return 'column3';
-					break
-				case 4:
-					return 'column4';
-					break
-				default:
-					return '';
-			}
 		},
 
 		/* Callbacks */

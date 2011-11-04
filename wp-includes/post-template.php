@@ -329,9 +329,9 @@ function get_post_class( $class = '', $post_id = null ) {
 	$classes[] = 'status-' . $post->post_status;
 
 	// Post Format
-	if ( post_type_supports( $post->post_type, 'post-formats' ) ) {
-		$post_format = get_post_format( $post->ID );
+	$post_format = get_post_format( $post->ID );
 
+	if ( post_type_supports( $post->post_type, 'post-formats' ) ) {
 		if ( $post_format && !is_wp_error($post_format) )
 			$classes[] = 'format-' . sanitize_html_class( $post_format );
 		else
@@ -432,14 +432,12 @@ function get_body_class( $class = '' ) {
 		$classes[] = 'postid-' . $post_id;
 
 		// Post Format
-		if ( post_type_supports( $post->post_type, 'post-formats' ) ) {
-			$post_format = get_post_format( $post->ID );
+		$post_format = get_post_format( $post->ID );
 
-			if ( $post_format && !is_wp_error($post_format) )
-				$classes[] = 'single-format-' . sanitize_html_class( $post_format );
-			else
-				$classes[] = 'single-format-standard';
-		}
+		if ( $post_format && !is_wp_error($post_format) )
+			$classes[] = 'single-format-' . sanitize_html_class( $post_format );
+		else
+			$classes[] = 'single-format-standard';
 
 		if ( is_attachment() ) {
 			$mime_type = get_post_mime_type($post_id);
@@ -507,9 +505,6 @@ function get_body_class( $class = '' ) {
 	if ( is_admin_bar_showing() )
 		$classes[] = 'admin-bar';
 
-	if ( get_background_image() || get_background_color() )
-		$classes[] = 'custom-background';
-
 	$page = $wp_query->get( 'page' );
 
 	if ( !$page || $page < 2)
@@ -567,7 +562,7 @@ function post_password_required( $post = null ) {
 	if ( !isset($_COOKIE['wp-postpass_' . COOKIEHASH]) )
 		return true;
 
-	if ( stripslashes( $_COOKIE['wp-postpass_' . COOKIEHASH] ) != $post->post_password )
+	if ( $_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password )
 		return true;
 
 	return false;
@@ -742,7 +737,7 @@ function the_meta() {
 		echo "<ul class='post-meta'>\n";
 		foreach ( (array) $keys as $key ) {
 			$keyt = trim($key);
-			if ( is_protected_meta( $keyt, 'post' ) )
+			if ( '_' == $keyt[0] )
 				continue;
 			$values = array_map('trim', get_post_custom_values($key));
 			$value = implode($values,', ');
@@ -1045,7 +1040,7 @@ class Walker_Page extends Walker {
 
 		$css_class = implode(' ', apply_filters('page_css_class', $css_class, $page));
 
-		$output .= $indent . '<li class="' . $css_class . '"><a href="' . get_permalink($page->ID) . '">' . $link_before . apply_filters( 'the_title', $page->post_title, $page->ID ) . $link_after . '</a>';
+		$output .= $indent . '<li class="' . $css_class . '"><a href="' . get_permalink($page->ID) . '" title="' . esc_attr( wp_strip_all_tags( apply_filters( 'the_title', $page->post_title, $page->ID ) ) ) . '">' . $link_before . apply_filters( 'the_title', $page->post_title, $page->ID ) . $link_after . '</a>';
 
 		if ( !empty($show_date) ) {
 			if ( 'modified' == $show_date )
@@ -1110,7 +1105,7 @@ class Walker_PageDropdown extends Walker {
 		if ( $page->ID == $args['selected'] )
 			$output .= ' selected="selected"';
 		$output .= '>';
-		$title = apply_filters( 'list_pages', $page->post_title, $page );
+		$title = apply_filters( 'list_pages', $page->post_title );
 		$output .= $pad . esc_html( $title );
 		$output .= "</option>\n";
 	}

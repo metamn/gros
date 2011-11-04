@@ -19,10 +19,8 @@
 function get_sitestats() {
 	global $wpdb;
 
-	$stats = array(
-		'blogs' => get_blog_count(),
-		'users' => get_user_count(),
-	);
+	$stats['blogs'] = get_blog_count();
+	$stats['users'] = get_user_count();
 
 	return $stats;
 }
@@ -81,7 +79,7 @@ function get_active_blog_for_user( $user_id ) {
 	if ( false !== $primary_blog ) {
 		if ( ! isset( $blogs[ $primary_blog ] ) ) {
 			update_user_meta( $user_id, 'primary_blog', $first_blog->userblog_id );
-			$primary = get_blog_details( $first_blog->userblog_id );
+			$primary = $first_blog;
 		} else {
 			$primary = get_blog_details( $primary_blog );
 		}
@@ -92,7 +90,7 @@ function get_active_blog_for_user( $user_id ) {
 		$primary = $first_blog;
 	}
 
-	if ( ( ! is_object( $primary ) ) || ( $primary->archived == 1 || $primary->spam == 1 || $primary->deleted == 1 ) ) {
+	if ( ( ! is_object( $primary ) ) || ( is_object( $primary ) && $primary->archived == 1 || $primary->spam == 1 || $primary->deleted == 1 ) ) {
 		$blogs = get_blogs_of_user( $user_id, true ); // if a user's primary blog is shut down, check their other blogs.
 		$ret = false;
 		if ( is_array( $blogs ) && count( $blogs ) > 0 ) {
@@ -293,8 +291,6 @@ function remove_user_from_blog($user_id, $blog_id = '', $reassign = '') {
 	}
 
 	restore_current_blog();
-
-	return true;
 }
 
 /**
@@ -318,14 +314,14 @@ function create_empty_blog( $domain, $path, $weblog_title, $site_id = 1 ) {
 
 	// Check if the domain has been used already. We should return an error message.
 	if ( domain_exists($domain, $path, $site_id) )
-		return __( '<strong>ERROR</strong>: Site URL already taken.' );
+		return __( 'Error: Site URL already taken.' );
 
 	// Need to back up wpdb table names, and create a new wp_blogs entry for new blog.
 	// Need to get blog_id from wp_blogs, and create new table names.
 	// Must restore table names at the end of function.
 
 	if ( ! $blog_id = insert_blog($domain, $path, $site_id) )
-		return __( '<strong>ERROR</strong>: problem creating site entry.' );
+		return __( 'Error: problem creating site entry.' );
 
 	switch_to_blog($blog_id);
 	install_blog($blog_id);
@@ -394,6 +390,68 @@ function get_blog_id_from_url( $domain, $path = '/' ) {
 }
 
 // Admin functions
+
+/**
+ * Redirect a user based on $_GET or $_POST arguments.
+ *
+ * The function looks for redirect arguments in the following order:
+ * 1) $_GET['ref']
+ * 2) $_POST['ref']
+ * 3) $_SERVER['HTTP_REFERER']
+ * 4) $_GET['redirect']
+ * 5) $_POST['redirect']
+ * 6) $url
+ *
+ * @since MU
+ * @uses wpmu_admin_redirect_add_updated_param()
+ *
+ * @param string $url
+ */
+function wpmu_admin_do_redirect( $url = '' ) {
+	$ref = '';
+	if ( isset( $_GET['ref'] ) )
+		$ref = $_GET['ref'];
+	if ( isset( $_POST['ref'] ) )
+		$ref = $_POST['ref'];
+
+	if ( $ref ) {
+		$ref = wpmu_admin_redirect_add_updated_param( $ref );
+		wp_redirect( $ref );
+		exit();
+	}
+	if ( empty( $_SERVER['HTTP_REFERER'] ) == false ) {
+		wp_redirect( $_SERVER['HTTP_REFERER'] );
+		exit();
+	}
+
+	$url = wpmu_admin_redirect_add_updated_param( $url );
+	if ( isset( $_GET['redirect'] ) ) {
+		if ( substr( $_GET['redirect'], 0, 2 ) == 's_' )
+			$url .= '&action=blogs&s='. esc_html( substr( $_GET['redirect'], 2 ) );
+	} elseif ( isset( $_POST['redirect'] ) ) {
+		$url = wpmu_admin_redirect_add_updated_param( $_POST['redirect'] );
+	}
+	wp_redirect( $url );
+	exit();
+}
+
+/**
+ * Adds an 'updated=true' argument to a URL.
+ *
+ * @since MU
+ *
+ * @param string $url
+ * @return string
+ */
+function wpmu_admin_redirect_add_updated_param( $url = '' ) {
+	if ( strpos( $url, 'updated=true' ) === false ) {
+		if ( strpos( $url, '?' ) === false )
+			return $url . '?updated=true';
+		else
+			return $url . '&updated=true';
+	}
+	return $url;
+}
 
 /**
  * Checks an email address against a list of banned domains.
@@ -586,10 +644,13 @@ function wpmu_validate_blog_signup($blogname, $blog_title, $user = '') {
 	if (! is_subdomain_install() )
 		$illegal_names = array_merge($illegal_names, apply_filters( 'subdirectory_reserved_names', array( 'page', 'comments', 'blog', 'files', 'feed' ) ) );
 
+
 	if ( empty( $blogname ) )
 		$errors->add('blogname', __('Please enter a site name'));
 
-	if ( preg_match( '/[^a-z0-9]+/', $blogname ) )
+	$maybe = array();
+	preg_match( '/[a-z0-9]+/', $blogname, $maybe );
+	if ( $blogname != $maybe[0] )
 		$errors->add('blogname', __('Only lowercase letters and numbers allowed'));
 
 	if ( in_array( $blogname, $illegal_names ) == true )
@@ -731,7 +792,7 @@ function wpmu_signup_user($user, $user_email, $meta = '') {
  * replace it with your own notification behavior.
  *
  * Filter 'wpmu_signup_blog_notification_email' and
- * 'wpmu_signup_blog_notification_subject' to change the content
+ * 'wpmu_signup_blog_notification_email' to change the content
  * and subject line of the email sent to newly registered users.
  *
  * @since MU
@@ -1172,7 +1233,7 @@ function install_blog($blog_id, $blog_title = '') {
 	$url = get_blogaddress_by_id($blog_id);
 
 	// Set everything up
-	make_db_current_silent( 'blog' );
+	make_db_current_silent();
 	populate_options();
 	populate_roles();
 	$wp_roles->_init();
@@ -1459,7 +1520,8 @@ function get_dirsize( $directory ) {
 function recurse_dirsize( $directory ) {
 	$size = 0;
 
-	$directory = untrailingslashit( $directory );
+	if ( substr( $directory, -1 ) == '/' )
+		$directory = substr($directory,0,-1);
 
 	if ( !file_exists($directory) || !is_dir( $directory ) || !is_readable( $directory ) )
 		return false;
@@ -1502,7 +1564,8 @@ function upload_is_user_over_quota( $echo = true ) {
 	if ( empty( $spaceAllowed ) || !is_numeric( $spaceAllowed ) )
 		$spaceAllowed = 10;	// Default space allowed is 10 MB
 
-	$size = get_dirsize( BLOGUPLOADDIR ) / 1024 / 1024;
+	$dirName = BLOGUPLOADDIR;
+	$size = get_dirsize($dirName) / 1024 / 1024;
 
 	if ( ($spaceAllowed-$size) < 0 ) {
 		if ( $echo )
@@ -1583,7 +1646,8 @@ function fix_import_form_size( $size ) {
 		return 0;
 
 	$spaceAllowed = 1024 * 1024 * get_space_allowed();
-	$dirsize = get_dirsize( BLOGUPLOADDIR );
+	$dirName = BLOGUPLOADDIR;
+	$dirsize = get_dirsize($dirName) ;
 	if ( $size > $spaceAllowed - $dirsize )
 		return $spaceAllowed - $dirsize; // remaining space
 	else
@@ -1762,7 +1826,7 @@ function maybe_add_existing_user_to_blog() {
 	if ( empty( $details ) || is_wp_error( add_existing_user_to_blog( $details ) ) )
 		wp_die( sprintf(__('An error occurred adding you to this site. Back to the <a href="%s">homepage</a>.'), site_url() ) );
 
-	wp_die( sprintf(__('You have been added to this site. Please visit the <a href="%s">homepage</a> or <a href="%s">log in</a> using your username and password.'), site_url(), admin_url() ), __('Success') );
+	wp_die( sprintf(__('You have been added to this site. Please visit the <a href="%s">homepage</a> or <a href="%s">login</a> using your username and password.'), site_url(), admin_url() ), __('Success') );
 }
 
 /**

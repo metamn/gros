@@ -241,11 +241,9 @@ class Custom_Image_Header {
 			return;
 
 		$this->default_headers = $_wp_default_headers;
-		$template_directory_uri = get_template_directory_uri();
-		$stylesheet_directory_uri = get_stylesheet_directory_uri();
 		foreach ( array_keys($this->default_headers) as $header ) {
-			$this->default_headers[$header]['url'] =  sprintf( $this->default_headers[$header]['url'], $template_directory_uri, $stylesheet_directory_uri );
-			$this->default_headers[$header]['thumbnail_url'] =  sprintf( $this->default_headers[$header]['thumbnail_url'], $template_directory_uri, $stylesheet_directory_uri );
+			$this->default_headers[$header]['url'] =  sprintf( $this->default_headers[$header]['url'], get_template_directory_uri(), get_stylesheet_directory_uri() );
+			$this->default_headers[$header]['thumbnail_url'] =  sprintf( $this->default_headers[$header]['thumbnail_url'], get_template_directory_uri(), get_stylesheet_directory_uri() );
 		}
 
 	}
@@ -629,7 +627,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	function step_2() {
 		check_admin_referer('custom-header-upload', '_wpnonce-custom-header-upload');
 		if ( ! current_theme_supports( 'custom-header-uploads' ) )
-			wp_die( __( 'Cheatin&#8217; uh?' ) );
+			wp_die( 'Cheatin&#8217; uh?' );
 
 		$overrides = array('test_form' => false);
 		$file = wp_handle_upload($_FILES['import'], $overrides);
@@ -715,7 +713,7 @@ wp_nonce_field( 'custom-header-options', '_wpnonce-custom-header-options' ); ?>
 	function step_3() {
 		check_admin_referer('custom-header-crop-image');
 		if ( ! current_theme_supports( 'custom-header-uploads' ) )
-			wp_die( __( 'Cheatin&#8217; uh?' ) );
+			wp_die( 'Cheatin&#8217; uh?' );
 
 		if ( $_POST['oitar'] > 1 ) {
 			$_POST['x1'] = $_POST['x1'] * $_POST['oitar'];

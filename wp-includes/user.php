@@ -61,7 +61,7 @@ function wp_signon( $credentials = '', $secure_cookie = '' ) {
 	}
 
 	wp_set_auth_cookie($user->ID, $credentials['remember'], $secure_cookie);
-	do_action('wp_login', $user->user_login, $user);
+	do_action('wp_login', $credentials['user_login']);
 	return $user;
 }
 
@@ -254,18 +254,20 @@ function get_user_option( $option, $user = 0, $deprecated = '' ) {
 	if ( !empty( $deprecated ) )
 		_deprecated_argument( __FUNCTION__, '3.0' );
 
-	if ( empty( $user ) )
+	if ( empty($user) ) {
 		$user = wp_get_current_user();
-	else
-		$user = new WP_User( $user );
+		$user = $user->ID;
+	}
 
-	if ( ! isset( $user->ID ) )
-		return false;
+	$user = get_userdata($user);
 
-	if ( $user->has_prop( $wpdb->prefix . $option ) ) // Blog specific
-		$result = $user->get( $wpdb->prefix . $option );
-	elseif ( $user->has_prop( $option ) ) // User specific and cross-blog
-		$result = $user->get( $option );
+	// Keys used as object vars cannot have dashes.
+	$key = str_replace('-', '', $option);
+
+	if ( isset( $user->{$wpdb->prefix . $key} ) ) // Blog specific
+		$result = $user->{$wpdb->prefix . $key};
+	elseif ( isset( $user->{$key} ) ) // User specific and cross-blog
+		$result = $user->{$key};
 	else
 		$result = false;
 
@@ -654,7 +656,7 @@ function get_blogs_of_user( $id, $all = false ) {
 
 	if ( !is_multisite() ) {
 		$blog_id = get_current_blog_id();
-		$blogs = array( $blog_id => new stdClass );
+		$blogs = array();
 		$blogs[ $blog_id ]->userblog_id = $blog_id;
 		$blogs[ $blog_id ]->blogname = get_option('blogname');
 		$blogs[ $blog_id ]->domain = '';
@@ -663,10 +665,6 @@ function get_blogs_of_user( $id, $all = false ) {
 		$blogs[ $blog_id ]->siteurl = get_option('siteurl');
 		return $blogs;
 	}
-
-	// Logged out users can't have blogs
-	if ( 0 === $id )
-		return false;
 
 	$blogs = wp_cache_get( 'blogs_of_user-' . $id, 'users' );
 
@@ -682,14 +680,13 @@ function get_blogs_of_user( $id, $all = false ) {
 	}
 
 	if ( false === $blogs ) {
-		$userkeys = get_user_meta( (int) $id );
-		if ( empty( $userkeys ) )
+		$user = get_userdata( (int) $id );
+		if ( !$user )
 			return false;
-		$userkeys = array_keys( $userkeys );
 
 		$blogs = $match = array();
-		$prefix_length = strlen( $wpdb->base_prefix );
-		foreach ( $userkeys as $key ) {
+		$prefix_length = strlen($wpdb->base_prefix);
+		foreach ( (array) $user as $key => $value ) {
 			if ( $prefix_length && substr($key, 0, $prefix_length) != $wpdb->base_prefix )
 				continue;
 			if ( substr($key, -12, 12) != 'capabilities' )
@@ -707,14 +704,13 @@ function get_blogs_of_user( $id, $all = false ) {
 	$blog_deets = array();
 	foreach ( (array) $blogs as $blog_id ) {
 		$blog = get_blog_details( $blog_id );
-		if ( $blog && isset( $blog->domain ) && ( $all || ( $blog->archived == 0 && $blog->spam == 0 && $blog->deleted == 0 ) ) ) {
-			$blog_deets[ $blog_id ] = new stdClass;
-			$blog_deets[ $blog_id ]->userblog_id = $blog_id;
-			$blog_deets[ $blog_id ]->blogname    = $blog->blogname;
-			$blog_deets[ $blog_id ]->domain      = $blog->domain;
-			$blog_deets[ $blog_id ]->path        = $blog->path;
-			$blog_deets[ $blog_id ]->site_id     = $blog->site_id;
-			$blog_deets[ $blog_id ]->siteurl     = $blog->siteurl;
+		if ( $blog && isset( $blog->domain ) && ( $all == true || $all == false && ( $blog->archived == 0 && $blog->spam == 0 && $blog->deleted == 0 ) ) ) {
+			$blog_deets[ $blog_id ]->userblog_id	= $blog_id;
+			$blog_deets[ $blog_id ]->blogname		= $blog->blogname;
+			$blog_deets[ $blog_id ]->domain		= $blog->domain;
+			$blog_deets[ $blog_id ]->path			= $blog->path;
+			$blog_deets[ $blog_id ]->site_id		= $blog->site_id;
+			$blog_deets[ $blog_id ]->siteurl		= $blog->siteurl;
 		}
 	}
 
@@ -796,7 +792,7 @@ function delete_user_meta($user_id, $meta_key, $meta_value = '') {
  * @return mixed Will be an array if $single is false. Will be value of meta data field if $single
  *  is true.
  */
-function get_user_meta($user_id, $key = '', $single = false) {
+function get_user_meta($user_id, $key, $single = false) {
 	return get_metadata('user', $user_id, $key, $single);
 }
 
@@ -1046,6 +1042,141 @@ function wp_dropdown_users( $args = '' ) {
 }
 
 /**
+ * Add user meta data as properties to given user object.
+ *
+ * The finished user data is cached, but the cache is not used to fill in the
+ * user data for the given object. Once the function has been used, the cache
+ * should be used to retrieve user data. The intention is if the current data
+ * had been cached already, there would be no need to call this function.
+ *
+ * @access private
+ * @since 2.5.0
+ * @uses $wpdb WordPress database object for queries
+ *
+ * @param object $user The user data object.
+ */
+function _fill_user( &$user ) {
+	$metavalues = get_user_metavalues(array($user->ID));
+	_fill_single_user($user, $metavalues[$user->ID]);
+}
+
+/**
+ * Perform the query to get the $metavalues array(s) needed by _fill_user and _fill_many_users
+ *
+ * @since 3.0.0
+ * @param array $ids User ID numbers list.
+ * @return array of arrays. The array is indexed by user_id, containing $metavalues object arrays.
+ */
+function get_user_metavalues($ids) {
+	$objects = array();
+
+	$ids = array_map('intval', $ids);
+	foreach ( $ids as $id )
+		$objects[$id] = array();
+
+	$metas = update_meta_cache('user', $ids);
+
+	foreach ( $metas as $id => $meta ) {
+		foreach ( $meta as $key => $metavalues ) {
+			foreach ( $metavalues as $value ) {
+				$objects[$id][] = (object)array( 'user_id' => $id, 'meta_key' => $key, 'meta_value' => $value);
+			}
+		}
+	}
+
+	return $objects;
+}
+
+/**
+ * Unserialize user metadata, fill $user object, then cache everything.
+ *
+ * @since 3.0.0
+ * @param object $user The User object.
+ * @param array $metavalues An array of objects provided by get_user_metavalues()
+ */
+function _fill_single_user( &$user, &$metavalues ) {
+	global $wpdb;
+
+	foreach ( $metavalues as $meta ) {
+		$value = maybe_unserialize($meta->meta_value);
+		// Keys used as object vars cannot have dashes.
+		$key = str_replace('-', '', $meta->meta_key);
+		$user->{$key} = $value;
+	}
+
+	$level = $wpdb->prefix . 'user_level';
+	if ( isset( $user->{$level} ) )
+		$user->user_level = $user->{$level};
+
+	// For backwards compat.
+	if ( isset($user->first_name) )
+		$user->user_firstname = $user->first_name;
+	if ( isset($user->last_name) )
+		$user->user_lastname = $user->last_name;
+	if ( isset($user->description) )
+		$user->user_description = $user->description;
+
+	update_user_caches($user);
+}
+
+/**
+ * Take an array of user objects, fill them with metas, and cache them.
+ *
+ * @since 3.0.0
+ * @param array $users User objects
+ */
+function _fill_many_users( &$users ) {
+	$ids = array();
+	foreach( $users as $user_object ) {
+		$ids[] = $user_object->ID;
+	}
+
+	$metas = get_user_metavalues($ids);
+
+	foreach ( $users as $user_object ) {
+		if ( isset($metas[$user_object->ID]) ) {
+			_fill_single_user($user_object, $metas[$user_object->ID]);
+		}
+	}
+}
+
+/**
+ * Sanitize every user field.
+ *
+ * If the context is 'raw', then the user object or array will get minimal santization of the int fields.
+ *
+ * @since 2.3.0
+ * @uses sanitize_user_field() Used to sanitize the fields.
+ *
+ * @param object|array $user The User Object or Array
+ * @param string $context Optional, default is 'display'. How to sanitize user fields.
+ * @return object|array The now sanitized User Object or Array (will be the same type as $user)
+ */
+function sanitize_user_object($user, $context = 'display') {
+	if ( is_object($user) ) {
+		if ( !isset($user->ID) )
+			$user->ID = 0;
+		if ( isset($user->data) )
+			$vars = get_object_vars( $user->data );
+		else
+			$vars = get_object_vars($user);
+		foreach ( array_keys($vars) as $field ) {
+			if ( is_string($user->$field) || is_numeric($user->$field) )
+				$user->$field = sanitize_user_field($field, $user->$field, $user->ID, $context);
+		}
+		$user->filter = $context;
+	} else {
+		if ( !isset($user['ID']) )
+			$user['ID'] = 0;
+		foreach ( array_keys($user) as $field )
+			$user[$field] = sanitize_user_field($field, $user[$field], $user['ID'], $context);
+		$user['filter'] = $context;
+	}
+
+	return $user;
+}
+
+/**
  * Sanitize user field based on context.
  *
  * Possible context values are:  'raw', 'edit', 'db', 'display', 'attribute' and 'js'. The
@@ -1132,7 +1263,7 @@ function sanitize_user_field($field, $value, $user_id, $context) {
  *
  * @param object $user User object to be cached
  */
-function update_user_caches($user) {
+function update_user_caches(&$user) {
 	wp_cache_add($user->ID, $user, 'users');
 	wp_cache_add($user->user_login, $user->ID, 'userlogins');
 	wp_cache_add($user->user_email, $user->ID, 'useremail');
@@ -1147,7 +1278,7 @@ function update_user_caches($user) {
  * @param int $id User ID
  */
 function clean_user_cache($id) {
-	$user = WP_User::get_data_by( 'id', $id );
+	$user = new WP_User($id);
 
 	wp_cache_delete($id, 'users');
 	wp_cache_delete($user->user_login, 'userlogins');
@@ -1165,7 +1296,7 @@ function clean_user_cache($id) {
  * @return null|int The user's ID on success, and null on failure.
  */
 function username_exists( $username ) {
-	if ( $user = get_user_by('login', $username ) ) {
+	if ( $user = get_userdatabylogin( $username ) ) {
 		return $user->ID;
 	} else {
 		return null;
@@ -1182,7 +1313,7 @@ function username_exists( $username ) {
  * @return bool|int The user's ID on success, and false on failure.
  */
 function email_exists( $email ) {
-	if ( $user = get_user_by('email', $email) )
+	if ( $user = get_user_by_email($email) )
 		return $user->ID;
 
 	return false;
@@ -1258,7 +1389,7 @@ function wp_insert_user($userdata) {
 	if ( !empty($ID) ) {
 		$ID = (int) $ID;
 		$update = true;
-		$old_user_data = WP_User::get_data_by( 'id', $ID );
+		$old_user_data = get_userdata($ID);
 	} else {
 		$update = false;
 		// Hash the password
@@ -1331,6 +1462,9 @@ function wp_insert_user($userdata) {
 	if ( empty($show_admin_bar_front) )
 		$show_admin_bar_front = 'true';
 
+	if ( empty($show_admin_bar_admin) )
+		$show_admin_bar_admin = is_multisite() ? 'true' : 'false';
+
 	$user_nicename_check = $wpdb->get_var( $wpdb->prepare("SELECT ID FROM $wpdb->users WHERE user_nicename = %s AND user_login != %s LIMIT 1" , $user_nicename, $user_login));
 
 	if ( $user_nicename_check ) {
@@ -1354,10 +1488,24 @@ function wp_insert_user($userdata) {
 		$user_id = (int) $wpdb->insert_id;
 	}
 
-	$user = new WP_User( $user_id );
+	update_user_meta( $user_id, 'first_name', $first_name );
+	update_user_meta( $user_id, 'last_name', $last_name );
+	update_user_meta( $user_id, 'nickname', $nickname );
+	update_user_meta( $user_id, 'description', $description );
+	update_user_meta( $user_id, 'rich_editing', $rich_editing );
+	update_user_meta( $user_id, 'comment_shortcuts', $comment_shortcuts );
+	update_user_meta( $user_id, 'admin_color', $admin_color );
+	update_user_meta( $user_id, 'use_ssl', $use_ssl );
+	update_user_meta( $user_id, 'show_admin_bar_front', $show_admin_bar_front );
+	update_user_meta( $user_id, 'show_admin_bar_admin', $show_admin_bar_admin );
 
-	foreach ( _get_additional_user_keys( $user ) as $key ) {
-		update_user_meta( $user_id, $key, $$key );
+	$user = new WP_User($user_id);
+
+	foreach ( _wp_get_user_contactmethods( $user ) as $method => $name ) {
+		if ( empty($$method) )
+			$$method = '';
+
+		update_user_meta( $user_id, $method, $$method );
 	}
 
 	if ( isset($role) )
@@ -1399,17 +1547,10 @@ function wp_update_user($userdata) {
 	$ID = (int) $userdata['ID'];
 
 	// First, get all of the original fields
-	$user_obj = get_userdata( $ID );
-
-	$user = get_object_vars( $user_obj->data );
-
-	// Add additional custom fields
-	foreach ( _get_additional_user_keys( $user_obj ) as $key ) {
-		$user[ $key ] = get_user_meta( $ID, $key, true );
-	}
+	$user = get_userdata($ID);
 
 	// Escape data pulled from DB.
-	$user = add_magic_quotes( $user );
+	$user = add_magic_quotes(get_object_vars($user));
 
 	// If password is changing, hash it now.
 	if ( ! empty($userdata['user_pass']) ) {
@@ -1425,7 +1566,7 @@ function wp_update_user($userdata) {
 
 	// Update the cookies if the password changed.
 	$current_user = wp_get_current_user();
-	if ( $current_user->ID == $ID ) {
+	if ( $current_user->id == $ID ) {
 		if ( isset($plaintext_pass) ) {
 			wp_clear_auth_cookie();
 			wp_set_auth_cookie($ID);
@@ -1438,8 +1579,8 @@ function wp_update_user($userdata) {
 /**
  * A simpler way of inserting an user into the database.
  *
- * Creates a new user with just the username, password, and email. For more
- * complex user creation use wp_insert_user() to specify more information.
+ * Creates a new user with just the username, password, and email. For a more
+ * detail creation of a user, use wp_insert_user() to specify more infomation.
  *
  * @since 2.0.0
  * @see wp_insert_user() More complete way to create a new user
@@ -1458,20 +1599,6 @@ function wp_create_user($username, $password, $email = '') {
 	return wp_insert_user($userdata);
 }
 
-
-/**
- * Return a list of meta keys that wp_insert_user() is supposed to set.
- *
- * @access private
- * @since 3.3.0
- *
- * @param object $user WP_User instance
- * @return array
- */
-function _get_additional_user_keys( $user ) {
-	$keys = array( 'first_name', 'last_name', 'nickname', 'description', 'rich_editing', 'comment_shortcuts', 'admin_color', 'use_ssl', 'show_admin_bar_front' );
-	return array_merge( $keys, array_keys( _wp_get_user_contactmethods( $user ) ) );
-}
 
 /**
  * Set up the default contact methods

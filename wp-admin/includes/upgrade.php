@@ -281,7 +281,7 @@ As a new WordPress user, you should go to <a href=\"%s\">your dashboard</a> to d
 	update_option( 'widget_archives', array ( 2 => array ( 'title' => '', 'count' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
 	update_option( 'widget_categories', array ( 2 => array ( 'title' => '', 'count' => 0, 'hierarchical' => 0, 'dropdown' => 0 ), '_multiwidget' => 1 ) );
 	update_option( 'widget_meta', array ( 2 => array ( 'title' => '' ), '_multiwidget' => 1 ) );
-	update_option( 'sidebars_widgets', array ( 'wp_inactive_widgets' => array ( ), 'sidebar-1' => array ( 0 => 'search-2', 1 => 'recent-posts-2', 2 => 'recent-comments-2', 3 => 'archives-2', 4 => 'categories-2', 5 => 'meta-2', ), 'sidebar-2' => array ( ), 'sidebar-3' => array ( ), 'sidebar-4' => array ( ), 'sidebar-5' => array ( ), 'array_version' => 3 ) );
+	update_option( 'sidebars_widgets', array ( 'wp_inactive_widgets' => array ( ), 'primary-widget-area' => array ( 0 => 'search-2', 1 => 'recent-posts-2', 2 => 'recent-comments-2', 3 => 'archives-2', 4 => 'categories-2', 5 => 'meta-2', ), 'secondary-widget-area' => array ( ), 'first-footer-widget-area' => array ( ), 'second-footer-widget-area' => array ( ), 'third-footer-widget-area' => array ( ), 'fourth-footer-widget-area' => array ( ), 'array_version' => 3 ) );
 
 	if ( is_multisite() ) {
 		// Flush rules to pick up the new page.
@@ -451,9 +451,6 @@ function upgrade_all() {
 	if ( $wp_current_db_version < 15260 )
 		upgrade_300();
 
-	if ( $wp_current_db_version < 11548 )
-		upgrade_old_widgets_order_array();
-
 	maybe_disable_automattic_widgets();
 
 	update_option( 'db_version', $wp_db_version );
@@ -579,7 +576,7 @@ function upgrade_110() {
 
 	if (!$got_gmt_fields) {
 
-		// Add or subtract time to all dates, to get GMT dates
+		// Add or substract time to all dates, to get GMT dates
 		$add_hours = intval($diff_gmt_weblogger);
 		$add_minutes = intval(60 * ($diff_gmt_weblogger - $add_hours));
 		$wpdb->query("UPDATE $wpdb->posts SET post_date_gmt = DATE_ADD(post_date, INTERVAL '$add_hours:$add_minutes' HOUR_MINUTE)");
@@ -1125,6 +1122,21 @@ function upgrade_300() {
 	if ( $wp_current_db_version < 14139 && is_multisite() && is_main_site() && ! defined( 'MULTISITE' ) && get_site_option( 'siteurl' ) === false )
 		add_site_option( 'siteurl', '' );
 
+	// 3.0-alpha nav menu postmeta changes. can be removed before release. // r13802
+	if ( $wp_current_db_version >= 13226 && $wp_current_db_version < 13974 )
+		$wpdb->query( "DELETE FROM $wpdb->postmeta WHERE meta_key IN( 'menu_type', 'object_id', 'menu_new_window', 'menu_link', '_menu_item_append', 'menu_item_append', 'menu_item_type', 'menu_item_object_id', 'menu_item_target', 'menu_item_classes', 'menu_item_xfn', 'menu_item_url' )" );
+
+	// 3.0-beta1 remove_user primitive->meta cap. can be removed before release. r13956
+	if ( $wp_current_db_version >= 12751 && $wp_current_db_version < 13974 ) {
+		$role =& get_role( 'administrator' );
+		if ( ! empty( $role ) )
+			$role->remove_cap( 'remove_user' );
+	}
+
+	// 3.0-beta1 nav menu postmeta changes. can be removed before release. r13974
+	if ( $wp_current_db_version >= 13802 && $wp_current_db_version < 13974 )
+		$wpdb->update( $wpdb->postmeta, array( 'meta_value' => '' ), array( 'meta_key' => '_menu_item_target', 'meta_value' => '_self' ) );
+
 	// 3.0 screen options key name changes.
 	if ( is_main_site() && !defined('DO_NOT_UPGRADE_GLOBAL_TABLES') ) {
 		$prefix = like_escape($wpdb->base_prefix);
@@ -1132,68 +1144,6 @@ function upgrade_300() {
 					 OR meta_key = 'manageedittagscolumnshidden' OR meta_key='managecategoriescolumnshidden' OR meta_key = 'manageedit-tagscolumnshidden' OR meta_key = 'manageeditcolumnshidden' OR meta_key = 'categories_per_page' OR meta_key = 'edit_tags_per_page'" );
 	}
 
-}
-
-/**
- * Convert the old style widgets order array from 2.2.
- *
- * @since 3.3.0
- */
-function upgrade_old_widgets_order_array() {
-	global $wp_registered_widgets, $sidebars_widgets;
-
-	$sidebars_widgets = get_option( 'sidebars_widgets', array() );
-	$_sidebars_widgets = array();
-
-	if ( isset($sidebars_widgets['wp_inactive_widgets']) || empty($sidebars_widgets) )
-		$sidebars_widgets['array_version'] = 3;
-	elseif ( !isset($sidebars_widgets['array_version']) )
-		$sidebars_widgets['array_version'] = 1;
-
-	switch ( $sidebars_widgets['array_version'] ) {
-		case 1 :
-			foreach ( (array) $sidebars_widgets as $index => $sidebar )
-			if ( is_array($sidebar) )
-			foreach ( (array) $sidebar as $i => $name ) {
-				$id = strtolower($name);
-				if ( isset($wp_registered_widgets[$id]) ) {
-					$_sidebars_widgets[$index][$i] = $id;
-					continue;
-				}
-				$id = sanitize_title($name);
-				if ( isset($wp_registered_widgets[$id]) ) {
-					$_sidebars_widgets[$index][$i] = $id;
-					continue;
-				}
-
-				$found = false;
-
-				foreach ( $wp_registered_widgets as $widget_id => $widget ) {
-					if ( strtolower($widget['name']) == strtolower($name) ) {
-						$_sidebars_widgets[$index][$i] = $widget['id'];
-						$found = true;
-						break;
-					} elseif ( sanitize_title($widget['name']) == sanitize_title($name) ) {
-						$_sidebars_widgets[$index][$i] = $widget['id'];
-						$found = true;
-						break;
-					}
-				}
-
-				if ( $found )
-					continue;
-
-				unset($_sidebars_widgets[$index][$i]);
-			}
-			$_sidebars_widgets['array_version'] = 2;
-			$sidebars_widgets = $_sidebars_widgets;
-			unset($_sidebars_widgets);
-
-		case 2 :
-			$sidebars_widgets = retrieve_widgets();
-			$sidebars_widgets['array_version'] = 3;
-			update_option( 'sidebars_widgets', $sidebars_widgets );
-	}
 }
 
 /**
@@ -1424,18 +1374,14 @@ function deslash($content) {
  * @param unknown_type $execute
  * @return unknown
  */
-function dbDelta( $queries = '', $execute = true ) {
+function dbDelta($queries, $execute = true) {
 	global $wpdb;
-
-	if ( in_array( $queries, array( '', 'all', 'blog', 'global', 'ms_global' ), true ) )
-	    $queries = wp_get_db_schema( $queries );
 
 	// Separate individual queries into an array
 	if ( !is_array($queries) ) {
 		$queries = explode( ';', $queries );
 		if ('' == $queries[count($queries) - 1]) array_pop($queries);
 	}
-	$queries = apply_filters( 'dbdelta_queries', $queries );
 
 	$cqueries = array(); // Creation Queries
 	$iqueries = array(); // Insertion Queries
@@ -1456,16 +1402,13 @@ function dbDelta( $queries = '', $execute = true ) {
 			// Unrecognized query type
 		}
 	}
-	$cqueries = apply_filters( 'dbdelta_create_queries', $cqueries );
-	$iqueries = apply_filters( 'dbdelta_insert_queries', $iqueries );
 
 	// Check to see which tables and fields exist
 	if ($tables = $wpdb->get_col('SHOW TABLES;')) {
 		// For every table in the database
-		$global_tables = $wpdb->tables( 'global' );
 		foreach ($tables as $table) {
 			// Upgrade global tables only for the main site. Don't upgrade at all if DO_NOT_UPGRADE_GLOBAL_TABLES is defined.
-			if ( in_array( $table, $global_tables ) && ( !is_main_site() || defined( 'DO_NOT_UPGRADE_GLOBAL_TABLES' ) ) )
+			if ( in_array($table, $wpdb->tables('global')) && ( !is_main_site() || defined('DO_NOT_UPGRADE_GLOBAL_TABLES') ) )
 				continue;
 
 			// If a table query exists for the database table...
@@ -1634,8 +1577,10 @@ function dbDelta( $queries = '', $execute = true ) {
  *
  * @since 1.5.0
  */
-function make_db_current( $tables = 'all' ) {
-	$alterations = dbDelta( $tables );
+function make_db_current() {
+	global $wp_queries;
+
+	$alterations = dbDelta($wp_queries);
 	echo "<ol>\n";
 	foreach($alterations as $alteration) echo "<li>$alteration</li>\n";
 	echo "</ol>\n";
@@ -1648,8 +1593,10 @@ function make_db_current( $tables = 'all' ) {
  *
  * @since 1.5.0
  */
-function make_db_current_silent(  $tables = 'all' ) {
-	$alterations = dbDelta( $tables );
+function make_db_current_silent() {
+	global $wp_queries;
+
+	$alterations = dbDelta($wp_queries);
 }
 
 /**
@@ -1671,7 +1618,7 @@ function make_site_theme_from_oldschool($theme_name, $template) {
 		return false;
 
 	// Copy files from the old locations to the site theme.
-	// TODO: This does not copy arbitrary include dependencies.  Only the
+	// TODO: This does not copy arbitarary include dependencies.  Only the
 	// standard WP files are copied.
 	$files = array('index.php' => 'index.php', 'wp-layout.css' => 'style.css', 'wp-comments.php' => 'comments.php', 'wp-comments-popup.php' => 'comments-popup.php');
 
@@ -1930,6 +1877,102 @@ function pre_schema_upgrade() {
 	}
 
 }
+
+/**
+ * Install Network.
+ *
+ * @since 3.0.0
+ *
+ */
+if ( !function_exists( 'install_network' ) ) :
+function install_network() {
+	global $wpdb, $charset_collate;
+	$ms_queries = "
+CREATE TABLE $wpdb->users (
+  ID bigint(20) unsigned NOT NULL auto_increment,
+  user_login varchar(60) NOT NULL default '',
+  user_pass varchar(64) NOT NULL default '',
+  user_nicename varchar(50) NOT NULL default '',
+  user_email varchar(100) NOT NULL default '',
+  user_url varchar(100) NOT NULL default '',
+  user_registered datetime NOT NULL default '0000-00-00 00:00:00',
+  user_activation_key varchar(60) NOT NULL default '',
+  user_status int(11) NOT NULL default '0',
+  display_name varchar(250) NOT NULL default '',
+  spam tinyint(2) NOT NULL default '0',
+  deleted tinyint(2) NOT NULL default '0',
+  PRIMARY KEY  (ID),
+  KEY user_login_key (user_login),
+  KEY user_nicename (user_nicename)
+) $charset_collate;
+CREATE TABLE $wpdb->blogs (
+  blog_id bigint(20) NOT NULL auto_increment,
+  site_id bigint(20) NOT NULL default '0',
+  domain varchar(200) NOT NULL default '',
+  path varchar(100) NOT NULL default '',
+  registered datetime NOT NULL default '0000-00-00 00:00:00',
+  last_updated datetime NOT NULL default '0000-00-00 00:00:00',
+  public tinyint(2) NOT NULL default '1',
+  archived enum('0','1') NOT NULL default '0',
+  mature tinyint(2) NOT NULL default '0',
+  spam tinyint(2) NOT NULL default '0',
+  deleted tinyint(2) NOT NULL default '0',
+  lang_id int(11) NOT NULL default '0',
+  PRIMARY KEY  (blog_id),
+  KEY domain (domain(50),path(5)),
+  KEY lang_id (lang_id)
+) $charset_collate;
+CREATE TABLE $wpdb->blog_versions (
+  blog_id bigint(20) NOT NULL default '0',
+  db_version varchar(20) NOT NULL default '',
+  last_updated datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (blog_id),
+  KEY db_version (db_version)
+) $charset_collate;
+CREATE TABLE $wpdb->registration_log (
+  ID bigint(20) NOT NULL auto_increment,
+  email varchar(255) NOT NULL default '',
+  IP varchar(30) NOT NULL default '',
+  blog_id bigint(20) NOT NULL default '0',
+  date_registered datetime NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (ID),
+  KEY IP (IP)
+) $charset_collate;
+CREATE TABLE $wpdb->site (
+  id bigint(20) NOT NULL auto_increment,
+  domain varchar(200) NOT NULL default '',
+  path varchar(100) NOT NULL default '',
+  PRIMARY KEY  (id),
+  KEY domain (domain,path)
+) $charset_collate;
+CREATE TABLE $wpdb->sitemeta (
+  meta_id bigint(20) NOT NULL auto_increment,
+  site_id bigint(20) NOT NULL default '0',
+  meta_key varchar(255) default NULL,
+  meta_value longtext,
+  PRIMARY KEY  (meta_id),
+  KEY meta_key (meta_key),
+  KEY site_id (site_id)
+) $charset_collate;
+CREATE TABLE $wpdb->signups (
+  domain varchar(200) NOT NULL default '',
+  path varchar(100) NOT NULL default '',
+  title longtext NOT NULL,
+  user_login varchar(60) NOT NULL default '',
+  user_email varchar(100) NOT NULL default '',
+  registered datetime NOT NULL default '0000-00-00 00:00:00',
+  activated datetime NOT NULL default '0000-00-00 00:00:00',
+  active tinyint(1) NOT NULL default '0',
+  activation_key varchar(50) NOT NULL default '',
+  meta longtext,
+  KEY activation_key (activation_key),
+  KEY domain (domain)
+) $charset_collate;
+";
+// now create tables
+	dbDelta( $ms_queries );
+}
+endif;
 
 /**
  * Install global terms.

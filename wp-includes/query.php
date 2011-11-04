@@ -715,18 +715,6 @@ function is_404() {
 	return $wp_query->is_404();
 }
 
-/**
- * Is the query the main query?
- *
- * @since 3.3.0
- *
- * @return bool
- */
-function is_main_query() {
-	global $wp_query;
-	return $wp_query->is_main_query();
-}
-
 /*
  * The Loop.  Post loop control.
  */
@@ -2149,7 +2137,7 @@ class WP_Query {
 		if ( intval($q['comments_popup']) )
 			$q['p'] = absint($q['comments_popup']);
 
-		// If an attachment is requested by number, let it supersede any post number.
+		// If an attachment is requested by number, let it supercede any post number.
 		if ( $q['attachment_id'] )
 			$q['p'] = absint($q['attachment_id']);
 
@@ -2300,7 +2288,7 @@ class WP_Query {
 				if ( $q['author_name'][ count($q['author_name'])-1 ] ) {
 					$q['author_name'] = $q['author_name'][count($q['author_name'])-1]; // no trailing slash
 				} else {
-					$q['author_name'] = $q['author_name'][count($q['author_name'])-2]; // there was a trailing slash
+					$q['author_name'] = $q['author_name'][count($q['author_name'])-2]; // there was a trailling slash
 				}
 			}
 			$q['author_name'] = sanitize_title_for_query( $q['author_name'] );
@@ -2329,7 +2317,7 @@ class WP_Query {
 			$orderby = '';
 		} else {
 			// Used to filter values
-			$allowed_keys = array('name', 'author', 'date', 'title', 'modified', 'menu_order', 'parent', 'ID', 'rand', 'comment_count');
+			$allowed_keys = array('author', 'date', 'title', 'modified', 'menu_order', 'parent', 'ID', 'rand', 'comment_count');
 			if ( !empty($q['meta_key']) ) {
 				$allowed_keys[] = $q['meta_key'];
 				$allowed_keys[] = 'meta_value';
@@ -2745,9 +2733,9 @@ class WP_Query {
 
 		$this->post_count = count($this->posts);
 
-		// Always sanitize
-		foreach ( $this->posts as $i => $post ) {
-			$this->posts[$i] = sanitize_post( $post, 'raw' );
+		// Sanitize before caching so it'll only get done once
+		for ( $i = 0; $i < $this->post_count; $i++ ) {
+			$this->posts[$i] = sanitize_post($this->posts[$i], 'raw');
 		}
 
 		if ( $q['cache_results'] )
@@ -3478,18 +3466,6 @@ class WP_Query {
 	 */
 	function is_404() {
 		return (bool) $this->is_404;
-	}
-
-	/**
-	 * Is the query the main query?
-	 *
-	 * @since 3.3.0
-	 *
-	 * @return bool
-	 */
-	function is_main_query() {
-		global $wp_the_query;
-		return $wp_the_query === $this;
 	}
 }
 

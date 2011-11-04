@@ -222,7 +222,7 @@ class WP_Http {
 	/**
 	 * Dispatches a HTTP request to a supporting transport.
 	 *
-	 * Tests each transport in order to find a transport which matches the request arguments.
+	 * Tests each transport in order to find a transport which matches the request arguements.
 	 * Also caches the transport instance to be used later.
 	 *
 	 * The order for blocking requests is cURL, Streams, and finally Fsockopen.
@@ -253,7 +253,7 @@ class WP_Http {
 
 		$response = $transports[$class]->request( $url, $args );
 
-		do_action( 'http_api_debug', $response, 'response', $class, $args, $url );
+		do_action( 'http_api_debug', $response, 'response', $class );
 
 		if ( is_wp_error( $response ) )
 			return $response;
@@ -631,7 +631,7 @@ class WP_Http_Fsockopen {
 
 		$endDelay = time();
 
-		// If the delay is greater than the timeout then fsockopen shouldn't be used, because it will
+		// If the delay is greater than the timeout then fsockopen should't be used, because it will
 		// cause a long delay.
 		$elapseDelay = ($endDelay-$startDelay) > $r['timeout'];
 		if ( true === $elapseDelay )
@@ -915,7 +915,7 @@ class WP_Http_Streams {
 		else
 			$processedHeaders = WP_Http::processHeaders($meta['wrapper_data']);
 
-		// Streams does not provide an error code which we can use to see why the request stream stopped.
+		// Streams does not provide an error code which we can use to see why the request stream stoped.
 		// We can however test to see if a location header is present and return based on that.
 		if ( isset($processedHeaders['headers']['location']) && 0 !== $args['_redirection'] )
 			return new WP_Error('http_request_failed', __('Too many redirects.'));
@@ -1031,7 +1031,7 @@ class WP_Http_Curl {
 
 
 		// CURLOPT_TIMEOUT and CURLOPT_CONNECTTIMEOUT expect integers.  Have to use ceil since
-		// a value of 0 will allow an unlimited timeout.
+		// a value of 0 will allow an ulimited timeout.
 		$timeout = (int) ceil( $r['timeout'] );
 		curl_setopt( $handle, CURLOPT_CONNECTTIMEOUT, $timeout );
 		curl_setopt( $handle, CURLOPT_TIMEOUT, $timeout );
@@ -1117,7 +1117,7 @@ class WP_Http_Curl {
 				return new WP_Error('http_request_failed', __('Too many redirects.'));
 		}
 
-		$this->headers = '';
+		unset( $this->headers );
 
 		$response = array();
 		$response['code'] = curl_getinfo( $handle, CURLINFO_HTTP_CODE );
@@ -1625,25 +1625,17 @@ class WP_Http_Encoding {
 	 * Decompression of deflated string while staying compatible with the majority of servers.
 	 *
 	 * Certain Servers will return deflated data with headers which PHP's gziniflate()
-	 * function cannot handle out of the box. The following function has been created from 
-	 * various snippets on the gzinflate() PHP documentation. 
-	 *
-	 * Warning: Magic numbers within. Due to the potential different formats that the compressed
-	 * data may be returned in, some "magic offsets" are needed to ensure proper decompression
-	 * takes place. For a simple progmatic way to determine the magic offset in use, see: 
-	 * http://core.trac.wordpress.org/ticket/18273
+	 * function cannot handle out of the box. The following function lifted from
+	 * http://au2.php.net/manual/en/function.gzinflate.php#77336 will attempt to deflate
+	 * the various return forms used.
 	 *
 	 * @since 2.8.1
-	 * @link http://core.trac.wordpress.org/ticket/18273
-	 * @link http://au2.php.net/manual/en/function.gzinflate.php#70875
 	 * @link http://au2.php.net/manual/en/function.gzinflate.php#77336
 	 *
 	 * @param string $gzData String to decompress.
 	 * @return string|bool False on failure.
 	 */
 	function compatible_gzinflate($gzData) {
-
-		// Compressed data might contain a full header, if so strip it for gzinflate()
 		if ( substr($gzData, 0, 3) == "\x1f\x8b\x08" ) {
 			$i = 10;
 			$flg = ord( substr($gzData, 3, 1) );
@@ -1659,17 +1651,10 @@ class WP_Http_Encoding {
 				if ( $flg & 2 )
 					$i = $i + 2;
 			}
-			$decompressed = @gzinflate( substr($gzData, $i, -8) );
-			if ( false !== $decompressed )
-				return $decompressed;
+			return gzinflate( substr($gzData, $i, -8) );
+		} else {
+			return false;
 		}
-
-		// Compressed data from java.util.zip.Deflater amongst others.
-		$decompressed = @gzinflate( substr($gzData, 2) );
-		if ( false !== $decompressed )
-			return $decompressed;
-
-		return false;
 	}
 
 	/**
@@ -1694,7 +1679,7 @@ class WP_Http_Encoding {
 	}
 
 	/**
-	 * What encoding the content used when it was compressed to send in the headers.
+	 * What enconding the content used when it was compressed to send in the headers.
 	 *
 	 * @since 2.8
 	 *

@@ -10,7 +10,7 @@
  * @subpackage Administration
  */
 
-define( 'WP_INSTALLING_NETWORK', true );
+define( 'WP_NETWORK_ADMIN_PAGE', true );
 
 /** WordPress Administration Bootstrap */
 require_once( './admin.php' );
@@ -135,14 +135,14 @@ function network_step1( $errors = false ) {
 	global $is_apache;
 
 	if ( get_option( 'siteurl' ) != get_option( 'home' ) ) {
-		echo '<div class="error"><p><strong>' . __('ERROR:') . '</strong> ' . sprintf( __( 'Your <strong>WordPress address</strong> must match your <strong>Site address</strong> before creating a Network. See <a href="%s">General Settings</a>.' ), esc_url( admin_url( 'options-general.php' ) ) ) . '</p></div>';
+		echo '<div class="error"><p><strong>' . __('Error:') . '</strong> ' . sprintf( __( 'Your <strong>WordPress address</strong> must match your <strong>Site address</strong> before creating a Network. See <a href="%s">General Settings</a>.' ), esc_url( admin_url( 'options-general.php' ) ) ) . '</p></div>';
 		echo '</div>';
 		include ( ABSPATH . 'wp-admin/admin-footer.php' );
 		die();
 	}
 
 	if ( defined('DO_NOT_UPGRADE_GLOBAL_TABLES') ) {
-		echo '<div class="error"><p><strong>' . __('ERROR:') . '</strong> ' . __( 'The constant DO_NOT_UPGRADE_GLOBAL_TABLES cannot be defined when creating a network.' ) . '</p></div>';
+		echo '<div class="error"><p><strong>' . __('Error:') . '</strong> ' . __( 'The constant DO_NOT_UPGRADE_GLOBAL_TABLES cannot be defined when creating a network.' ) . '</p></div>';
 		echo '</div>';
 		include ( ABSPATH . 'wp-admin/admin-footer.php' );
 		die();
@@ -159,7 +159,7 @@ function network_step1( $errors = false ) {
 	$hostname = get_clean_basedomain();
 	$has_ports = strstr( $hostname, ':' );
 	if ( ( false !== $has_ports && ! in_array( $has_ports, array( ':80', ':443' ) ) ) ) {
-		echo '<div class="error"><p><strong>' . __( 'ERROR:') . '</strong> ' . __( 'You cannot install a network of sites with your server address.' ) . '</p></div>';
+		echo '<div class="error"><p><strong>' . __( 'Error:') . '</strong> ' . __( 'You cannot install a network of sites with your server address.' ) . '</p></div>';
 		echo '<p>' . sprintf( __( 'You cannot use port numbers such as <code>%s</code>.' ), $has_ports ) . '</p>';
 		echo '<a href="' . esc_url( admin_url() ) . '">' . __( 'Return to Dashboard' ) . '</a>';
 		echo '</div>';
@@ -229,7 +229,7 @@ function network_step1( $errors = false ) {
 		if ( $is_www ) :
 		?>
 		<h3><?php esc_html_e( 'Server Address' ); ?></h3>
-		<p><?php printf( __( 'We recommend you change your siteurl to <code>%1$s</code> before enabling the network feature. It will still be possible to visit your site using the <code>www</code> prefix with an address like <code>%2$s</code> but any links will not have the <code>www</code> prefix.' ), substr( $hostname, 4 ), $hostname ); ?></p>
+		<p><?php printf( __( 'We recommend you change your siteurl to <code>%1$s</code> before enabling the network feature. It will still be possible to visit your site using the <code>www</code> prefix with an address like <code>%2$s</code> but any links will not have the <code>www</code> prefix.' ), substr( $hostname, 4 ), $hostname ); ?></h3>
 		<table class="form-table">
 			<tr>
 				<th scope='row'><?php esc_html_e( 'Server Address' ); ?></th>
@@ -523,7 +523,7 @@ if ( $_POST ) {
 	// create network tables
 	install_network();
 	$hostname = get_clean_basedomain();
-	$subdomain_install = allow_subdomain_install() ? !empty( $_POST['subdomain_install'] ) : false; 
+	$subdomain_install = !allow_subdomain_install() ? false : (bool) $_POST['subdomain_install'];
 	if ( ! network_domain_check() ) {
 		$result = populate_network( 1, get_clean_basedomain(), sanitize_email( $_POST['email'] ), stripslashes( $_POST['sitename'] ), $base, $subdomain_install );
 		if ( is_wp_error( $result ) ) {

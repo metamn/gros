@@ -12,7 +12,7 @@
  * It is possible for a plugin to override the Plugin API result with three
  * filters. Assume this is for plugins, which can extend on the Plugin Info to
  * offer more choices. This is very powerful and must be used with care, when
- * overriding the filters.
+ * overridding the filters.
  *
  * The first filter, 'plugins_api_args', is for the args and gives the action as
  * the second parameter. The hook for 'plugins_api_args' must ensure that an
@@ -35,7 +35,7 @@ function plugins_api($action, $args = null) {
 		$args->per_page = 24;
 
 	// Allows a plugin to override the WordPress.org API entirely.
-	// Use the filter 'plugins_api_result' to merely add results.
+	// Use the filter 'plugins_api_result' to mearly add results.
 	// Please ensure that a object is returned from the following filters.
 	$args = apply_filters('plugins_api_args', $args, $action);
 	$res = apply_filters('plugins_api', false, $action, $args);
@@ -81,7 +81,7 @@ function install_popular_tags( $args = array() ) {
 
 function install_dashboard() {
 	?>
-	<p><?php printf( __( 'Plugins extend and expand the functionality of WordPress. You may automatically install plugins from the <a href="http://wordpress.org/extend/plugins/">WordPress Plugin Directory</a> or upload a plugin in .zip format via <a href="%s">this page</a>.' ), self_admin_url( 'plugin-install.php?tab=upload' ) ); ?></p>
+	<p><?php _e('Plugins extend and expand the functionality of WordPress. You may automatically install plugins from the <a href="http://wordpress.org/extend/plugins/">WordPress Plugin Directory</a> or upload a plugin in .zip format via this page.') ?></p>
 
 	<h4><?php _e('Search') ?></h4>
 	<p class="install-help"><?php _e('Search for plugins by keyword, author, or tag.') ?></p>
@@ -97,7 +97,7 @@ function install_dashboard() {
 	if ( is_wp_error($api_tags) ) {
 		echo $api_tags->get_error_message();
 	} else {
-		//Set up the tags in a way which can be interpreted by wp_generate_tag_cloud()
+		//Set up the tags in a way which can be interprated by wp_generate_tag_cloud()
 		$tags = array();
 		foreach ( (array)$api_tags as $tag )
 			$tags[ $tag['name'] ] = (object) array(
@@ -175,7 +175,7 @@ add_action('install_plugins_updated', 'display_plugins_table');
  * @since 3.0.0
  */
 function install_plugin_install_status($api, $loop = false) {
-	// this function is called recursively, $loop prevents further loops.
+	// this function is called recursivly, $loop prevents futhur loops.
 	if ( is_array($api) )
 		$api = (object) $api;
 
@@ -254,10 +254,8 @@ function install_plugin_information() {
 	//Sanitize HTML
 	foreach ( (array)$api->sections as $section_name => $content )
 		$api->sections[$section_name] = wp_kses($content, $plugins_allowedtags);
-	foreach ( array( 'version', 'author', 'requires', 'tested', 'homepage', 'downloaded', 'slug' ) as $key ) {
-		if ( isset( $api->$key ) )
-			$api->$key = wp_kses( $api->$key, $plugins_allowedtags );
-	}
+	foreach ( array('version', 'author', 'requires', 'tested', 'homepage', 'downloaded', 'slug') as $key )
+		$api->$key = wp_kses($api->$key, $plugins_allowedtags);
 
 	$section = isset($_REQUEST['section']) ? stripslashes( $_REQUEST['section'] ) : 'description'; //Default to the Description tab, Do not translate, API returns English.
 	if ( empty($section) || ! isset($api->sections[ $section ]) )

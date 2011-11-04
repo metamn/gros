@@ -1,4 +1,4 @@
-var autosave, autosaveLast = '', autosavePeriodical, autosaveOldMessage = '', autosaveDelayPreview = false, notSaved = true, blockSave = false, fullscreen, autosaveLockRelease = true;
+var autosave, autosaveLast = '', autosavePeriodical, autosaveOldMessage = '', autosaveDelayPreview = false, notSaved = true, blockSave = false, fullscreen;
 
 jQuery(document).ready( function($) {
 	var dotabkey = true;
@@ -9,7 +9,6 @@ jQuery(document).ready( function($) {
 	//Disable autosave after the form has been submitted
 	$("#post").submit(function() {
 		$.cancel(autosavePeriodical);
-		autosaveLockRelease = false;
 	});
 
 	$('input[type="submit"], a.submitdelete', '#submitpost').click(function(){
@@ -47,22 +46,6 @@ jQuery(document).ready( function($) {
 				return autosaveL10n.saveAlert;
 		}
 	};
-
-	$(window).unload( function() {
-		if ( ! autosaveLockRelease )
-			return;
-		$.ajax({
-			type: 'POST',
-			url: ajaxurl,
-			async: false,
-			data: {
-				action: 'wp-remove-post-lock',
-				_wpnonce: $('#_wpnonce').val(),
-				post_ID: $('#post_ID').val(),
-				active_post_lock: $('#active_post_lock').val()
-			},
-		});
-	} );
 
 	// preview
 	$('#post-preview').click(function(){
@@ -116,12 +99,7 @@ function autosave_parse_response(response) {
 			sup = res.responses[0].supplemental;
 			if ( 'disable' == sup['disable_autosave'] ) {
 				autosave = function() {};
-				autosaveLockRelease = false;
 				res = { errors: true };
-			}
-
-			if ( sup['active-post-lock'] ) {
-				jQuery('#active_post_lock').val( sup['active-post-lock'] );
 			}
 
 			if ( sup['alert'] ) {

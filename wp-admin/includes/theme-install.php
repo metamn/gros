@@ -237,7 +237,7 @@ function install_theme_information() {
 	iframe_header( __('Theme Install') );
 
 	if ( empty($api->download_link) ) {
-		echo '<div id="message" class="error"><p>' . __('<strong>ERROR:</strong> This theme is currently not available. Please try again later.') . '</p></div>';
+		echo '<div id="message" class="error"><p>' . __('<strong>Error:</strong> This theme is currently not available. Please try again later.') . '</p></div>';
 		iframe_footer();
 		exit;
 	}
@@ -262,7 +262,7 @@ function install_theme_information() {
 	}
 
 	$themes = get_themes();
-	foreach ( (array) $themes as $this_theme ) {
+	foreach ( $themes as $this_theme ) {
 		if ( is_array($this_theme) && $this_theme['Stylesheet'] == $api->slug ) {
 			if ( $this_theme['Version'] == $api->version ) {
 				$type = 'latest_installed';

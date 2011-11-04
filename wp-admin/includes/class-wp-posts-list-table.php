@@ -464,21 +464,22 @@ class WP_Posts_List_Table extends WP_List_Table {
 
 	function single_row( $a_post, $level = 0 ) {
 		global $post, $current_screen, $mode;
-		static $alternate;
+		static $rowclass;
 
 		$global_post = $post;
 		$post = $a_post;
 		setup_postdata( $post );
 
+		$rowclass = 'alternate' == $rowclass ? '' : 'alternate';
+		$post_owner = ( get_current_user_id() == $post->post_author ? 'self' : 'other' );
 		$edit_link = get_edit_post_link( $post->ID );
 		$title = _draft_or_post_title();
 		$post_type_object = get_post_type_object( $post->post_type );
 		$can_edit_post = current_user_can( $post_type_object->cap->edit_post, $post->ID );
-
-		$alternate = 'alternate' == $alternate ? '' : 'alternate';
-		$classes = $alternate . ' iedit author-' . ( get_current_user_id() == $post->post_author ? 'self' : 'other' );
+		$post_format = get_post_format( $post->ID );
+		$post_format_class = ( $post_format && !is_wp_error($post_format) ) ? 'format-' . sanitize_html_class( $post_format ) : 'format-default';
 	?>
-		<tr id="post-<?php echo $post->ID; ?>" class="<?php echo implode( ' ', get_post_class( $classes, $post->ID ) ); ?>" valign="top">
+		<tr id='post-<?php echo $post->ID; ?>' class='<?php echo trim( $rowclass . ' author-' . $post_owner . ' status-' . $post->post_status . ' ' . $post_format_class); ?> iedit' valign="top">
 	<?php
 
 		list( $columns, $hidden ) = $this->get_column_info();
@@ -838,23 +839,14 @@ class WP_Posts_List_Table extends WP_List_Table {
 	<?php
 		if ( post_type_supports( $screen->post_type, 'author' ) && $bulk )
 			echo $authors_dropdown;
+	?>
 
-		if ( post_type_supports( $screen->post_type, 'page-attributes' ) ) :
+	<?php if ( $post_type_object->hierarchical ) : ?>
 
-			if ( $post_type_object->hierarchical ) :
-		?>
 			<label>
 				<span class="title"><?php _e( 'Parent' ); ?></span>
 	<?php
-		$dropdown_args = array(
-			'post_type'         => $post_type_object->name,
-			'selected'          => $post->post_parent,
-			'name'              => 'post_parent',
-			'show_option_none'  => __( 'Main Page (no parent)' ),
-			'option_none_value' => 0,
-			'sort_column'       => 'menu_order, post_title',
-		);
-
+		$dropdown_args = array( 'post_type' => $post_type_object->name, 'selected' => $post->post_parent, 'name' => 'post_parent', 'show_option_none' => __( 'Main Page (no parent)' ), 'option_none_value' => 0, 'sort_column'=> 'menu_order, post_title' );
 		if ( $bulk )
 			$dropdown_args['show_option_no_change'] =  __( '&mdash; No Change &mdash;' );
 		$dropdown_args = apply_filters( 'quick_edit_dropdown_pages_args', $dropdown_args );
@@ -862,9 +854,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 	?>
 			</label>
 
-	<?php
-			endif; // hierarchical
-	
+	<?php if ( post_type_supports( $screen->post_type, 'page-attributes' ) ) :
 			if ( !$bulk ) : ?>
 
 			<label>
@@ -872,10 +862,7 @@ class WP_Posts_List_Table extends WP_List_Table {
 				<span class="input-text-wrap"><input type="text" name="menu_order" class="inline-edit-menu-order-input" value="<?php echo $post->menu_order ?>" /></span>
 			</label>
 
-	<?php	endif; // !$bulk
-
-			if ( 'page' == $screen->post_type ) :
-	?>
+	<?php	endif; // !$bulk ?>
 
 			<label>
 				<span class="title"><?php _e( 'Template' ); ?></span>
@@ -889,9 +876,8 @@ class WP_Posts_List_Table extends WP_List_Table {
 			</label>
 
 	<?php
-			endif; // page post_type
-		endif; // page-attributes
-	?>
+		endif; // post_type_supports page-attributes
+	endif; // $post_type_object->hierarchical ?>
 
 	<?php if ( count( $flat_taxonomies ) && !$bulk ) : ?>
 
@@ -994,25 +980,6 @@ class WP_Posts_List_Table extends WP_List_Table {
 	<?php endif; // 'post' && $can_publish && current_user_can( 'edit_others_cap' ) ?>
 
 			</div>
-
-	<?php if ( post_type_supports( $screen->post_type, 'post-formats' ) && current_theme_supports( 'post-formats' ) ) : 
-		$post_formats = get_theme_support( 'post-formats' );
-		if ( is_array( $post_formats[0] ) ) : ?>
-			<div class="inline-edit-group">
-				<label class="alignleft" for="post_format">
-				<span class="title"><?php _e( 'Post Format' ); ?></span>
-				<select name="post_format" id="post_format">
-				<?php if ( $bulk ) : ?>
-					<option value="-1"><?php _e( '&mdash; No Change &mdash;' ); ?></option>
-				<?php endif; ?>
-					<option value="0"><?php _ex( 'Standard', 'Post format' ); ?></option>
-				<?php foreach ( $post_formats[0] as $format ): ?>
-					<option value="<?php echo esc_attr( $format ); ?>"><?php echo esc_html( get_post_format_string( $format ) ); ?></option>
-				<?php endforeach; ?>
-				</select></label>
-			</div>
-		<?php endif; ?>
-	<?php endif; // post-formats ?>
 
 		</div></fieldset>
 

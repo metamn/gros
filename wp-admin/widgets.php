@@ -15,18 +15,16 @@ require_once(ABSPATH . 'wp-admin/includes/widgets.php');
 if ( ! current_user_can('edit_theme_options') )
 	wp_die( __( 'Cheatin&#8217; uh?' ));
 
+wp_admin_css( 'widgets' );
+
 $widgets_access = get_user_setting( 'widgets_access' );
 if ( isset($_GET['widgets-access']) ) {
 	$widgets_access = 'on' == $_GET['widgets-access'] ? 'on' : 'off';
 	set_user_setting( 'widgets_access', $widgets_access );
 }
 
-function wp_widgets_access_body_class($classes) {
-	return "$classes widgets_access ";
-}
-
 if ( 'on' == $widgets_access )
-	add_filter( 'admin_body_class', 'wp_widgets_access_body_class' );
+	add_filter( 'admin_body_class', create_function('', '{return " widgets_access ";}') );
 else
 	wp_enqueue_script('admin-widgets');
 
@@ -48,43 +46,89 @@ $help .= '<p>' . __('<a href="http://codex.wordpress.org/Appearance_Widgets_Scre
 $help .= '<p>' . __('<a href="http://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>';
 add_contextual_help($current_screen, $help);
 
-// These are the widgets grouped by sidebar
-$sidebars_widgets = wp_get_sidebars_widgets();
-
-if ( empty( $sidebars_widgets ) )
-	$sidebars_widgets = wp_get_widget_defaults();
-
-foreach ( $sidebars_widgets as $sidebar_id => $widgets ) {
-	if ( 'wp_inactive_widgets' == $sidebar_id )
-		continue;
-
-	if ( empty( $wp_registered_sidebars[ $sidebar_id ] ) && ! empty( $widgets ) ) {
-		// register the inactive_widgets area as sidebar
-		register_sidebar(array(
-			'name' => __( 'Inactive Sidebar (from previous theme)' ),
-			'id' => $sidebar_id,
-			'class' => 'inactive-sidebar orphan-sidebar',
-			'description' => __( 'This is a left over sidebar from an old theme and does not show anywhere on your site' ),
-			'before_widget' => '',
-			'after_widget' => '',
-			'before_title' => '',
-			'after_title' => '',
-		));
-	}
-}
-
 // register the inactive_widgets area as sidebar
 register_sidebar(array(
 	'name' => __('Inactive Widgets'),
 	'id' => 'wp_inactive_widgets',
-	'class' => 'inactive-sidebar',
-	'description' => 'Drag widgets here to remove them from the sidebar but keep their settings.',
+	'description' => '',
 	'before_widget' => '',
 	'after_widget' => '',
 	'before_title' => '',
 	'after_title' => '',
 ));
 
+// These are the widgets grouped by sidebar
+$sidebars_widgets = wp_get_sidebars_widgets();
+if ( empty( $sidebars_widgets ) )
+	$sidebars_widgets = wp_get_widget_defaults();
+
+// look for "lost" widgets, this has to run at least on each theme change
+function retrieve_widgets() {
+	global $wp_registered_widget_updates, $wp_registered_sidebars, $sidebars_widgets, $wp_registered_widgets;
+
+	$_sidebars_widgets = array();
+	$sidebars = array_keys($wp_registered_sidebars);
+
+	unset( $sidebars_widgets['array_version'] );
+
+	$old = array_keys($sidebars_widgets);
+	sort($old);
+	sort($sidebars);
+
+	if ( $old == $sidebars )
+		return;
+
+	// Move the known-good ones first
+	foreach ( $sidebars as $id ) {
+		if ( array_key_exists( $id, $sidebars_widgets ) ) {
+			$_sidebars_widgets[$id] = $sidebars_widgets[$id];
+			unset($sidebars_widgets[$id], $sidebars[$id]);
+		}
+	}
+
+	// if new theme has less sidebars than the old theme
+	if ( !empty($sidebars_widgets) ) {
+		foreach ( $sidebars_widgets as $lost => $val ) {
+			if ( is_array($val) )
+				$_sidebars_widgets['wp_inactive_widgets'] = array_merge( (array) $_sidebars_widgets['wp_inactive_widgets'], $val );
+		}
+	}
+
+	// discard invalid, theme-specific widgets from sidebars
+	$shown_widgets = array();
+	foreach ( $_sidebars_widgets as $sidebar => $widgets ) {
+		if ( !is_array($widgets) )
+			continue;
+
+		$_widgets = array();
+		foreach ( $widgets as $widget ) {
+			if ( isset($wp_registered_widgets[$widget]) )
+				$_widgets[] = $widget;
+		}
+		$_sidebars_widgets[$sidebar] = $_widgets;
+		$shown_widgets = array_merge($shown_widgets, $_widgets);
+	}
+
+	$sidebars_widgets = $_sidebars_widgets;
+	unset($_sidebars_widgets, $_widgets);
+
+	// find hidden/lost multi-widget instances
+	$lost_widgets = array();
+	foreach ( $wp_registered_widgets as $key => $val ) {
+		if ( in_array($key, $shown_widgets, true) )
+			continue;
+
+		$number = preg_replace('/.+?-([0-9]+)$/', '$1', $key);
+
+		if ( 2 > (int) $number )
+			continue;
+
+		$lost_widgets[] = $key;
+	}
+
+	$sidebars_widgets['wp_inactive_widgets'] = array_merge($lost_widgets, (array) $sidebars_widgets['wp_inactive_widgets']);
+	wp_set_sidebars_widgets($sidebars_widgets);
+}
 retrieve_widgets();
 
 if ( count($wp_registered_sidebars) == 1 ) {
@@ -235,7 +279,7 @@ if ( isset($_GET['editwidget']) && $_GET['editwidget'] ) {
 <?php
 	foreach ( $wp_registered_sidebars as $sbname => $sbvalue ) {
 		echo "\t\t<tr><td><label><input type='radio' name='sidebar' value='" . esc_attr($sbname) . "'" . checked( $sbname, $sidebar, false ) . " /> $sbvalue[name]</label></td><td>";
-		if ( 'wp_inactive_widgets' == $sbname || 'orphaned_widgets' == substr( $sbname, 0, 16 ) ) {
+		if ( 'wp_inactive_widgets' == $sbname ) {
 			echo '&nbsp;';
 		} else {
 			if ( !isset($sidebars_widgets[$sbname]) || !is_array($sidebars_widgets[$sbname]) ) {
@@ -324,32 +368,17 @@ require_once( './admin-header.php' ); ?>
 		<br class="clear" />
 	</div>
 
-<?php
-foreach ( $wp_registered_sidebars as $sidebar => $registered_sidebar ) {
-	if ( 'wp_inactive_widgets' == $sidebar || 'orphaned_widgets' == substr( $sidebar, 0, 16 ) ) {
-		$wrap_class = 'widgets-holder-wrap';
-		if ( !empty( $registered_sidebar['class'] ) )
-			$wrap_class .= ' ' . $registered_sidebar['class'];
-
-?>
-
-		<div class="<?php esc_attr_e( $wrap_class ); ?>">
-			<div class="sidebar-name">
-				<div class="sidebar-name-arrow"><br /></div>
-				<h3><?php esc_html_e( $registered_sidebar['name'] ); ?>
-					<span><img src="<?php echo esc_url( admin_url( 'images/wpspin_light.gif' ) ); ?>" class="ajax-feedback" title="" alt="" /></span>
-				</h3>
-			</div>
-			<div class="widget-holder inactive">
-				<?php wp_list_widget_controls( $registered_sidebar['id'] ); ?>
-				<br class="clear" />
-			</div>
+	<div class="widgets-holder-wrap">
+		<div class="sidebar-name">
+		<div class="sidebar-name-arrow"><br /></div>
+		<h3><?php _e('Inactive Widgets'); ?>
+		<span><img src="<?php echo esc_url( admin_url( 'images/wpspin_light.gif' ) ); ?>" class="ajax-feedback" title="" alt="" /></span></h3></div>
+		<div class="widget-holder inactive">
+		<p class="description"><?php _e('Drag widgets here to remove them from the sidebar but keep their settings.'); ?></p>
+		<?php wp_list_widget_controls('wp_inactive_widgets'); ?>
+		<br class="clear" />
 		</div>
-<?php
-	}
-}
-?>
-
+	</div>
 </div>
 </div>
 
@@ -358,17 +387,10 @@ foreach ( $wp_registered_sidebars as $sidebar => $registered_sidebar ) {
 <?php
 $i = 0;
 foreach ( $wp_registered_sidebars as $sidebar => $registered_sidebar ) {
-	if ( 'wp_inactive_widgets' == $sidebar || 'orphaned_widgets' == substr( $sidebar, 0, 16 ) )
+	if ( 'wp_inactive_widgets' == $sidebar )
 		continue;
-
-	$wrap_class = 'widgets-holder-wrap';
-	if ( !empty( $registered_sidebar['class'] ) )
-		$wrap_class .= ' sidebar-' . $registered_sidebar['class'];
-
-	if ( $i )
-		$wrap_class .= ' closed'; ?>
-
-	<div class="<?php esc_attr_e( $wrap_class ); ?>">
+	$closed = $i ? ' closed' : ''; ?>
+	<div class="widgets-holder-wrap<?php echo $closed; ?>">
 	<div class="sidebar-name">
 	<div class="sidebar-name-arrow"><br /></div>
 	<h3><?php echo esc_html( $registered_sidebar['name'] ); ?>

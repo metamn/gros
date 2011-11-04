@@ -24,9 +24,15 @@
 function get_header( $name = null ) {
 	do_action( 'get_header', $name );
 
+	$templates = array();
+	if ( isset($name) )
+		$templates[] = "header-{$name}.php";
+
+	$templates[] = 'header.php';
+
 	// Backward compat code will be removed in a future release
-	if ( '' == get_template_part( 'header', $name ) )
-		load_template( ABSPATH . WPINC . '/theme-compat/header.php' );
+	if ('' == locate_template($templates, true))
+		load_template( ABSPATH . WPINC . '/theme-compat/header.php');
 }
 
 /**
@@ -47,9 +53,15 @@ function get_header( $name = null ) {
 function get_footer( $name = null ) {
 	do_action( 'get_footer', $name );
 
+	$templates = array();
+	if ( isset($name) )
+		$templates[] = "footer-{$name}.php";
+
+	$templates[] = 'footer.php';
+
 	// Backward compat code will be removed in a future release
-	if ( '' == get_template_part( 'footer', $name ) )
-		load_template( ABSPATH . WPINC . '/theme-compat/footer.php' );
+	if ('' == locate_template($templates, true))
+		load_template( ABSPATH . WPINC . '/theme-compat/footer.php');
 }
 
 /**
@@ -70,9 +82,15 @@ function get_footer( $name = null ) {
 function get_sidebar( $name = null ) {
 	do_action( 'get_sidebar', $name );
 
+	$templates = array();
+	if ( isset($name) )
+		$templates[] = "sidebar-{$name}.php";
+
+	$templates[] = 'sidebar.php';
+
 	// Backward compat code will be removed in a future release
-	if ( '' == get_template_part( 'sidebar', $name ) )
-		load_template( ABSPATH . WPINC . '/theme-compat/sidebar.php' );
+	if ('' == locate_template($templates, true))
+		load_template( ABSPATH . WPINC . '/theme-compat/sidebar.php');
 }
 
 /**
@@ -88,12 +106,12 @@ function get_sidebar( $name = null ) {
  * The template is included using require, not require_once, so you may include the
  * same template part multiple times.
  *
- * For the $name parameter, if the file is called "{slug}-special.php" then specify
+ * For the parameter, if the file is called "{slug}-special.php" then specify
  * "special".
  *
  * @uses locate_template()
  * @since 3.0.0
- * @uses do_action() Calls 'get_template_part_{$slug}' action.
+ * @uses do_action() Calls 'get_template_part{$slug}' action.
  *
  * @param string $slug The slug name for the generic template.
  * @param string $name The name of the specialised template.
@@ -107,7 +125,7 @@ function get_template_part( $slug, $name = null ) {
 
 	$templates[] = "{$slug}.php";
 
-	return locate_template($templates, true, false);
+	locate_template($templates, true, false);
 }
 
 /**
@@ -252,7 +270,7 @@ function wp_login_form( $args = array() ) {
 	$args = wp_parse_args( $args, apply_filters( 'login_form_defaults', $defaults ) );
 
 	$form = '
-		<form name="' . $args['form_id'] . '" id="' . $args['form_id'] . '" action="' . site_url( 'wp-login.php', 'login_post' ) . '" method="post">
+		<form name="' . $args['form_id'] . '" id="' . $args['form_id'] . '" action="' . site_url( 'wp-login.php', 'login' ) . '" method="post">
 			' . apply_filters( 'login_form_top', '', $args ) . '
 			<p class="login-username">
 				<label for="' . esc_attr( $args['id_username'] ) . '">' . esc_html( $args['label_username'] ) . '</label>
@@ -1012,9 +1030,10 @@ function wp_get_archives($args = '') {
 		if ( $arcresults ) {
 			foreach ( (array) $arcresults as $arcresult ) {
 				if ( $arcresult->post_date != '0000-00-00 00:00:00' ) {
-					$url  = get_permalink( $arcresult );
-					if ( $arcresult->post_title )
-						$text = strip_tags( apply_filters( 'the_title', $arcresult->post_title, $arcresult->ID ) );
+					$url  = get_permalink($arcresult);
+					$arc_title = $arcresult->post_title;
+					if ( $arc_title )
+						$text = strip_tags(apply_filters('the_title', $arc_title));
 					else
 						$text = $arcresult->ID;
 					$output .= get_archives_link($url, $text, $format, $before, $after);
@@ -1720,7 +1739,7 @@ function user_can_richedit() {
 			!$is_iphone && // this includes all Safari mobile browsers
 			( ( preg_match( '!AppleWebKit/(\d+)!', $_SERVER['HTTP_USER_AGENT'], $match ) && intval($match[1]) >= 420 ) ||
 				!preg_match( '!opera[ /][2-8]|konqueror|safari!i', $_SERVER['HTTP_USER_AGENT'] ) )
-		) {
+				&& 'comment.php' != $pagenow ) {
 			$wp_rich_edit = true;
 		} else {
 			$wp_rich_edit = false;
@@ -1731,24 +1750,104 @@ function user_can_richedit() {
 }
 
 /**
- * Loads and initializes WP_Editor class if needed, passes the settings for an instance of the editor
+ * Find out which editor should be displayed by default.
  *
- * @see wp-includes/class-wp-editor.php
- * @since 3.3
+ * Works out which of the two editors to display as the current editor for a
+ * user.
  *
- * @param string $content Initial content for the editor.
- * @param string $editor_id HTML ID attribute value for the textarea and TinyMCE.
- * @param array $settings See WP_Editor::editor().
+ * @since 2.5.0
+ *
+ * @return string Either 'tinymce', or 'html', or 'test'
  */
-function wp_editor( $content, $editor_id, $settings = array() ) {
-	global $wp_editor;
+function wp_default_editor() {
+	$r = user_can_richedit() ? 'tinymce' : 'html'; // defaults
+	if ( $user = wp_get_current_user() ) { // look for cookie
+		$ed = get_user_setting('editor', 'tinymce');
+		$r = ( in_array($ed, array('tinymce', 'html', 'test') ) ) ? $ed : $r;
+	}
+	return apply_filters( 'wp_default_editor', $r ); // filter
+}
 
-	if ( !is_a($wp_editor, 'WP_Editor') ) {
-		require( ABSPATH . WPINC . '/class-wp-editor.php' );
-		$wp_editor = new WP_Editor;
+/**
+ * Display visual editor forms: TinyMCE, or HTML, or both.
+ *
+ * The amount of rows the text area will have for the content has to be between
+ * 3 and 100 or will default at 12. There is only one option used for all users,
+ * named 'default_post_edit_rows'.
+ *
+ * If the user can not use the rich editor (TinyMCE), then the switch button
+ * will not be displayed.
+ *
+ * @since 2.1.0
+ *
+ * @param string $content Textarea content.
+ * @param string $id Optional, default is 'content'. HTML ID attribute value.
+ * @param string $prev_id Optional, default is 'title'. HTML ID name for switching back and forth between visual editors.
+ * @param bool $media_buttons Optional, default is true. Whether to display media buttons.
+ * @param int $tab_index Optional, default is 2. Tabindex for textarea element.
+ */
+function the_editor($content, $id = 'content', $prev_id = 'title', $media_buttons = true, $tab_index = 2, $extended = true) {
+	$rows = get_option('default_post_edit_rows');
+	if (($rows < 3) || ($rows > 100))
+		$rows = 12;
+
+	if ( !current_user_can( 'upload_files' ) )
+		$media_buttons = false;
+
+	$richedit =  user_can_richedit();
+	$class = '';
+
+	if ( $richedit || $media_buttons ) { ?>
+	<div id="editor-toolbar">
+<?php
+	if ( $richedit ) {
+		$wp_default_editor = wp_default_editor(); ?>
+		<div class="zerosize"><input accesskey="e" type="button" onclick="switchEditors.go('<?php echo $id; ?>')" /></div>
+<?php	if ( 'html' == $wp_default_editor ) {
+			add_filter('the_editor_content', 'wp_htmledit_pre'); ?>
+			<a id="edButtonHTML" class="active hide-if-no-js" onclick="switchEditors.go('<?php echo $id; ?>', 'html');"><?php _e('HTML'); ?></a>
+			<a id="edButtonPreview" class="hide-if-no-js" onclick="switchEditors.go('<?php echo $id; ?>', 'tinymce');"><?php _e('Visual'); ?></a>
+<?php	} else {
+			$class = " class='theEditor'";
+			add_filter('the_editor_content', 'wp_richedit_pre'); ?>
+			<a id="edButtonHTML" class="hide-if-no-js" onclick="switchEditors.go('<?php echo $id; ?>', 'html');"><?php _e('HTML'); ?></a>
+			<a id="edButtonPreview" class="active hide-if-no-js" onclick="switchEditors.go('<?php echo $id; ?>', 'tinymce');"><?php _e('Visual'); ?></a>
+<?php	}
 	}
 
-	$wp_editor->editor($content, $editor_id, $settings);
+	if ( $media_buttons ) { ?>
+		<div id="media-buttons" class="hide-if-no-js">
+<?php	do_action( 'media_buttons' ); ?>
+		</div>
+<?php
+	} ?>
+	</div>
+<?php
+	}
+?>
+	<div id="quicktags"><?php
+	wp_print_scripts( 'quicktags' ); ?>
+	<script type="text/javascript">edToolbar()</script>
+	</div>
+
+<?php
+	$the_editor = apply_filters('the_editor', "<div id='editorcontainer'><textarea rows='$rows'$class cols='40' name='$id' tabindex='$tab_index' id='$id'>%s</textarea></div>\n");
+	$the_editor_content = apply_filters('the_editor_content', $content);
+
+	printf($the_editor, $the_editor_content);
+
+?>
+	<script type="text/javascript">
+	edCanvas = document.getElementById('<?php echo $id; ?>');
+<?php if ( ! $extended ) { ?>	jQuery('#ed_fullscreen, #ed_more').hide();<?php } ?>
+	</script>
+<?php
+	// queue scripts
+	if ( $richedit )
+		add_action( 'admin_print_footer_scripts', 'wp_tiny_mce', 25 );
+	elseif ( $extended )
+		add_action( 'admin_print_footer_scripts', 'wp_quicktags', 25 );
+
 }
 
 /**
@@ -1975,9 +2074,9 @@ function wp_admin_css_color($key, $name, $url, $colors = array()) {
  * @since 3.0.0
  */
 function register_admin_color_schemes() {
-	wp_admin_css_color( 'classic', _x( 'Blue', 'admin color scheme' ), admin_url( 'css/colors-classic.css' ),
+	wp_admin_css_color( 'classic', __( 'Blue' ), admin_url( 'css/colors-classic.css' ),
 		array( '#5589aa', '#cfdfe9', '#d1e5ee', '#eff8ff' ) );
-	wp_admin_css_color( 'fresh', _x( 'Gray', 'admin color scheme' ), admin_url( 'css/colors-fresh.css' ),
+	wp_admin_css_color( 'fresh', __( 'Gray' ), admin_url( 'css/colors-fresh.css' ),
 		array( '#7c7976', '#c6c6c6', '#e0e0e0', '#f1f1f1' ) );
 }
 
